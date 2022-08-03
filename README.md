@@ -1,7 +1,7 @@
 Please go under edit and edit this file as needed for your project
 
-# Project Name - 
-# Batch - 
+# Project Name - Reservation Management System for a Travel Agency
+# Batch - Y2.S2.WD.IT.01
 ### Group Leader - IT21008146 - K. S. V. Perera (IT21008146)
 ### Member 2 - IT21008696 - M. P. C. Leo (IT21008696)
 ### Member 3 - IT21105302 - U. S. L. Fernando (IT21105302)
