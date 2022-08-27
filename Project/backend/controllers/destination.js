@@ -10,6 +10,16 @@ export const getAllDestinations = async (req, res) => {
     }
 }
 
+export const getDestination = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const destination = await Destination.findById(id);
+        res.status(200).json(destination);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+}
+
 export const createDestination = async (req, res) => {
     const destination = req.body;
     const newDestination = new Destination(destination);
@@ -19,4 +29,25 @@ export const createDestination = async (req, res) => {
     } catch (error) {
         res.status(404).json({ message: error });
     }        
+}
+
+export const updateDestination = async (req, res) => {
+    const id = req.params.id;
+    const update = req.body;
+    try {
+        const destination = await Destination.findByIdAndUpdate(id, update);
+        res.status(200).json(destination);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+}
+
+export const deleteDestination = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const destination = await Destination.findByIdAndDelete(id);
+        res.status(200).json(destination);
+    }catch{
+        res.status(404).json({ message: error });
+    }
 }
