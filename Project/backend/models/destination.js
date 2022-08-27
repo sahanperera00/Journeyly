@@ -7,12 +7,28 @@ const destinationSchema = new Schema({
         type: String,
         required: true
     },
-    description: {
+    shortDesc: {
         type: String,
         required: true
     },
-    image: {
+    longDesc: {
         type: String,
         required: true
     },
-    
+    extra: {
+        type: [String],
+        required: true
+    },
+    includes: {
+        type: [String],
+        required: true
+    },
+    images: {
+        type: [String],
+        required: true
+    }
+});
+
+const Destination = mongoose.model("Destination", destinationSchema);
+
+export default Destination;
