@@ -1,0 +1,19 @@
+{
+  "name": "Journeyly",
+  "version": "1.0.0",
+  "description": "Backend of the Journeyly Reservation Management System",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon run indedx.js"
+  },
+  "author": "ITP_WD_B01_14",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.3",
+    "nodemon": "^2.0.19"
+  }
+}
