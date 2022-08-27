@@ -36,7 +36,7 @@ export const updateDestination = async (req, res) => {
     const update = req.body;
     try {
         const destination = await Destination.findByIdAndUpdate(id, update);
-        res.status(200).json(destination);
+        res.status(200).send({status: "Destination updated"});
     } catch (error) {
         res.status(404).json({ message: error });
     }
@@ -46,7 +46,7 @@ export const deleteDestination = async (req, res) => {
     const id = req.params.id;
     try {
         const destination = await Destination.findByIdAndDelete(id);
-        res.status(200).json(destination);
+        res.status(200).send({status: "Destination deleted"});
     }catch{
         res.status(404).json({ message: error });
     }

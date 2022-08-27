@@ -15,6 +15,10 @@ const destinationSchema = new Schema({
         type: String,
         required: true
     },
+    location: {
+        type: String,
+        required: true
+    },
     extra: {
         type: [String],
         required: true
