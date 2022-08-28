@@ -30,7 +30,15 @@ const destinationSchema = new Schema({
     images: {
         type: [String],
         required: true
-    }
+    },
+    adultCost: {
+        type: Number,
+        required: true
+    },
+    childCost: {
+        type: Number,
+        required: true
+    },
 });
 
 const Destination = mongoose.model("Destination", destinationSchema);
