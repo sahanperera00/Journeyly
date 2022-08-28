@@ -20,9 +20,9 @@ export const getDesTicket = async (req, res) => {
 }
 
 export const getUserDesTickets = async (req, res) => {
-    const userId = req.params.userId;
+    const userID = req.params.userId;
     try {
-        const desTickets = await DesTicket.find({userId: userId});
+        const desTickets = await DesTicket.find({userId: userID});
         res.status(200).json(desTickets);
     } catch (error) {
         res.status(404).json({ message: error });
