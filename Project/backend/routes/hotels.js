@@ -4,6 +4,6 @@ import { createHotelContent } from "../controllers/hotels.js";
 
 const router = express.Router();
 
-router.post('/',createHotelContent);
+router.post('/create',createHotelContent);
 
 export default router;
