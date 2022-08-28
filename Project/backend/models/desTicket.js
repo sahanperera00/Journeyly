@@ -27,8 +27,12 @@ const desTicketSchema = new Schema({
         type: String,
         required: true
     },
-    dateTime: {
+    date: {
         type: Date,
+        required: true
+    },
+    time: {
+        type: String,
         required: true
     },
     adults: {
