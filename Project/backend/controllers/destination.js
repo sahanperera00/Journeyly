@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import Destination from "../models/destination.js";
 
 export const getAllDestinations = async (req, res) => {
