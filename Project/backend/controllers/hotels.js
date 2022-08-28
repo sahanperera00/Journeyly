@@ -15,3 +15,25 @@ export const createHotelContent = async (req,res)=>{
         res.status(409).json({message: error.message});  //error message
     }
 }
+
+export const getAllDestinations = async(req,res)=>{
+    try {
+        const hotel = await Hotel.find();  //fetching all the records
+
+        res.status(200).json(hotel);
+
+    } catch (error) {
+        res.status(404).json({message: error});
+    }
+}
+
+export const updateHotel = async(req,res)=>{
+    const id=req.params.id;
+    const up= req.body;
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).send('No Such Hotel Content');
+    }
+
+    await Hotel.findByIdAndUpdate(id,up);
+}
