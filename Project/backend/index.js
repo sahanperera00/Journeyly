@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv/config";
 import destinationRouter from "./routes/destination.js";
+import desTicketRouter from "./routes/desTicket.js";
 
 const app = express();
 const PORT = process.env.PORT || 8070;
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 8070;
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/destination", destinationRouter);
+app.use("/desTicket", desTicketRouter);
 
 const URL = process.env.MONGODB_URL;
 mongoose.connect(URL);

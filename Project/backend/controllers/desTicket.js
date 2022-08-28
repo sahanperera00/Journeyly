@@ -1,4 +1,4 @@
-import desTicket from "../models/desTicket";
+import desTicket from "../models/desTicket.js";
 
 export const getAllDesTickets = async (req, res) => {
     try {
