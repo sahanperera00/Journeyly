@@ -16,7 +16,7 @@ export const createHotelContent = async (req,res)=>{
     }
 }
 
-export const getAllDestinations = async(req,res)=>{
+export const getAllHotels = async(req,res)=>{
     try {
         const hotel = await Hotel.find();  //fetching all the records
 
