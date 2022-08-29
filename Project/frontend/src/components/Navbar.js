@@ -27,10 +27,10 @@ const Navbar = (props) => {
                 </ul>
                 </div>
                 <a href="login">
-                    <button className="btn btn-outline-primary" type="submit">Login</button>
+                    <button className="btn btn-outline-dark" type="submit">Login</button>
                 </a>
                 {/* <a href="editorLogin"> */}
-                <button type="button" className="btn btn-outline-primary ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Editor Login</button>
+                <button type="button" className="btn btn-outline-dark ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Editor Login</button>
 
                     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog">
@@ -39,7 +39,7 @@ const Navbar = (props) => {
                                 <h5 className="modal-title" id="exampleModalLabel">Editor Login</h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                                <form>
+                                <form onSubmit={() => {}}>
                                     <div className="modal-body">
                                         <div className="mb-3">
                                             <label for="recipient-name" className="col-form-label">Email:</label>
@@ -52,7 +52,9 @@ const Navbar = (props) => {
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" className="btn btn-primary">Login</button>
+                                        <a href="editor">
+                                            <button type="button" className="btn btn-dark">Login</button>
+                                        </a>
                                     </div>
                                 </form>
                             </div>
