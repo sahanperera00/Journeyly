@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function EditorDashboard() {
   return (
     <div>
-        {/* <a className="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Link with href</a>
+      <h1>Editor Dashboard</h1>
+        <a className="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Link with href</a>
         <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
@@ -17,7 +18,7 @@ function EditorDashboard() {
                 Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
                 </div>
             </div>
-        </div> */}
+        </div>
     </div>
   );
 }
