@@ -1,19 +1,14 @@
 import React from 'react';
+import NavBar from "../components/Navbar";
+import EditorNavBar from "../components/EditorNavbar";
 
 const DestinationForm = (props) => {
     return (
+        <div>
+            <NavBar />
+            <h1 className='text-center'>Destination Form</h1>
+            <EditorNavBar />
         <div className="App">
-            {/* <form onSubmit= {() => {}}>
-                <input type="text" name="name" placeholder="Name" onChange={() => {}} /><br />
-                <input type="text" name="short description" placeholder="Short description" onChange={() => {}} /><br />
-                <input type="text" name="long description" placeholder="Long description" onChange={() => {}} /><br />
-                <input type="text" name="location" placeholder="Location" onChange={() => {}} /><br />
-                <input type="text" name="extras" placeholder="Extras" onChange={() => {}} /><br />
-                <input type="text" name="include" placeholder="Include" onChange={() => {}} /><br />
-                <input type="text" name="images" placeholder="Images" onChange={() => {}} /><br />
-                <input type="submit" value="Add Destination" />
-            </form> */}
-
             <form>
                 <div className="form-group">
                     <label className="form-label">Name</label>
@@ -45,7 +40,7 @@ const DestinationForm = (props) => {
                 </div><br />
                 <button type="submit" className="btn btn-dark">Submit</button>
             </form>
-
+        </div>
         </div>
     )
 }
