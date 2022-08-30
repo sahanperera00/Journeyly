@@ -42,11 +42,11 @@ const Navbar = (props) => {
                                 <form onSubmit={() => {}}>
                                     <div className="modal-body">
                                         <div className="mb-3">
-                                            <label for="recipient-name" className="col-form-label">Email:</label>
+                                            <label htmlFor="recipient-name" className="col-form-label">Email:</label>
                                             <input type="text" className="form-control" id="recipient-name" />
                                         </div>
                                         <div className="mb-3">
-                                            <label for="message-text" className="col-form-label">Password:</label>
+                                            <label htmlFor="message-text" className="col-form-label">Password:</label>
                                             <input type="password" className="form-control" id="recipient-password" />
                                         </div>
                                     </div>
