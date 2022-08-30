@@ -5,12 +5,12 @@ export const createHotelReservation= async (req,res)=>{
     
     const hotelRes = req.body;
 
-    const newHotelRes = newHotelRes(hotelRes);
+    const newHotelRes = hotelReservation(hotelRes);
 
     try {
 
         await newHotelRes.save();
-        res.status(201).json(newHotelRes);
+        res.status(201).json(hotelReservation);
     } catch (error) {
         res.status(409).json({message: error.message});
     }

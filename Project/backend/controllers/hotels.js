@@ -5,7 +5,7 @@ export const createHotelContent = async (req,res)=>{
     
     const hotel=req.body;  //Catches the details from form
 
-    const newHotel = newHotel(hotel);  //Creating new hotel by passing the form as parameter
+    const newHotel = Hotel(hotel);  //Creating new hotel by passing the form as parameter
     try {
         await newHotel.save();  //save data 
 
