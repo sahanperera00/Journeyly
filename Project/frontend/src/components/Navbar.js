@@ -1,12 +1,12 @@
 import React from "react";
 
-const Navbar = (props) => {
+const Navbar = () => {
 
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid d-flex">
-                <a className="navbar-brand" href="home">Home</a>
+                <a className="navbar-brand" href="/">Home</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -29,7 +29,7 @@ const Navbar = (props) => {
                 <a href="login">
                     <button className="btn btn-outline-dark" type="submit">Login</button>
                 </a>
-                {/* <a href="editorLogin"> */}
+                
                 <button type="button" className="btn btn-outline-dark ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Editor Login</button>
 
                     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -52,7 +52,7 @@ const Navbar = (props) => {
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="editor">
+                                        <a href="editorDash">
                                             <button type="button" className="btn btn-dark">Login</button>
                                         </a>
                                     </div>
@@ -60,7 +60,6 @@ const Navbar = (props) => {
                             </div>
                         </div>
                     </div>
-                {/* </a> */}
             </div>
             </nav>
         </div>
