@@ -1,35 +1,45 @@
-import React from "react";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-const Navbar = () => {
-
-    return (
-        <div>
-            <nav className="navbar navbar-expand-lg bg-light">
-            <div className="container-fluid d-flex">
-                <a className="navbar-brand" href="editorDash">Editor</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                    <a className="nav-link" href="flights">Flights</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="hotels">Hotels</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="desform">Attractions</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="taxi">Taxi</a>
-                    </li>
-                </ul>
-                </div>
-                </div>
-            </nav>
-        </div>
-    )
+function EditorNavbar() {
+  return (
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">Editor Dashboard</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <NavDropdown title="Flights" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Hotels" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Attractions" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#desForm">Create</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Taxis" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Navbar;
+export default EditorNavbar;
