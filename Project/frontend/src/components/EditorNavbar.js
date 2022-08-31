@@ -20,27 +20,35 @@ function EditorNavbar() {
               <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+              <LinkContainer to="/editorDash/flights">
+                <NavDropdown.Item>Client View</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
             <NavDropdown title="Hotels" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+              <LinkContainer to="/editorDash/hotels">
+                <NavDropdown.Item>Client View</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
             <NavDropdown title="Attractions" id="basic-nav-dropdown">
-              <LinkContainer to="/addAttractionsForm">
+              <LinkContainer to="/editorDash/addAttractionsForm">
                 <NavDropdown.Item>Create</NavDropdown.Item>
               </LinkContainer>
               <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+              <LinkContainer to="/editorDash/attractions">
+                <NavDropdown.Item>Client View</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
             <NavDropdown title="Taxis" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Client View</NavDropdown.Item>
+              <LinkContainer to="/editorDash/taxis">
+                <NavDropdown.Item>Client View</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
           <Link to={"/"}>
