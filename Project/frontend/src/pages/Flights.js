@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Flights() {
   return (
     <h1 className='text-center'>Flights</h1>

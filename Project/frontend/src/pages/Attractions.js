@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Attractions() {
   return (
     <h1 className='text-center'>Attractions</h1>
