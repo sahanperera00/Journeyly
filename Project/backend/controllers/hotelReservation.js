@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import hotelReservation from "..models/hotelReservation.js";
+import hotelReservation from "../models/hotelReservation.js";
 
 export const createHotelReservation= async (req,res)=>{
     
