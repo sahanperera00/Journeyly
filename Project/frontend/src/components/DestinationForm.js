@@ -1,13 +1,9 @@
 import React from 'react';
-import NavBar from "../components/Navbar";
-import EditorNavBar from "../components/EditorNavbar";
 
 const DestinationForm = (props) => {
     return (
         <div>
-            <NavBar />
-            <h1 className='text-center'>Destination Form</h1>
-            <EditorNavBar />
+            <h1 className='text-center'>Add Travel Destination</h1>
         <div className="App">
             <form>
                 <div className="form-group">
