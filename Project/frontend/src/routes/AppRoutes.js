@@ -7,7 +7,7 @@ import NavBar from "../components/Navbar";
 import Flights from "../pages/Flights";
 import Hotels from "../pages/Hotels";
 import Attractions from "../pages/Attractions";
-import Taxi from "../pages/Taxi";
+import Taxis from "../pages/Taxis";
 import Login from "../pages/Login";
 
 function AppRoutes() {
@@ -19,7 +19,7 @@ function AppRoutes() {
                 <Route path="/flights" element={<Flights />} />
                 <Route path="/hotels" element={<Hotels />} />
                 <Route path="/attractions" element={<Attractions />} />
-                <Route path="/taxi" element={<Taxi />} />
+                <Route path="/taxis" element={<Taxis />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/editorDash" element={<EditorDashboard />} />
                 <Route path="/desform" element={<DestinationForm />} />
