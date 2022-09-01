@@ -8,13 +8,16 @@ import {
     Login,
     EditorDashboard,
     DestinationForm,
+    SharedLayoutHome,
+    SharedLayoutEditorDashboard,
 } from '../pages';
 
 function AppRoutes() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Home />}>
+                <Route path="/" element={<SharedLayoutHome />}>
+                    <Route index element={<Home />} />
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />
                     <Route path="attractions" element={<Attractions />} /> 
@@ -22,7 +25,8 @@ function AppRoutes() {
                     <Route path="login" element={<Login />} />
                 </Route>
                 
-                <Route path="/editorDash" element={<EditorDashboard />}>
+                <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
+                    <Route index element={<EditorDashboard />} />
                     <Route path="addAttractionsForm" element={<DestinationForm />} />
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />

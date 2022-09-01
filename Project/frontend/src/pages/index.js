@@ -8,6 +8,8 @@ import Taxis from "../pages/Taxis";
 import Login from "../pages/Login";
 import EditorNavBar from "../components/EditorNavbar";
 import DestinationForm from "../components/DestinationForm";
+import SharedLayoutHome from './SharedLayoutHome';
+import SharedLayoutEditorDashboard from './SharedLayoutEditorDashboard';
 
 export {
     Home,
@@ -19,5 +21,7 @@ export {
     Taxis,
     Login,
     EditorNavBar,
-    DestinationForm
+    DestinationForm,
+    SharedLayoutHome,
+    SharedLayoutEditorDashboard,
 };

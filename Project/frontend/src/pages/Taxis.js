@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Taxi() {
   return (
     <h1 className='text-center'>Taxis</h1>
