@@ -10,6 +10,7 @@ import {
     DestinationForm,
     SharedLayoutHome,
     SharedLayoutEditorDashboard,
+    AttractionEdit,
 } from '../pages';
 
 function AppRoutes() {
@@ -32,6 +33,7 @@ function AppRoutes() {
                     <Route path="hotels" element={<Hotels />} />
                     <Route path="attractions" element={<Attractions />} /> 
                     <Route path="taxis" element={<Taxis />} />
+                    <Route path="attractionEdit" element={<AttractionEdit />} />
                 </Route>
                 
             </Routes>
