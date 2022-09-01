@@ -33,3 +33,7 @@ const packageSchema = new Schema({
         required : true
     },
 });
+
+const Package = mongoose.model("Destination", packageSchema);
+
+export default Package;
