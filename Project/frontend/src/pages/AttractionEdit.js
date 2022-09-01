@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 function AttractionEdit() {
   const [attractions, setAttractions] = useState([]);
@@ -31,7 +32,7 @@ function AttractionEdit() {
 
   return (
     <div className='container text-center'>
-      <h1 className='text-center'>Attractions</h1>
+      <h1 className='text-center'>Attractions (Editor)</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {attractions.map((data) => {
@@ -49,7 +50,9 @@ function AttractionEdit() {
                   Adult: {data.adultCost}<br/>
                   Child: {data.childCost}
                 </Card.Text>
-                <Button variant="warning">Update</Button>
+                <Link to={"/editorDash/destinationUpdateForm/"+data._id}>
+                  <Button variant="warning">Update</Button>
+                </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteAttraction(data._id)}>Delete</Button>
               </Card.Body>
             </Card>

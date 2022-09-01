@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 
 function Hotels() { 
   const [hotels, setHotels] = useState([]);
