@@ -1,69 +1,35 @@
-import React from "react";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbarx from 'react-bootstrap/Navbar';
+import Button from 'react-bootstrap/Button';
+import {LinkContainer} from 'react-router-bootstrap';
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
-
-    return (
-        <div>
-            <nav className="navbar navbar-expand-lg bg-light">
-            <div className="container-fluid d-flex">
-                <a className="navbar-brand" href="/">Home</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                    <a className="nav-link" href="flights">Flights</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="hotels">Hotels</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="attractions">Attractions</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="taxi">Taxi</a>
-                    </li>
-                </ul>
-                </div>
-                <a href="login">
-                    <button className="btn btn-outline-dark" type="submit">Login</button>
-                </a>
-                
-                <button type="button" className="btn btn-outline-dark ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Editor Login</button>
-
-                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Editor Login</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                                <form onSubmit={() => {}}>
-                                    <div className="modal-body">
-                                        <div className="mb-3">
-                                            <label htmlFor="recipient-name" className="col-form-label">Email:</label>
-                                            <input type="text" className="form-control" id="recipient-name" />
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="message-text" className="col-form-label">Password:</label>
-                                            <input type="password" className="form-control" id="recipient-password" />
-                                        </div>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="editorDash">
-                                            <button type="button" className="btn btn-dark">Login</button>
-                                        </a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            </nav>
-        </div>
-    )
+function Navbar() {
+  return (
+    <Navbarx bg="light" expand="lg">
+      <Container>
+        <LinkContainer to="/">
+            <Navbarx.Brand>Home</Navbarx.Brand>
+        </LinkContainer>
+        <Navbarx.Toggle aria-controls="basic-navbar-nav" />
+        <Navbarx.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/flights">Flights</Nav.Link>
+            <Nav.Link as={Link} to="/hotels">Hotels</Nav.Link>
+            <Nav.Link as={Link} to="/attractions">Attractions</Nav.Link>
+            <Nav.Link as={Link} to="/taxis">Taxis</Nav.Link>
+          </Nav>
+            <Link to={"/login"}>
+                <Button variant="outline-dark">Login</Button>
+            </Link>
+            <Link to={"/editorDash"}>
+                <Button variant="outline-dark ms-2">Editor Login</Button>
+            </Link>
+        </Navbarx.Collapse>
+      </Container>
+    </Navbarx>
+  );
 }
 
 export default Navbar;
