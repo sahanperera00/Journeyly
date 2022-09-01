@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-function Hotels() { 
+function HotelEdit() { 
   const [hotels, setHotels] = useState([]);
 
   const getHotels = () => {
@@ -15,6 +15,17 @@ function Hotels() {
         alert(err);
       });
   }
+
+  const deleteHotels = (id) => {
+    axios.delete(`http://localhost:8070/destination/remove/${id}`)  //Activates Hotel deleting function
+        .then((res) => {
+            alert("Hotel Content Deleted");
+            getHotels();
+        })
+        .catch((err) => {
+            alert(err);
+        });
+    }
 
   useEffect(() => { getHotels() } , []);  //Shows changes of the page
 
@@ -36,6 +47,8 @@ function Hotels() {
                   Facilities: {data.facilities}<br/>
                   Images: {data.images}<br/>
                 </Card.Text>
+                <Button variant="warning">Update</Button>
+                <Button variant="danger" className='ms-3' onClick={() => deleteHotels(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
           )        
@@ -45,4 +58,4 @@ function Hotels() {
   )
 }
 
-export default Hotels;
+export default HotelEdit;
