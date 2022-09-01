@@ -103,7 +103,7 @@ function DestinationForm() {
                         setChildCost(e.target.value);
                     }} required/>
                 </div><br />
-                <button type="submit" className="btn btn-dark">Submit</button>
+                <button type="submit" className="btn btn-dark">Submit</button><br /><br />
             </form>
         </div>
         </div>

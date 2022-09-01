@@ -36,7 +36,9 @@ function EditorNavbar() {
               <LinkContainer to="/editorDash/addAttractionsForm">
                 <NavDropdown.Item>Create</NavDropdown.Item>
               </LinkContainer>
-              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <LinkContainer to="/editorDash/attractionEdit">
+                <NavDropdown.Item>Update & Delete</NavDropdown.Item>
+              </LinkContainer>
               <NavDropdown.Divider />
               <LinkContainer to="/editorDash/attractions">
                 <NavDropdown.Item>Client View</NavDropdown.Item>

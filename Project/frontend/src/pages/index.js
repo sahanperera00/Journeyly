@@ -10,6 +10,7 @@ import EditorNavBar from "../components/EditorNavbar";
 import DestinationForm from "../components/DestinationForm";
 import SharedLayoutHome from './SharedLayoutHome';
 import SharedLayoutEditorDashboard from './SharedLayoutEditorDashboard';
+import AttractionEdit from './AttractionEdit';
 
 export {
     Home,
@@ -24,4 +25,5 @@ export {
     DestinationForm,
     SharedLayoutHome,
     SharedLayoutEditorDashboard,
+    AttractionEdit,
 };
