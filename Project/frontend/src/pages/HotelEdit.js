@@ -17,7 +17,7 @@ function HotelEdit() {
   }
 
   const deleteHotels = (id) => {
-    axios.delete(`http://localhost:8070/destination/remove/${id}`)  //Activates Hotel deleting function
+    axios.delete(`http://localhost:8070/hotels/remove/${id}`)  //Activates Hotel deleting function
         .then((res) => {
             alert("Hotel Content Deleted");
             getHotels();
