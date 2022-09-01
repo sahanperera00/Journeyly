@@ -5,7 +5,7 @@ export const createFlightContent = async (req,res)=>{
     
     const flight=req.body;  //Catches the details from form
 
-    const newFlight = newFlight(flight);  //Creating new hotel by passing the form as parameter
+    const newFlight = Flight(flight);  //Creating new flight by passing the form as parameter
     try {
         await newFlight.save();  //save data 
 
@@ -67,7 +67,7 @@ export const removeFlight = async(req,res)=>{
     }
 
     try {
-        await Hotel.findByIdAndDelete(id);
+        await Flight.findByIdAndDelete(id);
         res.status(200).send({status: "Flight Content Deleted..."});
     } catch (error) {
         res.status(404).json({message: error});
