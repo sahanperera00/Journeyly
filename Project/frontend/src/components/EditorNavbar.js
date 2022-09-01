@@ -25,8 +25,8 @@ function EditorNavbar() {
               </LinkContainer>
             </NavDropdown>
             <NavDropdown title="Hotels" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <LinkContainer to="/editorDash/hotelForm"><NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
+              <LinkContainer to="/editorDash/hotelEdit" ><NavDropdown.Item >Update & Delete</NavDropdown.Item></LinkContainer>
               <NavDropdown.Divider />
               <LinkContainer to="/editorDash/hotels">
                 <NavDropdown.Item>Client View</NavDropdown.Item>
