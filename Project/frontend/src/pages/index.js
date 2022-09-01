@@ -8,9 +8,11 @@ import Taxis from "../pages/Taxis";
 import Login from "../pages/Login";
 import EditorNavBar from "../components/EditorNavbar";
 import DestinationForm from "../components/DestinationForm";
+import HotelForm from "../components/HotelForm";
 import SharedLayoutHome from './SharedLayoutHome';
 import SharedLayoutEditorDashboard from './SharedLayoutEditorDashboard';
 import AttractionEdit from './AttractionEdit';
+import HotelEdit from './HotelEdit';
 
 export {
     Home,
@@ -26,4 +28,6 @@ export {
     SharedLayoutHome,
     SharedLayoutEditorDashboard,
     AttractionEdit,
+    HotelForm,
+    HotelEdit,
 };
