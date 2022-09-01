@@ -34,6 +34,6 @@ const packageSchema = new Schema({
     },
 });
 
-const Package = mongoose.model("Destination", packageSchema);
+const Package = mongoose.model("Package", packageSchema);
 
 export default Package;
