@@ -10,16 +10,12 @@ import HotelEdit from './HotelEdit';
 import SharedLayoutHome from './SharedLayoutHome';
 import SharedLayoutEditorDashboard from './SharedLayoutEditorDashboard';
 import NavBar from "../components/Navbar";
-import Flights from "../pages/Flights";
-import Hotels from "../pages/Hotels";
-import Attractions from "../pages/Attractions";
-import Taxis from "../pages/Taxis";
-import Packages from "../pages/Packages";
-import Login from "../pages/Login";
 import EditorNavBar from "../components/EditorNavbar";
 import DestinationForm from "../components/DestinationForm";
 import DestinationUpdateForm from '../components/DestinationUpdateForm';
 import HotelForm from "../components/HotelForm";
+import FlightForm from "../components/FlightForm";
+import FlightEdit from './FlightEdit';
 
 export {
     Home,
