@@ -14,6 +14,7 @@ import {
     AttractionEdit,
     HotelForm,
     HotelEdit,
+    DestinationUpdateForm,
 } from '../pages';
 
 function AppRoutes() {
@@ -41,6 +42,7 @@ function AppRoutes() {
                     <Route path="attractionEdit" element={<AttractionEdit />} />
                     <Route path="hotelForm" element={<HotelForm/>}/>
                     <Route path="hotelEdit" element={<HotelEdit/>}/>
+                    <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
                 </Route>
                 
             </Routes>
