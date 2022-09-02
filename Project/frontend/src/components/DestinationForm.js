@@ -19,9 +19,7 @@ function DestinationForm() {
         <div>
             <h1 className='text-center'>Add Travel Destination</h1>
             <div className="App">
-            <form onSubmit=
-            {(e) => 
-            {
+            <form onSubmit={(e) => {
                 e.preventDefault();
 
                 const imageRef = ref(storage, `images/${imageI.name}`);

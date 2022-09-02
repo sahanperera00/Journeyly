@@ -14,37 +14,38 @@ function DestinationUpdateForm() {
     const [childCost, setChildCost] = useState('');
 
     const {id} = useParams();
-
-    const getDestination = () => {
-        axios.get("http://localhost:8070/destination/"+id)
-            .then((res) => {
-                const updateDestination = {
-                    name: res.data.name,
-                    shortDesc: res.data.shortDesc,
-                    longDesc: res.data.longDesc,
-                    location: res.data.location,
-                    extra: res.data.extra,
-                    includes: res.data.includes,
-                    images: res.data.images,
-                    adultCost: res.data.adultCost,
-                    childCost: res.data.childCost
-                }
-                setName(updateDestination.name);
-                setShortDesc(updateDestination.shortDesc);
-                setLongDesc(updateDestination.longDesc);
-                setLocation(updateDestination.location);
-                setExtra(updateDestination.extra);
-                setIncludes(updateDestination.includes);
-                setImages(updateDestination.images);
-                setAdultCost(updateDestination.adultCost);
-                setChildCost(updateDestination.childCost);
-            })
-            .catch((err) => {
-                alert(err.message);
-            });
-    }
-
-    useEffect(() => getDestination(), []);
+  
+    useEffect(() => {
+        const getDestination = () => {
+            axios.get("http://localhost:8070/destination/"+id)
+                .then((res) => {
+                    const updateDestination = {
+                        name: res.data.name,
+                        shortDesc: res.data.shortDesc,
+                        longDesc: res.data.longDesc,
+                        location: res.data.location,
+                        extra: res.data.extra,
+                        includes: res.data.includes,
+                        images: res.data.images,
+                        adultCost: res.data.adultCost,
+                        childCost: res.data.childCost
+                    }
+                    setName(updateDestination.name);
+                    setShortDesc(updateDestination.shortDesc);
+                    setLongDesc(updateDestination.longDesc);
+                    setLocation(updateDestination.location);
+                    setExtra(updateDestination.extra);
+                    setIncludes(updateDestination.includes);
+                    setImages(updateDestination.images);
+                    setAdultCost(updateDestination.adultCost);
+                    setChildCost(updateDestination.childCost);
+                })
+                .catch((err) => {
+                    alert(err.message);
+                })
+        }
+        getDestination();
+    });
 
     return (
         <div>
