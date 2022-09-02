@@ -24,16 +24,16 @@ function Attractions() {
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {attractions.map((data) => {
           return (
-            <Card key={1} style={{ width: '19rem', margin: '1rem'}}>
-              <Card.Body key={1}>
-                <Card.Title key={1}>{data.name}</Card.Title>
+            <Card key={`${data._id} + 1`} style={{ width: '19rem', margin: '1rem'}}>
+              <Card.Img key={`${data._id} + 1`} variant="top" src={data.images} />
+              <Card.Body key={`${data._id} + 2`}>
+                <Card.Title key={`${data._id} + 1`}>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted" key={2}>{data.shortDesc}</Card.Subtitle>
-                <Card.Text key={3}>
+                <Card.Text key={`${data._id} + 3`}>
                   Description: {data.longDesc}<br/>
                   Location: {data.location}<br/>
                   What you need to know: {data.extra}<br/>
                   What's included: {data.includes}<br/>
-                  Images: {data.images}<br/>
                   Adult: {data.adultCost}<br/>
                   Child: {data.childCost}
                 </Card.Text>
