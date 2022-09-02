@@ -14,6 +14,8 @@ import EditorNavBar from "../components/EditorNavbar";
 import DestinationForm from "../components/DestinationForm";
 import DestinationUpdateForm from '../components/DestinationUpdateForm';
 import HotelForm from "../components/HotelForm";
+import FlightForm from "../components/FlightForm";
+import FlightEdit from './FlightEdit';
 
 export {
     Home,
@@ -31,5 +33,7 @@ export {
     AttractionEdit,
     HotelForm,
     HotelEdit,
+    FlightForm,
+    FlightEdit,
     DestinationUpdateForm,
 };
