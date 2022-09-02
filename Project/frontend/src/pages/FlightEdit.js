@@ -42,14 +42,17 @@ function FlightEdit() {
                 <Card.Subtitle className="mb-2 text-muted">{data.flightId}</Card.Subtitle>
                 <Card.Text>
                   Leaving Airport: {data.startAirport}<br/>
+                  Departure Date: {data.departureDate}<br/>
                   Departure Time: {data.departureTime}<br/>
                   Destination Airport: {data.destinationAirport}<br/>
+                  Arrival Date: {data.arrivalDate}<br/>
                   Arrival Time: {data.arrivalTime}<br/>
                   Economy Class Ticket Price: {data.economyClass}<br/>
                   Business Class Ticket Price: {data.businessClass}<br/>
                   Image: {data.images}<br/>
                 </Card.Text>
-                <Button variant="warning">Update</Button>
+                <Link to={"/editorDash/flightForm/"+data._id}>
+                <Button variant="warning">Update</Button></Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteFlights(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
