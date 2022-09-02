@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 function DestinationUpdateForm() {
     const [name, setName] = useState('');
@@ -9,6 +11,7 @@ function DestinationUpdateForm() {
     const [location, setLocation] = useState('');
     const [extra, setExtra] = useState('');
     const [includes, setIncludes] = useState('');
+    const [imageI, setImageI] = useState('');
     const [images, setImages] = useState('');
     const [adultCost, setAdultCost] = useState('');
     const [childCost, setChildCost] = useState('');
@@ -17,6 +20,23 @@ function DestinationUpdateForm() {
   
     useEffect(() => {
         const getDestination = () => {
+            const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
+             
+            uploadBytes(imageRef, imageI)
+                .then(() => {
+                    console.log('Uploaded image');
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+            getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
+                .then((url) => {
+                    console.log(url);
+                    setImages(url);
+                }).catch((err) => {
+                    console.log(err);
+                })
+
             axios.get("http://localhost:8070/destination/"+id)
                 .then((res) => {
                     const updateDestination = {
@@ -119,9 +139,9 @@ function DestinationUpdateForm() {
                 </div>
                 <div className="form-group">
                     <label className="form-label">Images</label>
-                    <input type="text" className="form-control" value={images}
+                    <input type="file" className="form-control" 
                     onChange={(e) => {
-                        setImages(e.target.value);
+                        setImageI(e.target.files[0]);
                     }} required/>
                 </div>
                 <div className="form-group">
