@@ -52,6 +52,19 @@ function EditorNavbar() {
                 <NavDropdown.Item>Client View</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
+
+            <NavDropdown title="Packages" id="basic-nav-dropdown">
+            
+                <NavDropdown.Item>Create</NavDropdown.Item>
+             
+               <NavDropdown.Item>Update & Delete</NavDropdown.Item>
+              
+              <NavDropdown.Divider />
+            
+                <NavDropdown.Item>Client View</NavDropdown.Item>
+             
+            </NavDropdown>
+
           </Nav>
           <Link to={"/"}>
                 <Button variant="outline-dark ms-2">Logout</Button>

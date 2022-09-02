@@ -5,6 +5,7 @@ import Flights from "../pages/Flights";
 import Hotels from "../pages/Hotels";
 import Attractions from "../pages/Attractions";
 import Taxis from "../pages/Taxis";
+import Packages from "../pages/Packages";
 import Login from "../pages/Login";
 import EditorNavBar from "../components/EditorNavbar";
 import DestinationForm from "../components/DestinationForm";
@@ -22,6 +23,7 @@ export {
     Hotels,
     Attractions,
     Taxis,
+    Packages,
     Login,
     EditorNavBar,
     DestinationForm,

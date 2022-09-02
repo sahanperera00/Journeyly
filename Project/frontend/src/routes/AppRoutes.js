@@ -6,6 +6,7 @@ import {
     Attractions,
     Taxis,
     Login,
+    Packages,
     EditorDashboard,
     DestinationForm,
     SharedLayoutHome,
@@ -25,6 +26,7 @@ function AppRoutes() {
                     <Route path="hotels" element={<Hotels />} />
                     <Route path="attractions" element={<Attractions />} /> 
                     <Route path="taxis" element={<Taxis />} />
+                    <Route path="packages" element={<Packages />} />
                     <Route path="login" element={<Login />} />
                 </Route>
                 
@@ -35,6 +37,7 @@ function AppRoutes() {
                     <Route path="hotels" element={<Hotels />} />
                     <Route path="attractions" element={<Attractions />} /> 
                     <Route path="taxis" element={<Taxis />} />
+                    <Route path="packages" element={<Packages />} />
                     <Route path="attractionEdit" element={<AttractionEdit />} />
                     <Route path="hotelForm" element={<HotelForm/>}/>
                     <Route path="hotelEdit" element={<HotelEdit/>}/>

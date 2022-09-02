@@ -19,6 +19,7 @@ function Navbar() {
             <Nav.Link as={Link} to="/hotels">Hotels</Nav.Link>
             <Nav.Link as={Link} to="/attractions">Attractions</Nav.Link>
             <Nav.Link as={Link} to="/taxis">Taxis</Nav.Link>
+            <Nav.Link as={Link} to="/packages">Packages</Nav.Link>
           </Nav>
             <Link to={"/login"}>
                 <Button variant="outline-dark">Login</Button>
