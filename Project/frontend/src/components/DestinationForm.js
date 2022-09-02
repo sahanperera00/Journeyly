@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 function DestinationForm() {
     const [name, setName] = useState('');
@@ -8,6 +10,7 @@ function DestinationForm() {
     const [location, setLocation] = useState('');
     const [extra, setExtra] = useState('');
     const [includes, setIncludes] = useState('');
+    const [imageI, setImageI] = useState('');
     const [images, setImages] = useState('');
     const [adultCost, setAdultCost] = useState('');
     const [childCost, setChildCost] = useState('');
@@ -15,10 +18,29 @@ function DestinationForm() {
     return (
         <div>
             <h1 className='text-center'>Add Travel Destination</h1>
-        <div className="App">
-            <form onSubmit={(e) => {
+            <div className="App">
+            <form onSubmit=
+            {(e) => 
+            {
                 e.preventDefault();
 
+                const imageRef = ref(storage, `images/${imageI.name}`);
+             
+                uploadBytes(imageRef, imageI)
+                .then(() => {
+                    console.log('Uploaded image');
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+                getDownloadURL(ref(storage, `images/${imageI.name}`))
+                .then((url) => {
+                    console.log(url);
+                    setImages(url);
+                }).catch((err) => {
+                    console.log(err);
+                })
+                
                 const newDestination = {
                     name,
                     shortDesc,
@@ -84,9 +106,9 @@ function DestinationForm() {
                 </div>
                 <div className="form-group">
                     <label className="form-label">Images</label>
-                    <input type="text" className="form-control" 
+                    <input type="file" className="form-control" 
                     onChange={(e) => {
-                        setImages(e.target.value);
+                        setImageI(e.target.files[0]);
                     }} required/>
                 </div>
                 <div className="form-group">
