@@ -37,11 +37,11 @@ function AttractionEdit() {
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {attractions.map((data) => {
           return (
-            <Card style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
-              <Card.Body>
-                <Card.Title>{data.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{data.shortDesc}</Card.Subtitle>
-                <Card.Text>
+            <Card key={1} style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
+              <Card.Body key={1}>
+                <Card.Title key={1}>{data.name}</Card.Title>
+                <Card.Subtitle key={2} className="mb-2 text-muted">{data.shortDesc}</Card.Subtitle>
+                <Card.Text key={3}>
                   Description: {data.longDesc}<br/>
                   Location: {data.location}<br/>
                   What you need to know: {data.extra}<br/>
@@ -50,10 +50,10 @@ function AttractionEdit() {
                   Adult: {data.adultCost}<br/>
                   Child: {data.childCost}
                 </Card.Text>
-                <Link to={"/editorDash/destinationUpdateForm/"+data._id}>
-                  <Button variant="warning">Update</Button>
+                <Link key={4} to={"/editorDash/destinationUpdateForm/"+data._id}>
+                  <Button key={1} variant="warning">Update</Button>
                 </Link>
-                <Button variant="danger" className='ms-3' onClick={() => deleteAttraction(data._id)}>Delete</Button>
+                <Button key={5} variant="danger" className='ms-3' onClick={() => deleteAttraction(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
           )        
