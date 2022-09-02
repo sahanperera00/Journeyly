@@ -7,7 +7,7 @@ const flightSchema = new Schema({
         type: String,
         required: true
     },
-    id:{
+    flightId:{
         type: String,
         required: true
     },
@@ -23,16 +23,16 @@ const flightSchema = new Schema({
         type: String,
         required: true
     },
-    ArrivalTime:{
+    arrivalTime:{
         type: String,
         required: true
     },
     economyClass:{
-        type:Boolean,
+        type: Number,
         required:true
     },
     businessClass:{
-        type:Boolean,
+        type:Number,
         required: true
     },
     images:{
