@@ -36,7 +36,7 @@ export const updateFlight = async(req,res)=>{
     }
 
     try {
-        await Hotel.findByIdAndUpdate(id,up);
+        await Flight.findByIdAndUpdate(id,up);
         res.status(200).send({status:"Flight Detail Updated"});
     } catch (error) {
         res.status(404).json({message:error});
