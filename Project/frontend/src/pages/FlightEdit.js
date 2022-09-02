@@ -1,8 +1,9 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
-function Flights() { 
+function FlightEdit() { 
   const [flights, setFlights] = useState([]);
 
   const getFlights = () => {
@@ -14,6 +15,17 @@ function Flights() {
         alert(err);
       });
   }
+
+  const deleteFlights = (id) => {
+    axios.delete(`http://localhost:8070/flights/remove/${id}`)  //Activates Flight deleting function
+        .then((res) => {
+            alert("Flight Content Deleted");
+            getFlights();
+        })
+        .catch((err) => {
+            alert(err);
+        });
+    }
 
   useEffect(() => { getFlights() } , []);  //Shows changes of the page
 
@@ -29,7 +41,7 @@ function Flights() {
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.flightId}</Card.Subtitle>
                 <Card.Text>
-                Leaving Airport: {data.startAirport}<br/>
+                  Leaving Airport: {data.startAirport}<br/>
                   Departure Date: {data.departureDate}<br/>
                   Departure Time: {data.departureTime}<br/>
                   Destination Airport: {data.destinationAirport}<br/>
@@ -39,6 +51,8 @@ function Flights() {
                   Business Class Ticket Price: {data.businessClass}<br/>
                   Image: {data.images}<br/>
                 </Card.Text>
+                <Button variant="warning">Update</Button>
+                <Button variant="danger" className='ms-3' onClick={() => deleteFlights(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
           )        
@@ -48,4 +62,4 @@ function Flights() {
   )
 }
 
-export default Flights;
+export default FlightEdit;
