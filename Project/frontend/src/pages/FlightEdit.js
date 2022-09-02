@@ -51,8 +51,7 @@ function FlightEdit() {
                   Business Class Ticket Price: {data.businessClass}<br/>
                   Image: {data.images}<br/>
                 </Card.Text>
-                <Link to={"/editorDash/flightForm/"+data._id}>
-                <Button variant="warning">Update</Button></Link>
+                <Button variant="warning">Update</Button>
                 <Button variant="danger" className='ms-3' onClick={() => deleteFlights(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
