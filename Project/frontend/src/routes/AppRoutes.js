@@ -17,6 +17,7 @@ import {
     FlightForm,
     FlightEdit,
     DestinationUpdateForm,
+    PackageForm,
 } from '../pages';
 
 function AppRoutes() {
@@ -47,6 +48,7 @@ function AppRoutes() {
                     <Route path="flightForm" element={<FlightForm/>}/>
                     <Route path="flightEdit" element={<FlightEdit/>}/>
                     <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
+                    <Route path="PackageForm" element={<PackageForm/>}/>
                 </Route>
                 
             </Routes>

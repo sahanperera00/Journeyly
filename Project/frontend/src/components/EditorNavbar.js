@@ -54,8 +54,8 @@ function EditorNavbar() {
             </NavDropdown>
 
             <NavDropdown title="Packages" id="basic-nav-dropdown">
-            
-                <NavDropdown.Item>Create</NavDropdown.Item>
+            <LinkContainer to="/editorDash/PackageForm"><NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
+             
              
                <NavDropdown.Item>Update & Delete</NavDropdown.Item>
               
