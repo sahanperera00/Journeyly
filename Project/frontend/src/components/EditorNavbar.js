@@ -17,8 +17,8 @@ function EditorNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Flights" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <LinkContainer to="/editorDash/flightForm"><NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
+              <LinkContainer to="/editorDash/flightEdit" ><NavDropdown.Item >Update & Delete</NavDropdown.Item></LinkContainer>
               <NavDropdown.Divider />
               <LinkContainer to="/editorDash/flights">
                 <NavDropdown.Item>Client View</NavDropdown.Item>

@@ -5,8 +5,10 @@ function FlightForm(){
     const [name, setName]=useState('');
     const [flightId,setFligtId]=useState('');
     const [startAirport,setStartAirport]=useState('');
+    const [departureDate,setDepartureDate]=useState('');
     const [departureTime,setDepartureTime]=useState('');
     const [destinationAirport,setDestinationAirport]=useState('');
+    const [arrivalDate,setArrivalDate]=useState('');
     const [arrivalTime,setArrivalTime]=useState('');
     const [economyClass,setEconomyPrice]=useState('');
     const [businessClass,setBusinessPrice]=useState('');
@@ -25,9 +27,10 @@ function FlightForm(){
                     name,
                     flightId,
                     startAirport,
+                    departureDate,
                     departureTime,
                     destinationAirport,
-                    facilities,
+                    arrivalDate,
                     arrivalTime,
                     economyClass,
                     businessClass,
@@ -59,42 +62,56 @@ function FlightForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label">Flight Leaving Airport</label>
-                    <input type="number" className="form-control" 
+                    <input type="text" className="form-control" 
                     onChange={(e) => {
                         setStartAirport(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Departure Time</label>
-                    <input type="text" className="form-control" 
+                    <label className="form-label">Departure Date (GMT+5:30)</label>
+                    <input type="date" className="form-control" 
+                    onChange={(e) => {
+                        setDepartureDate(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Departure Time (GMT+5:30)</label>
+                    <input type="time" className="form-control" 
                     onChange={(e) => {
                         setDepartureTime(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Destination Airport</label>
-                    <input type="number" className="form-control" min="0" max="5"
+                    <input type="text" className="form-control" 
                     onChange={(e) => {
                         setDestinationAirport(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Arrival Time (At Destination)</label>
-                    <input type="text" className="form-control" 
+                    <label className="form-label">Arrival Date (GMT+5:30)</label>
+                    <input type="date" className="form-control" 
+                    onChange={(e) => {
+                        setArrivalDate(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Arrival Time (GMT+5:30)</label>
+                    <input type="time" className="form-control" 
                     onChange={(e) => {
                         setArrivalTime(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Economy Class Flight Ticket Price</label>
-                    <input type="text" className="form-control" 
+                    <input type="number" className="form-control" 
                     onChange={(e) => {
                         setEconomyPrice(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Business Class Flight Ticket Price</label>
-                    <input type="text" className="form-control" 
+                    <input type="number" className="form-control" 
                     onChange={(e) => {
                         setBusinessPrice(e.target.value);
                     }} required/>
