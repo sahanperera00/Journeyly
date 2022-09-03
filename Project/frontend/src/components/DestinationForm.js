@@ -19,12 +19,10 @@ function DestinationForm() {
         <div>
             <h1 className='text-center'>Add Travel Destination</h1>
             <div className="App">
-            <form onSubmit=
-            {(e) => 
-            {
+            <form onSubmit={(e) => {
                 e.preventDefault();
 
-                const imageRef = ref(storage, `images/${imageI.name}`);
+                const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
              
                 uploadBytes(imageRef, imageI)
                 .then(() => {
@@ -33,7 +31,7 @@ function DestinationForm() {
                     console.log(err);
                 })
 
-                getDownloadURL(ref(storage, `images/${imageI.name}`))
+                getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
                 .then((url) => {
                     console.log(url);
                     setImages(url);
