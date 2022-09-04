@@ -18,61 +18,60 @@ function DestinationUpdateForm() {
 
     const {id} = useParams();
   
-    useEffect(() => {
-        const getDestination = () => {
-            const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
-             
-            uploadBytes(imageRef, imageI)
-                .then(() => {
-                    console.log('Uploaded image');
-                }).catch((err) => {
-                    console.log(err);
-                })
-
-            getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
-                .then((url) => {
-                    console.log(url);
-                    setImages(url);
-                }).catch((err) => {
-                    console.log(err);
-                })
-
-            axios.get("http://localhost:8070/destination/"+id)
-                .then((res) => {
-                    const updateDestination = {
-                        name: res.data.name,
-                        shortDesc: res.data.shortDesc,
-                        longDesc: res.data.longDesc,
-                        location: res.data.location,
-                        extra: res.data.extra,
-                        includes: res.data.includes,
-                        images: res.data.images,
-                        adultCost: res.data.adultCost,
-                        childCost: res.data.childCost
-                    }
-                    setName(updateDestination.name);
-                    setShortDesc(updateDestination.shortDesc);
-                    setLongDesc(updateDestination.longDesc);
-                    setLocation(updateDestination.location);
-                    setExtra(updateDestination.extra);
-                    setIncludes(updateDestination.includes);
-                    setImages(updateDestination.images);
-                    setAdultCost(updateDestination.adultCost);
-                    setChildCost(updateDestination.childCost);
-                })
-                .catch((err) => {
-                    alert(err.message);
-                })
-        }
-        getDestination();
-    });
+    const getDestination = () => {   
+        axios.get("http://localhost:8070/destination/"+id)
+            .then((res) => {
+                const updateDestination = {
+                    name: res.data.name,
+                    shortDesc: res.data.shortDesc,
+                    longDesc: res.data.longDesc,
+                    location: res.data.location,
+                    extra: res.data.extra,
+                    includes: res.data.includes,
+                    images: res.data.images,
+                    adultCost: res.data.adultCost,
+                    childCost: res.data.childCost
+                }
+                setName(updateDestination.name);
+                setShortDesc(updateDestination.shortDesc);
+                setLongDesc(updateDestination.longDesc);
+                setLocation(updateDestination.location);
+                setExtra(updateDestination.extra);
+                setIncludes(updateDestination.includes);
+                setImages(updateDestination.images);
+                setAdultCost(updateDestination.adultCost);
+                setChildCost(updateDestination.childCost);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+    
+    useEffect(() => { getDestination() }, []);
 
     return (
         <div>
             <h1 className='text-center'>Update Travel Destination</h1>
         <div className="App">
-            <form onSubmit={(e) => {
+            <form onSubmit={async (e) => {
                 e.preventDefault();
+
+                const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
+        
+                uploadBytes(imageRef, imageI)
+                    .then(() => {
+                        console.log('Uploaded image');
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+
+                await getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
+                    .then((url) => {
+                        console.log(url);
+                        setImages(url);
+                    }).catch((err) => {
+                        console.log(err);
+                    });
 
                 const newDestination = {
                     name,

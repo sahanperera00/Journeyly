@@ -19,7 +19,7 @@ function DestinationForm() {
         <div>
             <h1 className='text-center'>Add Travel Destination</h1>
             <div className="App">
-            <form onSubmit={(e) => {
+            <form onSubmit={async (e) => {
                 e.preventDefault();
 
                 const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
@@ -51,7 +51,7 @@ function DestinationForm() {
                     childCost
                 }
 
-                axios.post("http://localhost:8070/destination/create", newDestination)
+                await axios.post("http://localhost:8070/destination/create", newDestination)
                     .then(() => {
                         alert("Destination added successfully");
                     }).catch((err) => {
