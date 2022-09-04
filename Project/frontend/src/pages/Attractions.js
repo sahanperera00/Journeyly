@@ -34,8 +34,6 @@ function Attractions() {
                   Location: {data.location}<br/>
                   What you need to know: {data.extra}<br/>
                   What's included: {data.includes}<br/>
-                  Adult: {data.adultCost}<br/>
-                  Child: {data.childCost}
                 </Card.Text>
               </Card.Body>
             </Card>
