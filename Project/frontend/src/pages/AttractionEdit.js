@@ -37,7 +37,7 @@ function AttractionEdit() {
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {attractions.map((data) => {
           return (
-            <Card key={`${data._id} + 1`} style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
+            <Card key={`${data._id} + 1`} style={{ width: '19rem', margin: '1rem'}}>
               <Card.Img key={`${data._id} + 1`} variant="top" src={data.images} />
               <Card.Body key={`${data._id} + 2`}>
                 <Card.Title key={`${data._id} + 1`}>{data.name}</Card.Title>
