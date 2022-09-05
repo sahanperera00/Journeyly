@@ -39,7 +39,7 @@ function HotelUpdateForm(){
         });
     }
 
-    useEffect(()=> getHotel(),[]);
+    useEffect(()=> getHotel(),[]); // RUns everytime page opens
 
     return(
         <div>
