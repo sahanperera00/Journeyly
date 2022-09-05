@@ -17,8 +17,8 @@ function EditorNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Flights" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+              <LinkContainer to="/editorDash/flightForm"><NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
+              <LinkContainer to="/editorDash/flightEdit" ><NavDropdown.Item >Update & Delete</NavDropdown.Item></LinkContainer>
               <NavDropdown.Divider />
               <LinkContainer to="/editorDash/flights">
                 <NavDropdown.Item>Client View</NavDropdown.Item>
@@ -52,6 +52,19 @@ function EditorNavbar() {
                 <NavDropdown.Item>Client View</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
+
+            <NavDropdown title="Packages" id="basic-nav-dropdown">
+            <LinkContainer to="/editorDash/PackageForm"><NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
+             
+             
+               <NavDropdown.Item>Update & Delete</NavDropdown.Item>
+              
+              <NavDropdown.Divider />
+            
+                <NavDropdown.Item>Client View</NavDropdown.Item>
+             
+            </NavDropdown>
+
           </Nav>
           <Link to={"/"}>
                 <Button variant="outline-dark ms-2">Logout</Button>
