@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+
 
 function PackageForm(){
+    const [name, setName] = useState('');
     const [destination, setDestination]=useState('');
     const [members,setMembers]=useState('');
     const [hotel,setHotel]=useState('');
@@ -9,6 +13,7 @@ function PackageForm(){
     const [vehicle,setVehicle]=useState('');
     const [guide,setGuide]=useState('');
     const [price,setPrice]=useState('');
+    const [image, setImage] = useState('');
 
 
 
@@ -18,15 +23,34 @@ function PackageForm(){
         <div className="App">
             <form onSubmit={(e) => {
                 e.preventDefault();
+//image
+                const imageRef = ref(storage, `images/packages/${name + image.name}`);
+             
+                uploadBytes(imageRef, image)
+                .then(() => {
+                    console.log('Uploaded image');
+                }).catch((err) => {
+                    console.log(err);
+                })
 
+                getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
+                .then((url) => {
+                    console.log(url);
+                    setImage(url);
+                }).catch((err) => {
+                    console.log(err);
+                })
+//
                 const newPackage = {
+                    name,
                     destination,
                     members,
                     hotel,
                     roomType,
                     vehicle,
                     guide,
-                    price
+                    price,
+                    image
                 }
 
                 axios.post("http://localhost:8070/packages/create", newPackage)
@@ -37,6 +61,13 @@ function PackageForm(){
                         console.log(err);
                     })
             }}>
+                <div className="form-group">
+                    <label className="form-label">Package Name</label>
+                    <input type="text" className="form-control" 
+                    onChange={(e) => {
+                        setName(e.target.value);
+                    }} required/>
+                </div>
 
                 <div className="form-group">
                     <label className="form-label">destination</label>
@@ -92,6 +123,15 @@ function PackageForm(){
                         setPrice(e.target.value);
                     }} required/>
                 </div>
+
+                <div className="form-group">
+                    <label className="form-label">Images</label>
+                    <input type="file" className="form-control" 
+                    onChange={(e) => {
+                        setImage(e.target.files[0]);
+                    }} required/>
+                </div>
+
                 <br />
                 <button type="submit" className="btn btn-dark">Submit</button><br /><br />
             </form>

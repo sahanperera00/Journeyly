@@ -4,6 +4,11 @@ const Schema = mongoose.Schema;
 
 const packageSchema = new Schema({
 
+    name : {
+        type : String,
+        required: true
+    },
+
     destination : {
         type : String,
         required: true
@@ -31,6 +36,10 @@ const packageSchema = new Schema({
     price : {
         type :Number,
         required : true
+    },
+    image: {
+        type: String,
+        required: true
     },
 });
 
