@@ -24,14 +24,14 @@ function DestinationForm() {
 
                 const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
              
-                uploadBytes(imageRef, imageI)
+                await uploadBytes(imageRef, imageI)
                 .then(() => {
                     console.log('Uploaded image');
                 }).catch((err) => {
                     console.log(err);
                 })
 
-                getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
+                await getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
                 .then((url) => {
                     console.log(url);
                     setImages(url);
@@ -51,7 +51,7 @@ function DestinationForm() {
                     childCost
                 }
 
-                await axios.post("http://localhost:8070/destination/create", newDestination)
+                axios.post("http://localhost:8070/destination/create", newDestination)
                     .then(() => {
                         alert("Destination added successfully");
                     }).catch((err) => {
