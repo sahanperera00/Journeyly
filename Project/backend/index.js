@@ -9,6 +9,7 @@ import hotelRouter from "./routes/hotels.js";
 import hotelResRouter from "./routes/hotelReservation.js";
 import flightRouter from "./routes/flights.js";
 import packageRouter from "./routes/packages.js";
+import clientRouter from "./routes/client.js";
 
 const app = express();
 const PORT = process.env.PORT || 8070;
@@ -21,6 +22,7 @@ app.use("/hotels",hotelRouter);
 app.use("/hotelRes",hotelResRouter);
 app.use("/flights",flightRouter);
 app.use("/packages",packageRouter);
+app.use("/client",clientRouter);
 
 const URL = process.env.MONGODB_URL;
 mongoose.connect(URL);
