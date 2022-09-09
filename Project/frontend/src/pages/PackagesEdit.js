@@ -1,8 +1,11 @@
 
+
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+
 
 function PackagesEdit() { 
   const [packages, setPackages] = useState([]);
@@ -18,9 +21,9 @@ function PackagesEdit() {
   }
 
   const deletePackages = (id) => {
-    axios.delete(`http://localhost:8070/packages/remove/${id}`)  //Activates Package deleting function
+    axios.delete(`http://localhost:8070/packages/remove/${id}`)  //Activates Hotel deleting function
         .then((res) => {
-            alert("Package Content Deleted");
+            alert("Packages Content Deleted");
             getPackages();
         })
         .catch((err) => {
@@ -32,7 +35,7 @@ function PackagesEdit() {
 
   return (
     <div className='container text-center'>
-      <h1 className='text-center'>Package</h1>
+      <h1 className='text-center'>packages</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {packages.map((data) => {
@@ -40,7 +43,7 @@ function PackagesEdit() {
             <Card style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{data.packageId}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
                 <Card.Text>
                 name: {data.name}<br/>
                 destination: {data.destination}<br/>
@@ -52,7 +55,9 @@ function PackagesEdit() {
                 price: {data.price}<br/>
                 image: {data.image}<br/>
                 </Card.Text>
+                <Link to={"/editorDash/PackageUpdateForm/"+data._id}>
                 <Button variant="warning">Update</Button>
+                </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deletePackages(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
