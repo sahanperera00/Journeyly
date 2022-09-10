@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
-
-function PackageForm(){
+    
+function PackageUpdateForm(){
     const [name, setName] = useState('');
     const [destination, setDestination]=useState('');
     const [members,setMembers]=useState('');
@@ -15,32 +16,72 @@ function PackageForm(){
     const [price,setPrice]=useState('');
     const [image, setImage] = useState('');
 
-
+    //identify
+    const {id} = useParams();
+  
+    const getPackage = () => {   
+        axios.get("http://localhost:8070/package/"+id)
+            .then((res) => {
+                const updatePackages = {
+                    name: res.data.name,
+                    destination: res.data.destination,
+                    members: res.data.members,
+                    hotel: res.data.hotel,
+                    roomType: res.data.roomType,
+                    vehicle: res.data.vehicle,
+                    guide: res.data.guide,
+                    price: res.data.price,
+                    image: res.data.image
+                }
+                setName(updatePackages.name);
+                setDestination(updatePackages.destination);
+                setMembers(updatePackages.members);
+                setHotel(updatePackages.hotel);
+                setRoomType(updatePackages.roomType);
+                setVehicle(updatePackages.vehicle);
+                setGuide(updatePackages.guide);
+                setPrice(updatePackages.price);
+                setImage(updatePackages.image);
+/*
+                setName(res.data.name);
+                setLocation(res.data.location);
+                setPrice(res.data.price);
+                setDescription(res.data.description);
+                setStars(res.data.stars);
+                setFacilities(res.data.facilities);
+                setImages(res.data.images);*/
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    };
+    
+    useEffect(() => { getPackage() }, []);
 
     return (
         <div>
-            <h1 className='text-center'>Add Package Detail</h1>
+            <h1 className='text-center'>Update Package</h1>
         <div className="App">
-            <form onSubmit={(e) => {
+            <form onSubmit={async (e) => {
                 e.preventDefault();
-//image
-                const imageRef = ref(storage, `images/packages/${name + image.name}`);
-             
-                uploadBytes(imageRef, image)
-                .then(() => {
-                    console.log('Uploaded image');
-                }).catch((err) => {
-                    console.log(err);
-                })
 
-                getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
-                .then((url) => {
-                    console.log(url);
-                    setImage(url);
-                }).catch((err) => {
-                    console.log(err);
-                })
-//
+                const imageRef = ref(storage, `images/packages/${name + image.name}`);
+        
+                uploadBytes(imageRef, image)
+                    .then(() => {
+                        console.log('Uploaded image');
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+
+                await getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
+                    .then((url) => {
+                        console.log(url);
+                        setImage(url);
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+
                 const newPackage = {
                     name,
                     destination,
@@ -53,15 +94,16 @@ function PackageForm(){
                     image
                 }
 
-                axios.post("http://localhost:8070/packages/create", newPackage)
+                axios.put("http://localhost:8070/destination/update/"+id, newPackage)
                     .then(() => {
-                        alert("Package Content added successfully");
+                        alert("Destination updated successfully");
+
                     }).catch((err) => {
-                        alert("Error adding Package Content");
-                        console.log(err);
+                        alert(err);
                     })
             }}>
-                <div className="form-group">
+
+<div className="form-group">
                     <label className="form-label">Package Name</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
@@ -131,7 +173,6 @@ function PackageForm(){
                         setImage(e.target.files[0]);
                     }} required/>
                 </div>
-
                 <br />
                 <button type="submit" className="btn btn-dark">Submit</button><br /><br />
             </form>
@@ -140,5 +181,4 @@ function PackageForm(){
     )
 }
 
-
-export default PackageForm;
+export default PackageUpdateForm;
