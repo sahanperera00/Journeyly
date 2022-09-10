@@ -26,7 +26,7 @@ export const createDestination = async (req, res) => {
         await newDestination.save();
         res.status(201).json(newDestination);
     } catch (error) {
-        res.status(404).json({ message: error });
+        res.json({ message: error });
     }        
 }
 
