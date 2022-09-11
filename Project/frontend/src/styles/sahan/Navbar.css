@@ -1,0 +1,18 @@
+.NavbarCont {
+    background-color: rgba(0, 0, 0, 0.599);
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    color: aliceblue;
+}
+
+.NavbarCont img {
+    width: 160px;
+    height: 32px;
+}
+
+.navlink{
+    color: rgb(199, 234, 233);
+}
