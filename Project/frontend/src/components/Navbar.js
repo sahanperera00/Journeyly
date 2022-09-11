@@ -27,7 +27,7 @@ function Navbar() {
                 <Button variant="outline-light">Login</Button>
             </Link>
             <Link to={"/registration"}>
-                <Button variant="outline-dark ms-2">Sign Up</Button>
+                <Button variant="outline-light ms-2">Sign Up</Button>
             </Link>
             <Link to={"/editorDash"}>
                 <Button variant="outline-light ms-2">Editor Login</Button>
