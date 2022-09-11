@@ -1,0 +1,35 @@
+.homeCont {
+    background-color: #d8ff90;
+    /* height: 100vh; */
+    /* width: 100vw; */
+    /* padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif; */
+}
+
+.heroCont {
+    background-image: url("../../images/hero2.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.heroText {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(39, 47, 87);
+}
+
+.heroText img {
+    width: 600px;
+    height: 150px;
+}
