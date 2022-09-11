@@ -19,6 +19,7 @@ import FlightForm from "../components/FlightForm";
 import FlightEdit from './FlightEdit';
 import PackageForm from "../components/PackageForm";
 import HotelUpdateForm from "../components/HotelUpdateForm";
+import RegistrationForm from './RegistrationForm';
 
 export {
     Home,
@@ -42,4 +43,5 @@ export {
     DestinationUpdateForm,
     PackageForm,
     HotelUpdateForm,
+    RegistrationForm
 };
