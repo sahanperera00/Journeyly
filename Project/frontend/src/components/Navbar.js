@@ -5,7 +5,7 @@ import Navbarx from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import { Link } from "react-router-dom";
-import logo from '../images/Journeyly-color.png';
+import logo from '../images/Journeyly-W.png';
 
 function Navbar() {
   return (
