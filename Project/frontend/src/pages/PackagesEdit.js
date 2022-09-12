@@ -21,7 +21,7 @@ function PackagesEdit() {
   }
 
   const deletePackages = (id) => {
-    axios.delete(`http://localhost:8070/packages/remove/${id}`)  //Activates Hotel deleting function
+    axios.delete(`http://localhost:8070/packages/delete/${id}`)  //Activates Hotel deleting function
         .then((res) => {
             alert("Packages Content Deleted");
             getPackages();
@@ -45,6 +45,7 @@ function PackagesEdit() {
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
                 <Card.Text>
+                image: {data.image}<br/>
                 name: {data.name}<br/>
                 destination: {data.destination}<br/>
                 members: {data.members}<br/>
@@ -53,7 +54,7 @@ function PackagesEdit() {
                 vehicle: {data.vehicle}<br/>
                 guide: {data.guide}<br/>
                 price: {data.price}<br/>
-                image: {data.image}<br/>
+               
                 </Card.Text>
                 <Link to={"/editorDash/PackageUpdateForm/"+data._id}>
                 <Button variant="warning">Update</Button>

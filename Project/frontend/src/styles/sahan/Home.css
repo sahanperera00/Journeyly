@@ -1,0 +1,63 @@
+.homeCont {
+    /* background-color: #d8ff90; */
+}
+
+.carouselCont {
+    height: 100vh;
+}
+
+.heroCont1 {
+    background-image: url("../../images/hero1.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.heroCont2 {
+    background-image: url("../../images/hero2.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.heroCont3 {
+    background-image: url("../../images/hero3.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.heroText {
+    width: 50%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+
+.heroText2 img {
+    width: 80%;
+    height: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.heroText img {
+    width: 80%;
+    height: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

@@ -22,6 +22,7 @@ import PackagesEdit from './PackagesEdit';
 
 import PackageUpdateForm from "../components/PackageUpdateForm";
 import HotelUpdateForm from "../components/HotelUpdateForm";
+import RegistrationForm from './RegistrationForm';
 
 export {
     Home,
@@ -47,4 +48,5 @@ export {
     PackagesEdit,
     PackageUpdateForm,
     HotelUpdateForm,
+    RegistrationForm
 };
