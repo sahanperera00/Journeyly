@@ -21,6 +21,7 @@ import {
     PackagesEdit,
     PackageUpdateForm,
     HotelUpdateForm,
+    RegistrationForm
 } from '../pages';
 
 function AppRoutes() {
@@ -35,6 +36,7 @@ function AppRoutes() {
                     <Route path="taxis" element={<Taxis />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="login" element={<Login />} />
+                    <Route path = "registration" element={<RegistrationForm />} />
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
