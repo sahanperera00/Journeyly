@@ -18,7 +18,7 @@ function FlightUpdateForm() {
     const {id} = useParams();
   
     const getFlight = () => {   
-        axios.get("http://localhost:8070/flight/"+id).then((res) => {
+        axios.get("http://localhost:8070/flights/"+id).then((res) => {
                 const updateFlight = {
                     name: res.data.name,
                     flightId: res.data.flightId,
@@ -49,7 +49,7 @@ function FlightUpdateForm() {
             });
     };
     
-    useEffect(() => { getFlight() }, []);
+    useEffect(() => { getFlight() });
 
     return (
         <div>
@@ -89,7 +89,7 @@ function FlightUpdateForm() {
                     images
                 }
 
-                axios.put("http://localhost:8070/flight/update/"+id, newFlight)
+                axios.put("http://localhost:8070/flights/update/"+id, newFlight)
                     .then(() => {
                         alert("Flight updated successfully");
 
@@ -170,7 +170,7 @@ function FlightUpdateForm() {
                 </div>
                 <div className="form-group">
                     <label className="form-label">Images</label>
-                    <input type="file" className="form-control" value={images}
+                    <input type="file" className="form-control" 
                     onChange={(e) => {
                         setImages(e.target.value);
                     }} required/>
