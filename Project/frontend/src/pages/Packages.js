@@ -26,6 +26,7 @@ function Packages() {
         {packages.map((data) => {
           return (
             <Card style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
+              <Card.Img src={data.image}/>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.PackagesId}</Card.Subtitle>
@@ -38,7 +39,7 @@ function Packages() {
                 vehicle: {data.vehicle}<br/>
                 guide: {data.guide}<br/>
                 price: {data.price}<br/>
-                image: {data.image}<br/>
+              
                 </Card.Text>
               </Card.Body>
             </Card>
