@@ -10,6 +10,9 @@ import hotelResRouter from "./routes/hotelReservation.js";
 import flightRouter from "./routes/flights.js";
 import packageRouter from "./routes/packages.js";
 import clientRouter from "./routes/client.js";
+import rentalRoutes from './routes/rental.js'
+import vehicleRoutes from './routes/vehicles.js'
+import feedbackRouter from "./routes/feedback.js";
 
 const app = express();
 const PORT = process.env.PORT || 8070;
@@ -23,6 +26,9 @@ app.use("/hotelRes",hotelResRouter);
 app.use("/flights",flightRouter);
 app.use("/packages",packageRouter);
 app.use("/client",clientRouter);
+app.use('/rental', rentalRoutes);
+app.use('/vehicle', vehicleRoutes);
+app.use("/feedback",feedbackRouter);
 
 const URL = process.env.MONGODB_URL;
 mongoose.connect(URL);
