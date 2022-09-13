@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function FlightUpdateForm() {
     const [name, setName]=useState('');
@@ -13,12 +15,13 @@ function FlightUpdateForm() {
     const [arrivalTime,setArrivalTime]=useState('');
     const [economyClass,setEconomyPrice]=useState('');
     const [businessClass,setBusinessPrice]=useState('');
-    const [images,setImages]=useState('');
+    const [imageI, setImageI] = useState('');
+    const [images, setImages] = useState('');
 
     const {id} = useParams();
   
     const getFlight = () => {   
-        axios.get("http://localhost:8070/flight/"+id).then((res) => {
+        axios.get("http://localhost:8070/flights/"+id).then((res) => {
                 const updateFlight = {
                     name: res.data.name,
                     flightId: res.data.flightId,
@@ -58,7 +61,7 @@ function FlightUpdateForm() {
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
-               /* const imageRef = ref(storage, `images/flight/${name + imageI.name}`);
+                const imageRef = ref(storage, `images/flights/${name + imageI.name}`);
         
                 uploadBytes(imageRef, imageI)
                     .then(() => {
@@ -67,13 +70,13 @@ function FlightUpdateForm() {
                         console.log(err);
                     });
 
-                await getDownloadURL(ref(storage, `images/flight/${name + imageI.name}`))
+                await getDownloadURL(ref(storage, `images/flights/${name + imageI.name}`))
                     .then((url) => {
                         console.log(url);
                         setImages(url);
                     }).catch((err) => {
                         console.log(err);
-                    });  */
+                    });  
 
                 const newFlight = {
                     name,
@@ -89,7 +92,7 @@ function FlightUpdateForm() {
                     images
                 }
 
-                axios.put("http://localhost:8070/flight/update/"+id, newFlight)
+                axios.put("http://localhost:8070/flights/update/"+id, newFlight)
                     .then(() => {
                         alert("Flight updated successfully");
 
@@ -170,9 +173,9 @@ function FlightUpdateForm() {
                 </div>
                 <div className="form-group">
                     <label className="form-label">Images</label>
-                    <input type="file" className="form-control" value={images}
+                    <input type="file" className="form-control" 
                     onChange={(e) => {
-                        setImages(e.target.value);
+                        setImageI(e.target.files[0]);
                     }} required/>
                 </div><br />
                 <button type="submit" className="btn btn-dark">Submit</button><br /><br />
