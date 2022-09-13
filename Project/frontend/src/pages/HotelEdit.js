@@ -29,7 +29,7 @@ function HotelEdit() {
         });
     }
 
-  useEffect(() => { getHotels() } , []);  //Shows changes of the page
+  useEffect(() => { getHotels() });  //Shows changes of the page
 
   return (
     <div className='container text-center'>
