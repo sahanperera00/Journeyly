@@ -1,0 +1,13 @@
+.DesSidebar {
+    background-color: rgb(55, 255, 0);
+    width: 35%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* z-index: 2; */
+}
+
+.DesSidebar {
+    /* width: 35%; */
+    background-color: aquamarine;
+}
