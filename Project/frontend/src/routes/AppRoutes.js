@@ -24,6 +24,8 @@ import {
     RegistrationForm,
     SharedLayoutDestination,
     DesPreview,
+    FlightUpdateForm,
+    RegistrationForm,
 } from '../pages';
 
 function AppRoutes() {
@@ -58,6 +60,7 @@ function AppRoutes() {
                     <Route path="flightForm" element={<FlightForm/>}/>
                     <Route path="flightEdit" element={<FlightEdit/>}/>
                     <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
+                    <Route path="flightUpdateForm/:id" element={<FlightUpdateForm />}/>
                     <Route path="PackageForm" element={<PackageForm/>}/>
                     <Route path="PackagesEdit" element={<PackagesEdit/>}/>
                     <Route path="PackageUpdateForm/:id" element={<PackageUpdateForm/>}/>
