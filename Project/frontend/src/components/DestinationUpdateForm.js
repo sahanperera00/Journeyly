@@ -47,7 +47,7 @@ function DestinationUpdateForm() {
             });
     };
     
-    useEffect(() => { getDestination() }, []);
+    useEffect(() => { getDestination() });
 
     return (
         <div>
