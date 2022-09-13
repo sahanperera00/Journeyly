@@ -13,6 +13,7 @@ import clientRouter from "./routes/client.js";
 import rentalRoutes from './routes/rental.js'
 import vehicleRoutes from './routes/vehicles.js'
 
+
 const app = express();
 const PORT = process.env.PORT || 8070;
 
