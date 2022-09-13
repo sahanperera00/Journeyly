@@ -11,7 +11,7 @@ function DestinationForm() {
     const [extra, setExtra] = useState('');
     const [includes, setIncludes] = useState('');
     const [imageI, setImageI] = useState('');
-    const [images, setImages] = useState('');
+    // const [images, setImages] = useState('');
     const [adultCost, setAdultCost] = useState('');
     const [childCost, setChildCost] = useState('');
 
@@ -24,40 +24,42 @@ function DestinationForm() {
 
                 const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
              
-                uploadBytes(imageRef, imageI)
+                await uploadBytes(imageRef, imageI)
                 .then(() => {
-                    console.log('Uploaded image');
+                    console.log('Uploaded images');
                 }).catch((err) => {
                     console.log(err);
                 })
 
-                getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
+                await getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
                 .then((url) => {
+                    // setImages(url);
                     console.log(url);
-                    setImages(url);
+
+                    const newDestination = {
+                        name,
+                        shortDesc,
+                        longDesc,
+                        location,
+                        extra,
+                        includes,
+                        images:url,
+                        adultCost,
+                        childCost
+                    }
+    
+                    axios.post("http://localhost:8070/destination/create", newDestination)
+                        .then(() => {
+                            alert("Destination added successfully");
+                        }).catch((err) => {
+                            alert("Error adding destination");
+                            console.log(err);
+                        })
                 }).catch((err) => {
                     console.log(err);
                 })
-                
-                const newDestination = {
-                    name,
-                    shortDesc,
-                    longDesc,
-                    location,
-                    extra,
-                    includes,
-                    images,
-                    adultCost,
-                    childCost
-                }
 
-                await axios.post("http://localhost:8070/destination/create", newDestination)
-                    .then(() => {
-                        alert("Destination added successfully");
-                    }).catch((err) => {
-                        alert("Error adding destination");
-                        console.log(err);
-                    })
+                
             }}>
 
                 <div className="form-group">

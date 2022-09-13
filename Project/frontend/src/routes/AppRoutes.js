@@ -18,7 +18,10 @@ import {
     FlightEdit,
     DestinationUpdateForm,
     PackageForm,
+    PackagesEdit,
+    PackageUpdateForm,
     HotelUpdateForm,
+    RegistrationForm
 } from '../pages';
 
 function AppRoutes() {
@@ -33,6 +36,7 @@ function AppRoutes() {
                     <Route path="taxis" element={<Taxis />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="login" element={<Login />} />
+                    <Route path = "registration" element={<RegistrationForm />} />
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
@@ -50,6 +54,8 @@ function AppRoutes() {
                     <Route path="flightEdit" element={<FlightEdit/>}/>
                     <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
                     <Route path="PackageForm" element={<PackageForm/>}/>
+                    <Route path="PackagesEdit" element={<PackagesEdit/>}/>
+                    <Route path="PackageUpdateForm/:id" element={<PackageUpdateForm/>}/>
                     <Route path="hotelUpdateForm/:id" element={<HotelUpdateForm/>}/>
                 </Route>
                 

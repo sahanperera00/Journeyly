@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon run indedx.js"
+    "start": "nodemon run index.js"
   },
   "author": "ITP_WD_B01_14",
   "license": "MIT",
