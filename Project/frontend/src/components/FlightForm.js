@@ -118,7 +118,7 @@ function FlightForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label">Images</label>
-                    <input type="text" className="form-control" 
+                    <input type="file" className="form-control" 
                     onChange={(e) => {
                         setImages(e.target.value);
                     }} required/>

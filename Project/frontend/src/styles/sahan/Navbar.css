@@ -1,19 +1,41 @@
 .NavbarCont {
-    background-color: rgba(0, 0, 0, 0.599);
     width: 100%;
-    position: absolute;
+    position: fixed;
+    padding-top: 25px;
     left: 0px;
     top: 0px;
     z-index: 2;
     color: aliceblue;
+    font-family: 'Poppins', sans-serif;
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    /* backdrop-filter: blur(3px); */
+}
+
+.NavbarLogo {
+    /* background-color: aquamarine; */
 }
 
 .NavbarCont img {
     width: 160px;
-    height: 32px;
+    height: auto;
+}
+
+.NavbarList {
+    /* background-color: blue; */
+}
+
+.me-auto {
+    /* background-color: blanchedalmond; */
+    margin-left: 100px;
 }
 
 .navlink{
-    color: rgb(199, 234, 233);
+    color: rgb(255, 255, 255);
     text-align: center;
+    margin: 0px 35px;
+}
+
+.NavbarList Button {
+    border-radius: 50px;
+    padding: 10px 20px;
 }
