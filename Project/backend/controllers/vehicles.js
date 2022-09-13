@@ -46,7 +46,7 @@ export const updateVehicle = async (req, res) => {
     try {
         await vehicle.findByIdAndUpdate(id, updateVehicle);
 
-        res.status(200).send({status: "Rental updated"});
+        res.status(200).send({status: "Vehicle updated"});
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
@@ -59,7 +59,7 @@ export const deleteVehicle = async (req, res) => {
     try {
         await vehicle.findByIdAndDelete(id);
 
-        res.status(200).send({status: "Rental deleted"});
+        res.status(200).send({status: "Vehicle deleted"});
 
     }catch{
         res.status(404).json({ message: error.message });
