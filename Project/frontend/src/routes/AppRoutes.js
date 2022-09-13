@@ -25,7 +25,6 @@ import {
     SharedLayoutDestination,
     DesPreview,
     FlightUpdateForm,
-    RegistrationForm,
 } from '../pages';
 
 function AppRoutes() {
