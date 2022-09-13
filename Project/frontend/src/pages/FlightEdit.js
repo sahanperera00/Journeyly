@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
@@ -51,7 +52,9 @@ function FlightEdit() {
                  <b> Business Class Ticket Price: </b>{data.businessClass}<br/>
                  <b> Image                      : </b>{data.images}<br/>
                 </Card.Text>
+                <Link to={"/editorDash/flightUpdateForm/" + data._id}>
                 <Button variant="warning">Update</Button>
+                </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteFlights(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
