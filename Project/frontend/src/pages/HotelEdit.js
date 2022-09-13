@@ -2,6 +2,8 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+
 
 function HotelEdit() { 
   const [hotels, setHotels] = useState([]);
@@ -27,7 +29,7 @@ function HotelEdit() {
         });
     }
 
-  useEffect(() => { getHotels() } , []);  //Shows changes of the page
+  useEffect(() => { getHotels() });  //Shows changes of the page
 
   return (
     <div className='container text-center'>
@@ -47,7 +49,9 @@ function HotelEdit() {
                   Facilities: {data.facilities}<br/>
                   Images: {data.images}<br/>
                 </Card.Text>
+                <Link to={"/editorDash/hotelUpdateForm/"+data._id}>
                 <Button variant="warning">Update</Button>
+                </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteHotels(data._id)}>Delete</Button>
               </Card.Body>
             </Card>

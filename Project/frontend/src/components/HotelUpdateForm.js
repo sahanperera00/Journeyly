@@ -1,4 +1,4 @@
-/*import { useState, useEffect } from 'react';  //STILL CONTINUING
+import { useState, useEffect } from 'react';  //STILL CONTINUING
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ function HotelUpdateForm(){
 
     const getHotel=()=>{
         axios.get("http://localhost:8070/hotels/"+id).then((res)=>{
-            const updateHotelDetails={
+            /*const updateHotelDetails={
                 name: res.data.name,
                 location: res.data.location,
                 price: res.data.price,
@@ -25,19 +25,120 @@ function HotelUpdateForm(){
                 facilities: res.data.facilities,
                 images: res.data.images,
 
-            }
-            setName(updateHotelDetails.name);
-            setLocation(updateHotelDetails.location);
-            setPrice(updateHotelDetails.price);
-            setDescription(updateHotelDetails.description);
-            setStars(updateHotelDetails.stars);
-            setFacilities(updateHotelDetails.facilities);
-            setImages(updateHotelDetails.images);
+            }*/
+            setName(res.data.name);
+            setLocation(res.data.location);
+            setPrice(res.data.price);
+            setDescription(res.data.description);
+            setStars(res.data.stars);
+            setFacilities(res.data.facilities);
+            setImages(res.data.images);
         })
         .catch((err) => {
             alert(err.message);
         });
     }
 
-    useEffect(()=> getHotel(),[]);
-}   */ //STILL CONTINUING
+    useEffect(()=> getHotel()); // RUns everytime page opens
+
+    return(
+        <div>
+            <h1 className='text-center'>Update Hotel Content</h1>
+        <div className="App">
+            <form onSubmit={async (e) => {
+                e.preventDefault();
+/*
+                const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
+        
+                uploadBytes(imageRef, imageI)
+                    .then(() => {
+                        console.log('Uploaded image');
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+
+                await getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
+                    .then((url) => {
+                        console.log(url);
+                        setImages(url);
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+*/
+                const newHotel = {
+                    name,
+                    location,
+                    price,
+                    description,
+                    stars,
+                    facilities,
+                    images
+                }
+
+                axios.put("http://localhost:8070/hotels/update/"+id, newHotel)
+                    .then(() => {
+                        alert("Hotel Content updated successfully");
+
+                    }).catch((err) => {
+                        alert(err);
+                    })
+            }}>
+
+                <div className="form-group">
+                    <label className="form-label">Name</label>
+                    <input type="text" className="form-control" value={name}
+                    onChange={(e) => {
+                        setName(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Location</label>
+                    <input type="text" className="form-control" value={location}
+                    onChange={(e) => {
+                        setLocation(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Price</label>
+                    <input type="number" className="form-control" value={price} 
+                    onChange={(e) => {
+                        setPrice(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Description</label>
+                    <input type="text" className="form-control" value={description}
+                    onChange={(e) => {
+                        setDescription(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Stars</label>
+                    <input type="number" className="form-control" value={stars} min="1" max="5"
+                    onChange={(e) => {
+                        setStars(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Facilities</label>
+                    <input type="text" className="form-control" value={facilities}
+                    onChange={(e) => {
+                        setFacilities(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Images</label>
+                    <input type="file" className="form-control" 
+                    onChange={(e) => {
+                        setImages(e.target.value);
+                    }} required/>
+                </div>
+                <br />
+                <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+            </form>
+        </div>
+        </div>
+    )
+}   
+
+export default HotelUpdateForm;
