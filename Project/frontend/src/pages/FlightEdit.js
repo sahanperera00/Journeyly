@@ -28,7 +28,7 @@ function FlightEdit() {
         });
     }
 
-  useEffect(() => { getFlights() } , []);  //Shows changes of the page
+  useEffect(() => { getFlights() });  //Shows changes of the page
 
   return (
     <div className='container text-center'>
