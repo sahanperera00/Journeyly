@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
-    
-function PackageUpdateForm(){
+function PackageUpdateForm() {
     const [name, setName] = useState('');
     const [destination, setDestination]=useState('');
     const [members,setMembers]=useState('');
@@ -16,13 +15,12 @@ function PackageUpdateForm(){
     const [price,setPrice]=useState('');
     const [image, setImage] = useState('');
 
-    //identify
     const {id} = useParams();
   
-    const getPackage = () => {   
-        axios.get("http://localhost:8070/package/"+id)
+    const newPackage = () => {   
+        axios.get("http://localhost:8070/packages/"+id)
             .then((res) => {
-                const updatePackages = {
+                const updatePackages  = {
                     name: res.data.name,
                     destination: res.data.destination,
                     members: res.data.members,
@@ -42,25 +40,17 @@ function PackageUpdateForm(){
                 setGuide(updatePackages.guide);
                 setPrice(updatePackages.price);
                 setImage(updatePackages.image);
-/*
-                setName(res.data.name);
-                setLocation(res.data.location);
-                setPrice(res.data.price);
-                setDescription(res.data.description);
-                setStars(res.data.stars);
-                setFacilities(res.data.facilities);
-                setImages(res.data.images);*/
             })
             .catch((err) => {
                 alert(err);
             });
     };
     
-    useEffect(() => { getPackage() }, []);
+    useEffect(() => { newPackage() },[]);
 
     return (
         <div>
-            <h1 className='text-center'>Update Package</h1>
+            <h1 className='text-center'>Update Package Destination</h1>
         <div className="App">
             <form onSubmit={async (e) => {
                 e.preventDefault();
@@ -94,78 +84,57 @@ function PackageUpdateForm(){
                     image
                 }
 
-                axios.put("http://localhost:8070/destination/update/"+id, newPackage)
+                axios.put("http://localhost:8070/packages/update/"+id, newPackage)
                     .then(() => {
-                        alert("Destination updated successfully");
+                        alert("Package updated successfully");
 
                     }).catch((err) => {
                         alert(err);
                     })
             }}>
 
-<div className="form-group">
-                    <label className="form-label">Package Name</label>
-                    <input type="text" className="form-control" 
+                <div className="form-group">
+                    <label className="form-label">Name</label>
+                    <input type="text" className="form-control" value={name}
                     onChange={(e) => {
                         setName(e.target.value);
                     }} required/>
                 </div>
-
                 <div className="form-group">
                     <label className="form-label">destination</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" value={destination}
                     onChange={(e) => {
                         setDestination(e.target.value);
                     }} required/>
                 </div>
-
                 <div className="form-group">
                     <label className="form-label">members</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" value={members}
                     onChange={(e) => {
                         setMembers(e.target.value);
                     }} required/>
                 </div>
-
                 <div className="form-group">
                     <label className="form-label">hotel</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" value={hotel}
                     onChange={(e) => {
                         setHotel(e.target.value);
-                    }}/>
+                    }} />
                 </div>
-
                 <div className="form-group">
                     <label className="form-label">roomType</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" value={roomType}
                     onChange={(e) => {
                         setRoomType(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
                     <label className="form-label">vehicle</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" value={vehicle}
                     onChange={(e) => {
                         setVehicle(e.target.value);
                     }} />
                 </div>
-
-                <div className="form-group">
-                    <label className="form-label">guide</label>
-                    <input type="text" className="form-control" 
-                    onChange={(e) => {
-                        setGuide(e.target.value);
-                    }} />
-                </div>
-                
-                <div className="form-group">
-                    <label className="form-label">price</label>
-                    <input type="text" className="form-control" 
-                    onChange={(e) => {
-                        setPrice(e.target.value);
-                    }} required/>
-                </div>
-
                 <div className="form-group">
                     <label className="form-label">Images</label>
                     <input type="file" className="form-control" 
@@ -173,12 +142,26 @@ function PackageUpdateForm(){
                         setImage(e.target.files[0]);
                     }} required/>
                 </div>
-                <br />
+                <div className="form-group">
+                    <label className="form-label">guidet</label>
+                    <input type="text" className="form-control" value={guide}
+                    onChange={(e) => {
+                        setGuide(e.target.value);
+                    }} />
+                </div>
+                <div className="form-group">
+                    <label className="form-label">price</label>
+                    <input type="Number" className="form-control" value={price}
+                    onChange={(e) => {
+                        setPrice(e.target.value);
+                    }} required/>
+                </div><br />
                 <button type="submit" className="btn btn-dark">Submit</button><br /><br />
             </form>
         </div>
         </div>
     )
 }
+
 
 export default PackageUpdateForm;

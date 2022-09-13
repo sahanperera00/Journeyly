@@ -28,7 +28,7 @@ function FlightEdit() {
         });
     }
 
-  useEffect(() => { getFlights() } , []);  //Shows changes of the page
+  useEffect(() => { getFlights() });  //Shows changes of the page
 
   return (
     <div className='container text-center'>
@@ -38,6 +38,7 @@ function FlightEdit() {
         {flights.map((data) => {
           return (
             <Card style={{ width: '25rem', margin: '1rem', padding: '1rem'}}>
+              <Card.Img src = {data.imageI}/>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.flightId}</Card.Subtitle>
@@ -49,8 +50,6 @@ function FlightEdit() {
                  <b> Arrival Date               : </b>{data.arrivalDate}<br/>
                  <b> Arrival Time               : </b>{data.arrivalTime}<br/>
                  <b> Economy Class Ticket Price : </b>{data.economyClass}<br/>
-                 <b> Business Class Ticket Price: </b>{data.businessClass}<br/>
-                 <b> Image                      : </b>{data.images}<br/>
                 </Card.Text>
                 <Link to={"/editorDash/flightUpdateForm/" + data._id}>
                 <Button variant="warning">Update</Button>
