@@ -56,7 +56,7 @@ function PackageUpdateForm(){
             });
     };
     
-    useEffect(() => { getPackage() }, []);
+    useEffect(() => { getPackage() });
 
     return (
         <div>
