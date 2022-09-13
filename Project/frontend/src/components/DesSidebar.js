@@ -20,12 +20,12 @@ function DesSidebar() {
 
   return (
     <div className='DesSidebar'>
-      <div className='container d-flex flex-wrap'>
+      <div className='container'>
         {attractions.map((data) => {
           return (
-            <Card className='DesSidebarCard' key={`${data._id} + 1`} style={{ margin: '1rem'}}>
-              <Card.Img key={`${data._id} + 1`} variant="top" src={data.images} />
-              <Card.Body key={`${data._id} + 2`}>
+            <Card className='DesSidebarCard' key={`${data._id} + 1`}>
+              <Card.Img className='DesCardImg' key={`${data._id} + 1`} src={data.images} />
+              <Card.Body className='DesCardBody' key={`${data._id} + 2`}>
                 <Card.Title key={`${data._id} + 1`}>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted" key={2}>{data.shortDesc}</Card.Subtitle>
                 <Card.Text key={`${data._id} + 3`}>
