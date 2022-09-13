@@ -41,11 +41,12 @@ function PackagesEdit() {
         {packages.map((data) => {
           return (
             <Card style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
+              <Card.Img src={data.image}/>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
                 <Card.Text>
-                image: {data.image}<br/>
+               
                 name: {data.name}<br/>
                 destination: {data.destination}<br/>
                 members: {data.members}<br/>
@@ -56,10 +57,11 @@ function PackagesEdit() {
                 price: {data.price}<br/>
                
                 </Card.Text>
-                <Link to={"/editorDash/PackageUpdateForm/"+data._id}>
-                <Button variant="warning">Update</Button>
+                
+                <Link key={`${data._id} + 4`} to={"/editorDash/PackageUpdateForm/"+data._id}>
+                <Button key={`${data._id} + 1`}variant="warning">Update</Button>
                 </Link>
-                <Button variant="danger" className='ms-3' onClick={() => deletePackages(data._id)}>Delete</Button>
+                <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deletePackages(data._id)}>Delete</Button>
               </Card.Body>
             </Card>
           )        

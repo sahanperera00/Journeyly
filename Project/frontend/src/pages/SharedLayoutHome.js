@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 
 function SharedLayoutHome() {
     return (
-        <div>
+        <div className='bg-light'>
             <Navbar />
             <Outlet />
         </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function DestinationForm() {
     const [name, setName] = useState('');

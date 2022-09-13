@@ -5,17 +5,17 @@ import Navbarx from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import { Link } from "react-router-dom";
-import logo from '../images/Journeyly-color.png';
+import logo from '../images/Journeyly-W.png';
 
 function Navbar() {
   return (
     <Navbarx className='NavbarCont' expand="lg">
       <Container>
-        <LinkContainer to="/">
-            <Navbarx.Brand><img src={logo} alt='heroimg' /></Navbarx.Brand>
-        </LinkContainer>
         <Navbarx.Toggle aria-controls="basic-navbar-nav" />
-        <Navbarx.Collapse id="basic-navbar-nav">
+        <Navbarx.Collapse id="basic-navbar-nav" className='NavbarList'>
+          <LinkContainer to="/" className="NavbarLogo">
+              <Navbarx.Brand><img src={logo} alt='heroimg' /></Navbarx.Brand>
+          </LinkContainer>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/flights" className='navlink'>Flights</Nav.Link>
             <Nav.Link as={Link} to="/hotels" className='navlink'>Hotels</Nav.Link>
@@ -25,9 +25,6 @@ function Navbar() {
           </Nav>
             <Link to={"/login"}>
                 <Button variant="outline-light">Login</Button>
-            </Link>
-            <Link to={"/registration"}>
-                <Button variant="outline-light ms-2">Sign Up</Button>
             </Link>
             <Link to={"/editorDash"}>
                 <Button variant="outline-light ms-2">Editor Login</Button>

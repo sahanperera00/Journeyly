@@ -21,7 +21,10 @@ import {
     PackagesEdit,
     PackageUpdateForm,
     HotelUpdateForm,
-    RegistrationForm
+    RegistrationForm,
+    SharedLayoutDestination,
+    DesPreview,
+    FlightUpdateForm,
 } from '../pages';
 
 function AppRoutes() {
@@ -32,7 +35,10 @@ function AppRoutes() {
                     <Route index element={<Home />} />
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />
-                    <Route path="attractions" element={<Attractions />} /> 
+                    <Route path="attractions" element={<SharedLayoutDestination />}>
+                        <Route index element={<Attractions />} />
+                        <Route path=":id" element={<DesPreview />} />
+                    </Route>
                     <Route path="taxis" element={<Taxis />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="login" element={<Login />} />
@@ -53,6 +59,7 @@ function AppRoutes() {
                     <Route path="flightForm" element={<FlightForm/>}/>
                     <Route path="flightEdit" element={<FlightEdit/>}/>
                     <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
+                    <Route path="flightUpdateForm/:id" element={<FlightUpdateForm />}/>
                     <Route path="PackageForm" element={<PackageForm/>}/>
                     <Route path="PackagesEdit" element={<PackagesEdit/>}/>
                     <Route path="PackageUpdateForm/:id" element={<PackageUpdateForm/>}/>
