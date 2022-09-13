@@ -41,7 +41,7 @@ export const updateFinance = async (req, res) => {
     }
 }
 
-export const deleteFinanace = async (req, res) => {
+export const deleteFinance = async (req, res) => {
     const id = req.params.id;
     try {
         await Finance.findByIdAndDelete(id);

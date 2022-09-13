@@ -24,6 +24,9 @@ import HotelUpdateForm from "../components/HotelUpdateForm";
 import FlightUpdateForm from "../components/FlightUpdateForm";
 import RegistrationForm from './RegistrationForm';
 import Footer from '../components/Footer';
+import SharedLayoutDestination from './SharedLayoutDestination';
+import DesSidebar from '../components/DesSidebar';
+import DesPreview from './DesPreview';
 
 export {
     Home,
@@ -52,4 +55,7 @@ export {
     FlightUpdateForm,
     RegistrationForm,
     Footer,
+    SharedLayoutDestination,
+    DesSidebar,
+    DesPreview,
 };
