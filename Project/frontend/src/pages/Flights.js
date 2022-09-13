@@ -15,7 +15,7 @@ function Flights() {
       });
   }
 
-  useEffect(() => { getFlights() } , []);  //Shows changes of the page
+  useEffect(() => { getFlights() });  //Shows changes of the page
 
   return (
     <div className='container text-center'>
@@ -25,6 +25,7 @@ function Flights() {
         {flights.map((data) => {
           return (
             <Card style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
+              <Card.Img src = {data.imageI}/>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.flightId}</Card.Subtitle>
@@ -37,7 +38,6 @@ function Flights() {
                  <b> Arrival Time               : </b>{data.arrivalTime}<br/>
                  <b> Economy Class Ticket Price : </b>{data.economyClass}<br/>
                  <b> Business Class Ticket Price: </b>{data.businessClass}<br/>
-                 <b> Image                      : </b>{data.images}<br/>
                 </Card.Text>
               </Card.Body>
             </Card>

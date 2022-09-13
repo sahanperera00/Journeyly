@@ -43,8 +43,8 @@ const flightSchema = new Schema({
         type:Number,
         required: true
     },
-    images:{
-        type:[String],
+    imageI:{
+        type:String,
         required: true
     }
 });
