@@ -24,7 +24,8 @@ function Hotels() {
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {hotels.map((data) => {
           return (
-            <Card style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
+            <Card style={{ width: '19rem', margin: '1rem'}}>
+              <Card.Img src={data.images}/>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
@@ -33,7 +34,7 @@ function Hotels() {
                   Description: {data.description}<br/>
                   Stars: {data.stars}<br/>
                   Facilities: {data.facilities}<br/>
-                  Images: {data.images}<br/>
+                  
                 </Card.Text>
               </Card.Body>
             </Card>
