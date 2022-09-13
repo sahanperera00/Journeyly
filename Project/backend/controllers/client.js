@@ -3,8 +3,8 @@ import Client from "../models/client.js";
 
 export const getAllClients = async (req, res) => {
     try {
-        const client = await Client.find();
-        res.status(200).json(client);
+        const clients = await Client.find();
+        res.status(200).json(clients);
     } catch (error) {
         res.status(404).json({ message: error });
     }
