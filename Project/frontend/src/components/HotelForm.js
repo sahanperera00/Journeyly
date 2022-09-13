@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function HotelForm(){
     const [name, setName]=useState('');
@@ -16,27 +18,43 @@ function HotelForm(){
         <div>
             <h1 className='text-center'>Add Hotel Content</h1>
         <div className="App">
-            <form onSubmit={(e) => {
+            <form onSubmit={async(e) => {
                 e.preventDefault();
 
-                const newHotel = {
-                    name,
-                    location,
-                    price,
-                    description,
-                    stars,
-                    facilities,
-                    images
-                }
+                const imageRef = ref(storage,`images/hotel/${name+images.name}`); // Stores the reference of the image
 
-                axios.post("http://localhost:8070/hotels/create", newHotel)
-                    .then(() => {
-                        alert("Hotel Content added successfully");
-                    }).catch((err) => {
-                        alert("Error adding Hotel Content");
+                await uploadBytes(imageRef,images).then(()=>{  //uploads the image to the firebase DB
+                    console.log('Uploaded Images');
+                }).catch((err)=>{
+                    console.log(err);
+                })
+
+                await getDownloadURL(ref(storage,`images/hotel/${name+images.name}`))   //gets the 
+                .then((url)=>{
+                    console.log(url);
+                
+                    const newHotel = {
+                        name,
+                        location,
+                        price,
+                        description,
+                        stars,
+                        facilities,
+                        images:url
+                    }
+
+                    axios.post("http://localhost:8070/hotels/create", newHotel)
+                        .then(() => {
+                            alert("Hotel Content added successfully");
+                        }).catch((err) => {
+                            alert("Error adding Hotel Content");
+                            console.log(err);
+                        })
+                    }).catch((err)=>{
                         console.log(err);
                     })
             }}>
+            
 
                 <div className="form-group">
                     <label className="form-label">Name</label>
@@ -82,9 +100,9 @@ function HotelForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label">Images</label>
-                    <input type="text" className="form-control" 
+                    <input type="file" className="form-control" 
                     onChange={(e) => {
-                        setImages(e.target.value);
+                        setImages(e.target.files[0]);
                     }} required/>
                 </div>
                 <br />
