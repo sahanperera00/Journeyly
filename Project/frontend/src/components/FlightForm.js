@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function FlightForm(){
     const [name, setName]=useState('');
@@ -12,7 +14,8 @@ function FlightForm(){
     const [arrivalTime,setArrivalTime]=useState('');
     const [economyClass,setEconomyPrice]=useState('');
     const [businessClass,setBusinessPrice]=useState('');
-    const [images,setImages]=useState('');
+    const [imageI, setImageI] = useState('');
+    // const [images, setImages] = useState('');
 
 
 
@@ -20,8 +23,23 @@ function FlightForm(){
         <div>
             <h1 className='text-center'>Add Flight Content</h1>
         <div className="App">
-            <form onSubmit={(e) => {
-                e.preventDefault();
+            
+                <form onSubmit={async (e) => {
+                    e.preventDefault();
+    
+                    const imageRef = ref(storage, `images/flights/${name + imageI.name}`);
+                 
+                    await uploadBytes(imageRef, imageI)
+                    .then(() => {
+                        console.log('Uploaded images');
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+    
+                    await getDownloadURL(ref(storage, `images/flights/${name + imageI.name}`))
+                    .then((url) => {
+                        // setImages(url);
+                        console.log(url);
 
                 const newFlight = {
                     name,
@@ -34,7 +52,7 @@ function FlightForm(){
                     arrivalTime,
                     economyClass,
                     businessClass,
-                    images
+                    imageI:url
                 }
 
                 axios.post("http://localhost:8070/flights/create", newFlight)
@@ -44,6 +62,11 @@ function FlightForm(){
                         alert("Error adding Flight Content");
                         console.log(err);
                     })
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+                
             }}>
 
                 <div className="form-group">
@@ -120,7 +143,7 @@ function FlightForm(){
                     <label className="form-label">Images</label>
                     <input type="file" className="form-control" 
                     onChange={(e) => {
-                        setImages(e.target.value);
+                        setImageI(e.target.files[0]);
                     }} required/>
                 </div>
                 <br />

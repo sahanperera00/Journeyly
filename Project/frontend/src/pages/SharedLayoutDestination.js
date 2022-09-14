@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import DesSidebar from '../components/DesSidebar';
 
 function SharedLayoutHome() {
     return (
         <div className='bg-light'>
-            <Navbar />
+            <DesSidebar />
             <Outlet />
         </div>
     );

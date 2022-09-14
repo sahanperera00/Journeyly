@@ -19,8 +19,9 @@ function PackageForm(){
 
     return (
         <div>
-            <h1 className='text-center'>Add Package Detail</h1>
+            <h1 className='text-center'>Add Package Details</h1>
         <div className="App">
+            <br/>
             <form onSubmit={(e) => {
                 e.preventDefault();
 //image
@@ -61,8 +62,10 @@ function PackageForm(){
                         console.log(err);
                     })
             }}>
+
+
                 <div className="form-group">
-                    <label className="form-label">Package Name</label>
+                    <label className="form-label">Enter Package Name</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setName(e.target.value);
@@ -70,7 +73,7 @@ function PackageForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">destination</label>
+                    <label className="form-label">Travel Destination</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setDestination(e.target.value);
@@ -78,7 +81,7 @@ function PackageForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">members</label>
+                    <label className="form-label">Members Count </label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setMembers(e.target.value);
@@ -86,7 +89,7 @@ function PackageForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">hotel</label>
+                    <label className="form-label">Hotel Name</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setHotel(e.target.value);
@@ -94,14 +97,14 @@ function PackageForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">roomType</label>
+                    <label className="form-label">Hotel Room Type</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setRoomType(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">vehicle</label>
+                    <label className="form-label">Vehicle</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setVehicle(e.target.value);
@@ -109,7 +112,7 @@ function PackageForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">guide</label>
+                    <label className="form-label">Guide</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setGuide(e.target.value);
@@ -117,7 +120,7 @@ function PackageForm(){
                 </div>
                 
                 <div className="form-group">
-                    <label className="form-label">price</label>
+                    <label className="form-label">Package Price (SriLankan rupees)</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setPrice(e.target.value);
@@ -125,7 +128,7 @@ function PackageForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">Images</label>
+                    <label className="form-label">Add Image</label>
                     <input type="file" className="form-control" 
                     onChange={(e) => {
                         setImage(e.target.files[0]);
