@@ -24,7 +24,7 @@ function VehicleForm(){
             <form onSubmit={(e) => {
                 e.preventDefault();
 //image
-                const imageRef = ref(storage, `images/vehicles/${name + image.name}`);
+                const imageRef = ref(storage, `images/vehicles/${ownerName + image.name}`);
              
                 uploadBytes(imageRef, image)
                 .then(() => {
@@ -33,7 +33,7 @@ function VehicleForm(){
                     console.log(err);
                 })
 
-                getDownloadURL(ref(storage, `images/vehicles/${name + image.name}`))
+                getDownloadURL(ref(storage, `images/vehicles/${ownerName + image.name}`))
                 .then((url) => {
                     console.log(url);
                     setImage(url);
