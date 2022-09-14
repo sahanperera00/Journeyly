@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const vehicle = mongoose.Schema;
 
 const newVehicle = new vehicle({
-    vehicleId: {
+    type: {
         type: String,
         required: true
     },
     
-    type: {
+    vehicleType: {
         type: String,
         required: true
     }, 

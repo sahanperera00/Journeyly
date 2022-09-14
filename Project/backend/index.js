@@ -29,7 +29,7 @@ app.use("/packages",packageRouter);
 app.use("/client",clientRouter);
 app.use("/finance",financeRouter);
 app.use('/rental', rentalRoutes);
-app.use('/vehicle', vehicleRoutes);
+app.use('/vehicles', vehicleRoutes);
 app.use("/feedback",feedbackRouter);
 
 const URL = process.env.MONGODB_URL;
