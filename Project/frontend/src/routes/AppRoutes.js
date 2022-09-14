@@ -4,7 +4,8 @@ import {
     Flights,
     Hotels,
     Attractions,
-    //Taxis,
+    Taxis,
+    Vehicles,
     Login,
     Packages,
     EditorDashboard,
@@ -25,6 +26,9 @@ import {
     SharedLayoutDestination,
     DesPreview,
     FlightUpdateForm,
+    VehicleUpdateForm,
+    VehicleForm,
+    VehiclesEdit
 } from '../pages';
 
 function AppRoutes() {
@@ -51,7 +55,8 @@ function AppRoutes() {
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />
                     <Route path="attractions" element={<Attractions />} /> 
-                    <Route path="taxis" element={<Taxis />} />
+                   
+                    <Route path="vehicles" element={<Vehicles />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="attractionEdit" element={<AttractionEdit />} />
                     <Route path="hotelForm" element={<HotelForm/>}/>
@@ -60,10 +65,13 @@ function AppRoutes() {
                     <Route path="flightEdit" element={<FlightEdit/>}/>
                     <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
                     <Route path="flightUpdateForm/:id" element={<FlightUpdateForm />}/>
-                    <Route path="PackageForm" element={<PackageForm/>}/>
-                    <Route path="PackagesEdit" element={<PackagesEdit/>}/>
-                    <Route path="PackageUpdateForm/:id" element={<PackageUpdateForm/>}/>
+                    <Route path="packageForm" element={<PackageForm/>}/>
+                    <Route path="packagesEdit" element={<PackagesEdit/>}/>
+                    <Route path="packageUpdateForm/:id" element={<PackageUpdateForm/>}/>
                     <Route path="hotelUpdateForm/:id" element={<HotelUpdateForm/>}/>
+                    <Route path="vehicleForm" element={<VehicleForm/>}/>
+                    <Route path="vehiclesEdit" element={<VehiclesEdit/>}/>
+                    <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
                 </Route>
                 
             </Routes>

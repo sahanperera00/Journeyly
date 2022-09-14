@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import { deleteVehicle } from '../../../backend/controllers/vehicles';
+// import { deleteVehicle } from '../../../backend/controllers/vehicles';
 
 
 function VehiclesEdit() { 
@@ -48,11 +48,11 @@ function VehiclesEdit() {
                 <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
                 <Card.Text>
                
-                type = {data.name}<br/>
-                vehicleType = {data.destination}<br/>
-                driverName      = {data.members}<br/>
-                ownerName        = {data.hotel}<br/>
-                email    = {data.roomType}<br/>
+                type = {data.type}<br/>
+                vehicleType = {data.vehicleType}<br/>
+                driverName      = {data.driverName}<br/>
+                ownerName        = {data.ownerName}<br/>
+                email    = {data.email}<br/>
                 phoneNo            ={data.phoneNo}<br/>
                 fee              = {data.fee}<br/>
                
