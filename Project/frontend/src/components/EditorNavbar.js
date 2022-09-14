@@ -43,12 +43,17 @@ function EditorNavbar() {
               <LinkContainer to="/editorDash/attractions">
                 <NavDropdown.Item>Client View</NavDropdown.Item>
               </LinkContainer>
+
             </NavDropdown>
             <NavDropdown title="Taxis" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Update & Delete</NavDropdown.Item>
+            <LinkContainer to="/editorDash/VehicleForm">
+                <NavDropdown.Item>Create</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/editorDash/VehiclesEdit">
+                <NavDropdown.Item>Update & Delete</NavDropdown.Item>
+              </LinkContainer>
               <NavDropdown.Divider />
-              <LinkContainer to="/editorDash/taxis">
+              <LinkContainer to="/editorDash/Vehicles">
                 <NavDropdown.Item>Client View</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
