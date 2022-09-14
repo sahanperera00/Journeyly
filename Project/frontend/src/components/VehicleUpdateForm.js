@@ -17,9 +17,9 @@ function VehicleUpdateForm() {
     const {id} = useParams();
   
     const newVehicle = () => {   
-        axios.get("http://localhost:8070/packages/"+id)
+        axios.get("http://localhost:8070/vehicles/"+id)
             .then((res) => {
-                const updatePackages  = {
+                const updateVehicles = {
                     type: res.data.type,
                     vehicleType: res.data.vehicleType,
                     driverName: res.data.driverName,
@@ -30,14 +30,14 @@ function VehicleUpdateForm() {
                     image: res.data.image
                     
                 }
-                settype(updatePackages.type);
-                setvehicleType(updatePackages.vehicleType);
-                setdriverName(updatePackages.driverName);
-                setownerName(updatePackages.ownerName);
-                setemail(updatePackages.email);
-                setphoneNo(updatePackages.phoneNo);
-                setfee(updatePackages.fee);
-                setImage(updatePackages.image);
+                settype(updateVehicles.type);
+                setvehicleType(updateVehicles.vehicleType);
+                setdriverName(updateVehicles.driverName);
+                setownerName(updateVehicles.ownerName);
+                setemail(updateVehicles.email);
+                setphoneNo(updateVehicles.phoneNo);
+                setfee(updateVehicles.fee);
+                setImage(updateVehicles.image);
             })
             .catch((err) => {
                 alert(err);
@@ -48,7 +48,7 @@ function VehicleUpdateForm() {
 
     return (
         <div>
-            <h1 className='text-center'>Update Package Destination</h1>
+            <h1 className='text-center'>Update Vehicle Destination</h1>
         <div className="App">
             <form onSubmit={async (e) => {
                 e.preventDefault();
