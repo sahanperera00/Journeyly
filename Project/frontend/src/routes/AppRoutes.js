@@ -4,7 +4,7 @@ import {
     Flights,
     Hotels,
     Attractions,
-    Taxis,
+    //Taxis,
     Login,
     Packages,
     EditorDashboard,

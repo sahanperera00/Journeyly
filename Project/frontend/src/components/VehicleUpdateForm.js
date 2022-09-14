@@ -53,7 +53,7 @@ function VehicleUpdateForm() {
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
-                const imageRef = ref(storage, `images/vehicles/${name + image.name}`);
+                const imageRef = ref(storage, `images/vehicles/${name +  image.name}`);
         
                 uploadBytes(imageRef, image)
                     .then(() => {
