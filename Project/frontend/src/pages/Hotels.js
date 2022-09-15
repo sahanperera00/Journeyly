@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import '../styles/leo/Hotel.css'
 
 function Hotels() { 
   const [hotels, setHotels] = useState([]);
@@ -21,14 +22,16 @@ function Hotels() {
     <div className='container text-center'>
       <h1 className='text-center'>Hotels</h1>
 
-      <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
+      <div className='hotelContainer' >
         {hotels.map((data) => {
           return (
-            <Card style={{ width: '19rem', margin: '1rem'}}>
-              <Card.Img src={data.images}/>
-              <Card.Body>
+            <Card className='hotelCard'>
+              <div className='hotelImageContainer'>
+              <Card.Img className="hotelImage" src={data.images}/>
+              </div>
+              <Card.Body className="hotelCardBody">
                 <Card.Title>{data.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
+                <Card.Subtitle className="">{data.location}</Card.Subtitle>
                 <Card.Text>
                   Price: {data.price}<br/>
                   Description: {data.description}<br/>
