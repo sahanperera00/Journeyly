@@ -27,6 +27,11 @@ import Footer from '../components/Footer';
 import SharedLayoutDestination from './SharedLayoutDestination';
 import DesSidebar from '../components/DesSidebar';
 import DesPreview from './DesPreview';
+import VehicleForm from '../components/VehicleForm';
+import VehicleUpdateForm from '../components/VehicleUpdateForm';
+import Vehicles from './Vehicles';
+import VehiclesEdit from './VehiclesEdit';
+import HotelPreview from './HotelPreview';
 
 export {
     Home,
@@ -58,4 +63,10 @@ export {
     SharedLayoutDestination,
     DesSidebar,
     DesPreview,
+    VehicleForm,
+    VehicleUpdateForm,
+    Vehicles,
+    VehiclesEdit,
+    HotelPreview
+    
 };

@@ -58,27 +58,28 @@ function RegistrationForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label">Contact Number</label>
-                    <input type="number" className="form-control" 
+                    <input type="text" className="form-control" 
                     onChange={(e) => {
                         setContactNo(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Username</label>
-                    <input type="number" className="form-control" min="0" max="5"
+                    <input type="text" className="form-control" min="0" max="5"
                     onChange={(e) => {
                         setUsername(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Password</label>
-                    <input type="text" className="form-control" 
+                    <input type="password" className="form-control" 
                     onChange={(e) => {
                         setPassword(e.target.value);
                     }} required/>
                 </div>
                 <br />
                 <button type="signup" className="btn btn-dark">Sign Up</button><br /><br />
+                <a href="/RegistrationForm">Already Have an Account? Sign in</a>
             </form>
         </div>
         </div>
