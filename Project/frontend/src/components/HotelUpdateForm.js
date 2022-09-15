@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';  //STILL CONTINUING
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function HotelUpdateForm(){
     const [name, setName]=useState('');
@@ -39,7 +40,7 @@ function HotelUpdateForm(){
         });
     }
 
-    useEffect(()=> getHotel()); // RUns everytime page opens
+    useEffect(()=> getHotel(),[]); // RUns everytime page opens
 
     return(
         <div>
@@ -47,24 +48,24 @@ function HotelUpdateForm(){
         <div className="App">
             <form onSubmit={async (e) => {
                 e.preventDefault();
-/*
-                const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
+
+                const imageRef = ref(storage, `images/hotel/${name + images.name}`);
         
-                uploadBytes(imageRef, imageI)
+                uploadBytes(imageRef, images)
                     .then(() => {
                         console.log('Uploaded image');
                     }).catch((err) => {
                         console.log(err);
                     });
 
-                await getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
+                await getDownloadURL(ref(storage, `images/hotel/${name + images.name}`))
                     .then((url) => {
                         console.log(url);
                         setImages(url);
                     }).catch((err) => {
                         console.log(err);
                     });
-*/
+
                 const newHotel = {
                     name,
                     location,
@@ -130,7 +131,7 @@ function HotelUpdateForm(){
                     <label className="form-label">Images</label>
                     <input type="file" className="form-control" 
                     onChange={(e) => {
-                        setImages(e.target.value);
+                        setImages(e.target.files[0]);
                     }} required/>
                 </div>
                 <br />

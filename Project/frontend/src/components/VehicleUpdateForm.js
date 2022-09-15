@@ -53,7 +53,7 @@ function VehicleUpdateForm() {
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
-                const imageRef = ref(storage, `images/vehicles/${name +  image.name}`);
+                const imageRef = ref(storage, `images/vehicles/${ownerName +  image.name}`);
         
                 uploadBytes(imageRef, image)
                     .then(() => {
@@ -62,7 +62,7 @@ function VehicleUpdateForm() {
                         console.log(err);
                     });
 
-                await getDownloadURL(ref(storage, `images/vehicles/${name + image.name}`))
+                await getDownloadURL(ref(storage, `images/vehicles/${ownerName + image.name}`))
                     .then((url) => {
                         console.log(url);
                         setImage(url);
