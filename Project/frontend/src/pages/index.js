@@ -31,6 +31,7 @@ import VehicleForm from '../components/VehicleForm';
 import VehicleUpdateForm from '../components/VehicleUpdateForm';
 import Vehicles from './Vehicles';
 import VehiclesEdit from './VehiclesEdit';
+import HotelPreview from './HotelPreview';
 
 export {
     Home,
@@ -65,6 +66,7 @@ export {
     VehicleForm,
     VehicleUpdateForm,
     Vehicles,
-    VehiclesEdit
+    VehiclesEdit,
+    HotelPreview
     
 };
