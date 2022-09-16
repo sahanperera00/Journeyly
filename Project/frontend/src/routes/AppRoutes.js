@@ -22,6 +22,7 @@ import {
     PackagesEdit,
     PackageUpdateForm,
     HotelUpdateForm,
+    HotelPreview,
     RegistrationForm,
     SharedLayoutDestination,
     DesPreview,
@@ -47,6 +48,7 @@ function AppRoutes() {
                     <Route path="packages" element={<Packages />} />
                     <Route path="login" element={<Login />} />
                     <Route path = "registration" element={<RegistrationForm />} />
+                    <Route path='hotelPreview/:id' element={<HotelPreview/>}/>
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
