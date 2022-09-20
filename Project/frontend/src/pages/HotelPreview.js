@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-function HotelUpdateForm(){
+
+function HotelPreview(){
     const [name, setName]=useState('');
     const [location,setLocation]=useState('');
     const [price,setPrice]=useState('');
@@ -39,8 +40,7 @@ function HotelUpdateForm(){
             alert(err.message);
         });
     }
-
-    useEffect(()=> getHotel(),[]); // RUns everytime page opens
+    useEffect(()=> getHotel(),[]);
 
     return(
         <div>
@@ -142,4 +142,4 @@ function HotelUpdateForm(){
     )
 }   
 
-export default HotelUpdateForm;
+export default HotelPreview;

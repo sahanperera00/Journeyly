@@ -19,6 +19,7 @@ const packageSchema = new Schema({
     },
     hotel : {
         type :String,
+        
        
     },
     roomType : {

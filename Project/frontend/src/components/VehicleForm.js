@@ -4,28 +4,27 @@ import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 
-function PackageForm(){
-    const [name, setName] = useState('');
-    const [destination, setDestination]=useState('');
-    const [members,setMembers]=useState('');
-    const [hotel,setHotel]=useState('');
-    const [roomType,setRoomType]=useState('');
-    const [vehicle,setVehicle]=useState('');
-    const [guide,setGuide]=useState('');
-    const [price,setPrice]=useState('');
-    const [image, setImage] = useState('');
-
+function VehicleForm(){
+    const [type, settype] = useState('');
+    const [vehicleType, setvehicleType]=useState('');
+    const [driverName,setdriverName]=useState('');
+    const [ownerName,setownerName]=useState('');
+    const [email,setemail]=useState('');
+    const [phoneNo,setphoneNo]=useState('');
+    const [fee,setfee]=useState('');
+    const [image,setImage]=useState('');
+    
 
 
     return (
         <div>
-            <h1 className='text-center'>Add Package Details</h1>
+            <h1 className='text-center'>Add Vehicle Details</h1>
         <div className="App">
             <br/>
             <form onSubmit={(e) => {
                 e.preventDefault();
 //image
-                const imageRef = ref(storage, `images/packages/${name + image.name}`);
+                const imageRef = ref(storage, `images/vehicles/${ownerName + image.name}`);
              
                 uploadBytes(imageRef, image)
                 .then(() => {
@@ -34,7 +33,7 @@ function PackageForm(){
                     console.log(err);
                 })
 
-                getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
+                getDownloadURL(ref(storage, `images/vehicles/${ownerName + image.name}`))
                 .then((url) => {
                     console.log(url);
                     setImage(url);
@@ -42,90 +41,84 @@ function PackageForm(){
                     console.log(err);
                 })
 //
-                const newPackage = {
-                    name,
-                    destination,
-                    members,
-                    hotel,
-                    roomType,
-                    vehicle,
-                    guide,
-                    price,
+                const newVehicle= {
+                    type,
+                    vehicleType,
+                    driverName,
+                    ownerName,
+                    email,
+                    phoneNo,
+                    fee,
                     image
+              
                 }
 
-                axios.post("http://localhost:8070/packages/create", newPackage)
+                axios.post("http://localhost:8070/vehicles/create", newVehicle)
                     .then(() => {
-                        alert("Package Content added successfully");
+                        alert("Vehicle Content added successfully");
                     }).catch((err) => {
-                        alert("Error adding Package Content");
+                        alert("Error adding Vehicle Content");
                         console.log(err);
                     })
             }}>
 
 
                 <div className="form-group">
-                    <label className="form-label">Enter Package Name</label>
+                    <label className="form-label">Enter Type Of  Service</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
-                        setName(e.target.value);
+                        settype(e.target.value);
                     }} required/>
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">Travel Destination</label>
+                    <label className="form-label">vehicleType</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
-                        setDestination(e.target.value);
+                        setvehicleType(e.target.value);
                     }} required/>
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">Members Count </label>
+                    <label className="form-label">driverName </label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
-                        setMembers(e.target.value);
+                        setdriverName(e.target.value);
                     }} required/>
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">Hotel Name</label>
+                    <label className="form-label">ownerName</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
-                        setHotel(e.target.value);
+                        setownerName(e.target.value);
                     }}/>
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">Hotel Room Type</label>
+                    <label className="form-label">email</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
-                        setRoomType(e.target.value);
+                        setemail(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Vehicle</label>
+                    <label className="form-label">phoneNo</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
-                        setVehicle(e.target.value);
+                        setphoneNo(e.target.value);
                     }} />
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">Guide</label>
+                    <label className="form-label">fee</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
-                        setGuide(e.target.value);
+                        setfee(e.target.value);
                     }} />
                 </div>
                 
-                <div className="form-group">
-                    <label className="form-label">Package Price (SriLankan rupees)</label>
-                    <input type="text" className="form-control" 
-                    onChange={(e) => {
-                        setPrice(e.target.value);
-                    }} required/>
-                </div>
+                
 
                 <div className="form-group">
                     <label className="form-label">Add Image</label>
@@ -144,4 +137,4 @@ function PackageForm(){
 }
 
 
-export default PackageForm;
+export default VehicleForm;
