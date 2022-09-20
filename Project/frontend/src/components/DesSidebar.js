@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../styles/sahan/DesSidebar.css';
+import { Link } from 'react-router-dom';
 
 function DesSidebar() {
   const [attractions, setAttractions] = useState([]);
@@ -23,6 +24,7 @@ function DesSidebar() {
       <div className='container'>
         {attractions.map((data) => {
           return (
+            <Link to={`/attractions/${data._id}`}>
             <Card className='DesSidebarCard' key={`${data._id} + 1`}>
               <Card.Img className='DesCardImg' key={`${data._id} + 1`} src={data.images} />
               <Card.Body className='DesCardBody' key={`${data._id} + 2`}>
@@ -36,6 +38,7 @@ function DesSidebar() {
                 </Card.Text>
               </Card.Body>
             </Card>
+            </Link>
           )        
         })}
       </div>
