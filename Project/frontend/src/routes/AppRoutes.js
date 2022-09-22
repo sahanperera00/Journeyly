@@ -29,8 +29,11 @@ import {
     FlightUpdateForm,
     VehicleUpdateForm,
     VehicleForm,
-    VehiclesEdit
+    VehiclesEdit,
+    UserDashboard,
+    UserProfile
 } from '../pages';
+
 
 function AppRoutes() {
     return (
@@ -74,8 +77,13 @@ function AppRoutes() {
                     <Route path="vehicleForm" element={<VehicleForm/>}/>
                     <Route path="vehiclesEdit" element={<VehiclesEdit/>}/>
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
+
                 </Route>
                 
+                <Route path="/userDashboard" element={<UserDashboard/>}>
+                    <Route index element={<UserProfile/>}/>
+
+                </Route>
             </Routes>
         </Router>
     );
