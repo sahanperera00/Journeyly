@@ -63,10 +63,8 @@ function Navbar() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
+          
+          <Button variant="btn btn-dark" onClick={handleClose}>
            Login
           </Button>
         </Modal.Footer>
