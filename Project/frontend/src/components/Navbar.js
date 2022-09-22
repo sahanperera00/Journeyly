@@ -6,8 +6,19 @@ import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import { Link } from "react-router-dom";
 import logo from '../images/Journeyly-W.png';
+import { useState } from 'react';
+import LoginForm from '../pages/LoginForm';
+import { Hotels } from '../pages';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 function Navbar() {
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Navbarx className='NavbarCont' expand="lg">
       <Container>
@@ -23,9 +34,42 @@ function Navbar() {
             <Nav.Link as={Link} to="/taxis" className='navlink'>Taxis</Nav.Link>
             <Nav.Link as={Link} to="/packages" className='navlink'>Packages</Nav.Link>
           </Nav>
-            <Link to={"/login"}>
-                <Button variant="outline-light">Login</Button>
-            </Link>
+            {/* <Link to={"/login"}> */}
+                <Button variant="outline-light" onClick={handleShow}>Login</Button>
+            {/* </Link> */}
+
+            <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="username"
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="text"
+                placeholder="password" />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          
+          <Button variant="btn btn-dark" onClick={handleClose}>
+           Login
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
             <Link to={"/editorDash"}>
                 <Button variant="outline-light ms-2">Editor Login</Button>
             </Link>
