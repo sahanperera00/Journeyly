@@ -49,5 +49,24 @@ export const deleteClient = async (req, res) => {
         res.status(200).send({status: "Client details deleted"});
     }catch{
         res.status(404).json({ message: error });
-    }
+    }  
+}
+
+export const loginClient = async(req,res) => {
+    const{email,password} = req.body;
+    
+    try{
+
+        const client = await Client.findOne({email});
+
+        if(!client){
+            return res.status(404).json({message: "Client doesn't exist"});
+        }
+        if(password!== client.password){
+            return res.status(404).json({message:"invalid credentials"});
+        }
+        res.status(200).json(client);
+    }catch(error){
+        res.status(404).json({message:error});
+  }
 }
