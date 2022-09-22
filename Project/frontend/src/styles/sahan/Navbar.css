@@ -7,12 +7,9 @@
     z-index: 2;
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
-    /* background-color: rgba(0, 0, 0, 0.2); */
-    /* backdrop-filter: blur(3px); */
 }
 
 .NavbarLogo {
-    /* background-color: aquamarine; */
 }
 
 .NavbarCont img {
@@ -21,11 +18,9 @@
 }
 
 .NavbarList {
-    /* background-color: blue; */
 }
 
 .me-auto {
-    /* background-color: blanchedalmond; */
     margin-left: 100px;
 }
 

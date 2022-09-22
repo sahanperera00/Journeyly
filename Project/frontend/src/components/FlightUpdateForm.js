@@ -52,7 +52,7 @@ function FlightUpdateForm() {
             });
     };
     
-    useEffect(() => { getFlight() });
+    useEffect(() => { getFlight() },[]);
 
     return (
         <div>
