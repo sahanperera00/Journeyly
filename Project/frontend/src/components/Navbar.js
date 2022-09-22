@@ -4,20 +4,25 @@ import Nav from 'react-bootstrap/Nav';
 import Navbarx from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import logo from '../images/Journeyly-W.png';
 import { useState } from 'react';
 import LoginForm from '../pages/LoginForm';
 import { Hotels } from '../pages';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
+
 
 function Navbar() {
 
   const [show, setShow] = useState(false);
+  const [email, setEmail]=useState('');
+  const [password, setPassword] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
 
   return (
     <Navbarx className='NavbarCont' expand="lg">
@@ -43,30 +48,48 @@ function Navbar() {
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={async(e) => {
+            e.preventDefault();
+
+            axios.post("http://localhost:8070/client/login", {email, password})
+            .then(() => {
+              alert("Login successfull!");
+              navigate('/userDashboard');
+            }).catch((err) => {
+              alert("Login unsuccessful");
+            })
+          }}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="username"
-                autoFocus
-              />
+                type="email"
+                placeholder="email"
+                autoFocus 
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                }} required/>
             </Form.Group>
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>Password</Form.Label>
-              <Form.Control type="text"
-                placeholder="password" />
+              <Form.Control type="password"
+                placeholder="password" 
+                onChange={(e) =>{
+                  setPassword(e.target.value)
+                }}required/>
+                
+                
             </Form.Group>
+            <Button type="submit" variant="btn btn-dark" >
+            Login
+          </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           
-          <Button variant="btn btn-dark" onClick={handleClose}>
-           Login
-          </Button>
+         
         </Modal.Footer>
       </Modal>
 
