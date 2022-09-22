@@ -23,7 +23,7 @@ function RegistrationForm(){
                     contactNo,
                     username,
                     password
-                    
+   
                 }
 
                 axios.post("http://localhost:8070/client/create", newClient)
