@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 function RegistrationForm(){
     const [firstName, setFirstName]=useState('');
@@ -8,6 +10,8 @@ function RegistrationForm(){
     const [contactNo,setContactNo]=useState('');
     const [username, setUsername]=useState('');
     const [password, setPassword]=useState('');
+    
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -29,6 +33,7 @@ function RegistrationForm(){
                 axios.post("http://localhost:8070/client/create", newClient)
                     .then(() => {
                         alert("Registration successfull!");
+                        navigate('/');
                     }).catch((err) => {
                         alert("Unsuccessful!");
                         console.log(err);
