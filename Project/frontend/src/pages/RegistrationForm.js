@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
+
 
 
 function RegistrationForm(){
@@ -84,7 +85,11 @@ function RegistrationForm(){
                 </div>
                 <br />
                 <button type="signup" className="btn btn-dark">Sign Up</button><br /><br />
-                <a href="/RegistrationForm">Already Have an Account? Sign in</a>
+                Already have an account?
+                <Link to={"/"}>
+                         Log in
+                </Link>
+              
             </form>
         </div>
         </div>
