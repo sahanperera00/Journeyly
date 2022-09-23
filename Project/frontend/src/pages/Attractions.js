@@ -6,6 +6,8 @@ function Attractions() {
       <div className='attImgContainer'>
         <div className='attblurContainer'/>
         <h1>Attractions</h1>
+        <h2>Find and book a great experience</h2>
+        <h3>Discover more of your destination and make <br />the most of your trip</h3>
       </div>
     </div>
   )
