@@ -1,8 +1,12 @@
-function Attractions() {
+import '../styles/sahan/Attractions.css';
 
+function Attractions() {
   return (
-    <div>
-      <h1>Destination</h1>
+    <div className='attractionsContainer'>
+      <div className='attImgContainer'>
+        <div className='attblurContainer'/>
+        <h1>Attractions</h1>
+      </div>
     </div>
   )
 }
