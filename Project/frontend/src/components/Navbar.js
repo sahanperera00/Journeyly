@@ -7,8 +7,6 @@ import {LinkContainer} from 'react-router-bootstrap';
 import { Link ,useNavigate} from "react-router-dom";
 import logo from '../images/Journeyly-W.png';
 import { useState } from 'react';
-import LoginForm from '../pages/LoginForm';
-import { Hotels } from '../pages';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
