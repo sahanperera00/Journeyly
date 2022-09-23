@@ -1,14 +1,12 @@
 import '../styles/sahan/Home.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
-import logo from '../images/Journeyly&Slogan-W.png';
 import Tilt from '../components/Tilt';
 import { Link } from "react-router-dom";
 
 
 function Home() {
     const options = {
-        // scale: 1.05,
         reverse: true,
         speed: 1000,
         max: 10,
@@ -22,7 +20,7 @@ function Home() {
                 <Carousel.Item className='heroCont1' interval={2500}>
                     <Tilt options={options} className='heroText1'>
                         <Carousel.Caption className='carousalCap'>
-                            <img src={logo} alt='heroimg' />
+                            <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly%26Slogan-W.png?alt=media&token=49602fb5-6b64-44b0-9d43-a8bb2b7fd31d'} alt='heroimg' />
                             <h1>Travel with us</h1>
                             <p>Travel with us to the most beautiful places in Sri Lanka</p>
                             <Link to={"/registration"}>
@@ -35,7 +33,7 @@ function Home() {
                 <Carousel.Item className='heroCont2' interval={2500}>
                 <Tilt options={options} className='heroText1'>
                     <Carousel.Caption className='carousalCap'>
-                        <img src={logo} alt='heroimg' />
+                        <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly%26Slogan-W.png?alt=media&token=49602fb5-6b64-44b0-9d43-a8bb2b7fd31d'} alt='heroimg' />
                         <h1>Travel with us</h1>
                         <p>Travel with us to the most beautiful places in Sri Lanka</p>
                         <Link to={"/registration"}>
@@ -48,7 +46,7 @@ function Home() {
                 <Carousel.Item className='heroCont3' interval={2500}>
                 <Tilt options={options} className='heroText1'>
                     <Carousel.Caption className='carousalCap'>
-                        <img src={logo} alt='heroimg' />
+                        <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly%26Slogan-W.png?alt=media&token=49602fb5-6b64-44b0-9d43-a8bb2b7fd31d'} alt='heroimg' />
                         <h1>Travel with us</h1>
                         <p>Travel with us to the most beautiful places in Sri Lanka</p>
                         <Link to={"/registration"}>

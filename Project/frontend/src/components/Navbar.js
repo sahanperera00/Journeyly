@@ -5,7 +5,6 @@ import Navbarx from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import { Link ,useNavigate} from "react-router-dom";
-import logo from '../images/Journeyly-W.png';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -28,7 +27,7 @@ function Navbar() {
         <Navbarx.Toggle aria-controls="basic-navbar-nav" />
         <Navbarx.Collapse id="basic-navbar-nav" className='NavbarList'>
           <LinkContainer to="/" className="NavbarLogo">
-              <Navbarx.Brand><img src={logo} alt='heroimg' /></Navbarx.Brand>
+              <Navbarx.Brand><img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly-W.png?alt=media&token=3678d0f0-ef94-4aa1-a087-5afdb5eb57b8'} alt='heroimg' /></Navbarx.Brand>
           </LinkContainer>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/flights" className='navlink'>Flights</Nav.Link>
@@ -37,9 +36,7 @@ function Navbar() {
             <Nav.Link as={Link} to="/taxis" className='navlink'>Taxis</Nav.Link>
             <Nav.Link as={Link} to="/packages" className='navlink'>Packages</Nav.Link>
           </Nav>
-            {/* <Link to={"/login"}> */}
-                <Button variant="outline-light" onClick={handleShow}>Login</Button>
-            {/* </Link> */}
+            <Button variant="outline-light" onClick={handleShow}>Login</Button>
 
             <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

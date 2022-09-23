@@ -33,7 +33,6 @@ import {
     UserProfile
 } from '../pages';
 
-
 function AppRoutes() {
     return (
         <Router>
@@ -57,8 +56,7 @@ function AppRoutes() {
                     <Route path="addAttractionsForm" element={<DestinationForm />} />
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />
-                    <Route path="attractions" element={<Attractions />} /> 
-                   
+                    <Route path="attractions" element={<Attractions />} />
                     <Route path="vehicles" element={<Vehicles />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="attractionEdit" element={<AttractionEdit />} />
@@ -75,13 +73,12 @@ function AppRoutes() {
                     <Route path="vehicleForm" element={<VehicleForm/>}/>
                     <Route path="vehiclesEdit" element={<VehiclesEdit/>}/>
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
-
                 </Route>
                 
                 <Route path="/userDashboard" element={<UserDashboard/>}>
                     <Route index element={<UserProfile/>}/>
-
                 </Route>
+
             </Routes>
         </Router>
     );

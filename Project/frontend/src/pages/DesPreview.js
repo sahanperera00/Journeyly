@@ -16,7 +16,6 @@ function DesPreview() {
         alert(err);
       });
   }
-  // getAttraction();
 
   useEffect(() => { getAttraction() }, [id]);
 

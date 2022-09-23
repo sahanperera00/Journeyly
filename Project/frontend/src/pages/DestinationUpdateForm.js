@@ -75,10 +75,10 @@ function DestinationUpdateForm() {
                         childCost
                     }
 
-                    axios.put("http://localhost:8070/destination/update/"+id, newDestination)
+                    axios.put("http://localhost:8070/destination/update/" + id, newDestination)
                         .then(() => {
                             alert("Destination updated successfully");
-
+                            navigate('/editorDash/attractionEdit');
                         }).catch((err) => {
                             alert(err);
                         })
@@ -86,66 +86,39 @@ function DestinationUpdateForm() {
 
                     <div className="form-group">
                         <label className="form-label">Name</label>
-                        <input type="text" className="form-control" value={name}
-                        onChange={(e) => {
-                            setName(e.target.value);
-                        }} required/>
+                        <input type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Short Description</label>
-                        <input type="text" className="form-control" value={shortDesc}
-                        onChange={(e) => {
-                            setShortDesc(e.target.value);
-                        }} required/>
+                        <input type="text" className="form-control" value={shortDesc} onChange={(e) => { setShortDesc(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Long Description</label>
-                        <input type="text" className="form-control" value={longDesc}
-                        onChange={(e) => {
-                            setLongDesc(e.target.value);
-                        }} required/>
+                        <input type="text" className="form-control" value={longDesc} onChange={(e) => { setLongDesc(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Location</label>
-                        <input type="text" className="form-control" value={location}
-                        onChange={(e) => {
-                            setLocation(e.target.value);
-                        }} required/>
+                        <input type="text" className="form-control" value={location} onChange={(e) => { setLocation(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">What you need to know</label>
-                        <input type="text" className="form-control" value={extra}
-                        onChange={(e) => {
-                            setExtra(e.target.value);
-                        }} required/>
+                        <input type="text" className="form-control" value={extra} onChange={(e) => { setExtra(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">What's included</label>
-                        <input type="text" className="form-control" value={includes}
-                        onChange={(e) => {
-                            setIncludes(e.target.value);
-                        }} required/>
+                        <input type="text" className="form-control" value={includes} onChange={(e) => { setIncludes(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Images</label>
-                        <input type="file" className="form-control" 
-                        onChange={(e) => {
-                            setImageI(e.target.files[0]);
-                        }} required/>
+                        <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Adult Cost</label>
-                        <input type="Number" className="form-control" value={adultCost}
-                        onChange={(e) => {
-                            setAdultCost(e.target.value);
-                        }} required/>
+                        <input type="Number" className="form-control" value={adultCost} onChange={(e) => { setAdultCost(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Child Cost</label>
-                        <input type="Number" className="form-control" value={childCost}
-                        onChange={(e) => {
-                            setChildCost(e.target.value);
-                        }} required/>
+                        <input type="Number" className="form-control" value={childCost} onChange={(e) => { setChildCost(e.target.value) }} required/>
                     </div><br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />
                 </form>
