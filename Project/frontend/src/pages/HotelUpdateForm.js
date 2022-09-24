@@ -61,28 +61,26 @@ function HotelUpdateForm(){
                 await getDownloadURL(ref(storage, `images/hotel/${name + images.name}`))
                     .then((url) => {
                         console.log(url);
-                        setImages(url);
+                        const newHotel = {
+                            name,
+                            location,
+                            price,
+                            description,
+                            stars,
+                            facilities,
+                            images:url
+                        }
+
+                        axios.put("http://localhost:8070/hotels/update/"+id, newHotel)
+                            .then(() => {
+                                alert("Hotel Content updated successfully");
+                            }).catch((err) => {
+                        alert(err);
+                    })
                     }).catch((err) => {
                         console.log(err);
                     });
 
-                const newHotel = {
-                    name,
-                    location,
-                    price,
-                    description,
-                    stars,
-                    facilities,
-                    images
-                }
-
-                axios.put("http://localhost:8070/hotels/update/"+id, newHotel)
-                    .then(() => {
-                        alert("Hotel Content updated successfully");
-
-                    }).catch((err) => {
-                        alert(err);
-                    })
             }}>
 
                 <div className="form-group">
