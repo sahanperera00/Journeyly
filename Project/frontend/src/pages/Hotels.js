@@ -24,32 +24,23 @@ function Hotels() {
   useEffect(() => { getHotels() } , []);  //Shows changes of the page
 
   return (
-    <div className='container text-center'>
-      <h1 className='text-center'>Hotels</h1>
+    <div className='hotelMainContainer'>
+      <h1 className='hotelHeader'>Hotels</h1>
 
-      <div className='hotelContainer' >
-        {hotels.map((data) => {
+      <div className='hotelContainer'>
+        <div className="hotelSideBar">
+          <h1>Hahahahaha</h1>
+        </div>
+        <div className="hotelBodyContainer">
+          {hotels.map((data) => {
           return (
-            <Link to={'hotelPreview/'+data._id}>
-            <Card className='hotelCard'>
-              <div className='hotelImageContainer'>
-              <Card.Img className="hotelImage" src={data.images}/>
-              </div>
-              <Card.Body className="hotelCardBody">
-                <Card.Title>{data.name}</Card.Title>
-                <Card.Subtitle className="">{data.location}</Card.Subtitle>
-                <Card.Text>
-                  Price: {data.price}<br/>
-                  Description: {data.description}<br/>
-                  Stars: {data.stars}<br/>
-                  Facilities: {data.facilities}<br/>
-                  
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            </Link>
+            <Link to={'/hotelPreview/'+data._id}>
+            
+            </Link> 
           )        
         })}
+        </div>
+        
       </div>
     </div>
   )
