@@ -1,0 +1,46 @@
+.desPreviewContainer {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.desPreviewBlueDiv {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.189);
+}
+
+.despreviewTextContainer {
+    width: 50%;
+    height: 75%;
+    margin-left: 10%;
+    margin-top: 8%;
+    position: absolute;
+    z-index: 2;
+    overflow: scroll;
+    /* background-color: aquamarine; */
+}
+
+.descpreviewh1 {
+    color: white;
+    font-size: 80px;
+}
+
+.descpreviewh2 {
+    color: white;
+    font-size: 25px;
+    line-height: 40px;
+    margin-top: 3%;
+    font-weight: lighter;
+}
+
+.descpreviewh3 {
+    color: white;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 3%;
+    font-weight: lighter;
+}
