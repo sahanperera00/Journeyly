@@ -5,10 +5,7 @@ import Navbarx from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import { Link ,useNavigate} from "react-router-dom";
-
 import { useEffect, useState } from 'react';
-
-
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
