@@ -1,0 +1,63 @@
+.desPreviewContainer {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.desPreviewBlueDiv {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.189);
+}
+
+.despreviewTextContainer {
+    width: 43%;
+    height: 75%;
+    margin-left: 10%;
+    margin-top: 8%;
+    position: absolute;
+    overflow: scroll;
+    /* background-color: aquamarine; */
+}
+
+.descpreviewh1 {
+    color: white;
+    font-size: 80px;
+}
+
+.descpreviewh2 {
+    color: white;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 3%;
+    font-weight: lighter;
+}
+
+.descpreviewp {
+    color: white;
+    line-height: 25px;
+    margin-top: 3%;
+    font-weight: lighter;
+}
+
+.reserveBtn {
+    border-radius: 50px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    border: 0.5px solid white;
+    transition: 310ms;
+    text-decoration: none;
+}
+
+.reserveBtn:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.desResFormContainer {
+    width: 100%;
+}

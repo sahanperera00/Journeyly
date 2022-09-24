@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../styles/sahan/DesSidebar.css';
+import { Link } from 'react-router-dom';
 
 function DesSidebar() {
   const [attractions, setAttractions] = useState([]);
@@ -23,19 +24,14 @@ function DesSidebar() {
       <div className='container'>
         {attractions.map((data) => {
           return (
-            <Card className='DesSidebarCard' key={`${data._id} + 1`}>
-              <Card.Img className='DesCardImg' key={`${data._id} + 1`} src={data.images} />
-              <Card.Body className='DesCardBody' key={`${data._id} + 2`}>
-                <Card.Title key={`${data._id} + 1`}>{data.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted" key={2}>{data.shortDesc}</Card.Subtitle>
-                <Card.Text key={`${data._id} + 3`}>
-                  Description: {data.longDesc}<br/>
-                  Location: {data.location}<br/>
-                  What you need to know: {data.extra}<br/>
-                  What's included: {data.includes}<br/>
-                </Card.Text>
-              </Card.Body>
-            </Card>
+            <Link to={`/attractions/${data._id}`}>
+              <Card className='DesSidebarCard' key={`${data._id} + 1`}>
+                <Card.Img className='DesCardImg' key={`${data._id} + 1`} src={data.images} />
+                <Card.Body className='DesCardBody' key={`${data._id} + 2`}>
+                  <Card.Title className='desCardTitle' key={`${data._id} + 1`}>{data.name}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Link>
           )        
         })}
       </div>

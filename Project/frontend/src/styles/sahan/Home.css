@@ -1,5 +1,4 @@
 .homeCont {
-    /* background-color: #d8ff90; */
     font-family: 'Poppins', sans-serif;
 }
 
@@ -8,7 +7,7 @@
 }
 
 .heroCont1 {
-    background-image: url("../../images/hero1.jpg");
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fhero1.webp?alt=media&token=7dc23245-ff92-4615-847f-a489061fd35e);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,7 +16,7 @@
 }
 
 .heroCont2 {
-    background-image: url("../../images/hero2.jpg");
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fhero2.webp?alt=media&token=906ed35e-922b-4512-a7aa-bab28fb4a97d);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,7 +25,7 @@
 }
 
 .heroCont3 {
-    background-image: url("../../images/hero3.jpg");
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fhero3.webp?alt=media&token=bd84796b-125e-42be-a48f-7c936da8a72a);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,7 +38,7 @@
     height: 55%;
     text-align: center;
     position: absolute;
-    top: 22%;
+    top: 26%;
     left: 20%;
     border: 1px solid rgba(255, 255, 255, 0.067);
     overflow: hidden;
