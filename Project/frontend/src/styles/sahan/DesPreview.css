@@ -13,22 +13,34 @@
     background-color: rgba(0, 0, 0, 0.189);
 }
 
-.descpreviewh1 {
-    color: white;
-    font-size: 100px;
+.despreviewTextContainer {
+    width: 50%;
+    height: 75%;
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 8%;
     position: absolute;
     z-index: 2;
+    overflow: scroll;
+    /* background-color: aquamarine; */
+}
+
+.descpreviewh1 {
+    color: white;
+    font-size: 80px;
 }
 
 .descpreviewh2 {
-    width: 50%;
     color: white;
     font-size: 25px;
-    margin-left: 10%;
-    margin-top: 21%;
-    position: absolute;
-    z-index: 2;
     line-height: 40px;
+    margin-top: 3%;
+    font-weight: lighter;
+}
+
+.descpreviewh3 {
+    color: white;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 3%;
+    font-weight: lighter;
 }
