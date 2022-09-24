@@ -23,8 +23,11 @@ function DesPreview() {
   return (
     <div className='desPreviewContainer' style={{ backgroundImage:`url(${attraction.images})` }}>
       <div className='desPreviewBlueDiv' />
-      <h1 className='descpreviewh1'>{attraction.name}</h1>
-      <h2 className='descpreviewh2'>{attraction.shortDesc}</h2>
+      <div className='despreviewTextContainer'>
+        <h1 className='descpreviewh1'>{attraction.name}</h1>
+        <h2 className='descpreviewh2'>{attraction.shortDesc}</h2>
+        <h3 className='descpreviewh3'>{attraction.longDesc}</h3>
+      </div>
 
     </div>
   )
