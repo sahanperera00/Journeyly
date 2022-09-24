@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import { Link ,useNavigate} from "react-router-dom";
 import logo from '../images/Journeyly-W.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LoginForm from '../pages/LoginForm';
 import { Hotels } from '../pages';
 import Form from 'react-bootstrap/Form';
@@ -23,6 +23,24 @@ function Navbar() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
+
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token:" + response.credential);
+  }
+
+  useEffect(()=> {
+    /*global google */
+    google.accounts.id.initialize({
+      client_id: "78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("googlelogin"),
+      {theme:"outline", size:"large"}
+    );
+  });
+  
 
   return (
     <Navbarx className='NavbarCont' expand="lg">
@@ -60,7 +78,7 @@ function Navbar() {
             })
           }}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email address</Form.Label> 
               <Form.Control
                 type="email"
                 placeholder="email"
@@ -68,6 +86,7 @@ function Navbar() {
                 onChange={(e) => {
                   setEmail(e.target.value)
                 }} required/>
+                
             </Form.Group>
             <Form.Group
               className="mb-3"
@@ -82,15 +101,12 @@ function Navbar() {
                 
                 
             </Form.Group>
-            <Button type="submit" variant="btn btn-dark" >
-            Login
-          </Button>
+            <div className='btnContainerlogin'>
+              <Button type="submit" variant="btn btn-dark" > Login</Button>
+              <div id="googlelogin"></div>
+            </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          
-         
-        </Modal.Footer>
       </Modal>
 
             <Link to={"/editorDash"}>
