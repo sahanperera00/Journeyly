@@ -1,0 +1,50 @@
+.attractionsContainer {
+    width: 100%;
+    height: 100vh;
+}
+
+.attImgContainer {
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fbg2.webp?alt=media&token=d01b09ef-fa73-44c6-bc92-a16843929e37);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.attblurContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(8px);
+}
+
+.attImgContainer h1 {
+    width: 50%;
+    color: white;
+    font-size: 100px;
+    margin-left: 10%;
+    margin-top: 10%;
+    position: absolute;
+    z-index: 2;
+}
+
+.attImgContainer h2 {
+    width: 50%;
+    color: white;
+    font-size: 35px;
+    margin-left: 10%;
+    margin-top: 21%;
+    position: absolute;
+    z-index: 2;
+}
+
+.attImgContainer h3 {
+    width: 50%;
+    color: white;
+    font-size: 28px;
+    margin-left: 10%;
+    margin-top: 25%;
+    position: absolute;
+    z-index: 2;
+}
