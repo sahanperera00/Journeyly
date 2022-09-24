@@ -2,6 +2,8 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import '../styles/praweena/Packages.css'
+
 
 function Packages() { 
   const [packages, setPackages] = useState([]);
@@ -19,8 +21,9 @@ function Packages() {
   useEffect(() => { getPackages() } , []);  //Shows changes of the page
 
   return (
-    <div className='container text-center'>
-      <h1 className='text-center'>Packages</h1>
+    <div className='packageMain'>
+   
+      <h1 className='packageHeader'>Packages</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {packages.map((data) => {
