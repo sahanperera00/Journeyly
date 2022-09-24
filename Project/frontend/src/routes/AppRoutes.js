@@ -6,7 +6,6 @@ import {
     Attractions,
     Taxis,
     Vehicles,
-    Login,
     Packages,
     EditorDashboard,
     DestinationForm,
@@ -29,13 +28,17 @@ import {
     FlightUpdateForm,
     VehicleUpdateForm,
     VehicleForm,
-    VehiclesEdit
+    VehiclesEdit,
+    UserDashboard,
+    UserProfile
 } from '../pages';
+import Tester from '../pages/tester.js'
 
 function AppRoutes() {
     return (
         <Router>
             <Routes>
+                <Route path='tester' element={<Tester/>}/>
                 <Route path="/" element={<SharedLayoutHome />}>
                     <Route index element={<Home />} />
                     <Route path="flights" element={<Flights />} />
@@ -46,7 +49,6 @@ function AppRoutes() {
                     </Route>
                     <Route path="taxis" element={<Taxis />} />
                     <Route path="packages" element={<Packages />} />
-                    <Route path="login" element={<Login />} />
                     <Route path = "registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview/>}/>
                 </Route>
@@ -56,8 +58,7 @@ function AppRoutes() {
                     <Route path="addAttractionsForm" element={<DestinationForm />} />
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />
-                    <Route path="attractions" element={<Attractions />} /> 
-                   
+                    <Route path="attractions" element={<Attractions />} />
                     <Route path="vehicles" element={<Vehicles />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="attractionEdit" element={<AttractionEdit />} />
@@ -76,6 +77,10 @@ function AppRoutes() {
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
                 </Route>
                 
+                <Route path="/userDashboard" element={<UserDashboard/>}>
+                    <Route index element={<UserProfile/>}/>
+                </Route>
+
             </Routes>
         </Router>
     );

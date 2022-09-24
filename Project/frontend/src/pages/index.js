@@ -5,33 +5,35 @@ import Hotels from "./Hotels";
 import Attractions from "./Attractions";
 import Taxis from "./Taxis";
 import Packages from "./Packages";
-import Login from "./Login";
 import AttractionEdit from './AttractionEdit';
 import HotelEdit from './HotelEdit';
 import SharedLayoutHome from './SharedLayoutHome';
 import SharedLayoutEditorDashboard from './SharedLayoutEditorDashboard';
 import NavBar from "../components/Navbar";
 import EditorNavBar from "../components/EditorNavbar";
-import DestinationForm from "../components/DestinationForm";
-import DestinationUpdateForm from '../components/DestinationUpdateForm';
-import HotelForm from "../components/HotelForm";
-import FlightForm from "../components/FlightForm";
+import DestinationForm from "./DestinationForm";
+import DestinationUpdateForm from './DestinationUpdateForm';
+import HotelForm from "./HotelForm";
+import FlightForm from "./FlightForm";
 import FlightEdit from './FlightEdit';
-import PackageForm from "../components/PackageForm";
+import PackageForm from "./PackageForm";
 import PackagesEdit from './PackagesEdit';
-import PackageUpdateForm from "../components/PackageUpdateForm";
-import HotelUpdateForm from "../components/HotelUpdateForm";
-import FlightUpdateForm from "../components/FlightUpdateForm";
+import PackageUpdateForm from "./PackageUpdateForm";
+import HotelUpdateForm from "./HotelUpdateForm";
+import FlightUpdateForm from "./FlightUpdateForm";
 import RegistrationForm from './RegistrationForm';
 import Footer from '../components/Footer';
 import SharedLayoutDestination from './SharedLayoutDestination';
 import DesSidebar from '../components/DesSidebar';
 import DesPreview from './DesPreview';
-import VehicleForm from '../components/VehicleForm';
-import VehicleUpdateForm from '../components/VehicleUpdateForm';
+import VehicleForm from './VehicleForm';
+import VehicleUpdateForm from './VehicleUpdateForm';
 import Vehicles from './Vehicles';
 import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
+import UserDashboard from './UserDashboard';
+import UserProfile from './UserProfile';
+import DesResForm from './DesResForm';
 
 export {
     Home,
@@ -42,7 +44,6 @@ export {
     Attractions,
     Taxis,
     Packages,
-    Login,
     EditorNavBar,
     DestinationForm,
     SharedLayoutHome,
@@ -67,6 +68,8 @@ export {
     VehicleUpdateForm,
     Vehicles,
     VehiclesEdit,
-    HotelPreview
-    
+    HotelPreview,
+    UserDashboard,
+    UserProfile,
+    DesResForm
 };
