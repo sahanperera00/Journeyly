@@ -20,7 +20,7 @@ function Home() {
                 <Carousel.Item className='heroCont1' interval={2500}>
                     <Tilt options={options} className='heroText1'>
                         <Carousel.Caption className='carousalCap'>
-                            <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly%26Slogan-W.png?alt=media&token=49602fb5-6b64-44b0-9d43-a8bb2b7fd31d'} alt='heroimg' />
+                            <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-W.webp?alt=media&token=a652ffa4-96d9-4f20-987f-c0d8019a5283'} alt='heroimg' />
                             <h1>Travel with us</h1>
                             <p>Travel with us to the most beautiful places in Sri Lanka</p>
                             <Link to={"/registration"}>
@@ -33,7 +33,7 @@ function Home() {
                 <Carousel.Item className='heroCont2' interval={2500}>
                 <Tilt options={options} className='heroText1'>
                     <Carousel.Caption className='carousalCap'>
-                        <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly%26Slogan-W.png?alt=media&token=49602fb5-6b64-44b0-9d43-a8bb2b7fd31d'} alt='heroimg' />
+                        <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-W.webp?alt=media&token=a652ffa4-96d9-4f20-987f-c0d8019a5283'} alt='heroimg' />
                         <h1>Travel with us</h1>
                         <p>Travel with us to the most beautiful places in Sri Lanka</p>
                         <Link to={"/registration"}>
@@ -46,7 +46,7 @@ function Home() {
                 <Carousel.Item className='heroCont3' interval={2500}>
                 <Tilt options={options} className='heroText1'>
                     <Carousel.Caption className='carousalCap'>
-                        <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly%26Slogan-W.png?alt=media&token=49602fb5-6b64-44b0-9d43-a8bb2b7fd31d'} alt='heroimg' />
+                        <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-W.webp?alt=media&token=a652ffa4-96d9-4f20-987f-c0d8019a5283'} alt='heroimg' />
                         <h1>Travel with us</h1>
                         <p>Travel with us to the most beautiful places in Sri Lanka</p>
                         <Link to={"/registration"}>
