@@ -32,11 +32,13 @@ import {
     UserDashboard,
     UserProfile
 } from '../pages';
+import Tester from '../pages/tester.js'
 
 function AppRoutes() {
     return (
         <Router>
             <Routes>
+                <Route path='tester' element={<Tester/>}/>
                 <Route path="/" element={<SharedLayoutHome />}>
                     <Route index element={<Home />} />
                     <Route path="flights" element={<Flights />} />
