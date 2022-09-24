@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import '../styles/sahan/DesPreview.css';
 
 function DesPreview() {
   const [attraction, setAttraction] = useState([]);
@@ -20,31 +21,10 @@ function DesPreview() {
   useEffect(() => { getAttraction() }, [id]);
 
   return (
-    <div style={{
-      backgroundImage:`url(${attraction.images})`, 
-      height:"100vh", 
-      backgroundPosition:"center", 
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      }}>
-
-    <div style={{
-      width:"100%", 
-      height:"100%",
-      position: "absolute",
-      backdropFilter: "blur(8px)",
-      }}/>
-
-    <h1 style={{
-        color:"white",
-        fontSize:"100px",
-        marginLeft:"10%",
-        marginTop:"10%",
-        position: "absolute",
-        zIndex: "2",
-      }}>
-    {attraction.name}
-    </h1>
+    <div className='desPreviewContainer' style={{ backgroundImage:`url(${attraction.images})` }}>
+      <div className='desPreviewBlueDiv' />
+      <h1 className='descpreviewh1'>{attraction.name}</h1>
+      <h2 className='descpreviewh2'>{attraction.shortDesc}</h2>
 
     </div>
   )
