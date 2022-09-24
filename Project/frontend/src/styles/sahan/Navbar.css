@@ -7,6 +7,8 @@
     z-index: 2;
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
+    background-color: rgba(0, 0, 0, 0.073);
+    backdrop-filter: blur(4px);
 }
 
 .NavbarLogo {
@@ -33,4 +35,10 @@
 .NavbarList Button {
     border-radius: 50px;
     padding: 10px 20px;
+}
+
+.btnContainerlogin {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
