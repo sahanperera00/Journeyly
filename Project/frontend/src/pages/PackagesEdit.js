@@ -35,7 +35,7 @@ function PackagesEdit() {
 
   return (
     <div className='container text-center'>
-      <h1 className='text-center'>packages</h1>
+      <h1 className='packageHeader'>Packages Edit</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {packages.map((data) => {
