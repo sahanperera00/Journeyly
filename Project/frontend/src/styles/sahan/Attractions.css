@@ -34,9 +34,10 @@
     color: white;
     font-size: 35px;
     margin-left: 10%;
-    margin-top: 21%;
+    margin-top: 18%;
     position: absolute;
     z-index: 2;
+    font-weight: lighter;
 }
 
 .attImgContainer h3 {
@@ -44,7 +45,8 @@
     color: white;
     font-size: 28px;
     margin-left: 10%;
-    margin-top: 25%;
+    margin-top: 22%;
     position: absolute;
     z-index: 2;
+    font-weight: lighter;
 }
