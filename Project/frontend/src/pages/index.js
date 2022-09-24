@@ -5,7 +5,6 @@ import Hotels from "./Hotels";
 import Attractions from "./Attractions";
 import Taxis from "./Taxis";
 import Packages from "./Packages";
-import Login from "./Login";
 import AttractionEdit from './AttractionEdit';
 import HotelEdit from './HotelEdit';
 import SharedLayoutHome from './SharedLayoutHome';
@@ -44,7 +43,6 @@ export {
     Attractions,
     Taxis,
     Packages,
-    Login,
     EditorNavBar,
     DestinationForm,
     SharedLayoutHome,
