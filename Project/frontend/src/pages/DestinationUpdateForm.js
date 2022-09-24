@@ -48,7 +48,7 @@ function DestinationUpdateForm() {
 
                     const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
             
-                    uploadBytes(imageRef, imageI)
+                    await uploadBytes(imageRef, imageI)
                         .then(() => {
                             console.log('Uploaded image');
                         }).catch((err) => {
@@ -58,31 +58,31 @@ function DestinationUpdateForm() {
                     await getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
                         .then((url) => {
                             console.log(url);
-                            setImages(url);
+
+                            const newDestination = {
+                                name,
+                                shortDesc,
+                                longDesc,
+                                location,
+                                extra,
+                                includes,
+                                images:url,
+                                adultCost,
+                                childCost
+                            };
+
+                            axios.put("http://localhost:8070/destination/update/" + id, newDestination)
+                                .then(() => {
+                                    alert("Destination updated successfully");
+                                    navigate('/editorDash/attractionEdit');
+                                }).catch((err) => {
+                                    alert(err);
+                                })
+
                         }).catch((err) => {
                             console.log(err);
                         });
-
-                    const newDestination = {
-                        name,
-                        shortDesc,
-                        longDesc,
-                        location,
-                        extra,
-                        includes,
-                        images,
-                        adultCost,
-                        childCost
-                    }
-
-                    axios.put("http://localhost:8070/destination/update/" + id, newDestination)
-                        .then(() => {
-                            alert("Destination updated successfully");
-                            navigate('/editorDash/attractionEdit');
-                        }).catch((err) => {
-                            alert(err);
-                        })
-                }}>
+                    }}>
 
                     <div className="form-group">
                         <label className="form-label">Name</label>

@@ -1,0 +1,34 @@
+.desPreviewContainer {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.desPreviewBlueDiv {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.189);
+}
+
+.descpreviewh1 {
+    color: white;
+    font-size: 100px;
+    margin-left: 10%;
+    margin-top: 10%;
+    position: absolute;
+    z-index: 2;
+}
+
+.descpreviewh2 {
+    width: 50%;
+    color: white;
+    font-size: 25px;
+    margin-left: 10%;
+    margin-top: 21%;
+    position: absolute;
+    z-index: 2;
+    line-height: 40px;
+}

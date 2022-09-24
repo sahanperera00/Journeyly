@@ -20,6 +20,7 @@
 }
 
 .attImgContainer h1 {
+    width: 50%;
     color: white;
     font-size: 100px;
     margin-left: 10%;
@@ -29,19 +30,21 @@
 }
 
 .attImgContainer h2 {
+    width: 50%;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     margin-left: 10%;
-    margin-top: 18%;
+    margin-top: 21%;
     position: absolute;
     z-index: 2;
 }
 
 .attImgContainer h3 {
+    width: 50%;
     color: white;
     font-size: 28px;
     margin-left: 10%;
-    margin-top: 22%;
+    margin-top: 25%;
     position: absolute;
     z-index: 2;
 }
