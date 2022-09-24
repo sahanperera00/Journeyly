@@ -33,6 +33,7 @@ import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
 import UserDashboard from './UserDashboard';
 import UserProfile from './UserProfile';
+import DesResForm from './DesResForm';
 
 export {
     Home,
@@ -69,5 +70,6 @@ export {
     VehiclesEdit,
     HotelPreview,
     UserDashboard,
-    UserProfile
+    UserProfile,
+    DesResForm
 };
