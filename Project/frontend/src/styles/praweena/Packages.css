@@ -1,6 +1,6 @@
 .packageMain{
     
-    background-color: #bccbde;
+    background-color: #adcbf2;
     border: double;
   
    
@@ -24,8 +24,65 @@
   padding: 50px;
   color: #3a4f6c;
   text-shadow: 1px 1px 1px #333;
-   background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+   background-image: linear-gradient(135deg, #3b43da69 10%, #e00a756b 100%);
   
 }
+
+.PackageDiscription{
+    padding :  50px;
+font-family: 'Leckerli One', cursive;
+color: #76066c;
+}
+
+.packageTitle
+{
+    text-align: center; 
+    font-size: 40px;
+  font-weight: 500; 
+  padding: 20;
+}
+
+
+.packageBody{
    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    font-weight: 100;
+    background-repeat: no-repeat;
+    display: block;
+    box-sizing: border-box;
+   
+    
+    
+}
+
+.card{
+    
+
+    padding: 10px;
+    border: 4px solid #a2a2dd;
+    text-align:left ;
+    background-image: linear-gradient(
+        var(--card-gradient),
+        white max(9.5rem, 27vh)
+      );
+      overflow: hidden;}
+
+
+  .imagePackage{
+        border-radius: 0.5rem 0.5rem 0 0;
+        
+        object-fit: cover;
+        
+        max-height: max(10rem, 30vh);
+        aspect-ratio: 4/3;
+       
+        }
+    
+    
+
+
+
+
     
