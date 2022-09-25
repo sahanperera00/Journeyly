@@ -46,6 +46,9 @@ function HotelPreview(){
         <div>
             <h1 className='text-center'>{name}</h1>
         <div className="App">
+            <div>
+                <img alt='pic' src={images}/>
+              </div>
                 Price: {price}<br/>
                 Description: {description}<br/>
                 Stars: {stars}<br/>
