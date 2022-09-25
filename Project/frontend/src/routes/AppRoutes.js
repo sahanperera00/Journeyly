@@ -32,8 +32,6 @@ import {
     UserProfile,
     ProfileUpdateForm,
     ClientDashboard,
-    UserDashboard,
-    ClientProfile,
     Bookings,
     Feedback,
     Payments
@@ -86,10 +84,6 @@ function AppRoutes() {
                 <Route path="/ClientDashboard/:id" element={<ClientDashboard/>}>
                     <Route index element={<UserProfile/>}/>
                     <Route path="updateProfile" element={<ProfileUpdateForm/>}/>
-                </Route>
-
-                <Route path="/clientDashboard/:id" element={<ClientDashboard/>}>
-                    <Route index element={<ClientProfile/>}/>
                     <Route path="bookings" element={<Bookings/>}/>
                     <Route path="feedback" element={<Feedback/>}/>
                     <Route path="payments" element={<Payments/>}/>
