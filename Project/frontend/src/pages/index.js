@@ -31,9 +31,9 @@ import VehicleUpdateForm from './VehicleUpdateForm';
 import Vehicles from './Vehicles';
 import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
-import UserDashboard from './UserDashboard';
 import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
+import ProfileUpdateForm from './ProfileUpdateForm';
 import ClientDashboard from './ClientDashboard';
 import ClientProfile from './ClientProfile';
 import Bookings from './Bookings';
@@ -74,10 +74,10 @@ export {
     Vehicles,
     VehiclesEdit,
     HotelPreview,
-    UserDashboard,
     UserProfile,
     DesResForm,
-    ClientDashboard,
+    ProfileUpdateForm,
+    ClientDashboard
     ClientProfile,
     Bookings,
     Feedback,
