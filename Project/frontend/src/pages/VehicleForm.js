@@ -64,19 +64,23 @@ function VehicleForm(){
 
 
                 <div className="form-group">
-                    <label className="form-label">Enter Type Of  Service</label>
-                    <input type="text" className="form-control" 
+                    <label className="form-label">Enter Type Of Service</label>
+                    <select className="form-control" >
+                        <option value = "Taxi">Taxi</option>
+                        <option value = "Rent-a-Car">Rent-a-Car</option>
                     onChange={(e) => {
                         settype(e.target.value);
-                    }} required/>
+                    }} required
+
+                    </select>
                 </div>
 
                 <div className="form-group">
                     <label className="form-label">vehicleType</label>
-                    <input type="text" className="form-control" 
+                    <input type = "text" className="form-control" 
                     onChange={(e) => {
                         setvehicleType(e.target.value);
-                    }} required/>
+                    }} required />
                 </div>
 
                 <div className="form-group">
