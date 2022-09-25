@@ -1,8 +1,12 @@
-import '../styles/nash/ClientDashboard.css';
+import ClientDashSidebar from '../components/ClientDashSidebar';
+import { Outlet } from 'react-router-dom';
 
 function ClientDashboard() {
   return (
-    <div>ClientDashboard</div>
+    <div>
+        <ClientDashSidebar />
+        <Outlet />
+    </div>
   )
 }
 
