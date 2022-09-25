@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { storage } from '../firebase';
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 
 function HotelPreview(){
