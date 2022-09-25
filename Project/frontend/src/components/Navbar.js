@@ -71,8 +71,8 @@ function Navbar() {
             axios.post("http://localhost:8070/client/login", {email, password})
             .then((client) => {
               console.log(client);
-              // alert("Login successfull!");
-              navigate(`/userDashboard/${client.data._id}`);
+               alert("Login successfull!");
+              navigate(`/ClientDashboard/${client.data._id}`);
             }).catch((err) => {
               alert("Login unsuccessful");
             })
