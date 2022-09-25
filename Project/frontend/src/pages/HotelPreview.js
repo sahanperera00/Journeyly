@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import '../styles/leo/HotelPreview.css'
+import { Link } from 'react-router-dom';
 
 
 function HotelPreview(){
@@ -59,9 +60,11 @@ function HotelPreview(){
                     Facilities;<p className='faci'> {facilities}<br/></p>
                 </div>
             </div>
+            <Link to={'/hotelResForm'}>
             <div>
                 <button className='hotelbtn'>Make A Reservation</button>
             </div>
+            </Link>
         </div>
     )
 }   
