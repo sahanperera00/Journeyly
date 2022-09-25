@@ -42,7 +42,8 @@ function Packages() {
               Hotel Room Type    = {data.roomType}<br/>
               Vehicle            ={data.vehicle}<br/>
               Guide              = {data.guide}<br/> <br/>
-              Price (LK rupees)  = {data.price}<br/>
+              Price (LK rupees)  = {data.price}  
+              <button className='PackageSelect' > Select</button>      
             
               </Card.Text>
             </Card.Body>
