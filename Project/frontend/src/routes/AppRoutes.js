@@ -31,9 +31,8 @@ import {
     VehiclesEdit,
     UserProfile,
     ProfileUpdateForm,
-    ClientDashboard
-    UserDashboard,
     ClientDashboard,
+    UserDashboard,
     ClientProfile,
     Bookings,
     Feedback,

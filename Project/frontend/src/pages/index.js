@@ -77,7 +77,7 @@ export {
     UserProfile,
     DesResForm,
     ProfileUpdateForm,
-    ClientDashboard
+    ClientDashboard,
     ClientProfile,
     Bookings,
     Feedback,
