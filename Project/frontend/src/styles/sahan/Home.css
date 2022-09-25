@@ -38,7 +38,7 @@
     height: 55%;
     text-align: center;
     position: absolute;
-    top: 22%;
+    top: 26%;
     left: 20%;
     border: 1px solid rgba(255, 255, 255, 0.067);
     overflow: hidden;
@@ -87,4 +87,36 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+.FeedbackBtn{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    border: 0.5px solid white;
+    background-color: transparent;
+}
+.FeedbackBtn:hover{
+    color: black;
+    background-color: white;
+}
+
+.FinanceBtn{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    border: 0.5px solid white;
+    background-color: transparent;
+}
+.FinanceBtn:hover{
+    color: black;
+    background-color: white;
 }
