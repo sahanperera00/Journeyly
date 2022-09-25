@@ -31,10 +31,10 @@ import VehicleUpdateForm from './VehicleUpdateForm';
 import Vehicles from './Vehicles';
 import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
-import UserDashboard from './UserDashboard';
 import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
 import ProfileUpdateForm from './ProfileUpdateForm';
+import ClientDashboard from './ClientDashboard';
 
 export {
     Home,
@@ -70,8 +70,9 @@ export {
     Vehicles,
     VehiclesEdit,
     HotelPreview,
-    UserDashboard,
     UserProfile,
     DesResForm,
-    ProfileUpdateForm
+    ProfileUpdateForm,
+    ClientDashboard
+    
 };
