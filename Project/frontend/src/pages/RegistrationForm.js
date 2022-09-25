@@ -16,7 +16,8 @@ function RegistrationForm(){
 
     return (
         <div>
-            <h1 className='text-center'>Registration</h1>
+             <br/><br/><br/><br/>
+          <h1 className='text-center'>Registration</h1>
         <div className="App">
             <form onSubmit={(e) => {
                 e.preventDefault();
