@@ -77,7 +77,7 @@ function AppRoutes() {
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
                 </Route>
                 
-                <Route path="/userDashboard" element={<UserDashboard/>}>
+                <Route path="/userDashboard/:id" element={<UserDashboard/>}>
                     <Route index element={<UserProfile/>}/>
                 </Route>
 

@@ -5,14 +5,11 @@ import Navbarx from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {LinkContainer} from 'react-router-bootstrap';
 import { Link ,useNavigate} from "react-router-dom";
-import logo from '../images/Journeyly-W.png';
 import { useEffect, useState } from 'react';
-import LoginForm from '../pages/LoginForm';
-import { Hotels } from '../pages';
-import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+
 
 
 function Navbar() {
@@ -25,22 +22,25 @@ function Navbar() {
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token:" + response.credential);
-  }
+  // function handleCallbackResponse(response) {
+  //   console.log("Encoded JWT ID token:" + response.credential);
+  //   var userObject = jwt_decode(response.credential);
+  //   console.log(userObject);
+  //   SetUser(userObject);
+  // }
 
-  useEffect(()=> {
-    /*global google */
-    google.accounts.id.initialize({
-      client_id: "78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
+  // useEffect(()=> {
+  //   /*global google */
+  //   google.accounts.id.initialize({
+  //     client_id: "78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com",
+  //     callback: handleCallbackResponse
+  //   });
 
-    google.accounts.id.renderButton(
-      document.getElementById("googlelogin"),
-      {theme:"outline", size:"large"}
-    );
-  });
+  //   google.accounts.id.renderButton(
+  //     document.getElementById("googlelogin"),
+  //     {theme:"outline", size:"large"}
+  //   );
+  // });
   
 
   return (
@@ -69,9 +69,10 @@ function Navbar() {
             e.preventDefault();
 
             axios.post("http://localhost:8070/client/login", {email, password})
-            .then(() => {
-              alert("Login successfull!");
-              navigate('/userDashboard');
+            .then((client) => {
+              console.log(client);
+              // alert("Login successfull!");
+              navigate(`/userDashboard/${client.data._id}`);
             }).catch((err) => {
               alert("Login unsuccessful");
             })
@@ -101,7 +102,7 @@ function Navbar() {
                 
             </Form.Group>
             <div className='btnContainerlogin'>
-              <Button type="submit" variant="btn btn-dark" > Login</Button>
+              <Button type="submit" variant="btn btn-dark" >Login</Button>
               <div id="googlelogin"></div>
             </div>
           </Form>
