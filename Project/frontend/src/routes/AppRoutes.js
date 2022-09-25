@@ -81,6 +81,8 @@ function AppRoutes() {
                     <Route index element={<UserProfile/>}/>
                 </Route>
 
+                <Route path="/clientDashboard" element={<ClientDashboard/>}/>
+
             </Routes>
         </Router>
     );
