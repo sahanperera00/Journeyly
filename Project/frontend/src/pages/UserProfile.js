@@ -8,16 +8,25 @@ import Button from 'react-bootstrap/esm/Button';
 
 
 function UserProfile() {
-  
-    const[client, setClient] = useState('');
-    const {id} = useParams();
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [contactNo, setContactNo] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const { id } = useParams();
     const navigate = useNavigate();
-    const fname = client.data.firstName;
 
     const getClient = () => {
       axios.get("http://localhost:8070/client/"+id)
         .then((res) => {
-          setClient(res);
+          setFirstName(res.data.firstName);
+          setLastName(res.data.lastName);
+          setEmail(res.data.email);
+          setContactNo(res.data.contactNo);
+          setUsername(res.data.username);
+          setPassword(res.data.password);
         })
         .catch((err) => {
           alert(err);
@@ -36,24 +45,24 @@ function UserProfile() {
       }
     
     useEffect(() => { getClient() }, [id]);
-    console.log(client);
+    // console.log(client);
 
    return (
    <div className='userprofilecontainer'>
         <h1>User Profile</h1>
         <div>
-           First name: {client.data.lastName}<br/>
-           Last name: {client.data.lastName}<br/>
-           Email: {client.data.email}<br/>
-           Contact Number: {client.data.contactNo}<br/>
-           Username: {client.data.username}<br/>
-           Password: {client.data.password}<br/>
+           First name: {firstName}<br/>
+           Last name: {lastName}<br/>
+           Email: {email}<br/>
+           Contact Number: {contactNo}<br/>
+           Username: {username}<br/>
+           Password: {password}<br/>
           <br/>
 
-          <Link to={"/UserDashboard/ProfileUpdateForm/" + client._id}>
+          <Link to={"/UserDashboard/ProfileUpdateForm/" + id}>
             <Button variant="warning">Update</Button>
           </Link>
-          <Button variant="danger" className='ms-3' onClick={() => deleteClient(client._id)}>Delete</Button>
+          <Button variant="danger" className='ms-3' onClick={() => deleteClient(id)}>Delete</Button>
         </div>
         </div>
    )
