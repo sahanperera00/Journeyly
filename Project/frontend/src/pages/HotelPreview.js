@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import '../styles/leo/HotelPreview.css'
 
 
 function HotelPreview(){
@@ -41,17 +44,24 @@ function HotelPreview(){
     useEffect(()=> getHotel(),[]);
 
     return(
-        <div>
-            <h1 className='text-center'>{name}</h1>
-        <div className="App">
+        <div className='previewContainer'>
             <div>
-                <img alt='pic' src={images}/>
-              </div>
-                Price: {price}<br/>
-                Description: {description}<br/>
-                Stars: {stars}<br/>
-                Facilities: {facilities}<br/>
-        </div>
+                <h1 className='text-center'>{name}</h1>
+            </div> 
+            <div className="App">
+                <div className='hotelImgContainer'>
+                    <img className='hotelImg' alt='pic' src={images}/>
+                </div>
+                <div>
+                    <p>Price per Night: {price}<br/></p>
+                    <p>{description}<br/></p>
+                    <p>Stars: {stars}<br/></p>
+                    Facilities;<p className='faci'> {facilities}<br/></p>
+                </div>
+            </div>
+            <div>
+                <button className='hotelbtn'>Make A Reservation</button>
+            </div>
         </div>
     )
 }   
