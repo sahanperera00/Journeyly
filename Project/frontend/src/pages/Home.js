@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import Tilt from '../components/Tilt';
 import { Link } from "react-router-dom";
-
+import Footer from '../components/Footer';
 
 function Home() {
     const options = {
@@ -58,6 +58,9 @@ function Home() {
 
             </Carousel>
             <script type="text/javascript" src="vanilla-tilt.js"></script>
+            {/* <Footer/> */}
+            <button className='FinanceBtn'>Finance Login</button>
+            <button className='FeedbackBtn'>Send A Feedback</button>
         </div>
     );
 }

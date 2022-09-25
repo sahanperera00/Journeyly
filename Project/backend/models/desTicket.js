@@ -7,10 +7,6 @@ const desTicketSchema = new Schema({
         type: String,
         required: true
     },
-    userId: {
-        type: String,
-        required: true
-    },
     firstName: {
         type: String,
         required: true
@@ -36,13 +32,15 @@ const desTicketSchema = new Schema({
         required: true
     },
     adults: {
-        type: Number
+        type: Number,
+        required: true
     },
     children: {
-        type: Number
+        type: Number,
+        required: true
     },
-    notes: {
-        type: String,
+    total: {
+        type: Number,
         required: true
     }
 });

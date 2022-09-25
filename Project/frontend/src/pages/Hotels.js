@@ -29,14 +29,24 @@ function Hotels() {
 
       <div className='hotelContainer'>
         <div className="hotelSideBar">
-          <h1>Hahahahaha</h1>
+          <h1>SideBar</h1>
         </div>
         <div className="hotelBodyContainer">
           {hotels.map((data) => {
           return (
             <Link to={'/hotelPreview/'+data._id}>
-            
-            </Link> 
+            <div className='CardContainer'>
+              <div className='ImageContainer'>
+                <img className='hotelCardImg' alt='pic' src={data.images}/>
+              </div>
+              <div className='TextContainer'>
+                <center><h2>{data.name} ({data.location})</h2></center>
+                  <p className='priceTage'>Price:Rs. {data.price}<br/></p>
+                  <p className='desTage'>Description: {data.description}<br/></p>
+                  <p className='starTage'>Stars: {data.stars}<br/></p>
+              </div>
+            </div>
+            </Link>
           )        
         })}
         </div>

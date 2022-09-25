@@ -29,10 +29,15 @@ function DesPreview() {
         <h1 className='descpreviewh1'>{attraction.name}</h1>
         <h2 className='descpreviewh2'>{attraction.shortDesc}</h2>
         <p className='descpreviewp'>{attraction.longDesc}</p><br />
-        <a href='#desresform' className='reserveBtn'>Make a Reservation</a>
+        <a href='#desresform' className='reserveBtn'>Buy a Ticket</a>
       </div>
-      </div><div className='desResFormContainer'>
-        <DesResForm />
+      </div>
+      <div className='desResFormContainer'>
+        <DesResForm destination={attraction} />
+        {/* <DesResForm destination={{
+          desId: attraction._id, 
+          adultCost: attraction.adultCost, 
+          childCost: attraction.childCost}} /> */}
       </div>
     </>
   )
