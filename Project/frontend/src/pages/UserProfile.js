@@ -9,10 +9,10 @@ import Button from 'react-bootstrap/esm/Button';
 
 function UserProfile() {
   
-    const[client, setClient] = useState({});
+    const[client, setClient] = useState('');
     const {id} = useParams();
     const navigate = useNavigate();
-    const fname = client.firstName;
+    const fname = client.data.firstName;
 
     const getClient = () => {
       axios.get("http://localhost:8070/client/"+id)
@@ -34,30 +34,26 @@ function UserProfile() {
               alert(err);
           });
       }
-  
+    
     useEffect(() => { getClient() }, [id]);
+    console.log(client);
 
    return (
    <div className='userprofilecontainer'>
-        
         <h1>User Profile</h1>
-<div>
-        {/* <h3> */}
-  {/* {client} */}
-           First name: {fname}<br/>
-           Last name: {client.lastName}<br/>
-           Email: {client.email}<br/>
-           Contact Number: {client.contactNo}<br/>
-           Username: {client.username}<br/>
-           Password: {client.password}<br/>
-          {/* </h3> */}
+        <div>
+           First name: {client.data.lastName}<br/>
+           Last name: {client.data.lastName}<br/>
+           Email: {client.data.email}<br/>
+           Contact Number: {client.data.contactNo}<br/>
+           Username: {client.data.username}<br/>
+           Password: {client.data.password}<br/>
           <br/>
 
-          <Link to={"/UserDashboard/ProfileUpdateForm/"+client._id}>
-          <Button variant="warning">Update</Button>
+          <Link to={"/UserDashboard/ProfileUpdateForm/" + client._id}>
+            <Button variant="warning">Update</Button>
           </Link>
           <Button variant="danger" className='ms-3' onClick={() => deleteClient(client._id)}>Delete</Button>
-
         </div>
         </div>
    )
