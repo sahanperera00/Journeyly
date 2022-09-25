@@ -84,6 +84,8 @@ function AppRoutes() {
                     <Route path="updateProfile" element={<ProfileUpdateForm/>}/>
                 </Route>
 
+                <Route path="/clientDashboard" element={<ClientDashboard/>}/>
+
             </Routes>
         </Router>
     );

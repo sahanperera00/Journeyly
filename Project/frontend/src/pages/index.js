@@ -74,5 +74,4 @@ export {
     DesResForm,
     ProfileUpdateForm,
     ClientDashboard
-    
 };

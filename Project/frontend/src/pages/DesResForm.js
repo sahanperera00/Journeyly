@@ -42,7 +42,7 @@ function DesResForm({destination}) {
             axios.post("http://localhost:8070/desTicket/create", newTicket)
             .then(() => {
               alert("Ticket added successfully");
-              navigate('/attraction');
+              navigate('/attractions');
             }).catch((err) => {
               alert("Error adding ticket");
               console.log(err);
