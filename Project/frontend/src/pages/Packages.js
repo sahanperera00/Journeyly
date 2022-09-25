@@ -29,7 +29,7 @@ function Packages() {
     <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
       {packages.map((data) => {
         return (
-          <Card style={{ width: '25rem', margin: '2rem', padding: '0rem'}}>
+          <Card style={{ width: '25rem', margin: '2rem', padding: '0rem'}} className='PackageCard'>
             <Card.Img src={data.image} className='imagePackage'/>
             <Card.Body>
               <Card.Title className='packageTitle'>{data.name}</Card.Title>
