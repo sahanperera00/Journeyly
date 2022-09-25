@@ -29,8 +29,12 @@ import {
     VehicleUpdateForm,
     VehicleForm,
     VehiclesEdit,
-    UserDashboard,
-    UserProfile
+    UserProfile,
+    ProfileUpdateForm,
+    ClientDashboard,
+    Bookings,
+    Feedback,
+    Payments
 } from '../pages';
 import Tester from '../pages/tester.js'
 
@@ -77,8 +81,12 @@ function AppRoutes() {
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
                 </Route>
                 
-                <Route path="/userDashboard/:id" element={<UserDashboard/>}>
+                <Route path="/ClientDashboard/:id" element={<ClientDashboard/>}>
                     <Route index element={<UserProfile/>}/>
+                    <Route path="updateProfile" element={<ProfileUpdateForm/>}/>
+                    <Route path="bookings" element={<Bookings/>}/>
+                    <Route path="feedback" element={<Feedback/>}/>
+                    <Route path="payments" element={<Payments/>}/>
                 </Route>
 
             </Routes>
