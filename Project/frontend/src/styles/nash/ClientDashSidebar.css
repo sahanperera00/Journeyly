@@ -5,9 +5,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position:absolute;
-    top:0;
-    left:0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .CDSLogoCont {
@@ -31,6 +32,7 @@
     color: #0b828e;
     display: flex;
     transition: 250ms;
+    text-decoration: none;
 }
 
 .CDSTabCont:hover {
