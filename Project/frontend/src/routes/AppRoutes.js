@@ -34,7 +34,8 @@ import {
     ClientDashboard,
     Bookings,
     Feedback,
-    Payments
+    Payments,
+    HotelResForm
 } from '../pages';
 import Tester from '../pages/tester.js'
 
@@ -55,6 +56,7 @@ function AppRoutes() {
                     <Route path="packages" element={<Packages />} />
                     <Route path = "registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview/>}/>
+                    <Route path='hotelResForm' element={<HotelResForm/>}/>
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
