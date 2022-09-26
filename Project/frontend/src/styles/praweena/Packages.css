@@ -1,45 +1,48 @@
 .packageMain{
     
-    background-color: #adcbf2;
+    background-color: #d0daeb;
     border: double;
+    
   
    
 }
 .packageHeader{
    
-  
+  padding-top: 8%;
+  padding-bottom: 2%;
  font-family: 'Times New Roman', serif;
   text-align: center;
-  width: 100%;
-  height: auto;
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
+   position: relative;
   overflow: hidden;
-  border-radius: 0 0 85% 85% / 30%;
-  font-size: 80px;
-  font-weight: 900;
+  border-radius: 0 0 85% 85% / 5%;
+  font-size: 45px;
+  font-weight: 500;
   width: 100%;
   height: 100%;
-  padding: 50px;
-  color: #3a4f6c;
-  text-shadow: 1px 1px 1px #333;
-   background-image: linear-gradient(135deg, #3b43da69 10%, #e00a756b 100%);
+  
+  color: #090b0f;
+  text-shadow: 1px 0px 0px rgb(58, 38, 141);
+   background-image: linear-gradient(135deg, #9e9eb069 10%, #c3c3c569 100%);
   
 }
 
 .PackageDiscription{
-    padding :  50px;
+padding :  10px;
 font-family: 'Leckerli One', cursive;
-color: #76066c;
+color: #46397a;
+font-size: 0px;
+
 }
 
 .packageTitle
 {
-    text-align: center; 
-    font-size: 40px;
+    text-align: left; 
+    font-size: 35px;
   font-weight: 500; 
-  padding: 20;
+  padding: 20px;
+  color: rgba(10, 15, 106, 0.86);
+  font-family:'Times New Roman', serif;
+  font-weight:bold
 }
 
 
@@ -48,38 +51,70 @@ color: #76066c;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;  
-    font-weight: 100;
+    
     background-repeat: no-repeat;
     display: block;
-    box-sizing: border-box;
-   
-    
+     
     
 }
 
-.card{
+.PackageCard{
     
 
-    padding: 10px;
-    border: 4px solid #a2a2dd;
+   
+    border: 4px solid #f8f8f8;
     text-align:left ;
-    background-image: linear-gradient(
-        var(--card-gradient),
-        white max(9.5rem, 27vh)
-      );
-      overflow: hidden;}
+    color: rgb(28, 1, 54);
+    font-size: 20px;
+    font-weight:bolder;
+    font-family: 'Times New Roman', serif;
+    margin-right: 40pc;
+   
+    
+    box-sizing: border-box;
+   
+      overflow: hidden;
+      border-radius: 3pc;
+      
+      background-color: rgb(247, 248, 249);
+      
+
+}
 
 
   .imagePackage{
-        border-radius: 0.5rem 0.5rem 0 0;
+        
         
         object-fit: cover;
+        display: block;
+        margin-right: 28px;
+        margin-top: 38px;
+        margin-bottom: 11pc;
+        float: left;
+        width: 30%;
+        height: 80%;
+        overflow: hidden;
+        display: block;
+        border-radius: 25px;
         
-        max-height: max(10rem, 30vh);
         aspect-ratio: 4/3;
+        position: absolute;
+       right: 0px;
+       width: 30rem;
+       height:'30rem';
+       padding: 0px;
        
         }
     
+        .PackageSelect    
+        {
+          margin-left: 10pc;
+          color: rgb(4, 4, 12);
+          background-color: rgb(136, 136, 155);
+          border-radius: 1pc;
+          border: #a6afbe;
+          
+        }
     
 
 

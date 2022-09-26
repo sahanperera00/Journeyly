@@ -1,22 +1,30 @@
-import '../styles/sahan/DesResForm.css';
+
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function DesResForm({destination}) {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNo, setPhoneNo] = useState('');
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+function HotelResForm({destination}) {
+  const [name, setName] = useState('');
+  const [hotel_Name, setHotelName] = useState('');
+  const [check_in, setCheckin] = useState('');
+  const [check_out, setCheckout] = useState('');
+  const [suite, setSuite] = useState('');
+  const [customizations, setCustomizations] = useState('');
   const [adults, setAdults] = useState('');
   const [children, setChildren] = useState('');
 
 
   const navigate = useNavigate();
-
+function checkDate(){
+    var indate= document.getElementById();
+    var outdate = document.getElementById();
+    if(indate.getDate()<=outdate.getDate()){
+        /*Allow transaction*/ 
+    }else{
+        /*Dont allow */
+    }
+}
   return (
     <div id="desresform" className="desresContainer">
         <h1>Ticket Details</h1>
@@ -25,52 +33,51 @@ function DesResForm({destination}) {
           <form className='desresform' onSubmit={async(e) => {
             e.preventDefault();
 
-            const newTicket = {
+            const newBook = {
               desId: destination._id,
-              firstName,
-              lastName,
-              email,
-              phoneNo,
-              date,
-              time,
+              name,
+              hotel_Name,
+              check_in,
+              check_out,
+              suite,
+              customizations,
               adults,
-              children,
-              total: destination.adultCost * adults + destination.childCost * children
+              children
             };
-            console.log(newTicket);
+            console.log(newBook);
 
-            axios.post("http://localhost:8070/desTicket/create", newTicket)
+            axios.post("http://localhost:8070/hotelRes/create", newBook)
             .then(() => {
-              alert("Ticket added successfully");
-              navigate('/attractions');
+              alert("Hotel Booked Successfully");
+              navigate('/hotels');
             }).catch((err) => {
-              alert("Error adding ticket");
+              alert("Error ");
               console.log(err);
             });
           }}>
             <div className="form-group">
               <label className="form-label">First Name</label>
-              <input type="text" className="form-control" onChange={(e) => {setFirstName(e.target.value)}} required/>
+              <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
             </div>
             <div className="form-group">
-              <label className="form-label">Last Name</label>
-              <input type="text" className="form-control" onChange={(e) => {setLastName(e.target.value)}} required/>
+              <label className="form-label">Hotel Name</label>
+              <input type="text" className="form-control" onChange={(e) => {setHotelName(e.target.value)}} required/>
             </div>
             <div className="form-group">
-              <label className="form-label">Email</label>
-              <input type="email" className="form-control" onChange={(e) => {setEmail(e.target.value)}} required/>
+              <label className="form-label">Check In </label>
+              <input type="date" className="form-control" onChange={(e) => {setCheckin(e.target.value)}} required/>
             </div>
             <div className="form-group">
-              <label className="form-label">Phone Number</label>
-              <input type="text" className="form-control" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
+              <label className="form-label">Check Out</label>
+              <input type="date" className="form-control" onChange={(e) => {setCheckout(e.target.value)}} required/>
             </div>
             <div className="form-group">
-              <label className="form-label">Date</label>
-              <input type="date" className="form-control" onChange={(e) => {setDate(e.target.value)}} required/>
+              <label className="form-label">Suite</label>
+              <input type="text" className="form-control" onChange={(e) => {setSuite(e.target.value)}} required/>
             </div>
             <div className="form-group">
-              <label className="form-label">Time</label>
-              <input type="time" className="form-control" onChange={(e) => {setTime(e.target.value)}} required/>
+              <label className="form-label">customizations</label>
+              <input type="text" className="form-control" onChange={(e) => {setCustomizations(e.target.value)}} required/>
             </div>
             <div className="form-group">
               <label className="form-label">Number of Adults</label>
@@ -102,4 +109,4 @@ function DesResForm({destination}) {
   )
 }
 
-export default DesResForm
+export default HotelResForm

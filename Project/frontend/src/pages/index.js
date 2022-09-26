@@ -16,6 +16,7 @@ import DestinationUpdateForm from './DestinationUpdateForm';
 import HotelForm from "./HotelForm";
 import FlightForm from "./FlightForm";
 import FlightEdit from './FlightEdit';
+import FlightPreview from './FlightPreview';
 import PackageForm from "./PackageForm";
 import PackagesEdit from './PackagesEdit';
 import PackageUpdateForm from "./PackageUpdateForm";
@@ -31,9 +32,15 @@ import VehicleUpdateForm from './VehicleUpdateForm';
 import Vehicles from './Vehicles';
 import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
-import UserDashboard from './UserDashboard';
 import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
+import ProfileUpdateForm from './ProfileUpdateForm';
+import ClientDashboard from './ClientDashboard';
+import ClientProfile from './ClientProfile';
+import Bookings from './Bookings';
+import Feedback from './Feedback';
+import Payments from './Payments';
+import HotelResForm from './HotelResForm';
 import FeedbackForm from './FeedbackForm';
 
 export {
@@ -54,6 +61,7 @@ export {
     HotelEdit,
     FlightForm,
     FlightEdit,
+    FlightPreview,
     DestinationUpdateForm,
     PackageForm,
     PackagesEdit,
@@ -70,8 +78,17 @@ export {
     Vehicles,
     VehiclesEdit,
     HotelPreview,
-    UserDashboard,
     UserProfile,
     DesResForm,
+<<<<<<< HEAD
     FeedbackForm
+=======
+    ProfileUpdateForm,
+    ClientDashboard,
+    ClientProfile,
+    Bookings,
+    Feedback,
+    Payments,
+    HotelResForm
+>>>>>>> 17d73bfb77e2e371888fe7164907b16b8d6ba429
 };

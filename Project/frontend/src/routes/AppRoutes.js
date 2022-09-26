@@ -16,6 +16,7 @@ import {
     HotelEdit,
     FlightForm,
     FlightEdit,
+    FlightPreview,
     DestinationUpdateForm,
     PackageForm,
     PackagesEdit,
@@ -29,10 +30,20 @@ import {
     VehicleUpdateForm,
     VehicleForm,
     VehiclesEdit,
+    ClientDashboard,
     UserDashboard,
     UserProfile,
+    ProfileUpdateForm,
+    Bookings,
+    Feedback,
+    Payments,
+    HotelResForm,
     FeedbackForm
 } from '../pages';
+
+import RentalForm from '../pages/RentalForm'; 
+import RentalPreview from '../pages/RentalPreview'; 
+
 import Tester from '../pages/tester.js'
 
 function AppRoutes() {
@@ -52,6 +63,10 @@ function AppRoutes() {
                     <Route path="packages" element={<Packages />} />
                     <Route path = "registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview/>}/>
+                    <Route path='flightPreview/:id' element={<FlightPreview/>}/>
+                    <Route path='hotelResForm' element={<HotelResForm/>}/>
+                    <Route path='rentalPreview/:id' element={<RentalPreview/>}/>
+                    <Route path='rentalForm' element={<RentalForm/>}/>
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
@@ -78,8 +93,12 @@ function AppRoutes() {
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
                 </Route>
                 
-                <Route path="/userDashboard" element={<UserDashboard/>}>
+                <Route path="/ClientDashboard/:id" element={<ClientDashboard/>}>
                     <Route index element={<UserProfile/>}/>
+                    <Route path="updateProfile" element={<ProfileUpdateForm/>}/>
+                    <Route path="bookings" element={<Bookings/>}/>
+                    <Route path="feedback" element={<Feedback/>}/>
+                    <Route path="payments" element={<Payments/>}/>
                 </Route>
                 <Route path="/feedback/create" element={<FeedbackForm/>}/>
             </Routes>
