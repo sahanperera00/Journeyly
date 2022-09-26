@@ -80,9 +80,7 @@ export {
     HotelPreview,
     UserProfile,
     DesResForm,
-<<<<<<< HEAD
-    FeedbackForm
-=======
+    FeedbackForm,
     ProfileUpdateForm,
     ClientDashboard,
     ClientProfile,
@@ -90,5 +88,4 @@ export {
     Feedback,
     Payments,
     HotelResForm
->>>>>>> 17d73bfb77e2e371888fe7164907b16b8d6ba429
 };
