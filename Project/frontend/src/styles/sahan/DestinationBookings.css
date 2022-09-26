@@ -1,3 +1,27 @@
+.desBookCont {
+    display: flex;
+    justify-content: center;
+}
+
+.desBookTableCont {
+    width: 87%;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #e3e9e98f;
+    box-shadow: 5px 5px 5px 2px #0b838e2d;
+    margin-top: 30px;
+}
+
 .desBookCont table {
     color: #0b828e;
+    width: 95%;
+}
+
+.bookingbttn {
+    background-color: transparent;
+    color: #0b828e;
+    border: none;
+    padding: 3px;
 }

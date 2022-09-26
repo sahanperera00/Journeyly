@@ -13,6 +13,7 @@
 
 .topicCont h1 {
     font-weight: bold;
+    color: #0b838e;
 }
 
 .bookingsBodyCont {
@@ -36,12 +37,15 @@
     padding: 15px;
     width: 15%;
     text-align: center;
-    background-color: transparent;
+    /* background-color: transparent;
+    color: #0b838e; */
+    border: #ffffff79 2px solid;
     color: #0b838e;
-    border: #0b838e 1.5px solid;
-    border-radius: 10px;
+    background-color: #d0e4e6;
+    border-radius: 30px;
     cursor: pointer;
     text-decoration: none;
+    box-shadow: 5px 5px 5px 2px #0b838e2d;
 }
 
 .bookingsListItem:hover {
