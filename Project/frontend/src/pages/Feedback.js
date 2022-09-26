@@ -1,4 +1,4 @@
-import '../styles/ranmina/Feedback.css';
+import '../styles/Ranmina/Feedback.css';
 
 function Feedback() {
   return (

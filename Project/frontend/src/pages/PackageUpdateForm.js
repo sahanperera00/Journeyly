@@ -143,7 +143,7 @@ function PackageUpdateForm() {
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">guidet</label>
+                    <label className="form-label">guide</label>
                     <input type="text" className="form-control" value={guide}
                     onChange={(e) => {
                         setGuide(e.target.value);
