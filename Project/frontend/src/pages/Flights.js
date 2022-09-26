@@ -25,6 +25,7 @@ function Flights() {
 
   return (
     <div className='flightMainContainer'>
+      <div className='flightApp'>
       <h1 className='flightHeader'>Flights</h1>
 
       <div className='flightContainer'>
@@ -52,6 +53,7 @@ function Flights() {
         })}
         </div>
         
+      </div>
       </div>
     </div>
   )
