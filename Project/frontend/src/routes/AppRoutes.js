@@ -16,6 +16,7 @@ import {
     HotelEdit,
     FlightForm,
     FlightEdit,
+    FlightPreview,
     DestinationUpdateForm,
     PackageForm,
     PackagesEdit,
@@ -29,6 +30,9 @@ import {
     VehicleUpdateForm,
     VehicleForm,
     VehiclesEdit,
+    ClientDashboard,
+    UserDashboard,
+    UserProfile,
     UserProfile,
     ProfileUpdateForm,
     ClientDashboard,
@@ -60,6 +64,7 @@ function AppRoutes() {
                     <Route path="packages" element={<Packages />} />
                     <Route path = "registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview/>}/>
+                    <Route path='flightPreview/:id' element={<FlightPreview/>}/>
                     <Route path='hotelResForm' element={<HotelResForm/>}/>
                     <Route path='rentalPreview/:id' element={<RentalPreview/>}/>
                     <Route path='rentalForm' element={<RentalForm/>}/
