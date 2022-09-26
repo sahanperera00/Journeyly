@@ -37,6 +37,10 @@ import {
     Payments,
     HotelResForm
 } from '../pages';
+
+import RentalForm from '../pages/RentalForm'; 
+import RentalPreview from '../pages/RentalPreview'; 
+
 import Tester from '../pages/tester.js'
 
 function AppRoutes() {
@@ -57,6 +61,8 @@ function AppRoutes() {
                     <Route path = "registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview/>}/>
                     <Route path='hotelResForm' element={<HotelResForm/>}/>
+                    <Route path='rentalPreview/:id' element={<RentalPreview/>}/>
+                    <Route path='rentalForm' element={<RentalForm/>}/
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
