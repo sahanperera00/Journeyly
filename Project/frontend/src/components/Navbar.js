@@ -9,9 +9,6 @@ import { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
-
-
-
 function Navbar() {
 
   const [show, setShow] = useState(false);
