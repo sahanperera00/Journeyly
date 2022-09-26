@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function HotelResForm({destination}) {
+function HotelResForm({}) {
   const [name, setName] = useState('');
   const [hotel_Name, setHotelName] = useState('');
   const [check_in, setCheckin] = useState('');
@@ -34,7 +34,7 @@ function checkDate(){
             e.preventDefault();
 
             const newBook = {
-              desId: destination._id,
+              
               name,
               hotel_Name,
               check_in,
