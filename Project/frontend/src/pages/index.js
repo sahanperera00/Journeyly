@@ -42,6 +42,7 @@ import Feedback from './Feedback';
 import Payments from './Payments';
 import DestinationBookings from './DestinationBookings';
 import HotelResForm from './HotelResForm';
+import FlightResForm from './FlightResForm';
 import FeedbackForm from './FeedbackForm';
 import RentalForm from '../pages/RentalForm'; 
 import RentalPreview from '../pages/RentalPreview';
@@ -92,6 +93,7 @@ export {
     Payments,
     DestinationBookings,
     HotelResForm,
+    FlightResForm,
     RentalForm,
     RentalPreview
 };

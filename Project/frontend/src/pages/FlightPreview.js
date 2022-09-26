@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import '../styles/sudul/flightPreview.css';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -72,7 +72,11 @@ function FlightPreview() {
                  <b> Economy Class Ticket Price : </b>{economyClass}<br/>
                  <b> Business Class Ticket Price: </b>{businessClass}<br/></div>
         </div>
-        <a href='' className='reserveBtn'>Reserve Flight</a>
+        <Link to={'/flightResForm'}>
+            <div>
+                <button className='flightBtn'>Make A Reservation</button>
+            </div>
+            </Link>
         </div>
     )
 }   
