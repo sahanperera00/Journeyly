@@ -47,9 +47,9 @@ function UserProfile() {
     // console.log(client);
 
    return (
-    
-      <div className='userprofiletopic'><h1>User Profile</h1>
-        <div className='userprofilecontainer'>
+    <div className='profilecontainer'>
+      <div className='userprofiletopic'><h1>User Profile</h1> </div>
+        {/* <div className='userprofilecontainer'> */}
 
              <div className='card-container'>
 
@@ -94,16 +94,16 @@ function UserProfile() {
           </table> 
           <div className='btnprofile'>
            <Link to={`/ClientDashboard/${id}/updateProfile`}>
-            <Button variant="warning">Update</Button>
+            <Button variant="warning">Update Profile</Button>
           </Link> 
-          <Button variant="danger" className='ms-3' onClick={() => deleteClient(id)}>Delete</Button>
+          <Button variant="danger" className='ms-3' onClick={() => deleteClient(id)}>Delete Account</Button>
           </div>
           </div>
           </div>
-        </div>
         </div>
        
         </div>
+        // </div>
         
    )
     

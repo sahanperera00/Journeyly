@@ -1,0 +1,46 @@
+.taxipreviewContainer{
+    width: 100%;
+    height: 100vh;
+    background-color: #bfbfb2;
+    padding-top: 7%;
+}
+
+.taxiImg{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    border-radius: 25px;
+    background-color: aquamarine;
+    overflow: hidden;
+    display: block;
+}
+
+.rentbtn{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    border: 0.5px solid white;
+    background-color: transparent;
+}
+
+.rentbtn:hover{
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
+
+.faci{
+    text-decoration: solid;
+    text-transform: uppercase;
+    font-size: larger;
+    color: brown;
+}
+
+.name{
+    text-decoration: solid;
+    font-size: large;
+
+}

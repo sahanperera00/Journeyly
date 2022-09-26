@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-//import '../styles/madusha/RentalPreview.css';
+import '../styles/Madusha/TaxiPreview.css';
 import { Link } from 'react-router-dom';
 
 function RentalPreview() {
@@ -22,7 +22,7 @@ function RentalPreview() {
         setType(res.data.type);
         setDriverName(res.data.driverName);
         setFee(res.data.fee);
-        setImage(res.data.Image);
+        setImage(res.data.image);
       })
       .catch((err) => {
         alert(err);
@@ -32,22 +32,29 @@ function RentalPreview() {
   useEffect(() => { getVehicle() }, [id]);
 
   return (
-    <>
-      <div className='rentalPreviewContainer' style={{ backgroundImage: `url(${image})` }}>
-      <div className='rentalPreviewBlueDiv' />
-      <div className='rentalpreviewTextContainer'>
-        <h1 className='rentalpreviewh1'>{vehicleType}</h1>
-        <h2 className='rentalpreviewh2'>{type}</h2>
-        <h3 className='rentalpreviewh3'>{driverName}</h3>
-        <h2 className='rentalpreviewp'>{fee}</h2><br />
-      </div>
-      </div>
-      <Link to={'/rentalForm'}>
-        <div>
-            <button className='hotelbtn'>Rent this Vehicle</button>
+    <div className='previewContainer'>
+      <div className="App">
+                <div className='hotelImgContainer'>
+                    <img className='hotelImg' alt='pic' src={image}/>
+                </div>
+                <div>
+            <div>
+            <h1 className='text-center'>{type}</h1>
+                <h1 className='text-center'>{vehicleType}</h1>
+            </div> 
+            
+    
+                    <p>Driver Name{driverName}<br/></p>
+                    
+                    <p className='faci'> Fee per KM:  {fee}<br/></p>
+                </div>
+            </div>
+            <Link to={'/RentalForm'}>
+            <div>
+                <button className='rentbtn'>Rent this Vehicle</button>
+            </div>
+            </Link>
         </div>
-      </Link>
-    </>
   )
 }
 
