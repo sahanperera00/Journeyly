@@ -1,21 +1,22 @@
-.text-center{
+.feedText{
     font-size: 40px;
     font-weight: 500; 
     color:gray;
+    text-align: center;
 }
-.btn btn-dark{
-    margin-left: 50000px;
+.btnfeed{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: right;
 }
-.button1{
-    margin-left: 5000px;
-    display:block;
-}
-.rating {
+
+.ratingfeed{
     height:200px;
     width:500px;
 
 }
-.form-label {
+#form-label-feed {
     margin-bottom: 0px;
     margin-top: 8px;
+    text-decoration: solid;
 }
