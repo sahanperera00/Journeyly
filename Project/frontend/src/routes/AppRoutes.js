@@ -33,9 +33,7 @@ import {
     ClientDashboard,
     UserDashboard,
     UserProfile,
-    UserProfile,
     ProfileUpdateForm,
-    ClientDashboard,
     Bookings,
     Feedback,
     Payments,
@@ -67,7 +65,7 @@ function AppRoutes() {
                     <Route path='flightPreview/:id' element={<FlightPreview/>}/>
                     <Route path='hotelResForm' element={<HotelResForm/>}/>
                     <Route path='rentalPreview/:id' element={<RentalPreview/>}/>
-                    <Route path='rentalForm' element={<RentalForm/>}/
+                    <Route path='rentalForm' element={<RentalForm/>}/>
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
