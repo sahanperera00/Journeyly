@@ -101,4 +101,4 @@ function RentalForm({rental}) {
   )
 }
 
-export default RentalForm
+export default RentalForm;

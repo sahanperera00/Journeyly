@@ -1,5 +1,6 @@
 import Package from "../models/packages.js";
 
+//read
 export const getAllPackages = async (req, res) => {
     try {
         const packages = await Package.find();
@@ -8,7 +9,7 @@ export const getAllPackages = async (req, res) => {
         res.status(404).json({ message: error });
     }
 }
-
+//read by Id
 export const getPackages = async (req, res) => {
     const id = req.params.id;
     try {
@@ -18,7 +19,7 @@ export const getPackages = async (req, res) => {
         res.status(404).json({ message: error });
     }
 }
-
+//create
 export const createPackages = async (req, res) => {
     const packages = req.body;
     const newPackages = new Package(packages);
@@ -29,7 +30,7 @@ export const createPackages = async (req, res) => {
         res.status(404).json({ message: error });
     }        
 }
-
+//update
 export const updatePackages = async (req, res) => {
     const id = req.params.id;
     const update = req.body;
@@ -40,7 +41,7 @@ export const updatePackages = async (req, res) => {
         res.status(404).json({ message: error });
     }
 }
-
+//delete
 export const deletePackages = async (req, res) => {
     const id = req.params.id;
     try {
