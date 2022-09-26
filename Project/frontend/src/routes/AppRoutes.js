@@ -16,6 +16,7 @@ import {
     HotelEdit,
     FlightForm,
     FlightEdit,
+    FlightPreview,
     DestinationUpdateForm,
     PackageForm,
     PackagesEdit,
@@ -29,15 +30,19 @@ import {
     VehicleUpdateForm,
     VehicleForm,
     VehiclesEdit,
-    UserProfile,
-    ProfileUpdateForm,
     ClientDashboard,
     UserDashboard,
-    ClientProfile,
+    UserProfile,
+    ProfileUpdateForm,
     Bookings,
     Feedback,
-    Payments
+    Payments,
+    HotelResForm
 } from '../pages';
+
+import RentalForm from '../pages/RentalForm'; 
+import RentalPreview from '../pages/RentalPreview'; 
+
 import Tester from '../pages/tester.js'
 
 function AppRoutes() {
@@ -57,6 +62,10 @@ function AppRoutes() {
                     <Route path="packages" element={<Packages />} />
                     <Route path = "registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview/>}/>
+                    <Route path='flightPreview/:id' element={<FlightPreview/>}/>
+                    <Route path='hotelResForm' element={<HotelResForm/>}/>
+                    <Route path='rentalPreview/:id' element={<RentalPreview/>}/>
+                    <Route path='rentalForm' element={<RentalForm/>}/>
                 </Route>
                 
                 <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
@@ -86,10 +95,6 @@ function AppRoutes() {
                 <Route path="/ClientDashboard/:id" element={<ClientDashboard/>}>
                     <Route index element={<UserProfile/>}/>
                     <Route path="updateProfile" element={<ProfileUpdateForm/>}/>
-                </Route>
-
-                <Route path="/clientDashboard/:id" element={<ClientDashboard/>}>
-                    <Route index element={<ClientProfile/>}/>
                     <Route path="bookings" element={<Bookings/>}/>
                     <Route path="feedback" element={<Feedback/>}/>
                     <Route path="payments" element={<Payments/>}/>

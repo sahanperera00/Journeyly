@@ -16,6 +16,7 @@ import DestinationUpdateForm from './DestinationUpdateForm';
 import HotelForm from "./HotelForm";
 import FlightForm from "./FlightForm";
 import FlightEdit from './FlightEdit';
+import FlightPreview from './FlightPreview';
 import PackageForm from "./PackageForm";
 import PackagesEdit from './PackagesEdit';
 import PackageUpdateForm from "./PackageUpdateForm";
@@ -39,6 +40,7 @@ import ClientProfile from './ClientProfile';
 import Bookings from './Bookings';
 import Feedback from './Feedback';
 import Payments from './Payments';
+import HotelResForm from './HotelResForm';
 
 export {
     Home,
@@ -58,6 +60,7 @@ export {
     HotelEdit,
     FlightForm,
     FlightEdit,
+    FlightPreview,
     DestinationUpdateForm,
     PackageForm,
     PackagesEdit,
@@ -81,5 +84,6 @@ export {
     ClientProfile,
     Bookings,
     Feedback,
-    Payments
+    Payments,
+    HotelResForm
 };
