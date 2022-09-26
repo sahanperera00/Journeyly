@@ -34,7 +34,7 @@ function UserProfile() {
     }
 
     const deleteClient = (id) => {
-      axios.delete(`http://localhost:8070/client/remove/${id}`)  
+      axios.delete(`http://localhost:8070/client/delete/${id}`)  
           .then(() => {
               alert("User account deleted");
               navigate('/');
@@ -59,9 +59,13 @@ function UserProfile() {
            Password: {password}<br/>
           <br/>
 
-          <Link to={"/UserDashboard/ProfileUpdateForm/" + id}>
+          {/* <Link to={"/UserDashboard/ProfileUpdateForm/" + id}>
             <Button variant="warning">Update</Button>
-          </Link>
+          </Link> */}
+
+<Link key={`${id} + 4`} to={"/UserDashboard/ProfileUpdateForm/"+id}>
+                  <Button key={`${id} + 1`} variant="warning">Update</Button>
+                </Link>
           <Button variant="danger" className='ms-3' onClick={() => deleteClient(id)}>Delete</Button>
         </div>
         </div>

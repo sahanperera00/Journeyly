@@ -28,7 +28,7 @@ function Packages() {
     <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
       {packages.map((data) => {
         return (
-          <Card style={{ width: '80rem',height:'30rem', margin: '2rem', padding: '0rem'}} className='PackageCard'>
+          <Card style={{ width: '75rem',height:'25rem', margin: '2rem', padding: '0rem'}} className='PackageCard'>
             <Card.Img src={data.image} className='imagePackage' />
             <Card.Body className='PackageBody'>
               <Card.Title className='packageTitle'>{data.name}</Card.Title>
@@ -42,7 +42,8 @@ function Packages() {
               Hotel Room Type    = {data.roomType}<br/>
               Vehicle            ={data.vehicle}<br/>
               Guide              = {data.guide}<br/> <br/>
-              Price (LK rupees)  = {data.price}<br/>
+              Price (LK rupees)  = {data.price}  
+              <button className='PackageSelect' > Select</button>      
             
               </Card.Text>
             </Card.Body>
