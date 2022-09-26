@@ -1,7 +1,50 @@
 .BookingsContainer {
-
+    margin-left: 280px;
+    background-color: #d0e4e6;
+    height: 100vh;
 }
 
-.bookingsTopic {
+.topicCont {
+    width: 100%;
+    height: 15%;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.topicCont h1 {
+    font-weight: bold;
+}
+
+.bookingsBodyCont {
+    width: 100%;
+    height: 85%;
+}
+
+.bookingsTabCont {
+    width: 100%;
+}
+
+.bookingsList {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.bookingsListItem {
+    padding: 15px;
+    width: 15%;
     text-align: center;
+    background-color: transparent;
+    color: #0b838e;
+    border: #0b838e 1.5px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.bookingsListItem:hover {
+    color: #d0e4e6;
+    background-color: #0b838e;
 }

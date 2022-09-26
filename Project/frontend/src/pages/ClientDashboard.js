@@ -1,11 +1,13 @@
 import ClientDashSidebar from '../components/ClientDashSidebar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import '../styles/nash/ClientDashboard.css';
 
 function ClientDashboard() {
   return (
     <div>
         <ClientDashSidebar />
+        <Link className='logoutBtn' to={'/'}>Logout</Link>
+
         <Outlet />
     </div>
   )

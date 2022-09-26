@@ -1,49 +1,48 @@
 .packageMain{
     
-    background-color: #a6afbe;
+    background-color: #d0daeb;
     border: double;
+    
   
    
 }
 .packageHeader{
    
-  
+  padding-top: 8%;
+  padding-bottom: 2%;
  font-family: 'Times New Roman', serif;
   text-align: center;
-  width: 100%;
-  height: auto;
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
+   position: relative;
   overflow: hidden;
   border-radius: 0 0 85% 85% / 5%;
-  font-size: 50px;
-  font-weight: 900;
+  font-size: 45px;
+  font-weight: 500;
   width: 100%;
   height: 100%;
-  padding: 48px;
+  
   color: #090b0f;
-  text-shadow: 1px 1px 1px rgb(43, 25, 112);
-   background-image: linear-gradient(135deg, #71718769 10%, #c3c3c569 100%);
+  text-shadow: 1px 0px 0px rgb(58, 38, 141);
+   background-image: linear-gradient(135deg, #9e9eb069 10%, #c3c3c569 100%);
   
 }
 
 .PackageDiscription{
-    padding :  10px;
+padding :  10px;
 font-family: 'Leckerli One', cursive;
 color: #46397a;
-font-size: 21px;
+font-size: 0px;
 
 }
 
 .packageTitle
 {
     text-align: left; 
-    font-size: 40px;
+    font-size: 35px;
   font-weight: 500; 
   padding: 20px;
   color: rgba(10, 15, 106, 0.86);
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family:'Times New Roman', serif;
+  font-weight:bold
 }
 
 
@@ -63,7 +62,7 @@ font-size: 21px;
     
 
    
-    border: 4px solid #8b8b98;
+    border: 4px solid #f8f8f8;
     text-align:left ;
     color: rgb(28, 1, 54);
     font-size: 20px;
@@ -77,7 +76,7 @@ font-size: 21px;
       overflow: hidden;
       border-radius: 3pc;
       
-      background-color: rgb(224, 236, 246);
+      background-color: rgb(247, 248, 249);
       
 
 }
