@@ -6,7 +6,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 
-
 function UserProfile() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -48,27 +47,64 @@ function UserProfile() {
     // console.log(client);
 
    return (
-   <div className='userprofilecontainer'>
-        <h1>User Profile</h1>
-        <div>
-           First name: {firstName}<br/>
-           Last name: {lastName}<br/>
-           Email: {email}<br/>
-           Contact Number: {contactNo}<br/>
-           Username: {username}<br/>
-           Password: {password}<br/>
-          <br/>
+    <div className='profilecontainer'>
+      <div className='userprofiletopic'><h1>User Profile</h1> </div>
+        {/* <div className='userprofilecontainer'> */}
 
-          {/* <Link to={"/UserDashboard/ProfileUpdateForm/" + id}>
-            <Button variant="warning">Update</Button>
-          </Link> */}
+             <div className='card-container'>
 
-<Link key={`${id} + 4`} to={"/UserDashboard/ProfileUpdateForm/"+id}>
-                  <Button key={`${id} + 1`} variant="warning">Update</Button>
-                </Link>
-          <Button variant="danger" className='ms-3' onClick={() => deleteClient(id)}>Delete</Button>
+              <div className='upper-container'>
+          
+                <div className='image-container'>
+                <img src="https://img.icons8.com/fluency/96/000000/user-male-circle.png"/>
+                </div>
+        <div className='lower-container'>
+        
+        <table className='tableprofile' style={{ width: '80%'}}>
+            <tr> 
+              <th> First name: </th> 
+              <td>{firstName}</td>
+            </tr>
+            
+            <tr> 
+              <th> Last name: </th> 
+              <td>{lastName}</td>
+            </tr>
+
+            <tr> 
+              <th> Email: </th> 
+              <td>{email}</td>
+            </tr>
+
+            <tr> 
+              <th> Contact Number: </th> 
+              <td>{contactNo}</td>
+            </tr>
+
+            <tr> 
+              <th> Username: </th> 
+              <td>{username}</td>
+            </tr>
+
+            <tr> 
+              <th> password: </th> 
+              <td>{password}</td>
+            </tr>
+              
+          </table> 
+          <div className='btnprofile'>
+           <Link to={`/ClientDashboard/${id}/updateProfile`}>
+            <Button variant="warning">Update Profile</Button>
+          </Link> 
+          <Button variant="danger" className='ms-3' onClick={() => deleteClient(id)}>Delete Account</Button>
+          </div>
+          </div>
+          </div>
         </div>
+       
         </div>
+        // </div>
+        
    )
     
   }
