@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import '../styles/Ranmina/Feedback.css'
+import '../styles/ranmina/Feedback.css'
 
 
 function FeedbackForm(){
@@ -64,14 +64,14 @@ function FeedbackForm(){
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Phonenumber</label>
+                    <label className="form-label">Phone number</label>
                     <input type="number" className="form-control" 
                     onChange={(e) => {
                         setphonenumber(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Feedbacktype</label>
+                    <label className="form-label">Subject</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setfeedbacktype(e.target.value);
