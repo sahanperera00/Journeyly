@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
-
+import '../styles/praweena/PackageForm.css'
 
 function PackageForm(){
     const [name, setName] = useState('');
@@ -18,8 +18,8 @@ function PackageForm(){
 
 
     return (
-        <div>
-            <h1 className='text-center'>Add Package Details</h1>
+        <div  className='PackageForm'>
+            <h1 className='Packagetext-center'>Add Package Details</h1>
         <div className="App">
             <br/>
             <form onSubmit={(e) => {
