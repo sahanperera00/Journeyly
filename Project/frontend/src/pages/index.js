@@ -36,7 +36,6 @@ import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
 import ProfileUpdateForm from './ProfileUpdateForm';
 import ClientDashboard from './ClientDashboard';
-import ClientProfile from './ClientProfile';
 import Bookings from './Bookings';
 import Feedback from './Feedback';
 import Payments from './Payments';
@@ -87,7 +86,6 @@ export {
     FeedbackForm,
     ProfileUpdateForm,
     ClientDashboard,
-    ClientProfile,
     Bookings,
     Feedback,
     Payments,
