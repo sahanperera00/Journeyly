@@ -1,0 +1,32 @@
+.previewBG{
+    width: 100%;
+    height: 100vh;
+    background-color: #b8b8b8;
+    padding-top: 7%;
+}
+.pic{
+    width: 100%;
+    height: 100%; 
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    display: block;
+    border-radius: 25px;
+}
+.textPart{
+    text-align: left;
+}
+.texts{
+    align-content: center;
+}
+.reserveBtn{
+    border-radius: 50px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    border: 0.5px solid white;
+    transition: 310ms;
+    text-decoration: none;
+}
