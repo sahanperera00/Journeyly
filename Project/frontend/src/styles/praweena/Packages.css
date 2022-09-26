@@ -1,0 +1,124 @@
+.packageMain{
+    
+    background-color: #a6afbe;
+    border: double;
+  
+   
+}
+.packageHeader{
+   
+  
+ font-family: 'Times New Roman', serif;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 5%;
+  font-size: 50px;
+  font-weight: 900;
+  width: 100%;
+  height: 100%;
+  padding: 48px;
+  color: #090b0f;
+  text-shadow: 1px 1px 1px rgb(43, 25, 112);
+   background-image: linear-gradient(135deg, #71718769 10%, #c3c3c569 100%);
+  
+}
+
+.PackageDiscription{
+    padding :  10px;
+font-family: 'Leckerli One', cursive;
+color: #46397a;
+font-size: 21px;
+
+}
+
+.packageTitle
+{
+    text-align: left; 
+    font-size: 40px;
+  font-weight: 500; 
+  padding: 20px;
+  color: rgba(10, 15, 106, 0.86);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+.packageBody{
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    
+    background-repeat: no-repeat;
+    display: block;
+     
+    
+}
+
+.PackageCard{
+    
+
+   
+    border: 4px solid #8b8b98;
+    text-align:left ;
+    color: rgb(28, 1, 54);
+    font-size: 20px;
+    font-weight:bolder;
+    font-family: 'Times New Roman', serif;
+    margin-right: 40pc;
+   
+    
+    box-sizing: border-box;
+   
+      overflow: hidden;
+      border-radius: 3pc;
+      
+      background-color: rgb(224, 236, 246);
+      
+
+}
+
+
+  .imagePackage{
+        
+        
+        object-fit: cover;
+        display: block;
+        margin-right: 28px;
+        margin-top: 38px;
+        margin-bottom: 11pc;
+        float: left;
+        width: 30%;
+        height: 80%;
+        overflow: hidden;
+        display: block;
+        border-radius: 25px;
+        
+        aspect-ratio: 4/3;
+        position: absolute;
+       right: 0px;
+       width: 30rem;
+       height:'30rem';
+       padding: 0px;
+       
+        }
+    
+        .PackageSelect    
+        {
+          margin-left: 10pc;
+          color: rgb(4, 4, 12);
+          background-color: rgb(136, 136, 155);
+          border-radius: 1pc;
+          border: #a6afbe;
+          
+        }
+    
+
+
+
+
+    

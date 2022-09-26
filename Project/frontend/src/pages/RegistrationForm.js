@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate,Link } from 'react-router-dom';
+
+
 
 function RegistrationForm(){
     const [firstName, setFirstName]=useState('');
@@ -8,10 +11,13 @@ function RegistrationForm(){
     const [contactNo,setContactNo]=useState('');
     const [username, setUsername]=useState('');
     const [password, setPassword]=useState('');
+    
+    const navigate = useNavigate();
 
     return (
         <div>
-            <h1 className='text-center'>Registration</h1>
+             <br/><br/><br/><br/>
+          <h1 className='text-center'>Registration</h1>
         <div className="App">
             <form onSubmit={(e) => {
                 e.preventDefault();
@@ -23,12 +29,13 @@ function RegistrationForm(){
                     contactNo,
                     username,
                     password
-                    
+   
                 }
 
                 axios.post("http://localhost:8070/client/create", newClient)
                     .then(() => {
                         alert("Registration successfull!");
+                        navigate('/');
                     }).catch((err) => {
                         alert("Unsuccessful!");
                         console.log(err);
@@ -58,27 +65,32 @@ function RegistrationForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label">Contact Number</label>
-                    <input type="number" className="form-control" 
+                    <input type="text" className="form-control" 
                     onChange={(e) => {
                         setContactNo(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Username</label>
-                    <input type="number" className="form-control" min="0" max="5"
+                    <input type="text" className="form-control" min="0" max="5"
                     onChange={(e) => {
                         setUsername(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Password</label>
-                    <input type="text" className="form-control" 
+                    <input type="password" className="form-control" 
                     onChange={(e) => {
                         setPassword(e.target.value);
                     }} required/>
                 </div>
                 <br />
                 <button type="signup" className="btn btn-dark">Sign Up</button><br /><br />
+                Already have an account?
+                <Link to={"/"}>
+                         Log in
+                </Link>
+              
             </form>
         </div>
         </div>

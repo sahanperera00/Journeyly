@@ -1,0 +1,96 @@
+.hotelMainContainer{
+    width: 100%;
+    /* height: 100vh; */
+    background-color: #b8b8b8;
+    padding-top: 7%;
+    
+}
+.hotelHeader{
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+
+.hotelContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0 5%;
+    /* right: 10%; */
+    width: 100%;
+    /* background-color: cadetblue; */
+}
+.hotelSideBar{
+    background-color: #454545;
+    width: 20%;
+    height:100%;
+    
+}
+.hotelBodyContainer{
+    width: 80%;
+    height: 100%;
+}
+
+
+.hotelCardBody{
+    background-color: blueviolet;
+    width: 80%;
+
+}
+.hotelImageContainer{
+    width: 20%;
+    height: 100%; 
+    /* background-color: lawngreen; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* display: flex; */
+    /* background-image: url(); */
+}
+
+.CardContainer{
+    width: 93%;
+    height: 250px;
+    background-color: white;
+    display: flex;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 20px 0;
+    float: right;
+}
+
+.ImageContainer{
+    /* background-color: azure; */
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    border-radius: 25px;
+}
+.TextContainer{
+    /* background-color:blueviolet; */
+    width: 70%;
+    height: 100%;
+    display: block;
+}
+.hotelCardImg{
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.priceTage{
+    float: right;
+    font-size: 22px;
+}
+
+.desTage{
+    margin-left: 5%;
+    width: 67%;
+}
+
+.starTage{
+    float: right;
+    color: orange;
+}
