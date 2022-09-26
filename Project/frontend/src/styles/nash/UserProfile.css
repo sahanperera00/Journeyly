@@ -1,12 +1,15 @@
-
+.profilecontainer{
+    background-color: #d0e4e6da;
+    height: 100vh;
+}
 .userprofiletopic{
     text-align:center;
 }
-.userprofilecontainer{
+/* .userprofilecontainer{
    
-     /* background-color: blueviolet;
-    text-align:center; */
-}
+     background-color: blueviolet;
+    text-align:center;
+} */
 
 .card-container{
     width: 60%;
@@ -18,14 +21,14 @@
     left:50%;
     transform: translate(-40%,-40%); 
     box-shadow: 0px -1px 10px 2px rgba(0, 0, 0, 0.719);
-    /* background-color: #d0e4e693; */
+    background-color: #a8e1f32d;
 }
 
 .upper-container{
     height:150px;
     width: 100%;
     background-image: url("https://img.icons8.com/fluency/96/000000/user-male-circle.png"); 
-    background: #7dcbe3;
+    background: #7dcbe3ce;
 
 }
 
@@ -49,6 +52,6 @@
 
 
 .btnprofile{
-    padding: 38px;
-    margin-left: 20px;
+    padding-top: 40px;
+
 }
