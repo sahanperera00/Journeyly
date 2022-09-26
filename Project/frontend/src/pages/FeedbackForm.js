@@ -17,7 +17,7 @@ function FeedbackForm(){
 
     return (
         <div>
-            <h1 className='text-center'>Feedback Management System</h1>
+            <h1 className='feedText'>Feedback Management System</h1>
            
             <button class="button1" type="submit" className="btn btn-dark">Sign Out</button>
             
