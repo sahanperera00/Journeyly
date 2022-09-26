@@ -56,7 +56,9 @@ function FlightPreview() {
     useEffect(() => { getFlight() },[]);
 
     return(
+        
         <div className='previewBG'>
+            <div className='prevCont'>
             <h1 className='text-center'>{name}</h1>
         <div className="App">
             <div>
@@ -77,6 +79,7 @@ function FlightPreview() {
                 <button className='flightBtn'>Make A Reservation</button>
             </div>
             </Link>
+            </div>
         </div>
     )
 }   

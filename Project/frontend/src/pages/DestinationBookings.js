@@ -32,41 +32,44 @@ function DestinationBookings() {
 
   return (
     <div className='desBookCont'>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">DesId</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Date</th>
-          <th scope="col">Time</th>
-          <th scope="col">Adults</th>
-          <th scope="col">Children</th>
-          <th scope="col">Total</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        {bookings.map((data) => {
-          return (
+      <div className='desBookTableCont'>
+        <table className="table table-striped">
+          <thead>
             <tr>
-              <td>{data.desId}</td>
-              <td>{data.firstName}</td>
-              <td>{data.lastName}</td>
-              <td>{data.date}</td>
-              <td>{data.time}</td>
-              <td>{data.adults}</td>
-              <td>{data.children}</td>
-              <td>{data.total}</td>
-              <td><button>Update</button></td>
-              <td><button onClick={() => deleteBooking(data._id)}>Delete</button></td>
+              <th scope="col">DesId</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Adults</th>
+              <th scope="col">Children</th>
+              <th scope="col">Total</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Remove</th>
             </tr>
-          )})
-        }
-        </tbody>
-    </table>
+          </thead>
+          <tbody>
+            {bookings.map((data) => {
+              return (
+                <tr>
+                  <td>{data.desId}</td>
+                  <td>{data.firstName}</td>
+                  <td>{data.lastName}</td>
+                  <td>{data.date}</td>
+                  <td>{data.time}</td>
+                  <td>{data.adults}</td>
+                  <td>{data.children}</td>
+                  <td>{data.total}</td>
+                  <td><button className='bookingbttn'><span className="material-symbols-outlined">Edit</span></button></td>
+                  <td><button className='bookingbttn' onClick={() => deleteBooking(data._id)}>
+                    <span className="material-symbols-outlined">Delete</span>
+                  </button></td>
+                </tr>
+              )})
+            }
+            </tbody>
+        </table>
+      </div>
     </div>
   )
 }
