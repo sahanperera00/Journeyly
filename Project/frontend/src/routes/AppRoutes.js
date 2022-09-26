@@ -37,7 +37,8 @@ import {
     Bookings,
     Feedback,
     Payments,
-    HotelResForm
+    HotelResForm,
+    FeedbackForm
 } from '../pages';
 
 import RentalForm from '../pages/RentalForm'; 
@@ -99,7 +100,7 @@ function AppRoutes() {
                     <Route path="feedback" element={<Feedback/>}/>
                     <Route path="payments" element={<Payments/>}/>
                 </Route>
-
+                <Route path="/feedback/create" element={<FeedbackForm/>}/>
             </Routes>
         </Router>
     );
