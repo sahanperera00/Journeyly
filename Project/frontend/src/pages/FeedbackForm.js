@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import '../styles/Ranmina/Feedback.css'
+import '../styles/ranmina/Feedback.css'
 
 
 function FeedbackForm(){
