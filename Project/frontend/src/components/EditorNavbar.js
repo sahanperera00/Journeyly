@@ -61,14 +61,11 @@ function EditorNavbar() {
             <NavDropdown title="Packages" id="basic-nav-dropdown">
             <LinkContainer to="/editorDash/PackageForm">
               <NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
-             
-              <LinkContainer to="/editorDash/packagesEdit">
+            <LinkContainer to="/editorDash/packagesEdit">
                <NavDropdown.Item>Update & Delete</NavDropdown.Item></LinkContainer>
-              
-              <NavDropdown.Divider />
-              <LinkContainer to="/editorDash/packages">
-                <NavDropdown.Item>Client View</NavDropdown.Item></LinkContainer>
-             
+               <NavDropdown.Divider />
+            <LinkContainer to="/editorDash/packages">
+               <NavDropdown.Item>Client View</NavDropdown.Item></LinkContainer>
             </NavDropdown>
 
           </Nav>
