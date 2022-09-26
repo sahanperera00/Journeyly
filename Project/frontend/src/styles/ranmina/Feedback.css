@@ -1,0 +1,21 @@
+.feedText{
+    font-size: 40px;
+    font-weight: 500; 
+    color:gray;
+}
+.btn btn-dark{
+    margin-left: 50000px;
+}
+.button1{
+    margin-left: 5000px;
+    display:block;
+}
+.rating {
+    height:200px;
+    width:500px;
+
+}
+.form-label {
+    margin-bottom: 0px;
+    margin-top: 8px;
+}
