@@ -9,3 +9,21 @@
     width: 83%;
     height: 100%;
 }
+
+.logoutBtn {
+    border-radius: 50px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 0.5px solid #0b828e;
+    color: #0b828e;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logoutBtn:hover {
+    background-color: #0b828e;
+    color: #d0e4e6;
+}
