@@ -18,6 +18,16 @@ function DestinationBookings() {
       });
   }
 
+  const deleteBooking = (bid) => {
+    axios.delete(`http://localhost:8070/desTicket/delete/${bid}`)
+        .then((res) => {
+            getBookings();
+        })
+        .catch((err) => {
+            alert(err);
+        });
+    }
+
   useEffect(() => { getBookings() }, [id]);
 
   return (
@@ -51,7 +61,7 @@ function DestinationBookings() {
               <td>{data.children}</td>
               <td>{data.total}</td>
               <td><button>Update</button></td>
-              <td><button>Delete</button></td>
+              <td><button onClick={() => deleteBooking(data._id)}>Delete</button></td>
             </tr>
           )})
         }
