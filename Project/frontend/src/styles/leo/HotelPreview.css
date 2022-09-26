@@ -27,6 +27,11 @@
     background-color: transparent;
 }
 
+.hotelbtn:hover{
+    color: black;
+    background-color: white;
+}
+
 .faci{
     text-decoration: solid;
     text-transform: uppercase;
