@@ -39,6 +39,7 @@ import ClientProfile from './ClientProfile';
 import Bookings from './Bookings';
 import Feedback from './Feedback';
 import Payments from './Payments';
+import DestinationBookings from './DestinationBookings';
 
 export {
     Home,
@@ -81,5 +82,6 @@ export {
     ClientProfile,
     Bookings,
     Feedback,
-    Payments
+    Payments,
+    DestinationBookings
 };
