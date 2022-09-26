@@ -41,6 +41,7 @@ import Bookings from './Bookings';
 import Feedback from './Feedback';
 import Payments from './Payments';
 import HotelResForm from './HotelResForm';
+import FeedbackForm from './FeedbackForm';
 
 export {
     Home,
@@ -79,6 +80,7 @@ export {
     HotelPreview,
     UserProfile,
     DesResForm,
+    FeedbackForm,
     ProfileUpdateForm,
     ClientDashboard,
     ClientProfile,
