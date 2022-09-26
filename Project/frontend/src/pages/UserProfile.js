@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
-import Card from 'react-bootstrap/Card';
-
 
 function UserProfile() {
     const [firstName, setFirstName] = useState("");
