@@ -34,6 +34,9 @@ import HotelPreview from './HotelPreview';
 import UserDashboard from './UserDashboard';
 import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
+import FinanceForm from './FinanceForm';
+
+
 
 export {
     Home,
@@ -71,5 +74,7 @@ export {
     HotelPreview,
     UserDashboard,
     UserProfile,
-    DesResForm
+    DesResForm,
+    FinanceForm
+
 };

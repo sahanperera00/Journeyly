@@ -30,7 +30,8 @@ import {
     VehicleForm,
     VehiclesEdit,
     UserDashboard,
-    UserProfile
+    UserProfile,
+    FinanceForm
 } from '../pages';
 import Tester from '../pages/tester.js'
 
@@ -80,10 +81,10 @@ function AppRoutes() {
                 <Route path="/userDashboard" element={<UserDashboard/>}>
                     <Route index element={<UserProfile/>}/>
                 </Route>
-
+               <Route path="/fianaceForm" element={<FinanceForm/>}/>
             </Routes>
         </Router>
-    );
+    ); 
 }
 
 export default AppRoutes;

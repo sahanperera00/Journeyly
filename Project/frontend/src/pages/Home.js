@@ -59,7 +59,9 @@ function Home() {
             </Carousel>
             <script type="text/javascript" src="vanilla-tilt.js"></script>
             {/* <Footer/> */}
+            <Link to ={"/fianaceForm"}>
             <button className='FinanceBtn'>Finance Login</button>
+            </Link>
             <button className='FeedbackBtn'>Send A Feedback</button>
         </div>
     );
