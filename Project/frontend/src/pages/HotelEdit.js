@@ -47,7 +47,7 @@ function HotelEdit() {
                   Description: {data.description}<br/>
                   Stars: {data.stars}<br/>
                   Facilities: {data.facilities}<br/>
-                  Images: {data.images}<br/>
+                  <Card.Img src={data.images}/>
                 </Card.Text>
                 <Link to={"/editorDash/hotelUpdateForm/"+data._id}>
                 <Button variant="warning">Update</Button>
