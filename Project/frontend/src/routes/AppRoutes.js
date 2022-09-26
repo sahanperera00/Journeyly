@@ -31,26 +31,23 @@ import {
     VehicleForm,
     VehiclesEdit,
     ClientDashboard,
-    UserDashboard,
     UserProfile,
     ProfileUpdateForm,
     Bookings,
     Feedback,
     Payments,
+    DestinationBookings,
     HotelResForm,
-    FeedbackForm
+    FeedbackForm,
+    RentalForm,
+    RentalPreview
 } from '../pages';
 
-import RentalForm from '../pages/RentalForm'; 
-import RentalPreview from '../pages/RentalPreview'; 
-
-import Tester from '../pages/tester.js'
 
 function AppRoutes() {
     return (
         <Router>
             <Routes>
-                <Route path='tester' element={<Tester/>}/>
                 <Route path="/" element={<SharedLayoutHome />}>
                     <Route index element={<Home />} />
                     <Route path="flights" element={<Flights />} />
@@ -96,7 +93,9 @@ function AppRoutes() {
                 <Route path="/ClientDashboard/:id" element={<ClientDashboard/>}>
                     <Route index element={<UserProfile/>}/>
                     <Route path="updateProfile" element={<ProfileUpdateForm/>}/>
-                    <Route path="bookings" element={<Bookings/>}/>
+                    <Route path="bookings" element={<Bookings/>}>
+                        <Route path="destination" element={<DestinationBookings/>}/>
+                    </Route>
                     <Route path="feedback" element={<Feedback/>}/>
                     <Route path="payments" element={<Payments/>}/>
                 </Route>

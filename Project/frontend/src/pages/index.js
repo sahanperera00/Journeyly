@@ -40,8 +40,11 @@ import ClientProfile from './ClientProfile';
 import Bookings from './Bookings';
 import Feedback from './Feedback';
 import Payments from './Payments';
+import DestinationBookings from './DestinationBookings';
 import HotelResForm from './HotelResForm';
 import FeedbackForm from './FeedbackForm';
+import RentalForm from '../pages/RentalForm'; 
+import RentalPreview from '../pages/RentalPreview';
 
 export {
     Home,
@@ -87,5 +90,8 @@ export {
     Bookings,
     Feedback,
     Payments,
-    HotelResForm
+    DestinationBookings,
+    HotelResForm,
+    RentalForm,
+    RentalPreview
 };
