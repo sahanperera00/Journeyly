@@ -18,8 +18,8 @@ function FeedbackForm(){
     return (
         <div>
             <h1 className='feedText'>Feedback Management System</h1>
+           <div> <button type="submit" className="btn btn-dark">Sign Out</button></div>
            
-            <button class="button1" type="submit" className="btn btn-dark">Sign Out</button>
             
 
         <div className="App">
@@ -50,36 +50,36 @@ function FeedbackForm(){
             }}>
 
                 <div className="form-group">
-                    <label className="form-label">Category</label>
+                    <label className="form-label" id='form-label-feed'><b>Category</b></label>
                     <input type="select" className="form-control" 
                     onChange={(e) => {
                         setsubject(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Place of incident</label>
+                    <label className="form-label" id='form-label-feed'><b>Place of incident</b></label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setmessage(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Phone number</label>
+                    <label className="form-label" id='form-label-feed'><b>Phone number</b></label>
                     <input type="number" className="form-control" 
                     onChange={(e) => {
                         setphonenumber(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Subject</label>
+                    <label className="form-label" id='form-label-feed'><b>Subject</b></label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setfeedbacktype(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label class="formlabel" className="form-label">Details</label>
-                    <input type="text" className="rating" 
+                    <label class="formlabel" className="form-label" id='form-label-feed'><b>Details</b></label>
+                    <input type="text" className="ratingfeed" 
                     onChange={(e) => {
                         setrating(e.target.value);
                     }} required/>
