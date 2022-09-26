@@ -1,0 +1,48 @@
+.CDashSidebarContainer {
+    width: 280px;
+    height: 100vh;
+    background-color: #d0e4e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-right: #0b838e2c 1.5px solid;
+}
+
+.CDSLogoCont {
+    width: 100%;
+    height: 15%;
+}
+
+.CDSLogoCont img {
+    width: 180px;
+    height: auto;
+    margin-top: 35px;
+}
+
+.CDSTabCont {
+    width: 85%;
+    height: 7%;
+    border-radius: 15px;
+    margin: 10px 0;
+    padding-left: 30px;
+    padding-top: 12px;
+    color: #0b828e;
+    display: flex;
+    transition: 250ms;
+    text-decoration: none;
+}
+
+.CDSTabCont:hover {
+    background-color: #0b828e;
+    color: #d0e4e6;
+    cursor: pointer;
+}
+
+.CDSTabCont p {
+    font-weight: 500;
+    margin-left: 15px;
+}
