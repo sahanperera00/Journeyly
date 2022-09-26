@@ -9,6 +9,7 @@
     top: 0;
     left: 0;
     z-index: 1;
+    border-right: #0b838e2c 1.5px solid;
 }
 
 .CDSLogoCont {
@@ -26,7 +27,7 @@
     width: 85%;
     height: 7%;
     border-radius: 15px;
-    margin: 20px 0;
+    margin: 10px 0;
     padding-left: 30px;
     padding-top: 12px;
     color: #0b828e;
@@ -37,7 +38,7 @@
 
 .CDSTabCont:hover {
     background-color: #0b828e;
-    color: white;
+    color: #d0e4e6;
     cursor: pointer;
 }
 

@@ -3,8 +3,11 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema;
 
 const feedbackSchema = new Schema ({
-
-    name: {
+    subject: {
+        type:String,
+        required:true
+    },
+    message: {
         type:String,
         required:true
     },
