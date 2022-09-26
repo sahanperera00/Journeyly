@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
+
 function PackageUpdateForm() {
     const [name, setName] = useState('');
     const [destination, setDestination]=useState('');
@@ -18,7 +19,7 @@ function PackageUpdateForm() {
     const {id} = useParams();
   
     const newPackage = () => {   
-        axios.get("http://localhost:8070/packages/"+id)
+        axios.get("http://localhost:8070/packages/"+id) //get id
             .then((res) => {
                 const updatePackages  = {
                     name: res.data.name,
@@ -49,8 +50,8 @@ function PackageUpdateForm() {
     useEffect(() => { newPackage() },[]);
 
     return (
-        <div>
-            <h1 className='text-center'>Update Package Destination</h1>
+        <div className='PackageForm'>
+            <h1 className='text-center'>Update Package </h1>
         <div className="App">
             <form onSubmit={async (e) => {
                 e.preventDefault();

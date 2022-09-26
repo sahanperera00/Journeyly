@@ -1,0 +1,20 @@
+.Packagetext-center{
+    font-size: 45px;
+    text-align: center;
+    padding-top: 2%;
+    font-weight:bold;
+}
+
+.PackageAppEdit{
+    text-align: center;
+    font-weight:bold;
+}
+
+.Packageform-group{
+    text-align: center;
+    font-weight:bold;
+}
+
+.PackageForm{
+    background-color: rgb(211, 218, 224);
+}
