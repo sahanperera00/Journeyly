@@ -1,0 +1,11 @@
+.clientDashboardContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+
+.CDashBodyContainer {
+    width: 83%;
+    height: 100%;
+}

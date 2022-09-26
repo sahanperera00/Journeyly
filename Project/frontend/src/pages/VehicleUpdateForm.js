@@ -48,7 +48,7 @@ function VehicleUpdateForm() {
 
     return (
         <div>
-            <h1 className='text-center'>Update Vehicle Destination</h1>
+            <h1 className='text-center'>Update Vehicle Details</h1>
         <div className="App">
             <form onSubmit={async (e) => {
                 e.preventDefault();
@@ -92,10 +92,13 @@ function VehicleUpdateForm() {
 
                 <div className="form-group">
                     <label className="form-label">type</label>
-                    <input type="text" className="form-control" value={type}
+                    <select className="form-control">
+                        <option value = "Taxi">Taxi</option>
+                        <option value = "Rent-a-Car">Rent-a-Car</option>
                     onChange={(e) => {
                         settype(e.target.value);
-                    }} required/>
+                    }} required
+                    </select>
                 </div>
                 <div className="form-group">
                     <label className="form-label">vehicleType</label>
