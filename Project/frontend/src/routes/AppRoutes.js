@@ -73,7 +73,10 @@ function AppRoutes() {
                     <Route path="addAttractionsForm" element={<DestinationForm />} />
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />
-                    <Route path="attractions" element={<Attractions />} />
+                    <Route path="attractions" element={<SharedLayoutDestination />}>
+                        <Route index element={<Attractions />} />
+                        <Route path=":id" element={<DesPreview />} />
+                    </Route>
                     <Route path="vehicles" element={<Vehicles />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="attractionEdit" element={<AttractionEdit />} />
