@@ -10,7 +10,7 @@ function Bookings() {
             <h1>Bookings</h1>
         </div>
         <div className='bookingsBodyCont'>
-            <div className='bookingsTabCont'>
+            {/* <div className='bookingsTabCont'>
               <ul className='bookingsList'>
                 <li className='bookingsListItem'>Flights</li>
                 <li className='bookingsListItem'>Hotels</li>
@@ -20,7 +20,7 @@ function Bookings() {
                 <li className='bookingsListItem'>Taxis</li>
                 <li className='bookingsListItem'>Packages</li>
               </ul>
-            </div>
+            </div> */}
             <div className='bookingsTableCont'>
               <Outlet />
             </div>
