@@ -57,7 +57,7 @@ function HotelPreview(){
                     <p>Price per Night: {price}<br/></p>
                     <p>{description}<br/></p>
                     <p>Stars: {stars}<br/></p>
-                    Facilities;<p className='faci'> {facilities}<br/></p>
+                    Facilities;<p className='facil'> {facilities}<br/></p>
                 </div>
             </div>
             <Link to={'/hotelResForm'}>
