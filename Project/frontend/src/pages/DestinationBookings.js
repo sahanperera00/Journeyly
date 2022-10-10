@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import '../styles/sahan/DestinationBookings.css';
 
 function DestinationBookings() {
-  const [ bookings, setBookings ] = useState([]);
+  var [ bookings, setBookings ] = useState([]);
+  var [ desName, setDesName ] = useState('');
 
   const { id } = useParams();
 
@@ -12,6 +13,19 @@ function DestinationBookings() {
     await axios.get("http://localhost:8070/desTicket/user/"+id)
       .then((res) => {
         setBookings(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  const getDestination = async (id) => {
+    let destination = "";
+    await axios.get("http://localhost:8070/destination/"+id)
+      .then((res) => {
+        // setDesName(res.data.name);
+        return res.data.name;
       })
       .catch((err) => {
         alert(err);
@@ -32,20 +46,25 @@ function DestinationBookings() {
 
   return (
     <div className='desBookCont'>
+      <div className='desSearch'>
+        <form className='desSearchForm'>
+          <input type="text" placeholder='Search here'/>
+          <button type='submit'><span className="material-symbols-outlined">search</span></button>
+        </form>
+      </div>
       <div className='desBookTableCont'>
         <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">DesId</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
+              <th scope="col">Name</th>
               <th scope="col">Date</th>
               <th scope="col">Time</th>
               <th scope="col">Adults</th>
               <th scope="col">Children</th>
               <th scope="col">Total</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Remove</th>
+              <th scope="col">Update</th>
+              <th scope="col">Cancel</th>
             </tr>
           </thead>
           <tbody>
@@ -53,8 +72,7 @@ function DestinationBookings() {
               return (
                 <tr>
                   <td>{data.desId}</td>
-                  <td>{data.firstName}</td>
-                  <td>{data.lastName}</td>
+                  <td>{data.firstName} {data.lastName}</td>
                   <td>{data.date}</td>
                   <td>{data.time}</td>
                   <td>{data.adults}</td>
@@ -74,4 +92,4 @@ function DestinationBookings() {
   )
 }
 
-export default DestinationBookings
+export default DestinationBookings;
