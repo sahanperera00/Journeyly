@@ -1,7 +1,9 @@
 .BookingsContainer {
     margin-left: 280px;
-    background-color: #d0e4e6;
+    /* background-color: #d0e4e6; */
     height: 100vh;
+    /* background: rgb(184,215,210);
+    background: linear-gradient(21deg, rgba(184,215,210,0.8052756258753502) 32%, rgba(172,236,224,0.7548554578081232) 98%); */
 }
 
 .topicCont {
@@ -13,6 +15,7 @@
 
 .topicCont h1 {
     font-weight: bold;
+    color: #0000009d;
 }
 
 .bookingsBodyCont {
@@ -22,29 +25,37 @@
 
 .bookingsTabCont {
     width: 100%;
+    /* background-color: #d0e4e6; */
 }
 
 .bookingsList {
     display: flex;
     text-decoration: none;
     list-style: none;
-    width: 100%;
+    width: 95%;
     justify-content: space-around;
 }
 
 .bookingsListItem {
     padding: 15px;
-    width: 15%;
+    width: 100%;
     text-align: center;
-    background-color: transparent;
-    color: #0b838e;
-    border: #0b838e 1.5px solid;
-    border-radius: 10px;
+    color: #0000008b;
     cursor: pointer;
+    font-weight: bold;
     text-decoration: none;
+    border-left: #ffffff79 2px solid;
+    border-right: #ffffff79 2px solid;
+    /* color: #0b838e; */
+    /* background-color: rgba(255, 255, 255, 0.507); */
+    /* background-color: #d0e4e6; */
+    /* border-radius: 30px; */
+    /* box-shadow: 5px 5px 10px 1px #00000016; */
 }
 
 .bookingsListItem:hover {
-    color: #d0e4e6;
-    background-color: #0b838e;
+    color: #0000008b;
+    border-bottom: 1px solid #000000;
+    /* color: #d0e4e6; */
+    /* background-color: #0b838e; */
 }

@@ -1,7 +1,6 @@
 .CDashSidebarContainer {
-    width: 280px;
+    width: 270px;
     height: 100vh;
-    background-color: #d0e4e6;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,6 +9,7 @@
     left: 0;
     z-index: 1;
     border-right: #0b838e2c 1.5px solid;
+    box-shadow: 5px 5px 10px 1px #00000008; 
 }
 
 .CDSLogoCont {
@@ -23,13 +23,31 @@
     margin-top: 35px;
 }
 
-.CDSTabCont {
+.CDSTabContLabel {
     width: 85%;
-    height: 7%;
+    height: 5%;
     border-radius: 15px;
     margin: 10px 0;
-    padding-left: 30px;
-    padding-top: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #0b828e;
+    display: flex;
+    transition: 250ms;
+    text-decoration: none;
+}
+
+.CDSTabContLabel p {
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.CDSTabCont {
+    width: 85%;
+    height: 5%;
+    border-radius: 15px;
+    margin: 10px 0;
+    padding-left: 20px;
+    padding-top: 5px;
     color: #0b828e;
     display: flex;
     transition: 250ms;
@@ -37,12 +55,41 @@
 }
 
 .CDSTabCont:hover {
-    background-color: #0b828e;
+    background-color: #0b838ece;
     color: #d0e4e6;
     cursor: pointer;
 }
 
 .CDSTabCont p {
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.CDSTabContSub {
+    width: 85%;
+    height: 40%;
+    /* padding: 0%; */
+}
+
+.CDSTabContS {
+    border-radius: 15px;
+    margin: 15px 0;
+    padding-left: 40px;
+    padding-top: 8px;
+    color: #0b828e;
+    display: flex;
+    transition: 250ms;
+    text-decoration: none;
+    height: 13%;
+}
+
+.CDSTabContS:hover {
+    background-color: #0b838ece;
+    color: #d0e4e6;
+    cursor: pointer;
+}
+
+.CDSTabContS p {
     font-weight: 500;
     margin-left: 15px;
 }
