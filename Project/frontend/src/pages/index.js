@@ -45,6 +45,9 @@ import FlightResForm from './FlightResForm';
 import FeedbackForm from './FeedbackForm';
 import RentalForm from '../pages/RentalForm'; 
 import RentalPreview from '../pages/RentalPreview';
+import CeoDashboard from './CeoDashboard';
+import SharedLayoutCeoDashboard from './SharedLayoutCeoDashboard';
+import CeoOverview from './CeoOverview';
 
 export {
     Home,
@@ -93,5 +96,8 @@ export {
     HotelResForm,
     FlightResForm,
     RentalForm,
-    RentalPreview
+    RentalPreview,
+    CeoDashboard,
+    SharedLayoutCeoDashboard,
+    CeoOverview
 };
