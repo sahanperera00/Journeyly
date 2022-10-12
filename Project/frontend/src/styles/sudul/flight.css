@@ -1,9 +1,13 @@
 .flightMainContainer{
     width: 100%;
-    background-color: #b8b8b8;
-    padding-top: 8%;
+    padding-top: 7%;
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FflightBG.webp?alt=media&token=6c8f259b-2adf-4669-9043-a161196d5709);
     
 }
+.flightApp{
+    backdrop-filter: blur(8px);
+}
+
 .flightHeader{
     text-align: center;
     padding-bottom: 2%;
@@ -17,7 +21,6 @@
     padding: 0 5%;
     right: 10%; 
     width: 100%;
-    background-color: cadetblue;
 }
 .flightSideBar{
    /* background-color: #454545; */

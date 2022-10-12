@@ -41,7 +41,10 @@ import {
     FlightResForm,
     FeedbackForm,
     RentalForm,
-    RentalPreview
+    RentalPreview,
+    CeoDashboard,
+    SharedLayoutCeoDashboard,
+    CeoOverview
 } from '../pages';
 
 
@@ -73,7 +76,10 @@ function AppRoutes() {
                     <Route path="addAttractionsForm" element={<DestinationForm />} />
                     <Route path="flights" element={<Flights />} />
                     <Route path="hotels" element={<Hotels />} />
-                    <Route path="attractions" element={<Attractions />} />
+                    <Route path="attractions" element={<SharedLayoutDestination />}>
+                        <Route index element={<Attractions />} />
+                        <Route path=":id" element={<DesPreview />} />
+                    </Route>
                     <Route path="vehicles" element={<Vehicles />} />
                     <Route path="packages" element={<Packages />} />
                     <Route path="attractionEdit" element={<AttractionEdit />} />
@@ -102,6 +108,11 @@ function AppRoutes() {
                     <Route path="payments" element={<Payments/>}/>
                 </Route>
                 <Route path="/feedback/create" element={<FeedbackForm/>}/>
+
+                <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard/>}>
+                    <Route index element={<CeoDashboard/>}/>
+                    <Route path="ceoOverview/:type" element={<CeoOverview/>}/>
+                </Route>
             </Routes>
         </Router>
     );

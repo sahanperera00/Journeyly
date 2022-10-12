@@ -4,7 +4,7 @@ import '../styles/nash/ClientDashboard.css';
 
 function ClientDashboard() {
   return (
-    <div>
+    <div className='CDashMainCont'>
         <ClientDashSidebar />
         <Link className='logoutBtn' to={'/'}>Logout</Link>
 

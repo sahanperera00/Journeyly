@@ -59,12 +59,16 @@ function FlightResForm({}) {
               </div>
               <div className="form-group">
                 <label className="form-label">Passport ID</label>
-                <input type="date" className="form-control" onChange={(e) => {setppID(e.target.value)}} required/>
+                <input type="text" className="form-control" onChange={(e) => {setppID(e.target.value)}} required/>
               </div>
               <div className="form-group">
-                <label className="form-label">Class Type</label>
-                <input type="radio" className="form-control" onChange={(e) => {setClass(e.target.value)}} required/>
+              <label className="form-label">Class Type</label>
+              <select class="form-select" aria-label="Default select example" onChange={(e) => {setClass(e.target.value)}} required>
+               <option value="Economy Class">Economy Class</option>
+               <option value="Business Class">Business Class</option>
+              </select>
               </div>
+              
               
               <button type="submit" className="submitbtn">Submit</button>
             </form>
@@ -75,10 +79,7 @@ function FlightResForm({}) {
                 <p>Last Name :</p>
                 <p>Email :</p>
                 <p>Phone Number :</p>
-                <p>Date :</p>
-                <p>Time :</p>
-                <p>Number of Adults :</p>
-                <p>Number of Children</p>
+                
                 <br/>
                 <h3>Total :</h3>
                 </div>
