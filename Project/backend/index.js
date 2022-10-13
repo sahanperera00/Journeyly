@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv/config";
+import session from "express-session";
 import destinationRouter from "./routes/destination.js";
 import desTicketRouter from "./routes/desTicket.js";
 import hotelRouter from "./routes/hotels.js";
@@ -14,6 +15,7 @@ import financeRouter from "./routes/finance.js";
 import rentalRoutes from './routes/rental.js'
 import vehicleRoutes from './routes/vehicles.js'
 import feedbackRouter from "./routes/feedback.js";
+import session from "express-session";
 
 const app = express();
 const PORT = process.env.PORT || 8070;
@@ -31,6 +33,18 @@ app.use("/finance",financeRouter);
 app.use('/rental', rentalRoutes);
 app.use('/vehicles', vehicleRoutes);
 app.use("/feedback",feedbackRouter);
+
+app.use(session({
+    secret: 'journeyly',
+    resave: false,
+    saveUninitialized: false,
+    cookie:{
+        maxAge: 1000*60*60,
+        sameSite: 'none', 
+        secure:true
+     }
+
+}));
 
 const URL = process.env.MONGODB_URL;
 mongoose.connect(URL);
