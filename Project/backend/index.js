@@ -15,8 +15,6 @@ import financeRouter from "./routes/finance.js";
 import rentalRoutes from './routes/rental.js'
 import vehicleRoutes from './routes/vehicles.js'
 import feedbackRouter from "./routes/feedback.js";
-import session from "express-session";
-
 const app = express();
 const PORT = process.env.PORT || 8070;
 
