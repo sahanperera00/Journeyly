@@ -36,7 +36,7 @@ function CeoDashSidebar() {
           <span className="material-symbols-outlined">person</span><p>Users</p>
         </Link>
       </p>
-      <Link className='CeoSTabContS' to={``}>
+      <Link className='CeoSTabContS' to={`/ceoDashboard/ceoRevenue`}>
         <span className="material-symbols-outlined">monitoring</span><p>Revenue</p>
       </Link>
       <Link className='CeoSTabContS' to={``}>
