@@ -44,7 +44,8 @@ import {
     RentalPreview,
     CeoDashboard,
     SharedLayoutCeoDashboard,
-    CeoOverview
+    CeoOverview,
+    CeoRevenue,
 } from '../pages';
 
 
@@ -112,6 +113,7 @@ function AppRoutes() {
                 <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard/>}>
                     <Route index element={<CeoDashboard/>}/>
                     <Route path="ceoOverview/:type" element={<CeoOverview/>}/>
+                    <Route path="ceoRevenue" element={<CeoRevenue/>}/>
                 </Route>
             </Routes>
         </Router>
