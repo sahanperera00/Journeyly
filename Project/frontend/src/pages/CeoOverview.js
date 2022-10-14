@@ -82,11 +82,12 @@ function CeoOverview() {
                         return data;
                     } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return data;
-                    } else if (data.childCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
-                        return data;
-                    } else if (data.adultCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
-                        return data;
-                    }
+                    } 
+                    // else if (data.childCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                    //     return data;
+                    // } else if (data.adultCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                    //     return data;
+                    // }
                     break;
                 case 'package':
                     if (searchTerm == "") {
