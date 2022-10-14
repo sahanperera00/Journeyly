@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import EditorNavbar from '../components/EditorNavbar';
+import EditorDashSidebar from '../components/EditorDashSidebar';
+import '../styles/sahan/SharedLayoutEditorDashboard.css';
 
 function SharedLayoutEditorDashboard() {
   return (
-    <div>
-      <EditorNavbar />
+    <div className='SharedLayoutEditorDashMainCont'>
+      <EditorDashSidebar />
       <Outlet />
     </div>
   );

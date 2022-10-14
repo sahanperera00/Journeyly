@@ -1,17 +1,16 @@
-
-
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import '../styles/praweena/PackagesEdit.css'
 
 
 function PackagesEdit() { 
   const [packages, setPackages] = useState([]);
 
   const getPackages = () => {
-    axios.get("http://localhost:8070/packages")
+    axios.get("http://localhost:8070/packages")//Activates Package View 
       .then((res) => {
         setPackages(res.data);
       })
@@ -21,7 +20,7 @@ function PackagesEdit() {
   }
 
   const deletePackages = (id) => {
-    axios.delete(`http://localhost:8070/packages/delete/${id}`)  //Activates Hotel deleting function
+    axios.delete(`http://localhost:8070/packages/delete/${id}`)  //Activates Package deleting function
         .then((res) => {
             alert("Packages Content Deleted");
             getPackages();
@@ -34,9 +33,9 @@ function PackagesEdit() {
   useEffect(() => { getPackages() } , []);  //Shows changes of the page
 
   return (
-    <div className='container text-center'>
-      <h1 className='packageHeader'>Packages Edit</h1>
-
+    <div className='Package-text-center'>
+      <h1 className='PackageIcon'>Packages Edit</h1>
+<form>
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {packages.map((data) => {
           return (
@@ -58,7 +57,8 @@ function PackagesEdit() {
                
                 </Card.Text>
                 
-                <Link key={`${data._id} + 4`} to={"/editorDash/PackageUpdateForm/"+data._id}>
+                
+                <Link key={`${data._id} + 4`} to={"/editorDash/PackageUpdateForm/"+data._id}> 
                 <Button key={`${data._id} + 1`}variant="warning">Update</Button>
                 </Link>
                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deletePackages(data._id)}>Delete</Button>
@@ -67,6 +67,7 @@ function PackagesEdit() {
           )        
         })}
       </div>
+      </form>
     </div>
   )
 }

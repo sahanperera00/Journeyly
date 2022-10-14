@@ -1,0 +1,62 @@
+.desBookCont {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content:space-around; */
+    align-items: center;
+}
+
+.desSearch {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.desSearchForm {
+    display: flex;
+    width: 95%;
+    justify-content: space-around;
+}
+
+.desSearch input {
+    width: 90%;
+    height: 50px;
+    border-radius: 18px;
+    border: 0.5px solid #0b828e;
+    padding-left: 20px;
+    background-color: rgba(240, 248, 255, 0.397);
+}
+
+.desSearch button {
+    border-radius: 50px;
+    padding: 8px 15px;
+    background-color: transparent;
+    border: 0.5px solid #0b828e;
+    color: #0b828e;
+}
+
+.desBookTableCont {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    border: 0.1px solid #ffffff;
+    overflow: hidden;
+    background-color: #d4e2e28f;
+    box-shadow: 5px 5px 10px 1px #0000002b; 
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.desBookCont table {
+    color: #000000;
+    width: 95%;
+}
+
+.bookingbttn {
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    padding: 3px;
+}

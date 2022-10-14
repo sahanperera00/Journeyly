@@ -23,20 +23,41 @@ function Hotels() {
 
   useEffect(() => { getHotels() } , []);  //Shows changes of the page
 
+  const [searchTerm,setSearchTerm]=useState(''); // created to catch and set the searching options
+
   return (
     <div className='hotelMainContainer'>
       <h1 className='hotelHeader'>Hotels</h1>
 
       <div className='hotelContainer'>
         <div className="hotelSideBar">
-          <h1>Hahahahaha</h1>
+          <h1>SideBar</h1>
+          <input type="text" placeholder='Hakuna Matata' onChange={event=>{setSearchTerm(event.target.value)}}/>
         </div>
         <div className="hotelBodyContainer">
-          {hotels.map((data) => {
+          {hotels.filter((data)=>{
+            if(searchTerm==""){
+              return data
+            }else if(data.location.toLowerCase().includes(searchTerm.toLowerCase())){
+              return data
+            }else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
+              return data
+            }
+          }).map((data) => {
           return (
             <Link to={'/hotelPreview/'+data._id}>
-            
-            </Link> 
+            <div className='CardContainer'>
+              <div className='ImageContainer'>
+                <img className='hotelCardImg' alt='pic' src={data.images}/>
+              </div>
+              <div className='TextContainer'>
+                <center><h2>{data.name} ({data.location})</h2></center>
+                  <p className='priceTage'>Price:Rs. {data.price}<br/></p>
+                  <p className='desTage'>Description: {data.description}<br/></p>
+                  <p className='starTage'>Stars: {data.stars}<br/></p>
+              </div>
+            </div>
+            </Link>
           )        
         })}
         </div>

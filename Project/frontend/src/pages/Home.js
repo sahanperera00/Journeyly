@@ -62,7 +62,15 @@ function Home() {
             <Link to ={"/fianaceForm"}>
             <button className='FinanceBtn'>Finance Login</button>
             </Link>
+            <Link to={"/editorDashboard"}>
+                <button className='EditorBtn'>Editor Dashboard</button>
+            </Link>
+            <Link to={"/ceoDashboard"}>
+                <button className='FinanceBtn'>CEO Dashboard</button>
+            </Link>
+            <Link to={"/feedback/create"}>
             <button className='FeedbackBtn'>Send A Feedback</button>
+            </Link>
         </div>
     );
 }
