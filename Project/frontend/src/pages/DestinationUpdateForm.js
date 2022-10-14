@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import '../styles/sahan/DestinationUpdateForm.css';
 
 function DestinationUpdateForm() {
     const [name, setName] = useState('');
@@ -13,8 +14,6 @@ function DestinationUpdateForm() {
     const [includes, setIncludes] = useState('');
     const [imageI, setImageI] = useState('');
     const [images, setImages] = useState('');
-    const [adultCost, setAdultCost] = useState('');
-    const [childCost, setChildCost] = useState('');
 
     const {id} = useParams();
     const navigate = useNavigate();
@@ -29,8 +28,6 @@ function DestinationUpdateForm() {
                 setExtra(res.data.extra);
                 setIncludes(res.data.includes);
                 setImages(res.data.images);
-                setAdultCost(res.data.adultCost);
-                setChildCost(res.data.childCost);
             })
             .catch((err) => {
                 alert(err);
@@ -40,9 +37,9 @@ function DestinationUpdateForm() {
     useEffect(() => { getDestination() }, []);
 
     return (
-        <div>
-            <h1 className='text-center'>Update Travel Destination</h1>
-            <div className="App">
+        <div className='DestinationUpdateFormMainCont'>
+            <h1>Update Travel Destination</h1>
+            <div className="DestinationUpdateFormCont">
                 <form onSubmit={async (e) => {
                     e.preventDefault();
 
@@ -67,14 +64,12 @@ function DestinationUpdateForm() {
                                 extra,
                                 includes,
                                 images:url,
-                                adultCost,
-                                childCost
                             };
 
                             axios.put("http://localhost:8070/destination/update/" + id, newDestination)
                                 .then(() => {
                                     alert("Destination updated successfully");
-                                    navigate('/editorDash/attractionEdit');
+                                    navigate('/editorDashboard/editorWebContent/destination');
                                 }).catch((err) => {
                                     alert(err);
                                 })
@@ -90,11 +85,11 @@ function DestinationUpdateForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Short Description</label>
-                        <input type="text" className="form-control" value={shortDesc} onChange={(e) => { setShortDesc(e.target.value) }} required/>
+                        <textarea rows={3} type="text" className="form-control" value={shortDesc} onChange={(e) => { setShortDesc(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Long Description</label>
-                        <input type="text" className="form-control" value={longDesc} onChange={(e) => { setLongDesc(e.target.value) }} required/>
+                        <textarea rows={6} className="form-control" value={longDesc} onChange={(e) => { setLongDesc(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Location</label>
@@ -102,23 +97,15 @@ function DestinationUpdateForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">What you need to know</label>
-                        <input type="text" className="form-control" value={extra} onChange={(e) => { setExtra(e.target.value) }} required/>
+                        <textarea rows={3} type="text" className="form-control" value={extra} onChange={(e) => { setExtra(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">What's included</label>
-                        <input type="text" className="form-control" value={includes} onChange={(e) => { setIncludes(e.target.value) }} required/>
+                        <textarea rows={3} type="text" className="form-control" value={includes} onChange={(e) => { setIncludes(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Images</label>
-                        <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }} required/>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Adult Cost</label>
-                        <input type="Number" className="form-control" value={adultCost} onChange={(e) => { setAdultCost(e.target.value) }} required/>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Child Cost</label>
-                        <input type="Number" className="form-control" value={childCost} onChange={(e) => { setChildCost(e.target.value) }} required/>
+                        <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }}/>
                     </div><br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />
                 </form>
