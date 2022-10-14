@@ -84,6 +84,8 @@ function AppRoutes() {
                 </Route>
                 <Route path="/feedback/create" element={<FeedbackForm/>}/>
 
+
+
                 <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard/>}>
                     <Route index element={<CeoDashboard/>}/>
                     <Route path="ceoOverview/:type" element={<CeoOverview/>}/>
@@ -104,7 +106,11 @@ function AppRoutes() {
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
                     <Route path="packageUpdateForm/:id" element={<PackageUpdateForm/>}/>
                 </Route>
-                
+
+                <Route path="/clientDashboard/:id" element={<ClientDashboard/>}>
+                    <Route index element={<UserProfile/>}/>
+                </Route>
+
             </Routes>
         </Router>
     );
