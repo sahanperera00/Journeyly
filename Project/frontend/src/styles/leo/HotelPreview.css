@@ -27,8 +27,14 @@
     background-color: transparent;
 }
 
-.faci{
+.hotelbtn:hover{
+    color: black;
+    background-color: white;
+}
+
+.facil{
     text-decoration: solid;
     text-transform: uppercase;
     font-weight: bold;
+    color: black;
 }

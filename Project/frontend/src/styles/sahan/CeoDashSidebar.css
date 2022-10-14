@@ -1,0 +1,75 @@
+.CeoDashSidebarMainCont {
+    height: 100%;
+    width: 320px;
+    overflow-x: hidden;
+    display: block;
+    /* background-color: rgba(17, 17, 17, 0.1); */
+    /* position: absolute; */
+    /* z-index: 1; */
+    /* top: 0; */
+    /* left: 0; */
+    /* padding-top: 10%; */
+}
+
+.CeoDSLogoCont {
+    width: 100%;
+    height: 14%;
+    margin-bottom: 30px;
+}
+
+.CeoDSLogoCont img {
+    width: 180px;
+    height: auto;
+    margin-top: 35px;
+}
+
+.Ceohrline {
+    width: 80%;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin: 20px auto;
+}
+
+.CeoSTabContL {
+    padding: 6px 8px 6px 0px;
+    text-decoration: none;
+    color: #747474;
+    display: flex;
+    border: none;
+    background: none;
+    text-align: left;
+    outline: none;
+    padding-left: 30px;
+    margin: 0%;
+}
+
+.CeoSTabContL p {
+    margin-left: 15px;
+}
+
+.CeoSTabContS {
+    padding: 6px 8px 6px 0px;
+    text-decoration: none;
+    color: #747474;
+    display: flex;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    padding-left: 30px;
+    margin: 0%;
+}
+
+.CeoSTabContS p {
+    margin-left: 15px;
+}
+
+.CeoSTabContS:hover {
+    color: rgb(0, 0, 0);
+}
+
+.CeoSTabContSub {
+    padding-left: 20px;
+}

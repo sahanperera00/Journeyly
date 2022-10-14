@@ -1,10 +1,10 @@
-
+import '../styles/leo/HotelResForm.css'
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function HotelResForm({destination}) {
+function HotelResForm({}) {
   const [name, setName] = useState('');
   const [hotel_Name, setHotelName] = useState('');
   const [check_in, setCheckin] = useState('');
@@ -26,15 +26,15 @@ function checkDate(){
     }
 }
   return (
-    <div id="desresform" className="desresContainer">
-        <h1>Ticket Details</h1>
-        <div className='desreseinnercontainer'>
-          <div className='desresformcont'>
-          <form className='desresform' onSubmit={async(e) => {
+    <div id="hotelresform" className="hotelresContainer">
+        <h1>Booking Details</h1>
+        <div className='hotelreseinnercontainer'>
+          <div className='hotelresformcont'>
+          <form className='hotelresform' onSubmit={async(e) => {
             e.preventDefault();
 
             const newBook = {
-              desId: destination._id,
+              
               name,
               hotel_Name,
               check_in,
@@ -90,8 +90,8 @@ function checkDate(){
             <button type="submit" className="submitbtn">Submit</button>
           </form>
           </div>
-          <div className='desrestcktcont'>
-            <div className='desrestckt'>
+          {/* <div className='hotelrestcktcont'>
+            <div className='hotelrestckt'>
               <p>First Name :</p>
               <p>Last Name :</p>
               <p>Email :</p>
@@ -103,7 +103,7 @@ function checkDate(){
               <br/>
               <h3>Total :</h3>
               </div>
-          </div>
+          </div> */}
         </div><br />
     </div>
   )

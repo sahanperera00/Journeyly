@@ -1,7 +1,23 @@
-.FeedbackContainer {
-
+.feedText{
+    font-size: 40px;
+    font-weight: 500; 
+    color:gray;
+    text-align: center;
+}
+.btnfeed{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: right;
 }
 
-.feedbackTopic {
-    text-align: center;
+.ratingfeed{
+    height:200px;
+    width:500px;
+
+}
+#form-label-feed {
+    margin-bottom: 0px;
+    margin-top: 8px;
+    text-decoration: solid;
+    font-weight: bold;
 }

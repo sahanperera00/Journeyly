@@ -105,9 +105,41 @@
     background-color: white;
 }
 
-.FinanceBtn{
+.CeoBtn{
     position: absolute;
     bottom: 5%;
+    left: 5%;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    border: 0.5px solid white;
+    background-color: transparent;
+}
+.CeoBtn:hover{
+    color: black;
+    background-color: white;
+}
+
+.EditorBtn{
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    border: 0.5px solid white;
+    background-color: transparent;
+}
+.EditorBtn:hover{
+    color: black;
+    background-color: white;
+}
+
+.FinanceBtn{
+    position: absolute;
+    bottom: 25%;
     left: 5%;
     z-index: 2;
     border-radius: 50px;

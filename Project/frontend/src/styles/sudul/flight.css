@@ -1,0 +1,98 @@
+.flightMainContainer{
+    width: 100%;
+    padding-top: 7%;
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FflightBG.webp?alt=media&token=6c8f259b-2adf-4669-9043-a161196d5709);
+    
+}
+.flightApp{
+    backdrop-filter: blur(8px);
+}
+
+.flightHeader{
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+
+.flightContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0 5%;
+    right: 10%; 
+    width: 100%;
+}
+.flightSideBar{
+   /* background-color: #454545; */
+    width: 20%;
+    height:100%;
+    
+}
+.flightBodyContainer{
+    width: 80%;
+    height: 100%;
+}
+
+
+.flightCardBody{
+    background-color: blueviolet;
+    width: 80%;
+
+}
+.flightImageContainer{
+    width: 20%;
+    height: 100%; 
+    /* background-color: lawngreen; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* display: flex; */
+    /* background-image: url(); */
+}
+
+.CardContainer{
+    width: 93%;
+    height: 250px;
+    background-color: white;
+    display: flex;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 20px 0;
+    float: right;
+}
+
+.ImageContainer{
+    /* background-color: azure; */
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    border-radius: 25px;
+}
+.TextContainer{
+    /* background-color:blueviolet; */
+    width: 70%;
+    height: 100%;
+    display: block;
+}
+.flightCardImg{
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.price{
+    float: right;
+    font-size: 22px;
+}
+
+.desc{
+    margin-left: 5%;
+    width: 67%;
+}
+
+.depar{
+    float: right;
+    color: orange;
+}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useNavigate } from 'react-router-dom';
+import '../styles/sahan/DestinationForm.css';
 
 function DestinationForm() {
     const [name, setName] = useState('');
@@ -12,15 +13,13 @@ function DestinationForm() {
     const [extra, setExtra] = useState('');
     const [includes, setIncludes] = useState('');
     const [imageI, setImageI] = useState('');
-    const [adultCost, setAdultCost] = useState('');
-    const [childCost, setChildCost] = useState('');
 
     const navigate = useNavigate();
 
     return (
-        <div>
-            <h1 className='text-center'>Add Travel Destination</h1>
-            <div className="App">
+        <div className='DestinationFormMainCont'>
+            <h1>Add Travel Destination</h1>
+            <div className="DestinationFormCont">
                 <form onSubmit={async (e) => {
                     e.preventDefault();
 
@@ -45,14 +44,12 @@ function DestinationForm() {
                             extra,
                             includes,
                             images:url,
-                            adultCost,
-                            childCost
                         };
         
                         axios.post("http://localhost:8070/destination/create", newDestination)
                             .then(() => {
                                 alert("Destination added successfully");
-                                navigate('/editorDash/attractionEdit');
+                                navigate('/editorDashboard/editorWebContent/destination');
                             }).catch((err) => {
                                 alert("Error adding destination");
                                 console.log(err);
@@ -69,11 +66,11 @@ function DestinationForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Short Description</label>
-                        <input type="text" className="form-control" onChange={(e) => { setShortDesc(e.target.value) }} required/>
+                        <textarea rows={3} type="text" className="form-control" onChange={(e) => { setShortDesc(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Long Description</label>
-                        <input type="text" className="form-control" onChange={(e) => { setLongDesc(e.target.value) }} required/>
+                        <textarea rows={6} type="text" className="form-control" onChange={(e) => { setLongDesc(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Location</label>
@@ -81,23 +78,15 @@ function DestinationForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">What you need to know</label>
-                        <input type="text" className="form-control" onChange={(e) => { setExtra(e.target.value) }} required/>
+                        <textarea rows={3} type="text" className="form-control" onChange={(e) => { setExtra(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">What's included</label>
-                        <input type="text" className="form-control" onChange={(e) => { setIncludes(e.target.value) }} required/>
+                        <textarea rows={3} type="text" className="form-control" onChange={(e) => { setIncludes(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Images</label>
                         <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }} required/>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Adult Cost</label>
-                        <input type="Number" className="form-control" onChange={(e) => { setAdultCost(e.target.value) }} required/>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Child Cost</label>
-                        <input type="Number" className="form-control" onChange={(e) => { setChildCost(e.target.value) }} required/>
                     </div><br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />
                 </form>

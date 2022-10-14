@@ -60,3 +60,13 @@ export const deleteDesTicket = async (req, res) => {
         res.status(404).json({ message: error });
     }
 }
+
+export const getDesTicketbyUID = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const desTickets = await DesTicket.findOne(id);
+        res.status(200).json(desTickets);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+}

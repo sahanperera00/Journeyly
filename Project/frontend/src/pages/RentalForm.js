@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Madusha/Rental.css';
 
 
 function RentalForm({rental}) {
@@ -101,4 +102,4 @@ function RentalForm({rental}) {
   )
 }
 
-export default RentalForm
+export default RentalForm;
