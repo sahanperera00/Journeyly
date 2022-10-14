@@ -16,9 +16,26 @@ function ClientDashSidebar() {
         <Link className='CDSTabCont' to={`/ClientDashboard/${id}`}>
           <span className="material-symbols-outlined">person</span><p>User Profile</p>
         </Link>
-        <Link className='CDSTabCont' to={`/ClientDashboard/${id}/bookings`}>
+        <div className='CDSTabContLabel'>
           <span className="material-symbols-outlined">sell</span><p>Bookings</p>
-        </Link>
+        </div>
+        <div className='CDSTabContSub'>
+          <Link className='CDSTabContS' to={`/ClientDashboard/${id}/bookings/destination`}>
+            <span className="material-symbols-outlined">flight</span><p>Flights</p>
+          </Link>
+          <Link className='CDSTabContS' to={`/ClientDashboard/${id}/bookings/destination`}>
+            <span className="material-symbols-outlined">hotel</span><p>Hotels</p>
+          </Link>
+          <Link className='CDSTabContS' to={`/ClientDashboard/${id}/bookings/destination`}>
+            <span className="material-symbols-outlined">pin_drop</span><p>Destinations</p>
+          </Link>
+          <Link className='CDSTabContS' to={`/ClientDashboard/${id}/bookings/destination`}>
+            <span className="material-symbols-outlined">local_taxi</span><p>Taxis</p>
+          </Link>
+          <Link className='CDSTabContS' to={`/ClientDashboard/${id}/bookings/destination`}>
+            <span className="material-symbols-outlined">package</span><p>Packages</p>
+          </Link>
+        </div>
         <Link className='CDSTabCont' to={`/ClientDashboard/${id}/feedback`}>
           <span className="material-symbols-outlined">chat</span><p>Feedbacks</p>
         </Link>

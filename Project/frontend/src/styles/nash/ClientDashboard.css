@@ -1,9 +1,13 @@
+.CDashMainCont {
+    /* background: rgba(184, 215, 210, 0.093); */
+    background: linear-gradient(21deg, rgba(184, 215, 210, 0.267) 32%, rgba(172, 236, 224, 0.218) 98%);
+}
+
 .clientDashboardContainer {
     width: 100%;
     height: 100vh;
     display: flex;
 }
-
 
 .CDashBodyContainer {
     width: 83%;
@@ -17,7 +21,7 @@
     border: 0.5px solid #0b828e;
     color: #0b828e;
     position: absolute;
-    top: 5%;
+    top: 4%;
     right: 5%;
     text-decoration: none;
     cursor: pointer;

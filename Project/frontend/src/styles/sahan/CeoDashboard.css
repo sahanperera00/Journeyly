@@ -1,0 +1,122 @@
+.CeoDashMainCont {
+    width: 100%;        
+    height: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+}
+
+.CeoDasInnerCont {
+    width: 100%;
+    height: 80%;
+    margin-top: 3%;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.068);
+    overflow: hidden;
+
+}
+
+.CeoInConR1 {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.CeoInConR2 {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.CeoInConR1card {
+    width: 20%;
+    height: 80%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+    transition: 0.3s;
+    text-align: center;
+    box-shadow: 5px 5px 10px 1px #0000001e;
+    position: relative;
+}
+
+.CeoInConR1cardData {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.imgdashimg1 {
+    width: 240px;
+    height: auto;
+    margin-top: -60px;
+}
+
+.imgdashimg2 {
+    width: 200px;
+    height: auto;
+    margin-top: -50px;
+}
+
+.imgdashimg3 {
+    width: 230px;
+    height: auto;
+    margin-top: -60px;
+}
+
+.imgdashimg4 {
+    width: 250px;
+    height: auto;
+    margin-top: -70px;
+}
+
+.CeoInConR2card {
+    width: 45%;
+    height: 85%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 5px 5px 10px 1px #0000001e;
+    display: flex;
+}
+
+.CeoInConR1cardData1 {
+    width: 50%;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.CeoInConR1cardData2 {
+    width: 50%;
+}
+
+.CeoInConR2cardData1 {
+    width: 50%;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.CeoInConR2cardData2 {
+    width: 50%;
+}
+
+.imgdashimg5 {
+    width: 240px;
+    height: auto;
+    margin-top: -40px;
+    margin-left: -30%;
+}
+
+.imgdashimg6 {
+    width: 290px;
+    height: auto;
+    margin-top: -60px;
+    margin-left: -25%;
+}
