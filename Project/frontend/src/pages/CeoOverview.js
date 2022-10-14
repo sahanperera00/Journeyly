@@ -315,6 +315,7 @@ function CeoOverview() {
     }
 
     useEffect(() => { getArray() }, [type]);
+    // useEffect(() => { CeoOverview() }, [type]);
 
     return (
         <div className='CeoDashOverviewMainCont'>
