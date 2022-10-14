@@ -46,9 +46,7 @@ function AttractionEdit() {
                   Description: {data.longDesc}<br/>
                   Location: {data.location}<br/>
                   What you need to know: {data.extra}<br/>
-                  What's included: {data.includes}<br/>
-                  Adult: {data.adultCost}<br/>
-                  Child: {data.childCost}
+                  What's included: {data.includes}
                 </Card.Text>
                 <Link key={`${data._id} + 4`} to={"/editorDash/destinationUpdateForm/"+data._id}>
                   <Button key={`${data._id} + 1`} variant="warning">Update</Button>

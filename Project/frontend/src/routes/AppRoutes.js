@@ -46,6 +46,7 @@ import {
     SharedLayoutCeoDashboard,
     CeoOverview,
     CeoRevenue,
+    EditorWebContent,
 } from '../pages';
 
 
@@ -72,33 +73,6 @@ function AppRoutes() {
                     <Route path='rentalForm' element={<RentalForm/>}/>
                 </Route>
                 
-                <Route path="/editorDash" element={<SharedLayoutEditorDashboard />}>
-                    <Route index element={<EditorDashboard />} />
-                    <Route path="addAttractionsForm" element={<DestinationForm />} />
-                    <Route path="flights" element={<Flights />} />
-                    <Route path="hotels" element={<Hotels />} />
-                    <Route path="attractions" element={<SharedLayoutDestination />}>
-                        <Route index element={<Attractions />} />
-                        <Route path=":id" element={<DesPreview />} />
-                    </Route>
-                    <Route path="vehicles" element={<Vehicles />} />
-                    <Route path="packages" element={<Packages />} />
-                    <Route path="attractionEdit" element={<AttractionEdit />} />
-                    <Route path="hotelForm" element={<HotelForm/>}/>
-                    <Route path="hotelEdit" element={<HotelEdit/>}/>
-                    <Route path="flightForm" element={<FlightForm/>}/>
-                    <Route path="flightEdit" element={<FlightEdit/>}/>
-                    <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
-                    <Route path="flightUpdateForm/:id" element={<FlightUpdateForm />}/>
-                    <Route path="packageForm" element={<PackageForm/>}/>
-                    <Route path="packagesEdit" element={<PackagesEdit/>}/>
-                    <Route path="packageUpdateForm/:id" element={<PackageUpdateForm/>}/>
-                    <Route path="hotelUpdateForm/:id" element={<HotelUpdateForm/>}/>
-                    <Route path="vehicleForm" element={<VehicleForm/>}/>
-                    <Route path="vehiclesEdit" element={<VehiclesEdit/>}/>
-                    <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
-                </Route>
-                
                 <Route path="/ClientDashboard/:id" element={<ClientDashboard/>}>
                     <Route index element={<UserProfile/>}/>
                     <Route path="updateProfile" element={<ProfileUpdateForm/>}/>
@@ -115,6 +89,22 @@ function AppRoutes() {
                     <Route path="ceoOverview/:type" element={<CeoOverview/>}/>
                     <Route path="ceoRevenue" element={<CeoRevenue/>}/>
                 </Route>
+
+                <Route path="/editorDashboard" element={<SharedLayoutEditorDashboard/>}>
+                    <Route index element={<EditorDashboard/>}/>
+                    <Route path="editorWebContent/:type" element={<EditorWebContent/>}/>
+                    <Route path="flightForm" element={<FlightForm/>}/>
+                    <Route path="hotelForm" element={<HotelForm/>}/>
+                    <Route path="destinationForm" element={<DestinationForm />} />
+                    <Route path="vehicleForm" element={<VehicleForm/>}/>
+                    <Route path="packageForm" element={<PackageForm/>}/>
+                    <Route path="flightUpdateForm/:id" element={<FlightUpdateForm />}/>
+                    <Route path="hotelUpdateForm/:id" element={<HotelUpdateForm/>}/>
+                    <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
+                    <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
+                    <Route path="packageUpdateForm/:id" element={<PackageUpdateForm/>}/>
+                </Route>
+                
             </Routes>
         </Router>
     );
