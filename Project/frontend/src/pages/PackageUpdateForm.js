@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import '../styles/praweena/PackageUpdateForm.css';
 
 
 function PackageUpdateForm() {
@@ -50,9 +51,9 @@ function PackageUpdateForm() {
     useEffect(() => { newPackage() },[]);
 
     return (
-        <div className='PackageForm'>
-            <h1 className='text-center'>Update Package </h1>
-        <div className="App">
+        <div className='PackageUpdateFormMainCont'>
+            <h1>Update Package </h1>
+        <div className="PackageUpdateFormCont">
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -102,35 +103,35 @@ function PackageUpdateForm() {
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">destination</label>
+                    <label className="form-label">Destination</label>
                     <input type="text" className="form-control" value={destination}
                     onChange={(e) => {
                         setDestination(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">members</label>
+                    <label className="form-label">Members</label>
                     <input type="text" className="form-control" value={members}
                     onChange={(e) => {
                         setMembers(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">hotel</label>
+                    <label className="form-label">Hotel</label>
                     <input type="text" className="form-control" value={hotel}
                     onChange={(e) => {
                         setHotel(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">roomType</label>
+                    <label className="form-label">Room Type</label>
                     <input type="text" className="form-control" value={roomType}
                     onChange={(e) => {
                         setRoomType(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">vehicle</label>
+                    <label className="form-label">Vehicle</label>
                     <input type="text" className="form-control" value={vehicle}
                     onChange={(e) => {
                         setVehicle(e.target.value);
@@ -144,14 +145,14 @@ function PackageUpdateForm() {
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">guide</label>
+                    <label className="form-label">Guide</label>
                     <input type="text" className="form-control" value={guide}
                     onChange={(e) => {
                         setGuide(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">price</label>
+                    <label className="form-label">Price</label>
                     <input type="Number" className="form-control" value={price}
                     onChange={(e) => {
                         setPrice(e.target.value);
