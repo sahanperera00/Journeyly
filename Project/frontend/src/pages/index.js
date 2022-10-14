@@ -48,6 +48,8 @@ import RentalPreview from '../pages/RentalPreview';
 import CeoDashboard from './CeoDashboard';
 import SharedLayoutCeoDashboard from './SharedLayoutCeoDashboard';
 import CeoOverview from './CeoOverview';
+import CeoRevenue from './CeoRevenue';
+import EditorWebContent from './EditorWebContent';
 
 export {
     Home,
@@ -99,5 +101,7 @@ export {
     RentalPreview,
     CeoDashboard,
     SharedLayoutCeoDashboard,
-    CeoOverview
+    CeoOverview,
+    CeoRevenue,
+    EditorWebContent,
 };

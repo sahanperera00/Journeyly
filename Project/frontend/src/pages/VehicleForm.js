@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import '../styles/Madusha/VehicleForm.css';
 
 
 function VehicleForm(){
@@ -17,9 +18,9 @@ function VehicleForm(){
 
 
     return (
-        <div>
-            <h1 className='text-center'>Add Vehicle Details</h1>
-        <div className="App">
+        <div className='VehicleFormMainCont'>
+            <h1>Add Vehicle Details</h1>
+        <div className="VehicleFormCont">
             <br/>
             <form onSubmit={(e) => {
                 e.preventDefault();
@@ -76,7 +77,7 @@ function VehicleForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">vehicleType</label>
+                    <label className="form-label">Vehicle Type</label>
                     <input type = "text" className="form-control" 
                     onChange={(e) => {
                         setvehicleType(e.target.value);
@@ -84,7 +85,7 @@ function VehicleForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">driverName </label>
+                    <label className="form-label">Driver Name </label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setdriverName(e.target.value);
@@ -92,7 +93,7 @@ function VehicleForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">ownerName</label>
+                    <label className="form-label">Owner Name</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setownerName(e.target.value);
@@ -100,14 +101,14 @@ function VehicleForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">email</label>
+                    <label className="form-label">Email</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setemail(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">phoneNo</label>
+                    <label className="form-label">Phone Number</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setphoneNo(e.target.value);
@@ -115,7 +116,7 @@ function VehicleForm(){
                 </div>
 
                 <div className="form-group">
-                    <label className="form-label">fee</label>
+                    <label className="form-label">Fee</label>
                     <input type="text" className="form-control" 
                     onChange={(e) => {
                         setfee(e.target.value);

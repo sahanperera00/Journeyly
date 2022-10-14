@@ -9,9 +9,9 @@ const PER_PAGE = 7;
 function CeoOverview() {
     var { type } = useParams();
     var topicType = 'topic';
-    var count = 0;
     const [array, setArray] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
+    const [searchTerm, setSearchTerm] = useState("");
 
     var col1 = null;
     var col2 = null;
@@ -49,11 +49,84 @@ function CeoOverview() {
     const offset = currentPage * PER_PAGE;
 
     const currentPageData = array
+        .filter((data) => {
+            switch (type) {
+                case 'flight':
+                    if (searchTerm == "") {
+                        return data;
+                    } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.startAirport.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.destinationAirport.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.arrivalTime.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.departureTime.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    }
+                    break;
+                case 'hotel':
+                    if (searchTerm == "") {
+                        return data;
+                    } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.price.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.stars.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    }
+                    break;
+                case 'destination':
+                    if (searchTerm == "") {
+                        return data;
+                    } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } 
+                    // else if (data.childCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                    //     return data;
+                    // } else if (data.adultCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                    //     return data;
+                    // }
+                    break;
+                case 'package':
+                    if (searchTerm == "") {
+                        return data;
+                    } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.price.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.hotel.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.destination.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    }
+                    break;
+                case 'taxi':
+                    if (searchTerm == "") {
+                        return data;
+                    } else if (data.driverName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.ownerName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    }
+                    break;
+                case 'user':
+                    if (searchTerm == "") {
+                        return data;
+                    } else if (data.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    } else if (data.email.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
+                    }
+                    break;
+            }
+        })
         .slice(offset, offset + PER_PAGE)
         .map((data) => {
             SetData(data);
-            ++count;
-
             return (
                 <tr>
                     <td style={{ display: cold1hid }}>{cold1}</td>
@@ -67,9 +140,8 @@ function CeoOverview() {
         });
 
     const pageCount = Math.ceil(array.length / PER_PAGE);
-    
+
     function getArray() {
-        count = 0;
         setCurrentPage(0);
         switch (type) {
             case 'flight':
@@ -183,7 +255,7 @@ function CeoOverview() {
                 break;
         }
         console.log(cold1);
-        
+
     }
 
     switch (type) {
@@ -244,14 +316,14 @@ function CeoOverview() {
     }
 
     useEffect(() => { getArray() }, [type]);
+    // useEffect(() => { CeoOverview() }, [type]);
 
     return (
         <div className='CeoDashOverviewMainCont'>
             <h1>{topicType} Overview</h1>
-            <form className='CeoDashSearch'>
-                <input className='ceoSearchbar' type='text' placeholder='Search here' />
-                <input className='ceoSearchbttn' type='submit' value='Search' />
-            </form>
+            <div className='CeoDashSearch'>
+                <input className='ceoSearchbar' type='text' placeholder='Search here' onChange={(e) => { setSearchTerm(e.target.value) }} />
+            </div>
             <div className='CeoDashOverviewInnerCont'>
                 <div className='CeoDashOverviewInnerContC1'>
                     <div className='ceoOverviewTableCont'>
@@ -273,8 +345,8 @@ function CeoOverview() {
                     </div>
                     <div className='ceoOverviewBottomCont'>
                         <ReactPaginate
-                            previousLabel={<span style={{fontSize: '16px'}} className="material-symbols-outlined">navigate_before</span>}
-                            nextLabel={<span style={{fontSize: '16px'}} className="material-symbols-outlined">navigate_next</span>}
+                            previousLabel={<span style={{ fontSize: '16px' }} className="material-symbols-outlined">navigate_before</span>}
+                            nextLabel={<span style={{ fontSize: '16px' }} className="material-symbols-outlined">navigate_next</span>}
                             breakLabel={"..."}
                             pageCount={pageCount}
                             onPageChange={handlePageClick}
@@ -284,6 +356,7 @@ function CeoOverview() {
                             disabledClassName={"pagination__link--disabled"}
                             activeClassName={"pagination__link--active"}
                         />
+                        <button className='ceoOverviewprintBtn' onClick={() => { window.print() }}>Print</button>
                     </div>
                 </div>
                 <div className='CeoDashOverviewInnerContC2'>
@@ -292,7 +365,8 @@ function CeoOverview() {
                         <h4>Number of {topicType}</h4>
                     </div>
                     <div className='CeoDashOverviewInnerContC2Card2'>
-                    
+                        <img className='imgoverview' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart1.png?alt=media&token=489fc79f-12cb-4b70-8da6-0160ea7d60cf'} alt='img1' />
+                        <img className='imgoverviewlogo' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-color.webp?alt=media&token=46432dde-c8e0-43e9-bc91-77b8a98e3f76'} alt='logo' />
                     </div>
                 </div>
             </div>

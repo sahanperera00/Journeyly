@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import '../styles/sudul/FlightUpdateForm.css';
 
 function FlightUpdateForm() {
     const [name, setName]=useState('');
@@ -55,9 +56,9 @@ function FlightUpdateForm() {
     useEffect(() => { getFlight() },[]);
 
     return (
-        <div>
-            <h1 className='text-center'>Update Flight Details</h1>
-        <div className="App">
+        <div className='FlightUpdateFormMainCont'>
+            <h1>Update Flight Details</h1>
+        <div className="FlightUpdateFormCont">
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
