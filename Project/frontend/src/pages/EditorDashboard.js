@@ -1,7 +1,12 @@
+import '../styles/sahan/EditorDashboard.css'
+
 function EditorDashboard() {
   return (
-    <div>
-      <h1 className='text-center'>Dashboard</h1>
+    <div className='CeoDashMainCont'>
+      <h1>Dashboard</h1>
+      <div className='CeoDasInnerCont'>
+      
+      </div>
     </div>
   );
 }
