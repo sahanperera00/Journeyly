@@ -58,14 +58,19 @@ export const loginClient = async(req,res) => {
     try{
 
         const client = await Client.findOne({email});
-
+       
         if(!client){
             return res.status(404).json({message: "Client doesn't exist"});
         }
         if(password!== client.password){
             return res.status(404).json({message:"invalid credentials"});
+        }  
+        if(client){
+            req.session.user=user;
+            req.session.authorized=true;
+           return res.status(200).json(client);
         }
-        res.status(200).json(client);
+      
     }catch(error){
         res.status(404).json({message:error});
   }
