@@ -49,6 +49,7 @@ import CeoDashboard from './CeoDashboard';
 import SharedLayoutCeoDashboard from './SharedLayoutCeoDashboard';
 import CeoOverview from './CeoOverview';
 import CeoRevenue from './CeoRevenue';
+import EditorWebContent from './EditorWebContent';
 
 export {
     Home,
@@ -101,5 +102,6 @@ export {
     CeoDashboard,
     SharedLayoutCeoDashboard,
     CeoOverview,
-    CeoRevenue
+    CeoRevenue,
+    EditorWebContent,
 };
