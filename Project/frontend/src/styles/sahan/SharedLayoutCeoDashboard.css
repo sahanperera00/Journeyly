@@ -7,3 +7,15 @@
     width: 100%;
     height: 100vh;
 }
+
+.HomeBtn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: rgba(0, 0, 0, 0.703);
+    border: 0.5px solid rgba(0, 0, 0, 0.378);
+    background-color: transparent
+}
