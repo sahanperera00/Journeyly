@@ -109,7 +109,7 @@ function CeoDashboard() {
           </div>
           <div className='CeoInConR2card'>
             <div className='CeoInConR2cardData1'>
-              <h4 className='CeoInConR2cardT2'>Packeges</h4>
+              <h4 className='CeoInConR2cardT2'>Packages</h4>
               <h1>{packages.length}</h1>
             </div>
             <div className='CeoInConR2cardData2'>
