@@ -3,7 +3,7 @@ import Feedback from "../models/feedback.js";
 export const getAllFeedback = async (req, res) => {
     try {
         const feedback = await Feedback.find();
-        res.status(200).json(destinations);
+        res.status(200).json(feedback);
     } catch (error) {
         res.status(404).json({ message: error });
     }
@@ -13,7 +13,7 @@ export const getFeedback = async (req, res) => {
     const id = req.params.id;
     try {
         const feedback = await Feedback.findById(id);
-        res.status(200).json(destination);
+        res.status(200).json(feedback);
     } catch (error) {
         res.status(404).json({ message: error });
     }
