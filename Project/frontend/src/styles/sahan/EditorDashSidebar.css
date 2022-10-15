@@ -1,7 +1,7 @@
 .EditorDashSidebarMainCont {
     height: 100%;
     width: 320px;
-    background-color: rgba(17, 17, 17, 0.1);
+    /* background-color: rgba(17, 17, 17, 0.1); */
     overflow-x: hidden;
     display: block;
 }

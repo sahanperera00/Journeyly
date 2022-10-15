@@ -1,29 +1,23 @@
-.CeoDashSidebarMainCont {
+.FinanceDashSidebarMainCont {
     height: 100%;
     width: 320px;
     overflow-x: hidden;
     display: block;
-    /* background-color: rgba(17, 17, 17, 0.1); */
-    /* position: absolute; */
-    /* z-index: 1; */
-    /* top: 0; */
-    /* left: 0; */
-    /* padding-top: 10%; */
 }
 
-.CeoDSLogoCont {
+.FinanceDSLogoCont {
     width: 100%;
     height: 14%;
     margin-bottom: 30px;
 }
 
-.CeoDSLogoCont img {
+.FinanceDSLogoCont img {
     width: 180px;
     height: auto;
     margin-top: 35px;
 }
 
-.Ceohrline {
+.Financehrline {
     width: 80%;
     height: 2px;
     background-color: rgb(0, 0, 0);
@@ -31,7 +25,7 @@
     margin: 20px auto;
 }
 
-.CeoSTabContL {
+.FinanceSTabContL {
     padding: 6px 8px 6px 0px;
     text-decoration: none;
     color: #747474;
@@ -44,11 +38,11 @@
     margin: 0%;
 }
 
-.CeoSTabContL p {
+.FinanceSTabContL p {
     margin-left: 15px;
 }
 
-.CeoSTabContS {
+.FinanceSTabContS {
     padding: 6px 8px 6px 0px;
     text-decoration: none;
     color: #747474;
@@ -62,14 +56,14 @@
     margin: 0%;
 }
 
-.CeoSTabContS p {
+.FinanceSTabContS p {
     margin-left: 15px;
 }
 
-.CeoSTabContS:hover {
+.FinanceSTabContS:hover {
     color: rgb(0, 0, 0);
 }
 
-.CeoSTabContSub {
+.FinanceSTabContSub {
     padding-left: 20px;
 }

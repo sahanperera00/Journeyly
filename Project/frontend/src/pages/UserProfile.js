@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 
 function UserProfile() {
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -16,8 +17,8 @@ function UserProfile() {
     const [image, setImage] = useState("");
 
 
-    const { id } = useParams();
-    const navigate = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
     const getClient = () => {
       axios.get("http://localhost:8070/client/"+id)
@@ -78,8 +79,8 @@ function UserProfile() {
               <th> Email: </th> 
               <td>{email}</td>
             </tr>
-
-            <tr> 
+            
+             <tr> 
               <th> Contact Number: </th> 
               <td>{contactNo}</td>
             </tr>
@@ -102,13 +103,10 @@ function UserProfile() {
           <Button variant="danger" className='ms-3' onClick={() => {if (window.confirm('Are you sure you wish to delete this account?')) this.deleteClient(id)}}>Delete Account</Button>
           </div>
           </div>
-          </div>
         </div>
-       
-        </div>
-        // </div>
-        
-   )
-    
-  }
+      </div>
+    </div>
+  )
+
+}
 export default UserProfile;
