@@ -65,11 +65,13 @@ export const loginClient = async(req,res) => {
         if(password!== client.password){
             return res.status(404).json({message:"invalid credentials"});
         }  
-        if(client){
-            req.session.user=user;
-            req.session.authorized=true;
-           return res.status(200).json(client);
-        }
+        // if(client){
+        //     req.session.user=user;
+        //     req.session.authorized=true;
+          
+        // }
+
+        return res.status(200).json(client);
       
     }catch(error){
         res.status(404).json({message:error});
