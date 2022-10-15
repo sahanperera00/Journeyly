@@ -70,7 +70,6 @@ function EditorWebContent() {
 
   function handlePageClick({ selected: selectedPage }) {
     setCurrentPage(selectedPage);
-    selectedPage = currentPage;
   }
 
   const offset = currentPage * PER_PAGE;
