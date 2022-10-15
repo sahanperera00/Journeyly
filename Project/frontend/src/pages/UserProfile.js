@@ -11,8 +11,10 @@ function UserProfile() {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [contactNo, setContactNo] = useState("");
-    const [username, setUsername] = useState("");
+    // const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [image, setImage] = useState("");
+
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -24,8 +26,9 @@ function UserProfile() {
           setLastName(res.data.lastName);
           setEmail(res.data.email);
           setContactNo(res.data.contactNo);
-          setUsername(res.data.username);
+          // setUsername(res.data.username);
           setPassword(res.data.password);
+          setImage(res.data.image);
         })
         .catch((err) => {
           alert(err);
@@ -56,7 +59,7 @@ function UserProfile() {
               <div className='upper-container'>
           
                 <div className='image-container'>
-                <img src="https://img.icons8.com/fluency/96/000000/user-male-circle.png"/>
+                <img alt="profilepic" className="profilepic" src={image}/>
                 </div>
         <div className='lower-container'>
         
@@ -81,10 +84,10 @@ function UserProfile() {
               <td>{contactNo}</td>
             </tr>
 
-            <tr> 
+            {/* <tr> 
               <th> Username: </th> 
               <td>{username}</td>
-            </tr>
+            </tr> */}
 
             <tr> 
               <th> password: </th> 
@@ -96,7 +99,7 @@ function UserProfile() {
            <Link to={`/ClientDashboard/${id}/updateProfile`}>
             <Button variant="warning">Update Profile</Button>
           </Link> 
-          <Button variant="danger" className='ms-3' onClick={() => deleteClient(id)}>Delete Account</Button>
+          <Button variant="danger" className='ms-3' onClick={() => {if (window.confirm('Are you sure you wish to delete this account?')) this.deleteClient(id)}}>Delete Account</Button>
           </div>
           </div>
           </div>
