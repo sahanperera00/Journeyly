@@ -48,6 +48,8 @@ import {
     CeoRevenue,
     EditorWebContent,
     DesResUpdateForm,
+    SharedLayoutFinanceDashboard,
+    FinanceDashboard,
 } from '../pages';
 
 
@@ -103,6 +105,9 @@ function AppRoutes() {
                     <Route path="desRes/:desResId" element={<DesResUpdateForm/>}/>
                 </Route>
 
+                <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
+                    <Route index element={<FinanceDashboard />} />
+                </Route>
             </Routes>
         </Router>
     );
