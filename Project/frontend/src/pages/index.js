@@ -50,6 +50,7 @@ import SharedLayoutCeoDashboard from './SharedLayoutCeoDashboard';
 import CeoOverview from './CeoOverview';
 import CeoRevenue from './CeoRevenue';
 import EditorWebContent from './EditorWebContent';
+import DesResUpdateForm from './DesResUpdateForm';
 
 export {
     Home,
@@ -104,4 +105,5 @@ export {
     CeoOverview,
     CeoRevenue,
     EditorWebContent,
+    DesResUpdateForm,
 };
