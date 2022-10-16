@@ -68,7 +68,7 @@ export const loginClient = async(req,res) => {
         // if(client){
         //     req.session.user=user;
         //     req.session.authorized=true;
-        // }
+
         return res.status(200).json(client);
       
     }catch(error){
