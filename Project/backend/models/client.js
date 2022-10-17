@@ -24,15 +24,20 @@ const clientSchema = new Schema({
         required: true
     },
 
-    username: {
-        type: String,
-        required: true
-    },
+    // username: {
+    //     type: String,
+    //     required: true
+    // },
 
     password: {
         type: String,
         required: true
     },
+
+    image: {
+        type: String,
+        
+    }
 
     });
 

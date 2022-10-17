@@ -1,0 +1,21 @@
+.SharedLayoutCeoDashMainCont {
+    display: flex;
+    background: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fbg7.webp?alt=media&token=7b31c32d-84d7-47af-95f1-70ceeae6b6f3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.HomeBtn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    z-index: 2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: rgba(0, 0, 0, 0.703);
+    border: 0.5px solid rgba(0, 0, 0, 0.378);
+    background-color: transparent
+}

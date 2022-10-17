@@ -1,0 +1,70 @@
+.EditorDashSidebarMainCont {
+    height: 100%;
+    width: 320px;
+    /* background-color: rgba(17, 17, 17, 0.1); */
+    overflow-x: hidden;
+    display: block;
+}
+
+.EditorDSLogoCont {
+    width: 100%;
+    height: 14%;
+    margin-bottom: 30px;
+}
+
+.EditorDSLogoCont img {
+    width: 180px;
+    height: auto;
+    margin-top: 35px;
+}
+
+.Editorhrline {
+    width: 80%;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin: 20px auto;
+}
+
+.EditorSTabContL {
+    padding: 6px 8px 6px 0px;
+    text-decoration: none;
+    color: #747474;
+    display: flex;
+    border: none;
+    background: none;
+    text-align: left;
+    outline: none;
+    padding-left: 30px;
+    margin: 0%;
+}
+
+.EditorSTabContL p {
+    margin-left: 15px;
+}
+
+.EditorSTabContS {
+    padding: 6px 8px 6px 0px;
+    text-decoration: none;
+    color: #747474;
+    display: flex;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    padding-left: 30px;
+    margin: 0%;
+}
+
+.EditorSTabContS p {
+    margin-left: 15px;
+}
+
+.EditorSTabContS:hover {
+    color: rgb(0, 0, 0);
+}
+
+.EditorSTabContSub {
+    padding-left: 20px;
+}
