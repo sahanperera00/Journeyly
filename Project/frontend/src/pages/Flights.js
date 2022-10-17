@@ -23,6 +23,8 @@ function Flights() {
 
   useEffect(() => { getFlights() } , []);  //Shows changes of the page
 
+  const [searchTerm,setSearchTerm] = useState('');
+
   return (
     <div className='flightMainContainer'>
       <div className='flightApp'>
@@ -30,10 +32,19 @@ function Flights() {
 
       <div className='flightContainer'>
         <div className="flightSideBar">
-          <h1>SideBar</h1>
+          <h1>Search</h1>
+          <input className='searchSide' type="text" placeholder='Flight Name or Destination' onChange={event=>{setSearchTerm(event.target.value)}}/>
         </div>
         <div className="flightBodyContainer">
-          {flights.map((data) => {
+        {flights.filter((data)=>{
+            if(searchTerm==""){
+              return data
+            }else if(data.destinationAirport.toLowerCase().includes(searchTerm.toLowerCase())){
+              return data
+            }else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
+              return data
+            }
+          }).map((data) => {
           return (
             <Link to={'/flightPreview/'+data._id}>
             <div className='CardContainer'>
@@ -44,8 +55,11 @@ function Flights() {
                 <center><h2>{data.name} </h2></center>
                   <p className='price'>Price: Rs.{data.economyClass} upwards<br/></p>
                   <p className='desc'>Leaving Airport: {data.startAirport}<br/></p>
-                  <p className='desc'>Departure Date: {data.departureDate}<br/></p>
-                  <p className='depar'>Departure Time: {data.departureTime}<br/></p>
+                  <p className='desc'>Departure Date: {data.departureDate} (GMT+5:30)<br/></p>
+                  <p className='desc'>Destination Airport: {data.destinationAirport}<br/></p>
+                  <p className='desc'>Arrival Date: {data.arrivalDate} (GMT+5:30)<br/></p>
+                  <p className='depar'>Arrival Time: {data.arrivalTime} (GMT+5:30)<br/></p>
+                  <p className='depar'>Departure Time: {data.departureTime} (GMT+5:30)<br/></p>
               </div>
             </div>
             </Link>
