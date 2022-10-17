@@ -100,7 +100,7 @@ function UserProfile() {
            <Link to={`/ClientDashboard/${id}/updateProfile`}>
             <Button variant="warning">Update Profile</Button>
           </Link> 
-          <Button variant="danger" className='ms-3' onClick={() => {if (window.confirm('Are you sure you wish to delete this account?')) this.deleteClient(id)}}>Delete Account</Button>
+          <Button variant="danger" className='ms-3' onClick={() => {if (window.confirm('Are you sure you wish to delete this account?')) deleteClient(id)}}>Delete Account</Button>
           </div>
           </div>
         </div>
