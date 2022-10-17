@@ -27,6 +27,7 @@ function DesResForm({destination}) {
 
             const newTicket = {
               desId: destination._id,
+              desName: destination.name,
               firstName,
               lastName,
               email,
@@ -35,7 +36,7 @@ function DesResForm({destination}) {
               time,
               adults,
               children,
-              total: destination.adultCost * adults + destination.childCost * children
+              total: ((destination.adultTicketSellingRate * adults) + (destination.childTicketSellingRate * children))
             };
             console.log(newTicket);
 
@@ -74,27 +75,26 @@ function DesResForm({destination}) {
             </div>
             <div className="form-group">
               <label className="form-label">Number of Adults</label>
-              <input type="Number" className="form-control" onChange={(e) => {setAdults(e.target.value)}} min={0} required/>
+              <input type="Number" className="form-control" onChange={(e) => {setAdults(e.target.value)}} min={0}/>
             </div>
             <div className="form-group">
               <label className="form-label">Number of Children</label>
-              <input type="Number" className="form-control" onChange={(e) => {setChildren(e.target.value)}} min={0} required/>
+              <input type="Number" className="form-control" onChange={(e) => {setChildren(e.target.value)}} min={0}/>
             </div><br />
             <button type="submit" className="submitbtn">Submit</button>
           </form>
           </div>
           <div className='desrestcktcont'>
             <div className='desrestckt'>
-              <p>First Name :</p>
-              <p>Last Name :</p>
-              <p>Email :</p>
-              <p>Phone Number :</p>
-              <p>Date :</p>
-              <p>Time :</p>
-              <p>Number of Adults :</p>
-              <p>Number of Children</p>
+              <p>Name : {firstName} {lastName}</p>
+              <p>Email : {email}</p>
+              <p>Phone Number : {phoneNo}</p>
+              <p>Date : {date}</p>
+              <p>Time : {time}</p>
+              <p>Number of Adults : {adults}</p>
+              <p>Number of Children : {children}</p>
               <br/>
-              <h3>Total :</h3>
+              <h3>Total : ${((destination.adultTicketSellingRate * adults) + (destination.childTicketSellingRate * children))}</h3>
               </div>
           </div>
         </div><br />

@@ -103,11 +103,13 @@ function Bookings() {
         case 'destination':
           if (searchTerm == "") {
             return data;
+          } else if (data.desName.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
           } else if (data.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
-          } else if (data.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
+          }  else if (data.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
-          } 
+          }
           break;
         case 'package':
           if (searchTerm == "") {
@@ -288,31 +290,19 @@ function Bookings() {
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'destination':
-
-        axios.get(`http://localhost:8070/destination/${props.desId}`)
-          .then((res) => {
-            // console.log(res.data.name);
-          cold1 = res.data.name;
-          // setDestinationName(res.data.name);
-            // useEffect(() => { cold1 = res.data.name; }, [cold1]);
-            // console.log(props.desId);
-          })
-          .catch((err) => {
-            alert(err);
-          });
-          // console.log(destinationName);
-          // cold1 = destinationName;
-          // console.log(cold1);
-          cold2 = props.firstName;
-          cold3 = props.lastName;
+          cold1 = props.desName;
+          cold2 = props.firstName + ' ' + props.lastName;
+          cold3hid = 'none';
           cold4 = props.phoneNo;
-          cold5 = props.date;
+
+          const date = new Date(props.date);
+          cold5 = date.toISOString().split('T')[0];
           cold6 = props.time;
           cold7 = props.adults;
           cold8 = props.children;
           cold9 = props.total;
           cold10hid = 'none';
-          cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/desRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+          cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/desRes/${props.desId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
           cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
           break;
 
@@ -384,8 +374,8 @@ function Bookings() {
     case ('destination'):
       topicType = 'Destination';
       col1 = 'Destination';
-      col2 = 'First Name';
-      col3 = 'Last Name';
+      col2 = 'Name';
+      col3hid = 'none';
       col4 = 'Phone Number';
       col5 = 'Date';
       col6 = 'Time';

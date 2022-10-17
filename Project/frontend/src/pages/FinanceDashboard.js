@@ -62,57 +62,146 @@ function FinanceDashboard() {
 
     useEffect(() => { setStates() }, []);
 
+    const [flightCount, setFlightCount] = useState(0);
+    const [hotelCount, setHotelCount] = useState(0);
+    const [destinationCount, setDestinationCount] = useState(0);
+    const [vehicleCount, setVehicleCount] = useState(0);
+    
+
     return (
         <div className="FinanceDashMainCont">
             <h1>Dashboard</h1>
             <div className='FinanceDasInnerCont'>
                 <div className='FinanceInConR1'>
+
                     <div className='FinanceInConR1card'>
-                        <img className='imgdashimg1' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart2.png?alt=media&token=ec73bf79-13cd-40e3-be20-8cbd383c8ad0'} alt='img1' />
                         <div className='FinanceInConR1cardData'>
-                            <h4>Flights</h4>
-                            <h1>{flights.length}</h1>
+                        {/* {flights.map((data) => {
+                                        if(data.economyClass == null) {
+                                            setFlightCount(flightCount + 1);
+                                        }
+                                    })} */}
+                            <h1>{flightCount}</h1>
+                            <h4>Pending Flights</h4>
+                        </div>
+                        <div className='FinanceFlightTable'>
+                            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Flight Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {flights.map((data) => {
+                                        if(data.economyClass == null) {
+                                            return (
+                                                <tr>
+                                                    <td className='setWidth concat' >{data.name}</td>
+                                                </tr>
+                                            )
+                                        }
+                                    })}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
                     <div className='FinanceInConR1card'>
-                        <img className='imgdashimg2' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart5.png?alt=media&token=3119ac01-336e-4258-95b9-b7f260cb3dea'} alt='img1' />
                         <div className='FinanceInConR1cardData'>
-                            <h4>Hotels</h4>
-                            <h1>{hotels.length}</h1>
+                        {/* {hotels.map((data) => {
+                                        if(data.price == null) {
+                                            setHotelCount(hotelCount + 1);
+                                        }
+                                    })} */}
+                            <h1>{hotelCount}</h1>
+                            <h4>Pending Hotels</h4>
                         </div>
-                    </div>
-                    <div className='FinanceInConR1card'>
-                        <img className='imgdashimg3' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart6.png?alt=media&token=a1238e92-f663-43a4-b821-dd280f1d4db8'} alt='img1' />
-                        <div className='FinanceInConR1cardData'>
-                            <h4>Destinations</h4>
-                            <h1>{destinations.length}</h1>
-                        </div>
-                    </div>
-                    <div className='FinanceInConR1card'>
-                        <img className='imgdashimg4' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart7.png?alt=media&token=9b3cfc11-4158-4104-b8f3-289b9334a6c2'} alt='img1' />
-                        <div className='FinanceInConR1cardData'>
-                            <h4>Taxis</h4>
-                            <h1>{vehicles.length}</h1>
+                        <div className='FinanceFlightTable'>
+                            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Hotel Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {hotels.map((data) => {
+                                        if(data.price == null) {
+                                            return (
+                                                <tr>
+                                                    <td className='setWidth concat' >{data.name}</td>
+                                                </tr>
+                                            )
+                                        }
+                                    })}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
                 <div className='FinanceInConR2'>
+
                     <div className='FinanceInConR2card'>
-                        <div className='FinanceInConR1cardData1'>
-                            <h4 className='FinanceInConR2cardT1'>Clients</h4>
-                            <h1>{clients.length}</h1>
+                        <div className='FinanceInConR1cardData'>
+                        {/* {destinations.map((data) => {
+                                        if(data.adultCost == null) {
+                                            setDestinationCount(destinationCount + 1);
+                                        }
+                                    })} */}
+                            <h1>{destinationCount}</h1>
+                            <h4>Pending Destinations</h4>
                         </div>
-                        <div className='FinanceInConR1cardData2'>
-                            <img className='imgdashimg5' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart3.png?alt=media&token=6ac6f396-39e2-432c-b3d1-7801c0f528fe'} alt='img1' />
+                        <div className='FinanceFlightTable'>
+                            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Destination Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {destinations.map((data) => {
+                                        if(data.adultTicketSellingRate == null) {
+                                            return (
+                                                <tr>
+                                                    <td className='setWidth concat' >{data.name}</td>
+                                                </tr>
+                                            )
+                                        }
+                                    })}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+
                     <div className='FinanceInConR2card'>
-                        <div className='FinanceInConR2cardData1'>
-                            <h4 className='FinanceInConR2cardT2'>Packages</h4>
-                            <h1>{packages.length}</h1>
+                        <div className='FinanceInConR1cardData'>
+                        {/* {vehicles.map((data) => {
+                                        if(data.feet == null)
+                                        setVehicleCount(vehicleCount + 1);
+                                    })} */}
+                            <h1>{vehicleCount}</h1>
+                            <h4>Pending Vehicles</h4>
                         </div>
-                        <div className='FinanceInConR2cardData2'>
-                            <img className='imgdashimg6' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart4.png?alt=media&token=291fc909-5724-429e-bbcf-3644ddaaec73'} alt='img1' />
+                        <div className='FinanceFlightTable'>
+                            <table className="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Owner's Name</th>
+                                        <th>Driver's Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {vehicles.map((data) => {
+                                        if(data.fee == null) {
+                                            return (
+                                                <tr>
+                                                    <td className='setWidth concat' >{data.ownerName}</td>
+                                                    <td className='setWidth concat' >{data.driverName}</td>
+                                                </tr>
+                                            )
+                                        }
+                                    })}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

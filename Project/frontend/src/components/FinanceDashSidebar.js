@@ -10,33 +10,30 @@ function FinanceDashSidebar() {
         </center>
       </div>
       {/* <hr className='Ceohrline' /> */}
-      <Link className='FinanceSTabContS' to={`/ceoDashboard`}>
+      <Link className='FinanceSTabContS' to={`/financeDashboard`}>
         <span className="material-symbols-outlined">dashboard</span><p>Dashboard</p>
       </Link>
       <p className='FinanceSTabContL'>
-        <span className="material-symbols-outlined">analytics</span><p>Overview</p>
+        <span className="material-symbols-outlined">pending_actions</span><p>Pending</p>
       </p>
       <p className='FinanceSTabContSub'>
-        <Link className='FinanceSTabContS' to={`/ceoDashboard/ceoOverview/flight`}>
+        <Link className='FinanceSTabContS' to={`/financeDashboard/pending/flight`}>
           <span className="material-symbols-outlined">flight</span><p>Flights</p>
         </Link>
-        <Link className='FinanceSTabContS' to={`/ceoDashboard/ceoOverview/hotel`}>
+        <Link className='FinanceSTabContS' to={`/financeDashboard/pending/hotel`}>
           <span className="material-symbols-outlined">hotel</span><p>Hotels</p>
         </Link>
-        <Link className='FinanceSTabContS' to={`/ceoDashboard/ceoOverview/destination`}>
+        <Link className='FinanceSTabContS' to={`/financeDashboard/pending/destination`}>
           <span className="material-symbols-outlined">pin_drop</span><p>Destinations</p>
         </Link>
-        <Link className='FinanceSTabContS' to={`/ceoDashboard/ceoOverview/taxi`}>
+        <Link className='FinanceSTabContS' to={`/financeDashboard/pending/taxi`}>
           <span className="material-symbols-outlined">local_taxi</span><p>Taxis</p>
         </Link>
-        <Link className='FinanceSTabContS' to={`/ceoDashboard/ceoOverview/package`}>
+        <Link className='FinanceSTabContS' to={`/financeDashboard/pending/package`}>
           <span className="material-symbols-outlined">package</span><p>Packages</p>
         </Link>
-        <Link className='FinanceSTabContS' to={`/ceoDashboard/ceoOverview/user`}>
-          <span className="material-symbols-outlined">person</span><p>Users</p>
-        </Link>
       </p>
-      <Link className='FinanceSTabContS' to={`/ceoDashboard/ceoRevenue`}>
+      <Link className='FinanceSTabContS' to={`/financeDashboard/financeRevenue`}>
         <span className="material-symbols-outlined">monitoring</span><p>Revenue</p>
       </Link>
       <Link className='FinanceSTabContS' to={``}>
