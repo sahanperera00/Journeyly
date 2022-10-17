@@ -12,7 +12,10 @@ function DesResUpdateForm() {
     const [time, setTime] = useState('');
     const [adults, setAdults] = useState('');
     const [children, setChildren] = useState('');
+    const [childTicketSellingRate, setChildTicketSellingRate] = useState('');
+    const [adultTicketSellingRate, setAdultTicketSellingRate] = useState('');
 
+    const {desId} = useParams();
     const { id } = useParams();
     const { desResId } = useParams();
     const navigate = useNavigate();
@@ -20,18 +23,13 @@ function DesResUpdateForm() {
     const getReservation = () => {
         axios.get("http://localhost:8070/desTicket/" + desResId)
             .then((res) => {
-
-                axios.get("http://localhost:8070/destination/" + res.data.desId)
-                    .then((res) => {
-                        setDestination(res.data);
-                    }).catch((err) => {
-                        alert(err);
-                    });
-
+                setDestination(res.data.desName);
                 setFirstName(res.data.firstName);
                 setLastName(res.data.lastName);
                 setPhoneNo(res.data.phoneNo);
-                setDate(res.data.date);
+
+                const date = new Date(res.data.date);
+                setDate(date.toISOString().split('T')[0]);
                 setTime(res.data.time);
                 setAdults(res.data.adults);
                 setChildren(res.data.children);
@@ -41,7 +39,18 @@ function DesResUpdateForm() {
             });
     };
 
+    const getDestination = () => {
+        axios.get("http://localhost:8070/destination/" + desId)
+            .then((res) => {
+                setChildTicketSellingRate(res.data.childTicketSellingRate);
+                setAdultTicketSellingRate(res.data.adultTicketSellingRate);
+            })
+            .catch((err) => {
+                alert(err);
+            })};
+
     useEffect(() => { getReservation() }, []);
+    useEffect(() => { getDestination() }, []);
 
     return (
         <div className="DesResUpdateFormMainCont">
@@ -58,7 +67,7 @@ function DesResUpdateForm() {
                         time,
                         adults,
                         children,
-                        total: destination.adultCost * adults + destination.childCost * children
+                        total: ((adultTicketSellingRate * adults) + (childTicketSellingRate * children))
                     };
 
                     axios.put(`http://localhost:8070/desTicket/update/${desResId}`, newTicket)
@@ -70,6 +79,10 @@ function DesResUpdateForm() {
                             console.log(err);
                         });
                 }}>
+                    <div className="form-group">
+                        <label className="form-label">Destination</label>
+                        <input type="text" className="form-control" value={destination} readOnly />
+                    </div>
                     <div className="form-group">
                         <label className="form-label">First Name</label>
                         <input type="text" className="form-control" value={firstName} onChange={(e) => { setFirstName(e.target.value) }} required />
@@ -84,7 +97,7 @@ function DesResUpdateForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Date</label>
-                        <input type="date" className="form-control" value={date} onChange={(e) => { setDate(e.target.value) }} required />
+                        <input type="date" className="form-control" defaultValue={date} onChange={(e) => { setDate(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Time</label>

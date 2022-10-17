@@ -22,25 +22,25 @@ function PackageForm() {
             <h1>Add Package Details</h1>
             <div className="PackageFormCont">
                 <br />
-                <form onSubmit={(e) => {
+                <form onSubmit={async(e) => {
                     e.preventDefault();
                     //image
                     const imageRef = ref(storage, `images/packages/${name + image.name}`);
 
-                    uploadBytes(imageRef, image)
+                    await uploadBytes(imageRef, image)
                         .then(() => {
                             console.log('Uploaded image');
                         }).catch((err) => {
                             console.log(err);
                         })
 
-                    getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
+                    await getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
                         .then((url) => {
                             console.log(url);
-                            setImage(url);
-                        }).catch((err) => {
-                            console.log(err);
-                        })
+                           // setImage(url);
+                       // }).catch((err) => {
+                           // console.log(err);
+                      //  })
                     //
                     const newPackage = {
                         name,
@@ -51,7 +51,7 @@ function PackageForm() {
                         vehicle,
                         guide,
                         price,
-                        image
+                        image :url
                     }
 
                     axios.post("http://localhost:8070/packages/create", newPackage)
@@ -61,8 +61,10 @@ function PackageForm() {
                             alert("Error adding Package Content");
                             console.log(err);
                         })
+                    }).catch((err) => {
+                        console.log(err);
+                    })
                 }}>
-
 
                     <div className="form-group">
                         <label className="form-label">Enter Package Name</label>
@@ -93,7 +95,7 @@ function PackageForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setHotel(e.target.value);
-                            }} />
+                            }} required/>
                     </div>
 
                     <div className="form-group">
@@ -101,14 +103,14 @@ function PackageForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setRoomType(e.target.value);
-                            }} />
+                            }}required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Vehicle</label>
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setVehicle(e.target.value);
-                            }} />
+                            }} required/>
                     </div>
 
                     <div className="form-group">
@@ -116,7 +118,7 @@ function PackageForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setGuide(e.target.value);
-                            }} />
+                            }}required />
                     </div>
 
                     <div className="form-group">

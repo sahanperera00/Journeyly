@@ -53,6 +53,8 @@ import EditorWebContent from './EditorWebContent';
 import DesResUpdateForm from './DesResUpdateForm';
 import SharedLayoutFinanceDashboard from './SharedLayoutFinanceDashboard';
 import FinanceDashboard from './FinanceDashboard';
+import FinancePending from './FinancePending';
+import FinanceDestinationUpdateForm from './FinanceDestinationUpdateForm';
 
 export {
     Home,
@@ -110,4 +112,6 @@ export {
     DesResUpdateForm,
     SharedLayoutFinanceDashboard,
     FinanceDashboard,
+    FinancePending,
+    FinanceDestinationUpdateForm,
 };
