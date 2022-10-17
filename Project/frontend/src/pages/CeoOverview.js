@@ -82,12 +82,7 @@ function CeoOverview() {
                         return data;
                     } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return data;
-                    } 
-                    // else if (data.childCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
-                    //     return data;
-                    // } else if (data.adultCost.toString().toLowerCase().includes(searchTerm.toLowerCase())) {
-                    //     return data;
-                    // }
+                    }
                     break;
                 case 'package':
                     if (searchTerm == "") {
@@ -221,10 +216,10 @@ function CeoOverview() {
                 break;
             case 'destination':
                 cold1 = props.name;
-                cold2 = props.childCost;
-                cold3 = props.adultCost;
-                cold4hid = 'none';
-                cold5hid = 'none';
+                cold2 = props.childTicketBuyingRate;
+                cold3 = props.childTicketSellingRate;
+                cold4 = props.adultTicketBuyingRate;
+                cold5 = props.adultTicketSellingRate;
                 cold6hid = 'none';
                 break;
             case 'taxi':
@@ -280,10 +275,10 @@ function CeoOverview() {
         case ('destination'):
             topicType = 'Destinations';
             col1 = 'Name';
-            col2 = 'Child Cost';
-            col3 = 'Adult Cost';
-            col4 = 'Ratings';
-            col5hid = 'none';
+            col2 = 'Child (Buying)';
+            col3 = 'Child (Selling)';
+            col4 = 'Adult (Buying)';
+            col5 = 'Adult (Selling)';
             col6hid = 'none';
             break;
         case ('taxi'):
