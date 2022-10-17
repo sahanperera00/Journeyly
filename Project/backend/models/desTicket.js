@@ -5,6 +5,9 @@ const Schema = mongoose.Schema;
 const desTicketSchema = new Schema({
     desId: {
         type: String,
+    },
+    desName: {
+        type: String,
         required: true
     },
     firstName: {
