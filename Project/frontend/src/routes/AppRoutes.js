@@ -50,6 +50,8 @@ import {
     DesResUpdateForm,
     SharedLayoutFinanceDashboard,
     FinanceDashboard,
+    FinancePending,
+    FinanceDestinationUpdateForm,
 } from '../pages';
 
 
@@ -102,11 +104,14 @@ function AppRoutes() {
                     <Route path="bookings/:type" element={<Bookings />} />
                     <Route path="feedback" element={<Feedback/>}/>
                     <Route path="payments" element={<Payments/>}/>
-                    <Route path="desRes/:desResId" element={<DesResUpdateForm/>}/>
+                    <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm/>}/>
                 </Route>
 
                 <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
                     <Route index element={<FinanceDashboard />} />
+                    <Route path="pending/:type" element={<FinancePending />} />
+                    <Route path="destinationUpdateForm/:id" element={<FinanceDestinationUpdateForm />} />
+                    <Route path="financeRevenue" element={<CeoRevenue />} />
                 </Route>
             </Routes>
         </Router>

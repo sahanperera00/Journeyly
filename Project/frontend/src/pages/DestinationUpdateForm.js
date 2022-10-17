@@ -14,11 +14,12 @@ function DestinationUpdateForm() {
     const [includes, setIncludes] = useState('');
     const [imageI, setImageI] = useState('');
     const [images, setImages] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
 
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
-  
-    const getDestination = () => {   
+
+    const getDestination = () => {
         axios.get("http://localhost:8070/destination/" + id)
             .then((res) => {
                 setName(res.data.name);
@@ -33,8 +34,24 @@ function DestinationUpdateForm() {
                 alert(err);
             });
     };
-    
+
+    // const handleCheck = (e) => {
+    //     if (e.target.checked === true) {
+    //         return (
+    //             <div className="form-group">
+    //                 <label className="form-label">Images</label>
+    //                 <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }} />
+    //             </div>
+    //         )
+    //     }else {
+    //         return(
+    //             <div>Hello</div>
+    //         )
+    //     }
+    // };
+
     useEffect(() => { getDestination() }, []);
+    // useEffect(() => { handleCheck() }, [isChecked]);
 
     return (
         <div className='DestinationUpdateFormMainCont'>
@@ -44,7 +61,7 @@ function DestinationUpdateForm() {
                     e.preventDefault();
 
                     const imageRef = ref(storage, `images/destination/${name + imageI.name}`);
-            
+
                     await uploadBytes(imageRef, imageI)
                         .then(() => {
                             console.log('Uploaded image');
@@ -63,7 +80,7 @@ function DestinationUpdateForm() {
                                 location,
                                 extra,
                                 includes,
-                                images:url,
+                                // images: url,
                             };
 
                             axios.put("http://localhost:8070/destination/update/" + id, newDestination)
@@ -77,36 +94,26 @@ function DestinationUpdateForm() {
                         }).catch((err) => {
                             console.log(err);
                         });
-                    }}>
+                }}>
 
                     <div className="form-group">
                         <label className="form-label">Name</label>
-                        <input type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Short Description</label>
-                        <textarea rows={3} type="text" className="form-control" value={shortDesc} onChange={(e) => { setShortDesc(e.target.value) }} required/>
+                        <textarea rows={3} type="text" className="form-control" value={shortDesc} onChange={(e) => { setShortDesc(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Long Description</label>
-                        <textarea rows={6} className="form-control" value={longDesc} onChange={(e) => { setLongDesc(e.target.value) }} required/>
+                        <textarea rows={6} className="form-control" value={longDesc} onChange={(e) => { setLongDesc(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Location</label>
-                        <input type="text" className="form-control" value={location} onChange={(e) => { setLocation(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={location} onChange={(e) => { setLocation(e.target.value) }} required />
                     </div>
-                    <div className="form-group">
-                        <label className="form-label">What you need to know</label>
-                        <textarea rows={3} type="text" className="form-control" value={extra} onChange={(e) => { setExtra(e.target.value) }} required/>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">What's included</label>
-                        <textarea rows={3} type="text" className="form-control" value={includes} onChange={(e) => { setIncludes(e.target.value) }} required/>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Images</label>
-                        <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }}/>
-                    </div><br />
+                    {/* <input type="checkbox" id="imageCheck" name="images" value="Images" onChange={handleCheck()} /> Set Image */}
+                    <br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />
                 </form>
             </div>
