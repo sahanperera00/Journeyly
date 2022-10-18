@@ -72,12 +72,12 @@
     /* background-image: url(); */
 }
 
-.CardContainer{
+.CardContainer1{
     width: 93%;
-    height: 250px;
+    height: 270px;
     background-color: white;
     display: flex;
-    padding: 20px;
+    padding: 15px;
     border-radius: 25px;
     margin: 20px 0;
     float: right;
@@ -116,6 +116,7 @@
 
 .depar{
     margin-left: 5%;
+    
     float: right;
     color: orange;
 }

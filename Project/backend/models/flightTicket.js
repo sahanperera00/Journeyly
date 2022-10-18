@@ -7,6 +7,10 @@ const flightTicketSchema = new Schema({
         type: String,
         required: true
     },
+    flightName:{
+        type: String,
+        required: true
+    },
     firstName: {
         type: String,
         required: true

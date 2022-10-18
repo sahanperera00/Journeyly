@@ -11,6 +11,10 @@ const flightSchema = new Schema({
         type: String,
         required: true
     },
+    airline:{
+        type:String,
+        required:true
+    },
     startAirport:{
         type: String,
         required: true

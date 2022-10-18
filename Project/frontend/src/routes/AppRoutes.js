@@ -73,7 +73,7 @@ function AppRoutes() {
                     <Route path='hotelPreview/:id' element={<HotelPreview />} />
                     <Route path='flightPreview/:id' element={<FlightPreview />} />
                     <Route path='hotelResForm' element={<HotelResForm />} />
-                    <Route path='flightResForm' element={<FlightResForm />} />
+                    <Route path='flightResForm/:id' element={<FlightResForm />} />
                     <Route path='rentalPreview/:id' element={<RentalPreview />} />
                     <Route path='rentalForm' element={<RentalForm />} />
                 </Route>
