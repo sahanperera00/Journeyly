@@ -20,12 +20,12 @@ function PackagePreview(){
     const [guide,setGuide]=useState('');*/
     const [price,setPrice]=useState('');
     const [image, setImage] = useState('');
-  //  const [name, setName] = useState('');
+    const [name1, setName1] = useState('');
   
     const [check_in, setCheckin] = useState('');
     const [check_out, setCheckout] = useState('');
  
-    const [customizations, setCustomizations] = useState('');
+    const [phoneNo, setphoneNo] = useState('');
   
 
     const{id}=useParams();
@@ -95,14 +95,14 @@ function PackagePreview(){
                 name,
                 check_in,
                 check_out,
-                customizations
+                phoneNo
          
               };
               console.log(newBook);      
-              axios.post("http://localhost:8070/packages/create", newBook)
+              axios.post("http://localhost:8070/packageReservation/create", newBook)
               .then(() => {
                 alert("Package Booked Successfully");
-                navigate('/packages');
+                navigate('/Packages');
               }).catch((err) => {
                 alert("Error ");
                 console.log(err);
@@ -110,7 +110,7 @@ function PackagePreview(){
             }}>
               <div className="form-group">
                 <label className="form-label">First Name</label>
-                <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
+                <input type="text" className="form-control" onChange={(e) => {setName1(e.target.value)}} required/>
               </div>
               
               <div className="form-group">
@@ -123,8 +123,8 @@ function PackagePreview(){
               </div>
               
   <div className="form-group">
-                <label className="form-label">customizations</label>
-                <input type="text" className="form-control" onChange={(e) => {setCustomizations(e.target.value)}} required/>
+                <label className="form-label">phoneNo</label>
+                <input type="text" className="form-control" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
           <br />
               <button type="submit" className="submitbtn">Submit</button>
