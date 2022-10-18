@@ -20,6 +20,7 @@ import {
     DestinationUpdateForm,
     PackageForm,
     PackagesEdit,
+    PackagePreview,
     PackageUpdateForm,
     HotelUpdateForm,
     HotelPreview,
@@ -78,6 +79,7 @@ function AppRoutes() {
                     <Route path='flightResForm/:id' element={<FlightResForm />} />
                     <Route path='rentalPreview/:id' element={<RentalPreview />} />
                     <Route path='rentalForm' element={<RentalForm />} />
+                    <Route path='PackagePreview/:id' element={<PackagePreview />} />
                 </Route>
 
                 <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard />}>

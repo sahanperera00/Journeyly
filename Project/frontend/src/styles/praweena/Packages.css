@@ -138,5 +138,52 @@ font-size: 0px;
   
   
 }
+.previewContainerPackage{
+  padding-top: 7%;
+  padding-bottom: 70pc
+ 
+}
 
+.PreviewHeading{
+  font-weight: bolder;
+  text-align: center;
+}
     
+.PackagePreview{
+  font-size: 35px;
+  font-weight: 500;
+  padding-left: 4pc; 
+
+}
+.PackImg{
+  display: grid;
+  place-items: center;
+ 
+}
+.packageRes{
+  width: 70%;
+  /* margin-left: auto;
+  margin-right: auto; */
+  float: right;
+ margin-right: 500px;
+ 
+ width: 220px;
+  padding: 50px;
+  backdrop-filter: blur(8px);
+  background-color: rgba(49, 39, 237, 0.073);
+  align-self: center;
+padding-bottom: 10pc;
+  width: 50%;
+  height: 100%;
+}
+
+.pkgprice{
+  text-align: center;
+  font-weight:bolder;
+  font-size: x-large;
+}
+
+.previewtest{
+  font-size: 30px;
+}
+
