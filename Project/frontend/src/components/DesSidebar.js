@@ -23,16 +23,18 @@ function DesSidebar() {
     <div className='DesSidebar'>
       <div className='container'>
         {attractions.map((data) => {
-          return (
-            <Link to={`/attractions/${data._id}`}>
-              <Card className='DesSidebarCard' key={`${data._id} + 1`}>
-                <Card.Img className='DesCardImg' key={`${data._id} + 1`} src={data.images} />
-                <Card.Body className='DesCardBody' key={`${data._id} + 2`}>
-                  <Card.Title className='desCardTitle' key={`${data._id} + 1`}>{data.name}</Card.Title>
-                </Card.Body>
-              </Card>
-            </Link>
-          )        
+          if(data.childTicketBuyingRate != null) {
+            return (
+              <Link to={`/attractions/${data._id}`}>
+                <Card className='DesSidebarCard' key={`${data._id} + 1`}>
+                  <Card.Img className='DesCardImg' key={`${data._id} + 1`} src={data.images} />
+                  <Card.Body className='DesCardBody' key={`${data._id} + 2`}>
+                    <Card.Title className='desCardTitle' key={`${data._id} + 1`}>{data.name}</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Link>
+            )
+          }
         })}
       </div>
     </div>

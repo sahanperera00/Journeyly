@@ -9,6 +9,9 @@ import { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { gapi } from 'gapi-script';
+
 function Navbar() {
 
   const [show, setShow] = useState(false);
@@ -38,6 +41,29 @@ function Navbar() {
   //     {theme:"outline", size:"large"}
   //   );
   // });
+
+
+  /////////coding for google login
+//   const [ profile, setProfile ] = useState([]);
+//   const clientId = '78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com';
+
+//       useEffect(() => {
+//         const initClient = () => {
+//               gapi.client.init({
+//               clientId: clientId,
+//               scope: ''
+//             });
+//           };
+//           gapi.load('client:auth2', initClient);
+// });
+
+// const onSuccess = (res) => {
+//   setProfile(res.profileObj);
+// };
+
+// const onFailure = (err) => {
+//   console.log('failed', err);
+// };
 
 
   return (
@@ -98,7 +124,17 @@ function Navbar() {
                 </Form.Group>
                 <div className='btnContainerlogin'>
                   <Button type="submit" variant="btn btn-dark" >Login</Button>
-                  <div id="googlelogin"></div>
+                  {/* <div id="googlelogin"></div>
+                  
+                <GoogleLogin
+                    clientId={clientId}
+                    buttonText="Sign in with Google"
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
+                /> */}
+            
                 </div>
               </Form>
             </Modal.Body>

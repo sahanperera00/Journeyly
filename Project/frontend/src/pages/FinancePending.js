@@ -1,12 +1,12 @@
-import '../styles/sahan/CeoOverview.css'
+import '../styles/sahan/FinancePending.css'
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
 const PER_PAGE = 7;
 
-function CeoOverview() {
+function FinancePending() {
     var { type } = useParams();
     var topicType = 'topic';
     const [array, setArray] = useState([]);
@@ -220,7 +220,7 @@ function CeoOverview() {
                 cold3 = props.childTicketSellingRate;
                 cold4 = props.adultTicketBuyingRate;
                 cold5 = props.adultTicketSellingRate;
-                cold6hid = 'none';
+                cold6 = <Link className='updatebttn' to={"/financeDashboard/destinationUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
                 break;
             case 'taxi':
                 cold1 = props.driverName;
@@ -249,7 +249,6 @@ function CeoOverview() {
             default:
                 break;
         }
-        console.log(cold1);
 
     }
 
@@ -279,7 +278,7 @@ function CeoOverview() {
             col3 = 'Child (Selling)';
             col4 = 'Adult (Buying)';
             col5 = 'Adult (Selling)';
-            col6hid = 'none';
+            col6 = 'Update';
             break;
         case ('taxi'):
             topicType = 'Taxis';
@@ -307,21 +306,20 @@ function CeoOverview() {
             col4 = 'Contact Number';
             col5hid = 'none';
             col6hid = 'none';
-            break;
+            break;  
     }
 
     useEffect(() => { getArray() }, [type]);
-    // useEffect(() => { CeoOverview() }, [type]);
 
     return (
-        <div className='CeoDashOverviewMainCont'>
+        <div className='FinancePendingMainCont'>
             <h1>{topicType} Overview</h1>
-            <div className='CeoDashSearch'>
-                <input className='ceoSearchbar' type='text' placeholder='Search here' onChange={(e) => { setSearchTerm(e.target.value) }} />
+            <div className='FinancePendingSearch'>
+                <input className='FinancePendingSearchbar' type='text' placeholder='Search here' onChange={(e) => { setSearchTerm(e.target.value) }} />
             </div>
-            <div className='CeoDashOverviewInnerCont'>
-                <div className='CeoDashOverviewInnerContC1'>
-                    <div className='ceoOverviewTableCont'>
+            <div className='FinancePendingCont'>
+                <div className='FinancePendingContC1'>
+                    <div className='FinancePendingTableCont'>
                         <table className="table table-striped">
                             <thead>
                                 <tr>
@@ -338,7 +336,7 @@ function CeoOverview() {
                             </tbody>
                         </table>
                     </div>
-                    <div className='ceoOverviewBottomCont'>
+                    <div className='FinancePendingBottomCont'>
                         <ReactPaginate
                             previousLabel={<span style={{ fontSize: '16px' }} className="material-symbols-outlined">navigate_before</span>}
                             nextLabel={<span style={{ fontSize: '16px' }} className="material-symbols-outlined">navigate_next</span>}
@@ -351,17 +349,6 @@ function CeoOverview() {
                             disabledClassName={"pagination__link--disabled"}
                             activeClassName={"pagination__link--active"}
                         />
-                        <button className='ceoOverviewprintBtn' onClick={() => { window.print() }}>Print</button>
-                    </div>
-                </div>
-                <div className='CeoDashOverviewInnerContC2'>
-                    <div className='CeoDashOverviewInnerContC2Card1'>
-                        <h1>{array.length}</h1>
-                        <h4>Number of {topicType}</h4>
-                    </div>
-                    <div className='CeoDashOverviewInnerContC2Card2'>
-                        <img className='imgoverview' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fart1.png?alt=media&token=489fc79f-12cb-4b70-8da6-0160ea7d60cf'} alt='img1' />
-                        <img className='imgoverviewlogo' src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-color.webp?alt=media&token=46432dde-c8e0-43e9-bc91-77b8a98e3f76'} alt='logo' />
                     </div>
                 </div>
             </div>
@@ -369,4 +356,4 @@ function CeoOverview() {
     )
 }
 
-export default CeoOverview
+export default FinancePending
