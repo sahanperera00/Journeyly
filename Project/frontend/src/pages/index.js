@@ -21,6 +21,7 @@ import PackageForm from "./PackageForm";
 import PackagesEdit from './PackagesEdit';
 import PackageUpdateForm from "./PackageUpdateForm";
 import PackagePreview from "./PackagePreview";
+import PackageReservationForm from "./PackageReservationForm";
 import HotelUpdateForm from "./HotelUpdateForm";
 import FlightUpdateForm from "./FlightUpdateForm";
 import RegistrationForm from './RegistrationForm';
@@ -120,4 +121,5 @@ export {
     FinanceDestinationUpdateForm,
     FinanceFlightUpdateForm,
     FlightResUpdateForm,
+    PackageReservationForm,
 };
