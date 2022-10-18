@@ -221,7 +221,7 @@ function Bookings() {
           });
         break;
       case 'hotel':
-        axios.delete(`http://localhost:8070/hotelRes/delete/${bid}`)
+        axios.delete(`http://localhost:8070/hotelRes/cancel/${bid}`)
           .then((res) => {
             getArray();
           })
