@@ -76,11 +76,11 @@ function FinanceFlightUpdateForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Economy Class Ticket Price</label>
-                        <input type="text" className="form-control" onChange={(e) => { setEconomy(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={economyClass} onChange={(e) => { setEconomy(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
                         <label className="form-label">Business Class Ticket Price</label>
-                        <input type="text" className="form-control" onChange={(e) => { setBusiness(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={businessClass} onChange={(e) => { setBusiness(e.target.value) }} required/>
                     </div>
                     <br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />
