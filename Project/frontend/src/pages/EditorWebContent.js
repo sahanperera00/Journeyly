@@ -70,7 +70,6 @@ function EditorWebContent() {
 
   function handlePageClick({ selected: selectedPage }) {
     setCurrentPage(selectedPage);
-    selectedPage = currentPage;
   }
 
   const offset = currentPage * PER_PAGE;
@@ -109,6 +108,8 @@ function EditorWebContent() {
             return data;
           } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
+          } else if (data.location.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
           }
           break;
         case 'package':
@@ -138,6 +139,7 @@ function EditorWebContent() {
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
       SetData(data);
+      // SetBttn(data);
       return (
         <tr>
           <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
@@ -296,8 +298,8 @@ function EditorWebContent() {
         cold2 = props.shortDesc;
         cold3 = props.longDesc;
         cold4 = props.location;
-        cold5 = props.includes;
-        cold6 = props.extra;
+        cold5hid = 'none';
+        cold6hid = 'none';
         cold7hid = 'none';
         cold8hid = 'none';
         cold9hid = 'none';
@@ -376,8 +378,8 @@ function EditorWebContent() {
       col2 = 'Short Description';
       col3 = 'Long Description';
       col4 = 'Location';
-      col5 = 'Includes';
-      col6 = 'Extra';
+      col5hid = 'none';
+      col6hid = 'none';
       col7hid = 'none';
       col8hid = 'none';
       col9hid = 'none';

@@ -1,0 +1,132 @@
+.FinanceDashMainCont {
+    width: 100%;        
+    height: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 2%;
+}
+
+.FinanceDasInnerCont {
+    width: 100%;
+    height: 80%;
+    margin-top: 3%;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.068);
+    overflow: hidden;
+
+}
+
+.FinanceInConR1 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.FinanceInConR2 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.FinanceInConR1card {
+    width: 46%;
+    height: 80%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+    transition: 0.3s;
+    text-align: center;
+    box-shadow: 5px 5px 10px 1px #0000001e;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.FinanceFlightTable {
+    width: 60%;
+    height: 100%;
+    overflow: scroll;
+    padding: 5%;
+}
+
+.FinanceInConR1cardData {
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    padding: 10% 5%;
+    background-color: rgba(0, 0, 0, 0.036);
+}
+
+.imgdashimg1 {
+    width: 240px;
+    height: auto;
+    margin-top: -60px;
+}
+
+.imgdashimg2 {
+    width: 200px;
+    height: auto;
+    margin-top: -50px;
+}
+
+.imgdashimg3 {
+    width: 230px;
+    height: auto;
+    margin-top: -60px;
+}
+
+.imgdashimg4 {
+    width: 250px;
+    height: auto;
+    margin-top: -70px;
+}
+
+.FinanceInConR2card {
+    width: 45%;
+    height: 85%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 5px 5px 10px 1px #0000001e;
+    display: flex;
+}
+
+.FinanceInConR1cardData1 {
+    width: 50%;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.FinanceInConR1cardData2 {
+    width: 50%;
+}
+
+.FinanceInConR2cardData1 {
+    width: 50%;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.FinanceInConR2cardData2 {
+    width: 50%;
+}
+
+.imgdashimg5 {
+    width: 240px;
+    height: auto;
+    margin-top: -40px;
+    margin-left: -30%;
+}
+
+.imgdashimg6 {
+    width: 290px;
+    height: auto;
+    margin-top: -60px;
+    margin-left: -25%;
+}

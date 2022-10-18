@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import { storage } from '../firebase';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
  
 
 
@@ -11,8 +13,9 @@ function ProfileUpdateForm() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [contactNo, setContact] = useState('');
-    const [username, setUsername] = useState('');
+    // const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [image, setImage] = useState('');
 
     
     const {id} = useParams();
@@ -25,8 +28,9 @@ function ProfileUpdateForm() {
                 setLastName(res.data.lastName);
                 setEmail(res.data.email);
                 setContact(res.data.contactNo);
-                setUsername(res.data.username);
+                // setUsername(res.data.username);
                 setPassword(res.data.password);
+                setImage(res.data.image);
                
             })
             .catch((err) => {
@@ -45,13 +49,27 @@ function ProfileUpdateForm() {
                 <form onSubmit={async (e) => {
                     e.preventDefault();
 
+                    const imageRef = ref(storage, `image/client/${image}`);
+
+                    uploadBytes(imageRef, image)
+                        .then(() => {
+                            console.log('Uploaded image');
+                        }).catch((err) => {
+                            console.log(err);
+                        });
+
+                    await getDownloadURL(ref(storage, `image/client/${image}`))
+                        .then((url) => {
+                            console.log(url);
+
                             const newClient = {
                                 firstName,
                                 lastName,
                                 email,
                                 contactNo,
-                                username,
-                                password
+                                // username,
+                                password,
+                                image
                             };
 
                             axios.put("http://localhost:8070/client/update/" + id, newClient)
@@ -62,7 +80,7 @@ function ProfileUpdateForm() {
                                     alert(err);
                                 })
 
-                        .catch((err) => {
+                            }).catch((err) => {
                             console.log(err);
                         });
                     }}>
@@ -91,16 +109,23 @@ function ProfileUpdateForm() {
                          onChange={(e) => { setContact(e.target.value) }} required/>
                     </div>
                    
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label className="form-label">Username</label>
                         <input type="text" className="form-control" value={username} 
                         onChange={(e) => { setUsername(e.target.value) }} required/>
                     </div>
-                   
+                    */}
                     <div className="form-group">
                         <label className="form-label">Password</label>
                         <input type="text" className="form-control" value={password} 
                         onChange={(e) => { setPassword(e.target.value) }} required/>
+                    </div>
+
+                    <div className="form-group">
+                        <label className="form-label">Upload profile picture</label>
+                        <input type="file" className="form-control" onChange={(e) => {
+                            setImage(e.target.files[0]);
+                            }}  />
                     </div>
                   
                    <br />
