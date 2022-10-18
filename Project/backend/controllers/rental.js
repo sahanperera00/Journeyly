@@ -21,6 +21,16 @@ export const getRental = async (req, res) => {
     }
 }
 
+export const getUserRentals = async (req, res) => {
+    const userID = req.params.userId;
+    try {
+        const rentals = await rental.find({userId: userID});
+        res.status(200).json(rentals);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+}
+
 export const createRental =  async (req, res) => {
     const Rental = req.body;
 
@@ -63,5 +73,15 @@ export const deleteRental = async (req, res) => {
 
     }catch{
         res.status(404).json({ message: error.message });
+    }
+}
+
+export const getrentalbyUID = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const rentals = await rental.findOne(id);
+        res.status(200).json(rentals);
+    } catch (error) {
+        res.status(404).json({ message: error });
     }
 }
