@@ -55,6 +55,7 @@ import SharedLayoutFinanceDashboard from './SharedLayoutFinanceDashboard';
 import FinanceDashboard from './FinanceDashboard';
 import FinancePending from './FinancePending';
 import FinanceDestinationUpdateForm from './FinanceDestinationUpdateForm';
+import FinanceFlightUpdateForm from './FinanceFlightUpdateForm';
 
 export {
     Home,
@@ -114,4 +115,5 @@ export {
     FinanceDashboard,
     FinancePending,
     FinanceDestinationUpdateForm,
+    FinanceFlightUpdateForm,
 };

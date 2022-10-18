@@ -14,8 +14,6 @@ function FlightForm() {
     const [destinationAirport, setDestinationAirport] = useState('');
     const [arrivalDate, setArrivalDate] = useState('');
     const [arrivalTime, setArrivalTime] = useState('');
-    const [economyClass, setEconomyPrice] = useState('');
-    const [businessClass, setBusinessPrice] = useState('');
     const [imageI, setImageI] = useState('');
     // const [images, setImages] = useState('');
 
@@ -53,8 +51,6 @@ function FlightForm() {
                                 destinationAirport,
                                 arrivalDate,
                                 arrivalTime,
-                                economyClass,
-                                businessClass,
                                 imageI: url
                             }
 
@@ -133,20 +129,6 @@ function FlightForm() {
                         <input type="time" className="form-control"
                             onChange={(e) => {
                                 setArrivalTime(e.target.value);
-                            }} required />
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Economy Class Flight Ticket Price</label>
-                        <input type="number" className="form-control"
-                            onChange={(e) => {
-                                setEconomyPrice(e.target.value);
-                            }} required />
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Business Class Flight Ticket Price</label>
-                        <input type="number" className="form-control"
-                            onChange={(e) => {
-                                setBusinessPrice(e.target.value);
                             }} required />
                     </div>
                     <div className="form-group">

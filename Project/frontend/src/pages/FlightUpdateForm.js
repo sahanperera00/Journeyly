@@ -15,8 +15,6 @@ function FlightUpdateForm() {
     const [destinationAirport,setDestinationAirport]=useState('');
     const [arrivalDate,setArrivalDate]=useState('');
     const [arrivalTime,setArrivalTime]=useState('');
-    const [economyClass,setEconomyPrice]=useState('');
-    const [businessClass,setBusinessPrice]=useState('');
     const [imageI, setImageI] = useState('');
     const [images, setImages] = useState('');
 
@@ -34,8 +32,6 @@ function FlightUpdateForm() {
                     destinationAirport: res.data.destinationAirport,
                     arrivalDate: res.data.arrivalDate,
                     arrivalTime: res.data.arrivalTime,
-                    economyClass: res.data.economyClass,
-                    businessClass: res.data.businessClass,
                     imageI: res.data.imageI
                 }
                 setName(updateFlight.name);
@@ -47,8 +43,6 @@ function FlightUpdateForm() {
                 setDestinationAirport(updateFlight.destinationAirport);
                 setArrivalDate(updateFlight.arrivalDate);
                 setArrivalTime(updateFlight.arrivalTime);
-                setEconomyPrice(updateFlight.economyClass);
-                setBusinessPrice(updateFlight.businessClass);
                 setImages(updateFlight.imageI);
             })
             .catch((err) => {
