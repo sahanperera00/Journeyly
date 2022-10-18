@@ -15,6 +15,7 @@ function HotelPreview(){
     const [stars,setStars]=useState('');
     const [facilities,setFacilities]=useState('');
     const [images,setImages]=useState('');
+    // const [hotel, setHotel] = useState('');
 
     const{id}=useParams();
 
@@ -37,6 +38,7 @@ function HotelPreview(){
             setStars(res.data.stars);
             setFacilities(res.data.facilities);
             setImages(res.data.images);
+            // setHotel(res.data);
         })
         .catch((err) => {
             alert(err.message);
@@ -60,7 +62,7 @@ function HotelPreview(){
                     Facilities;<p className='facil'> {facilities}<br/></p>
                 </div>
             </div>
-            <Link to={'/hotelResForm'}>
+            <Link to={'/hotelResForm/'+id}>
             <div>
                 <button className='hotelbtn'>Make A Reservation</button>
             </div>
