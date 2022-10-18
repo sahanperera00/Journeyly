@@ -73,11 +73,11 @@ function AppRoutes() {
                     <Route path="registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview />} />
                     <Route path='flightPreview/:id' element={<FlightPreview />} />
-                    <Route path='PackagePreview/:id' element={<PackagePreview />} />
                     <Route path='hotelResForm' element={<HotelResForm />} />
                     <Route path='flightResForm' element={<FlightResForm />} />
                     <Route path='rentalPreview/:id' element={<RentalPreview />} />
                     <Route path='rentalForm' element={<RentalForm />} />
+                    <Route path='PackagePreview/:id' element={<PackagePreview />} />
                 </Route>
 
                 <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard />}>
