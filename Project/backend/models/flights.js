@@ -11,6 +11,10 @@ const flightSchema = new Schema({
         type: String,
         required: true
     },
+    airline:{
+        type:String,
+        required:true
+    },
     startAirport:{
         type: String,
         required: true
@@ -37,15 +41,12 @@ const flightSchema = new Schema({
     },
     economyClass:{
         type: Number,
-        required:true
     },
     businessClass:{
         type:Number,
-        required: true
     },
     imageI:{
         type:String,
-        required: true
     }
 });
 

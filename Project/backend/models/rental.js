@@ -5,12 +5,14 @@ const postSchema = mongoose.Schema;
 const newRental = new postSchema({
     vehicleId: {
         type: String,
-        required: true
+        
     },
-    userId: {
+
+    driverName: {
         type: String,
-        required: true
+        
     },
+
     firstName: {
         type: String,
         required: true
@@ -41,10 +43,7 @@ const newRental = new postSchema({
     endDes: {
         type: String
     },
-    notes: {
-        type: String,
-        required: true
-    }
+
 });
 
 const rental = mongoose.model('rental', newRental);
