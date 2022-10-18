@@ -8,6 +8,7 @@ import '../styles/sudul/FlightUpdateForm.css';
 function FlightUpdateForm() {
     const [name, setName]=useState('');
     const [flightId,setFligtId]=useState('');
+    const [airline,setAirline]=useState('');
     const [startAirport,setStartAirport]=useState('');
     const [departureDate,setDepartureDate]=useState('');
     const [departureTime,setDepartureTime]=useState('');
@@ -26,6 +27,7 @@ function FlightUpdateForm() {
                 const updateFlight = {
                     name: res.data.name,
                     flightId: res.data.flightId,
+                    airline: res.data.airline,
                     startAirport: res.data.startAirport,
                     departureDate: res.data.departureDate,
                     departureTime: res.data.departureTime,
@@ -34,10 +36,11 @@ function FlightUpdateForm() {
                     arrivalTime: res.data.arrivalTime,
                     economyClass: res.data.economyClass,
                     businessClass: res.data.businessClass,
-                    images: res.data.images
+                    imageI: res.data.imageI
                 }
                 setName(updateFlight.name);
                 setFligtId(updateFlight.flightId);
+                setAirline(updateFlight.airline);
                 setStartAirport(updateFlight.startAirport);
                 setDepartureDate(updateFlight.departureDate);
                 setDepartureTime(updateFlight.departureTime);
@@ -46,7 +49,7 @@ function FlightUpdateForm() {
                 setArrivalTime(updateFlight.arrivalTime);
                 setEconomyPrice(updateFlight.economyClass);
                 setBusinessPrice(updateFlight.businessClass);
-                setImages(updateFlight.images);
+                setImages(updateFlight.imageI);
             })
             .catch((err) => {
                 alert(err);
@@ -82,15 +85,14 @@ function FlightUpdateForm() {
                 const newFlight = {
                     name,
                     flightId,
+                    airline,
                     startAirport,
                     departureDate,
                     departureTime,
                     destinationAirport,
                     arrivalDate,
                     arrivalTime,
-                    economyClass,
-                    businessClass,
-                    images
+                   // imageI
                 }
 
                 axios.put("http://localhost:8070/flights/update/"+id, newFlight)
@@ -114,6 +116,13 @@ function FlightUpdateForm() {
                     <input type="text" className="form-control" value={flightId}
                     onChange={(e) => {
                         setFligtId(e.target.value);
+                    }} required/>
+                </div>
+                <div className="form-group">
+                    <label className="form-label">Airline</label>
+                    <input type="text" className="form-control" value={airline}
+                    onChange={(e) => {
+                        setAirline(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
@@ -157,28 +166,14 @@ function FlightUpdateForm() {
                     onChange={(e) => {
                         setArrivalTime(e.target.value);
                     }} required/>
-                </div>
-                <div className="form-group">
-                    <label className="form-label">Economy Class Flight Ticket Price</label>
-                    <input type="number" className="form-control" value={economyClass}
-                    onChange={(e) => {
-                        setEconomyPrice(e.target.value);
-                    }} required/>
-                </div>
-                <div className="form-group">
-                    <label className="form-label">Business Class Flight Ticket Price</label>
-                    <input type="number" className="form-control" value={businessClass}
-                    onChange={(e) => {
-                        setBusinessPrice(e.target.value);
-                    }} required/>
-                </div>
-                <div className="form-group">
+                </div>              
+                {/* <div className="form-group">
                     <label className="form-label">Images</label>
-                    <input type="file" className="form-control" 
+                    <input type="file" className="form-control" value={imageI}
                     onChange={(e) => {
-                        setImageI(e.target.files[0]);
-                    }} required/>
-                </div><br />
+                        setImages(e.target.files[0]);
+                    }} />
+                </div><br /> */}
                 <button type="submit" className="btn btn-dark">Submit</button><br /><br />
             </form>
         </div>
