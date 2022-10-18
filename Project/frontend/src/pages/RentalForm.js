@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Madusha/Rental.css';
 
 
-function RentalForm({rental}) {
+function RentalForm({vehicle}) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -26,7 +26,8 @@ function RentalForm({rental}) {
             e.preventDefault();
 
             const newRental = {
-              vehicleId: rental._id,
+              // vehicleId: vehicle._id,
+              // driverName: vehicle.driverName,
               firstName,
               lastName,
               email,
@@ -34,7 +35,7 @@ function RentalForm({rental}) {
               date,
               time,
               startDes,
-              endDes,
+              endDes
               
             };
             console.log(newRental);
@@ -42,7 +43,7 @@ function RentalForm({rental}) {
             axios.post("http://localhost:8070/rental/create", newRental)
             .then(() => {
               alert("Vehicle Rented successfully");
-              navigate('/allVehicles');
+              navigate('/taxis');
             }).catch((err) => {
               alert("Error making the rent");
               console.log(err);
@@ -85,14 +86,13 @@ function RentalForm({rental}) {
           </div>
           <div className='rentcont'>
             <div className='rent'>
-              <p>First Name :</p>
-              <p>Last Name :</p>
-              <p>Email :</p>
-              <p>Phone Number :</p>
-              <p>Date :</p>
-              <p>Time :</p>
-              <p>Starting Destination :</p>
-              <p>Ending Destination</p>
+              <p>Name : {firstName} {lastName} </p>
+              <p>Email :{email}</p>
+              <p>Phone Number :{phoneNo}</p>
+              <p>Date :{date}</p>
+              <p>Time :{time}</p>
+              <p>Starting Destination :{startDes}</p>
+              <p>Ending Destination: {endDes}</p>
               <br/>
               
               </div>

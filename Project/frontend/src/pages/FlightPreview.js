@@ -8,6 +8,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 function FlightPreview() {
     const [name, setName]=useState('');
     const [flightId,setFligtId]=useState('');
+    const [airline,setAirline]=useState('');
     const [startAirport,setStartAirport]=useState('');
     const [departureDate,setDepartureDate]=useState('');
     const [departureTime,setDepartureTime]=useState('');
@@ -38,6 +39,7 @@ function FlightPreview() {
                 } */
                 setName(res.data.name);
                 setFligtId(res.data.flightId);
+                setAirline(res.data.airline);
                 setStartAirport(res.data.startAirport);
                 setDepartureDate(res.data.departureDate);
                 setDepartureTime(res.data.departureTime);
@@ -60,6 +62,7 @@ function FlightPreview() {
         <div className='previewBG'>
             <div className='prevCont'>
             <h1 className='text-center'>{name}</h1>
+            <center><h7>{airline}</h7></center>
         <div className="App">
             <div>
                 <img alt='pic' className='pic' src={imageI}/>
@@ -73,12 +76,14 @@ function FlightPreview() {
                  <b> Arrival Time               : </b>{arrivalTime}<br/>
                  <b> Economy Class Ticket Price : </b>{economyClass}<br/>
                  <b> Business Class Ticket Price: </b>{businessClass}<br/></div>
-        </div>
-        <Link to={'/flightResForm'}>
+                 <br/>
+                 <Link to={'/flightResForm/'+id}>
             <div>
                 <button className='flightBtn'>Make A Reservation</button>
             </div>
             </Link>
+        </div>
+        
             </div>
         </div>
     )

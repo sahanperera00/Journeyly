@@ -308,18 +308,18 @@ function Bookings() {
 
         // cold1 = props.desId;
       case 'taxi':
-        cold1hid = props.driverName;
-        cold2hid = props.firstName + ' ' + props.lastName;
-        cold3hid = props.date;
-        cold4hid = props.time;
-        cold5hid = props.startDes;
-        cold6hid = props.endDes;
+        cold1 = props.driverName;
+        cold2 = props.firstName + ' ' + props.lastName;
+        cold3 = props.date;
+        cold4 = props.time;
+        cold5 = props.startDes;
+        cold6 = props.endDes;
         cold7hid = 'none';
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11hid = 'none';
-        cold12hid = 'none';
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/rental/${props.vehicleId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'package':
         cold1hid = 'none';
@@ -395,7 +395,7 @@ function Bookings() {
       col5 = 'Time';
       col6 = 'Start Destination';
       col7 = 'End Destination';
-      col8 = 'End Destination';
+      col8hid = 'none'
       col9hid = 'none';
       col10hid = 'none';
       col11 = 'Update';

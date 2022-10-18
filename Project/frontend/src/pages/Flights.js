@@ -47,16 +47,17 @@ function Flights() {
           }).map((data) => {
           return (
             <Link to={'/flightPreview/'+data._id}>
-            <div className='CardContainer'>
+            <div className='CardContainer1'>
               <div className='ImageContainer'>
                 <img className='flightCardImg' alt='pic' src={data.imageI}/>
               </div>
               <div className='TextContainer'>
                 <center><h2>{data.name} </h2></center>
-                  <p className='price'>Price: Rs.{data.economyClass} upwards<br/></p>
-                  <p className='desc'>Leaving Airport: {data.startAirport}<br/></p>
-                  <p className='desc'>Departure Date: {data.departureDate} (GMT+5:30)<br/></p>
-                  <p className='desc'>Destination Airport: {data.destinationAirport}<br/></p>
+                <center><h7>{data.airline} </h7></center>
+                  <p className='price'>Price: Rs.{data.economyClass} upwards</p>
+                  <p className='desc'>Leaving Airport: {data.startAirport}</p>
+                  <p className='desc'>Departure Date: {data.departureDate} (GMT+5:30)</p>
+                  <p className='desc'>Destination Airport: {data.destinationAirport}</p>
                   <p className='desc'>Arrival Date: {data.arrivalDate} (GMT+5:30)<br/></p>
                   <p className='depar'>Arrival Time: {data.arrivalTime} (GMT+5:30)<br/></p>
                   <p className='depar'>Departure Time: {data.departureTime} (GMT+5:30)<br/></p>

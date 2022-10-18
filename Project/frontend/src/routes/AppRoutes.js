@@ -52,6 +52,7 @@ import {
     FinanceDashboard,
     FinancePending,
     FinanceDestinationUpdateForm,
+    FinanceFlightUpdateForm,
 } from '../pages';
 
 
@@ -73,7 +74,7 @@ function AppRoutes() {
                     <Route path='hotelPreview/:id' element={<HotelPreview />} />
                     <Route path='flightPreview/:id' element={<FlightPreview />} />
                     <Route path='hotelResForm/:id' element={<HotelResForm />} />
-                    <Route path='flightResForm' element={<FlightResForm />} />
+                    <Route path='flightResForm/:id' element={<FlightResForm />} />
                     <Route path='rentalPreview/:id' element={<RentalPreview />} />
                     <Route path='rentalForm' element={<RentalForm />} />
                 </Route>
@@ -112,6 +113,7 @@ function AppRoutes() {
                     <Route path="pending/:type" element={<FinancePending />} />
                     <Route path="destinationUpdateForm/:id" element={<FinanceDestinationUpdateForm />} />
                     <Route path="financeRevenue" element={<CeoRevenue />} />
+                    <Route path="financeFlightUpdateForm/:id" element={<FinanceFlightUpdateForm />} />
                 </Route>
             </Routes>
         </Router>
