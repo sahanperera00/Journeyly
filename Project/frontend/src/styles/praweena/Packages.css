@@ -118,6 +118,25 @@ font-size: 0px;
     
 
 
+.PopupNo{
+  background-color: rgb(128, 138, 138);
+  font-weight:700;
+ height: 40pt;
+ width: 20pc;
+ align-self: center;
+  
+  
+}
 
+.PopupYes{
+  background-color: rgba(26, 33, 174, 0.5);
+  font-weight: bold;
+  height: 40pt;
+  width: 20pc;
+  align-self: center;
+  
+  
+  
+}
 
     
