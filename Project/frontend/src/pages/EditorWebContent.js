@@ -223,7 +223,7 @@ function EditorWebContent() {
           });
         break;
       case 'hotel':
-        axios.delete(`http://localhost:8070/hotels/delete/${bid}`)
+        axios.delete(`http://localhost:8070/hotels/remove/${bid}`)
           .then((res) => {
             getArray();
           })
