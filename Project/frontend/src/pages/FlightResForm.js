@@ -51,12 +51,19 @@ function FlightResForm() {
               const newTicket = {
                 flightID: flight._id,
                 flightName: flight.name,
+                airline:flight.airline,
+                startAirport:flight.startAirport,
+                departureDate:flight.departureDate,
+                departureTime: flight.departureTime,
+                destinationAirport: flight.destinationAirport,
                 firstName,
                 lastName,
                 email,
                 phoneNo,
                 passportID,
                 classType,
+                economyClass:flight.economyClass,
+                businessClass:flight.businessClass,
                 price 
                 
               }

@@ -162,7 +162,7 @@ function Bookings() {
     setCurrentPage(0);
     switch (type) {
       case 'flight':
-        axios.get('http://localhost:8070/flights')
+        axios.get('http://localhost:8070/flightTicket')
           .then((res) => {
             setArray(res.data);
           })
@@ -212,7 +212,7 @@ function Bookings() {
   function deleteBooking(bid) {
     switch (type) {
       case 'flight':
-        axios.delete(`http://localhost:8070/flights/delete/${bid}`)
+        axios.delete(`http://localhost:8070/flightTicket/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -262,18 +262,18 @@ function Bookings() {
   function SetData(props) {
     switch (type) {
       case 'flight':
-        cold1hid = 'none';
-        cold2hid = 'none';
-        cold3hid = 'none';
-        cold4hid = 'none';
-        cold5hid = 'none';
-        cold6hid = 'none';
-        cold7hid = 'none';
-        cold8hid = 'none';
-        cold9hid = 'none';
-        cold10hid = 'none';
-        cold11hid = 'none';
-        cold12hid = 'none';
+        cold1 = props.firstName+" "+props.lastName;
+        cold2 = props.flightName;
+        cold3 = props.airline;
+        cold4 = props.passportID;
+        cold5 = props.email;
+        cold6 = props.startAirport;
+        cold7 = props.destinationAirport;
+        cold8 = '8.30'//props.departureDate.toString() + " " + props.departureTime.toString();
+        cold9 = props.classType;
+        cold10 = props.price;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/flightRes/${props.flightResId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'hotel':
         cold1 = props.name;
@@ -344,15 +344,15 @@ function Bookings() {
     case ('flight'):
       topicType = 'Flight';
       col1 = 'Name';
-      col2 = 'Start';
-      col3 = 'Destination';
-      col4 = 'Arrival Time';
-      col5 = 'Departure Time';
-      col6 = 'Airline';
-      col7hid = 'none';
-      col8hid = 'none';
-      col9hid = 'none';
-      col10hid = 'none';
+      col2 = 'Flight Name';
+      col3 = 'Airline';
+      col4 = 'Passport ID';
+      col5 = 'Email';
+      col6 = 'Start';
+      col7 = 'Destination';
+      col8 = 'Departure Date & Time';
+      col9 = 'Class';
+      col10 = 'Price';
       col11 = 'Update';
       col12 = 'Delete';
       break;
