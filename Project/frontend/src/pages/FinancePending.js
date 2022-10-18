@@ -200,10 +200,10 @@ function FinancePending() {
         switch (type) {
             case 'flight':
                 cold1 = props.name;
-                cold2 = props.startAirport;
-                cold3 = props.destinationAirport;
-                cold4 = props.arrivalTime;
-                cold5 = props.departureTime;
+                cold2 = props.airline;
+                cold3 = props.businessClass;
+                cold4 = props.economyClass;
+                cold5 = <Link className='updatebttn' to={"/financeDashboard/financeFlightUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
                 cold6hid = 'none';
                 break;
             case 'hotel':
@@ -256,11 +256,11 @@ function FinancePending() {
         case ('flight'):
             topicType = 'Flights';
             col1 = 'Name';
-            col2 = 'Start';
-            col3 = 'Destination';
-            col4 = 'Arrival Time';
-            col5 = 'Departure Time';
-            col6 = 'Airline';
+            col2 = 'Airline';
+            col3 = 'Business Class(Rs.)';
+            col4 = 'Economy Class(Rs.)';
+            col5 = 'Update';
+            col6hid = 'none';
             break;
         case ('hotel'):
             topicType = 'Hotels';
