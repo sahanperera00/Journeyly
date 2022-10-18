@@ -308,12 +308,12 @@ function Bookings() {
 
         // cold1 = props.desId;
       case 'taxi':
-        cold1hid = 'none';
-        cold2hid = 'none';
-        cold3hid = 'none';
-        cold4hid = 'none';
-        cold5hid = 'none';
-        cold6hid = 'none';
+        cold1hid = props.driverName;
+        cold2hid = props.firstName + ' ' + props.lastName;
+        cold3hid = props.date;
+        cold4hid = props.time;
+        cold5hid = props.startDes;
+        cold6hid = props.endDes;
         cold7hid = 'none';
         cold8hid = 'none';
         cold9hid = 'none';
@@ -389,12 +389,12 @@ function Bookings() {
     case ('taxi'):
       topicType = 'Taxi';
       col1 = "Driver's Name";
-      col2 = "First Name";
-      col3 = 'Last Name';
-      col4 = 'Phone Number';
-      col5 = 'Date';
-      col6 = 'Time';
-      col7 = 'Start Destination';
+      col2 = "Name";
+      col3hid = 'none';
+      col4 = 'Date';
+      col5 = 'Time';
+      col6 = 'Start Destination';
+      col7 = 'End Destination';
       col8 = 'End Destination';
       col9hid = 'none';
       col10hid = 'none';

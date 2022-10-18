@@ -224,9 +224,9 @@ function FinancePending() {
                 break;
             case 'taxi':
                 cold1 = props.driverName;
-                cold2 = props.ownerName;
-                cold3 = props.vehicleType;
-                cold4 = props.fee;
+                cold2hid = 'none';
+                cold3 = props.fee;
+                cold4hid = 'none';
                 cold5hid = 'none';
                 cold6hid = 'none';
                 break;
@@ -283,10 +283,10 @@ function FinancePending() {
         case ('taxi'):
             topicType = 'Taxis';
             col1 = "Driver's Name";
-            col2 = "Owner's Name";
-            col3 = 'Type';
-            col4 = 'Fee';
+            col2 = 'Fee';
             col5 = 'Ratings';
+            col3hid = 'none';
+            col4hid = 'none';
             col6hid = 'none';
             break;
         case ('package'):
