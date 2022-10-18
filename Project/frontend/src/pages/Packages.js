@@ -3,10 +3,23 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../styles/praweena/Packages.css'
+import { Link } from 'react-router-dom';
+import React from "react";
+
 
 
 function Packages() { 
   const [packages, setPackages] = useState([]);
+
+ 
+  
+
+  //const [show, setShow] = useState(false);
+  //const [email, setEmail] = useState('');
+  
+ // const handleClose = () => setShow(false);
+ // const handleShow = () => setShow(true);
+
 
   const getPackages = () => {
     axios.get("http://localhost:8070/packages")
@@ -43,8 +56,25 @@ function Packages() {
               Vehicle            ={data.vehicle}<br/>
               Guide              = {data.guide}<br/> <br/>
               Price (LK rupees)  = {data.price}  
-              <button className='PackageSelect' > Select</button>      
-            
+           
+          <button type="button" class="PackageSelect" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           Select
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="modal-header">
+          <h1  >Confirm the Package</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      
+        <button type="button" class="PopupNo"  data-bs-dismiss="modal">NO</button> <br></br>
+        <button type="button" class="PopupYes"> <Link to={'/PackagesEdit/'+data._id}>Yes</Link></button> <br></br>
+      </div>
+    </div>
+  </div>
+
               </Card.Text>
             </Card.Body>
           </Card>
