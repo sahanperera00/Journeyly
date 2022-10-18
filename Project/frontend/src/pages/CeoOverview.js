@@ -204,7 +204,7 @@ function CeoOverview() {
                 cold3 = props.destinationAirport;
                 cold4 = props.arrivalTime;
                 cold5 = props.departureTime;
-                cold6hid = 'none';
+                cold6 = props.airline;
                 break;
             case 'hotel':
                 cold1 = props.name;
