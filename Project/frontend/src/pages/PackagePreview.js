@@ -21,13 +21,12 @@ function PackagePreview(){
     const [price,setPrice]=useState('');
     const [image, setImage] = useState('');
   //  const [name, setName] = useState('');
-    const [hotel_Name, setHotelName] = useState('');
+  
     const [check_in, setCheckin] = useState('');
     const [check_out, setCheckout] = useState('');
-    const [suite, setSuite] = useState('');
+ 
     const [customizations, setCustomizations] = useState('');
-    const [adults, setAdults] = useState('');
-    const [children, setChildren] = useState('');
+  
 
     const{id}=useParams();
 
@@ -74,19 +73,19 @@ function PackagePreview(){
     return(
         <div className='previewContainerPackage'>
             <div>
-                <h1 className='text-center'>{name}</h1>
+                <h1 className='PreviewHeading'>{name}</h1>
             </div> 
             <div className="Ap">
                 <div className='PackImg'>
-                    <img className='PackImg' alt='pic' src={image}/>
+                    <img  alt='pic' src={image}/>
                 </div>
-                <div className='PackagePreview'>
-                    <p >Price of the Package: {price}<br/></p>
+                <div className='previewtest'>
+                    <p className='pkgprice'>Price of the Package: {price}<br/></p>
                    
 
 
            
-     
+     <div class= 'contain'>
           <form className='packageRes' onSubmit={async(e) => {
                <h1>Package Booking Details</h1>
             e.preventDefault();
@@ -94,19 +93,16 @@ function PackagePreview(){
             const newBook = {
               
                 name,
-                hotel_Name,
                 check_in,
                 check_out,
-                suite,
-                customizations,
-                adults,
-                children
+                customizations
+         
               };
               console.log(newBook);      
-              axios.post("http://localhost:8070/hotelRes/create", newBook)
+              axios.post("http://localhost:8070/packages/create", newBook)
               .then(() => {
-                alert("Hotel Booked Successfully");
-                navigate('/hotels');
+                alert("Package Booked Successfully");
+                navigate('/packages');
               }).catch((err) => {
                 alert("Error ");
                 console.log(err);
@@ -116,10 +112,7 @@ function PackagePreview(){
                 <label className="form-label">First Name</label>
                 <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
               </div>
-              <div className="form-group">
-                <label className="form-label">Hotel Name</label>
-                <input type="text" className="form-control" onChange={(e) => {setHotelName(e.target.value)}} required/>
-              </div>
+              
               <div className="form-group">
                 <label className="form-label">Check In </label>
                 <input type="date" className="form-control" onChange={(e) => {setCheckin(e.target.value)}} required/>
@@ -128,26 +121,16 @@ function PackagePreview(){
                 <label className="form-label">Check Out</label>
                 <input type="date" className="form-control" onChange={(e) => {setCheckout(e.target.value)}} required/>
               </div>
-              <div className="form-group">
-                <label className="form-label">Suite</label>
-                <input type="text" className="form-control" onChange={(e) => {setSuite(e.target.value)}} required/>
-              </div>
-              <div className="form-group">
+              
+  <div className="form-group">
                 <label className="form-label">customizations</label>
                 <input type="text" className="form-control" onChange={(e) => {setCustomizations(e.target.value)}} required/>
               </div>
-              <div className="form-group">
-                <label className="form-label">Number of Adults</label>
-                <input type="Number" className="form-control" onChange={(e) => {setAdults(e.target.value)}} min={0} required/>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Number of Children</label>
-                <input type="Number" className="form-control" onChange={(e) => {setChildren(e.target.value)}} min={0} required/>
-              </div><br />
+          <br />
               <button type="submit" className="submitbtn">Submit</button>
             </form>
             </div>
-               
+            </div>
             </div>
         </div>
 
