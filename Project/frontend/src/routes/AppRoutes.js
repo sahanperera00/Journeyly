@@ -52,6 +52,7 @@ import {
     FinanceDashboard,
     FinancePending,
     FinanceDestinationUpdateForm,
+    RentalUpdateForm
 } from '../pages';
 
 
@@ -105,6 +106,7 @@ function AppRoutes() {
                     <Route path="feedback" element={<Feedback/>}/>
                     <Route path="payments" element={<Payments/>}/>
                     <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm/>}/>
+                    <Route path="rental/:vehicleId/:rentalId" element={<RentalUpdateForm/>}/>
                 </Route>
 
                 <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
