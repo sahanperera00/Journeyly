@@ -58,6 +58,7 @@ import FinancePending from './FinancePending';
 import FinanceDestinationUpdateForm from './FinanceDestinationUpdateForm';
 import FinanceFlightUpdateForm from './FinanceFlightUpdateForm';
 import FlightResUpdateForm from './FlightResUpdateForm';
+import FinanceHotelUpdateForm from './FinanceHotelUpdateForm'
 
 export {
     Home,
@@ -120,4 +121,5 @@ export {
     FinanceDestinationUpdateForm,
     FinanceFlightUpdateForm,
     FlightResUpdateForm,
+    FinanceHotelUpdateForm,
 };

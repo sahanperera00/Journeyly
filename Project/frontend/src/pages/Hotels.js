@@ -52,7 +52,7 @@ function Hotels() {
               </div>
               <div className='TextContainer'>
                 <center><h2>{data.name} ({data.location})</h2></center>
-                  <p className='priceTage'>Price:Rs. {data.price}<br/></p>
+                  <p className='priceTage'>Price:Rs. {data.sellingPrice}<br/></p>
                   <p className='desTage'>Description: {data.description}<br/></p>
                   <p className='starTage'>Stars: {data.stars}<br/></p>
               </div>
