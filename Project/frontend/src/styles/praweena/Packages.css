@@ -6,6 +6,14 @@
   
    
 }
+
+.pakgeMain2{
+  background-color:  rgba(166, 162, 223, 0.327);
+  ;
+   height: 99pc;
+
+
+}
 .packageHeader{
    
   padding-top: 8%;
@@ -15,13 +23,13 @@
    position: relative;
   overflow: hidden;
   border-radius: 0 0 85% 85% / 5%;
-  font-size: 45px;
+  font-size: 50px;
   font-weight: 500;
   width: 100%;
   height: 100%;
   
   color: #090b0f;
-  text-shadow: 1px 0px 0px rgb(58, 38, 141);
+  text-shadow: 1px 1px 1px rgb(42, 17, 133);
    background-image: linear-gradient(135deg, #9e9eb069 10%, #c3c3c569 100%);
   
 }
@@ -29,8 +37,8 @@
 .PackageDiscription{
 padding :  10px;
 font-family: 'Leckerli One', cursive;
-color: #46397a;
-font-size: 0px;
+color: #3d2782;
+font-size: 20px;
 
 }
 
@@ -108,11 +116,14 @@ font-size: 0px;
     
         .PackageSelect    
         {
+          height: 3pc;
+          width: 8pc;
           margin-left: 10pc;
           color: rgb(4, 4, 12);
-          background-color: rgb(136, 136, 155);
+          background-color: rgb(123, 123, 214);
           border-radius: 1pc;
           border: #a6afbe;
+          font-weight:bolder
           
         }
     
@@ -140,7 +151,8 @@ font-size: 0px;
 }
 .previewContainerPackage{
   padding-top: 7%;
-  padding-bottom: 70pc
+  padding-bottom: 70pc;
+  background-color: rgba(166, 162, 223, 0.327);
  
 }
 
@@ -185,5 +197,23 @@ padding-bottom: 10pc;
 
 .previewtest{
   font-size: 30px;
+  width: 32pc;
+  padding: 10px;
+  border: 5px solid rgb(8, 7, 7);
+  margin-left: 950px;
+  margin-top: 2pc;
+  
 }
 
+.btnPkg{
+  position: absolute;
+ top: 100px; 
+ left: 10pc;
+ width: 21pc;
+ height: 5pc;
+ font-weight: bolder;
+ font-size: 25px;
+ background-color: rgb(187, 188, 245);
+ border-radius: 2;
+
+}
