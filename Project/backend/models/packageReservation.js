@@ -7,11 +7,11 @@ const packageReservationSchema= new Schema({
         type:String,
         required: true
     },
-    check_in:{
+    date:{
         type:String,
         required: true
     },
-    check_out:{
+    email:{
         type:String,
         required: true
     },
@@ -19,6 +19,7 @@ const packageReservationSchema= new Schema({
         type: Number,
         required: true
     },
+   
 
 });  //DataBase attributes
 

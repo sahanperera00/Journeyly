@@ -1,49 +1,48 @@
-import '../styles/leo/HotelResForm.css'
-import { useState } from 'react';
+import '../styles/praweena/PackageForm.css'
+
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { useState, useEffect } from 'react';
 
 function PackageReservationForm({}) {
   
   const {id} = useParams();
 
   const [name, setName] = useState('');
- 
-  const [check_in, setCheckin] = useState('');
-  const [check_out, setCheckout] = useState('');
-  
+  const [date, setDate] = useState('');
+  const [email, setEmail] = useState('');
   const [phoneNo, setphoneNo]=useState('');
-  // const [customizations, setCustomizations] = useState('');
-  // const [adults, setAdults] = useState('');
-  // const [children, setChildren] = useState('');
+  
+  const [price,setPrice]=useState('');
 
 
   const navigate = useNavigate();
-// function checkDate(){
-//     var indate= document.getElementById();
-//     var outdate = document.getElementById();
-//     if(indate.getDate()<=outdate.getDate()){
-//         /*Allow transaction*/ 
-//     }else{
-//         /*Dont allow */
-//     }
-// }
+  const getPackages=()=>{
+    axios.get("http://localhost:8070/packages/"+id).then((res)=>{
+            
+            setPrice(res.data.price);
+          })
+          .catch((err) => {
+              alert(err.message);
+          });
+      }
+      useEffect(()=> getPackages(),[]);
+
   return (
-    <div id="hotelresform" className="hotelresContainer">
-        <h1>Booking Details</h1>
-        <div className='hotelreseinnercontainer'>
+    <div className='pakgeMain'>
+        <h1 className="packageresMainContainer">Package Booking Details</h1>
+        <p className='pkgprice'>Price of the Package: {price}<br/></p>
+        <div className='IneerFormat'>
           <div className='hotelresformcont'>
           <form className='hotelresform' onSubmit={async(e) => {
             e.preventDefault();
 
             const newBook = {
               name,
-              
-              check_in,
-              check_out,
-              
-              phoneNo
+              date,
+              email,
+              phoneNo,
+           
             };
             console.log(newBook);
 
@@ -62,12 +61,12 @@ function PackageReservationForm({}) {
               </div>
               
               <div className="form-group">
-                <label className="form-label">Check In </label>
-                <input type="date" className="form-control" onChange={(e) => {setCheckin(e.target.value)}} required/>
+                <label className="form-label">Reserve Date </label>
+                <input type="date" className="form-control" onChange={(e) => {setDate(e.target.value)}} required/>
               </div>
               <div className="form-group">
-                <label className="form-label">Check Out</label>
-                <input type="date" className="form-control" onChange={(e) => {setCheckout(e.target.value)}} required/>
+                <label className="form-label">Email</label>
+                <input type="email" className="form-control" onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
               
   <div className="form-group">
@@ -78,17 +77,17 @@ function PackageReservationForm({}) {
               <button type="submit" className="submitbtn">Submit</button>
             </form>
             </div>
-            <div className='hotelrestcktcont'>
-            <div className='lll'>
+            <div className='Packgecontainer'>
+           
             <p>Name :{name}</p>
-              <p>Check In Date :{check_in}</p>
-              <p>Check Out Date :{check_out}</p>
+              <p>Reserve Date :{date}</p>
+              <p>Email :{phoneNo}</p>
               <p>Contact Number :{phoneNo}</p>
-              {/* <p>Number of Children</p> */}
-
+              <br/>
+            
 
             </div>
-            </div>
+            
             </div>
             </div>
         
