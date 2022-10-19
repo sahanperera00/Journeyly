@@ -64,8 +64,7 @@ function FlightResForm() {
                 classType,
                 economyClass:flight.economyClass,
                 businessClass:flight.businessClass,
-                price 
-                
+                price                
               }
               
               console.log(newTicket);
@@ -96,7 +95,7 @@ function FlightResForm() {
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
+                <input type="number" className="form-control" min="0110000000" max="0799999999" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Passport ID</label>
@@ -111,18 +110,22 @@ function FlightResForm() {
               <input type="radio" name="cls" value="EconomyClass" onChange={(e) => {radio(e.target.value)}} />Economy Class<br/>
               <input type="radio" name="cls" value="BusinessClass" onChange={(e) => {radio(e.target.value)}} />Business Class
               </div>  
-              <button type="submit" className="submitbtn">Submit</button>
+              <button type="submit" className="submitbtn1">Submit</button>
             </form>
             </div>
             <div className='flightrestcktcont'>
               <div className='flightrestckt'>
-              <p>{flight.name}</p>
+              <center><h3>{flight.name}</h3>
+              <h5>{flight.airline}</h5></center><br/>
+                <p>Starting Airport : {flight.startAirport}</p>
+                <p>Departure Date : {flight.departureDate} (GMT+5.30)</p>
+                <p>Departure Time : {flight.departureTime} (GMT+5.30)</p>
+                <p>Destination Airport : {flight.destinationAirport}</p>
                 <p>Name : {firstName} {lastName}</p>
                 <p>Email Address : {email}</p>
                 <p>Phone Number : {phoneNo}</p>
                 <p>Passport ID : {passportID}</p>
-                <p>Class : {classType}</p>
-                
+                <p>Class : {classType}</p>               
                 <br/>
                 <h3>Total : {price}</h3>
                 </div>

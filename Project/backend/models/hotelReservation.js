@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 const Schema =mongoose.Schema;
 
 const hotelResSchema= new Schema({
+    hotelID:{
+        type:String,
+        required:true
+    },
     name:{
         type:String,
         required: true

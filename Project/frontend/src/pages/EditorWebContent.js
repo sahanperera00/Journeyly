@@ -214,7 +214,7 @@ function EditorWebContent() {
   function deleteBooking(bid) {
     switch (type) {
       case 'flight':
-        axios.delete(`http://localhost:8070/flights/delete/${bid}`)
+        axios.delete(`http://localhost:8070/flights/remove/${bid}`)
           .then((res) => {
             getArray();
           })
