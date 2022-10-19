@@ -10,6 +10,8 @@ function FinanceDashboard() {
     const [clients, setClients] = useState([]);
     const [destinations, setDestinations] = useState([]);
 
+    var countFlight = 0;
+
     function setStates() {
         axios.get('http://localhost:8070/flights')
             .then((response) => {
@@ -66,6 +68,8 @@ function FinanceDashboard() {
     const [hotelCount, setHotelCount] = useState(0);
     const [destinationCount, setDestinationCount] = useState(0);
     const [vehicleCount, setVehicleCount] = useState(0);
+    // var flightCount1 = 0;
+    // setFlightCount(flightCount1);
     
 
     return (
@@ -76,12 +80,12 @@ function FinanceDashboard() {
 
                     <div className='FinanceInConR1card'>
                         <div className='FinanceInConR1cardData'>
-                        {/* {flights.map((data) => {
+                        {flights.map((data) => {
                                         if(data.economyClass == null) {
-                                            setFlightCount(flightCount + 1);
+                                            countFlight++;
                                         }
-                                    })} */}
-                            <h1>{flightCount}</h1>
+                                    })}
+                            <h1>{countFlight}</h1>
                             <h4>Pending Flights</h4>
                         </div>
                         <div className='FinanceFlightTable'>
@@ -93,7 +97,7 @@ function FinanceDashboard() {
                                 </thead>
                                 <tbody>
                                     {flights.map((data) => {
-                                        if(data.economyClass == null) {
+                                        if(data.economyClass == null) {    
                                             return (
                                                 <tr>
                                                     <td className='setWidth concat' >{data.name}</td>
