@@ -6,6 +6,14 @@
   
    
 }
+
+.pakgeMain2{
+  background-color:  rgba(166, 162, 223, 0.327);
+  ;
+   height: 99pc;
+
+
+}
 .packageHeader{
    
   padding-top: 8%;
@@ -143,7 +151,8 @@ font-size: 20px;
 }
 .previewContainerPackage{
   padding-top: 7%;
-  padding-bottom: 70pc
+  padding-bottom: 70pc;
+  background-color: rgba(166, 162, 223, 0.327);
  
 }
 

@@ -29,7 +29,7 @@ function PackageReservationForm({}) {
       useEffect(()=> getPackages(),[]);
 
   return (
-    <div className='pakgeMain'>
+    <div className='pakgeMain2'>
         <h1 className="packageresMainContainer">Package Booking Details</h1>
         <p className='pkgprice'>Price of the Package: {price}<br/></p>
         <div className='IneerFormat'>
@@ -48,7 +48,7 @@ function PackageReservationForm({}) {
 
             await axios.post("http://localhost:8070/packageReservation/create", newBook)
             .then(() => {
-              alert("Hotel Booked Successfully");
+              alert("Package Booked Successfully");
               // navigate('/hotels');
             }).catch((err) => {
               alert("Error ");
@@ -56,25 +56,25 @@ function PackageReservationForm({}) {
             });
           }}>
               <div className="form-group">
-                <label className="form-label">First Name</label>
+                <label className="Formtest">First Name</label>
                 <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
               </div>
               
               <div className="form-group">
-                <label className="form-label">Reserve Date </label>
+                <label className="Formtest">Reserve Date </label>
                 <input type="date" className="form-control" onChange={(e) => {setDate(e.target.value)}} required/>
               </div>
               <div className="form-group">
-                <label className="form-label">Email</label>
+                <label className="Formtest">Email</label>
                 <input type="email" className="form-control" onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
               
   <div className="form-group">
-                <label className="form-label">phoneNo</label>
+                <label className="Formtest">phoneNo</label>
                 <input type="text" className="form-control" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
           <br />
-              <button type="submit" className="submitbtn">Submit</button>
+              <button type="submit" className="submitbtnpackage">Submit</button>
             </form>
             </div>
             <div className='Packgecontainer'>

@@ -403,10 +403,10 @@ function Bookings() {
       break;
     case ('package'):
       topicType = 'Package';
-      col1 = 'name';
-      col2 = 'check_in';
-      col3 = 'check_out';
-      col4 = 'phoneNo';
+      col1 = 'Name';
+      col2 = 'Date';
+      col3 = 'E-mail';
+      col4 = 'phone No';
       col5hid = 'none';
       col6hid = 'none';
       col7hid = 'none';
