@@ -124,7 +124,7 @@ const getData = () => {
                 </div>
                 {
                 flightRes.map((data) => {
-                        totalFlightRev = Math.round((totalFlightRev + (data.price*0.09))*100)/100;          
+                        totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;          
                 })}
                 <div className='CeoRevInConR1card'>
                 <h1>{revFlight}</h1>

@@ -37,6 +37,7 @@ function Flights() {
         </div>
         <div className="flightBodyContainer">
         {flights.filter((data)=>{
+          if(data.economyClass != null){
             if(searchTerm==""){
               return data
             }else if(data.destinationAirport.toLowerCase().includes(searchTerm.toLowerCase())){
@@ -44,6 +45,7 @@ function Flights() {
             }else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
               return data
             }
+          } 
           }).map((data) => {
           return (
             <Link to={'/flightPreview/'+data._id}>
