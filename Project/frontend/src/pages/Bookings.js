@@ -332,7 +332,7 @@ function Bookings() {
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/packageReservation/${props.packageId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/packageReservation/${props.flightResId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       default:
@@ -406,7 +406,7 @@ function Bookings() {
       col1 = 'Name';
       col2 = 'Date';
       col3 = 'E-mail';
-      col4 = 'phone No';
+      col4 = 'phoneNo';
       col5hid = 'none';
       col6hid = 'none';
       col7hid = 'none';
