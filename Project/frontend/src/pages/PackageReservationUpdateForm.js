@@ -63,7 +63,7 @@ function PackageReservationUpdateForm({}) {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Date</label>
-                        <input type="text" className="form-control" value={date} onChange={(e) => { setDate(e.target.value) }} required />
+                        <input type="date" className="form-control" value={date} onChange={(e) => { setDate(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                 <label className="form-label">Email</label>

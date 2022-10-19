@@ -323,8 +323,8 @@ function Bookings() {
         break;
       case 'package':
         cold1 = props.name;
-        cold2 = props.check_in;
-        cold3 = props.check_out;
+        cold2 = props.date;
+        cold3 = props.email;
         cold4 = props.phoneNo;
         cold5hid = 'none';
         cold6hid = 'none';
