@@ -29,8 +29,8 @@
 .PackageDiscription{
 padding :  10px;
 font-family: 'Leckerli One', cursive;
-color: #46397a;
-font-size: 0px;
+color: #3d2782;
+font-size: 20px;
 
 }
 
@@ -188,5 +188,23 @@ padding-bottom: 10pc;
 
 .previewtest{
   font-size: 30px;
+  width: 32pc;
+  padding: 10px;
+  border: 5px solid rgb(8, 7, 7);
+  margin-left: 950px;
+  margin-top: 2pc;
+  
 }
 
+.btnPkg{
+  position: absolute;
+ top: 100px; 
+ left: 10pc;
+ width: 21pc;
+ height: 5pc;
+ font-weight: bolder;
+ font-size: 25px;
+ background-color: rgb(187, 188, 245);
+ border-radius: 2cm;
+
+}

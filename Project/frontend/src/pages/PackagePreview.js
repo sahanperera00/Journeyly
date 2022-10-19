@@ -12,12 +12,12 @@ import { Link } from 'react-router-dom';
 
 function PackagePreview(){
     const [name, setName] = useState('');
- /*   const [destination, setDestination]=useState('');
+    const [destination, setDestination]=useState('');
     const [members,setMembers]=useState('');
     const [hotel,setHotel]=useState('');
     const [roomType,setRoomType]=useState('');
     const [vehicle,setVehicle]=useState('');
-    const [guide,setGuide]=useState('');*/
+    const [guide,setGuide]=useState('');
     const [price,setPrice]=useState('');
     const [image, setImage] = useState('');
   
@@ -30,6 +30,12 @@ function PackagePreview(){
                 setName(res.data.name);
                 setPrice(res.data.price);
                 setImage(res.data.image);
+                setDestination(res.data.destination);
+                setMembers(res.data.members);
+                setHotel(res.data.hotel);
+                setRoomType(res.data.roomType);
+                setVehicle(res.data.vehicle);
+                setGuide(res.data.guide);
         })
         .catch((err) => {
             alert(err.message);
@@ -47,14 +53,21 @@ function PackagePreview(){
                     <img  alt='pic' src={image}/>
                 </div>
                 <div className='previewtest'>
+                    <br></br>
                     <p className='pkgprice'>Price of the Package: {price}<br/></p>
-                   
+                   <p className='pkgprice'>Destination  -{destination}</p>
+                   <p className='pkgprice'>Members -{members}</p>
+                   <p className='pkgprice'>Hotel Name -{hotel}</p>
+                   <p className='pkgprice'>Hotel Room Type -{roomType}</p>
+                   <p className='pkgprice'>Transport type -{vehicle}</p>
+                   <p className='pkgprice'>{guide} Guide</p>
 
+                    
                     
             </div>
             <Link to={'/PackageReservationForm/'+id}>
             <div>
-                <button className='btn btn dark'>Make A Reservation</button>
+                <button className='btnPkg'>Reserve a Package</button>
             </div>
             </Link>
         </div> </div>
