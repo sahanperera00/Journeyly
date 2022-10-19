@@ -11,6 +11,11 @@ function FinanceDashboard() {
     const [destinations, setDestinations] = useState([]);
 
     var countFlight = 0;
+    var countHotel = 0;
+    var countDestination = 0 ;
+    var countPackage = 0;
+    var countVehicle = 0;
+
 
     function setStates() {
         axios.get('http://localhost:8070/flights')
@@ -64,10 +69,10 @@ function FinanceDashboard() {
 
     useEffect(() => { setStates() }, []);
 
-    const [flightCount, setFlightCount] = useState(0);
-    const [hotelCount, setHotelCount] = useState(0);
-    const [destinationCount, setDestinationCount] = useState(0);
-    const [vehicleCount, setVehicleCount] = useState(0);
+    // const [flightCount, setFlightCount] = useState(0);
+    // const [hotelCount, setHotelCount] = useState(0);
+    // const [destinationCount, setDestinationCount] = useState(0);
+    // const [vehicleCount, setVehicleCount] = useState(0);
     // var flightCount1 = 0;
     // setFlightCount(flightCount1);
     
@@ -112,12 +117,12 @@ function FinanceDashboard() {
 
                     <div className='FinanceInConR1card'>
                         <div className='FinanceInConR1cardData'>
-                        {/* {hotels.map((data) => {
+                        {hotels.map((data) => {
                                         if(data.price == null) {
-                                            setHotelCount(hotelCount + 1);
+                                            countHotel++;
                                         }
-                                    })} */}
-                            <h1>{hotelCount}</h1>
+                                    })}
+                            <h1>{countHotel}</h1>
                             <h4>Pending Hotels</h4>
                         </div>
                         <div className='FinanceFlightTable'>
@@ -146,12 +151,12 @@ function FinanceDashboard() {
 
                     <div className='FinanceInConR2card'>
                         <div className='FinanceInConR1cardData'>
-                        {/* {destinations.map((data) => {
-                                        if(data.adultCost == null) {
-                                            setDestinationCount(destinationCount + 1);
+                        {destinations.map((data) => {
+                                        if(data.adultTicketSellingRate == null) {
+                                           countDestination++;
                                         }
-                                    })} */}
-                            <h1>{destinationCount}</h1>
+                                    })}
+                            <h1>{countDestination}</h1>
                             <h4>Pending Destinations</h4>
                         </div>
                         <div className='FinanceFlightTable'>
@@ -178,11 +183,11 @@ function FinanceDashboard() {
 
                     <div className='FinanceInConR2card'>
                         <div className='FinanceInConR1cardData'>
-                        {/* {vehicles.map((data) => {
-                                        if(data.feet == null)
-                                        setVehicleCount(vehicleCount + 1);
-                                    })} */}
-                            <h1>{vehicleCount}</h1>
+                        {vehicles.map((data) => {
+                                        if(data.fee == null)
+                                        countVehicle++;
+                                    })}
+                            <h1>{countVehicle}</h1>
                             <h4>Pending Vehicles</h4>
                         </div>
                         <div className='FinanceFlightTable'>
