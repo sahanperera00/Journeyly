@@ -4,13 +4,21 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../styles/praweena/Packages.css'
 import { Link } from 'react-router-dom';
+
+
 import React from "react";
+
+import Nav from 'react-bootstrap/Nav';
+
+import { useNavigate } from "react-router-dom";
+
+
 
 
 
 function Packages() { 
   const [packages, setPackages] = useState([]);
-
+  const navigate = useNavigate();
  
   
 
@@ -70,7 +78,7 @@ function Packages() {
       
       
         <button type="button" class="PopupNo"  data-bs-dismiss="modal">NO</button> <br></br>
-        <button type="button" class="PopupYes"> <Link to={'/PackagesEdit/'+data._id}>Yes</Link></button> <br></br>
+        <button type="button" class="PopupYes"> <Link to={'/PackagePreview/'+data._id}> Yes</Link></button> <br></br>
       </div>
     </div>
   </div>

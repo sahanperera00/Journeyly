@@ -20,6 +20,7 @@ import FlightPreview from './FlightPreview';
 import PackageForm from "./PackageForm";
 import PackagesEdit from './PackagesEdit';
 import PackageUpdateForm from "./PackageUpdateForm";
+import PackagePreview from "./PackagePreview";
 import HotelUpdateForm from "./HotelUpdateForm";
 import FlightUpdateForm from "./FlightUpdateForm";
 import RegistrationForm from './RegistrationForm';
@@ -57,6 +58,7 @@ import FinancePending from './FinancePending';
 import FinanceDestinationUpdateForm from './FinanceDestinationUpdateForm';
 import FinanceFlightUpdateForm from './FinanceFlightUpdateForm';
 import FlightResUpdateForm from './FlightResUpdateForm';
+import FinanceHotelUpdateForm from './FinanceHotelUpdateForm'
 
 export {
     Home,
@@ -81,6 +83,7 @@ export {
     PackageForm,
     PackagesEdit,
     PackageUpdateForm,
+    PackagePreview,
     HotelUpdateForm,
     FlightUpdateForm,
     RegistrationForm,
@@ -118,4 +121,5 @@ export {
     FinanceDestinationUpdateForm,
     FinanceFlightUpdateForm,
     FlightResUpdateForm,
+    FinanceHotelUpdateForm,
 };

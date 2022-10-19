@@ -11,6 +11,7 @@ import hotelRouter from "./routes/hotels.js";
 import hotelResRouter from "./routes/hotelReservation.js";
 import flightRouter from "./routes/flights.js";
 import packageRouter from "./routes/packages.js";
+import packageReservationRouter from "./routes/packageReservation.js";
 import clientRouter from "./routes/client.js";
 import financeRouter from "./routes/finance.js";
 import rentalRoutes from './routes/rental.js'
@@ -28,6 +29,7 @@ app.use("/hotels",hotelRouter);
 app.use("/hotelRes",hotelResRouter);
 app.use("/flights",flightRouter);
 app.use("/packages",packageRouter);
+app.use("/packageReservation",packageReservationRouter);
 app.use("/client",clientRouter);
 app.use("/finance",financeRouter);
 app.use('/rental', rentalRoutes);
