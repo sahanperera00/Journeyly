@@ -1,11 +1,25 @@
 import '../styles/leo/HotelResForm.css'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
 
 function HotelResForm({}) {
   const {id} = useParams();
+
+  const[hotel,setHotel]=useState('');
+
+  const getUniqueHotel = async () => {
+    await axios.get("http://localhost:8070/hotels/"+id)
+      .then((res) => {
+        setHotel(res.data);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  useEffect(() => { getUniqueHotel() }, [id]);
 
   const [name, setName] = useState('');
   const [hotel_Name, setHotelName] = useState('');
@@ -37,6 +51,7 @@ function HotelResForm({}) {
             e.preventDefault();
 
             const newBook = {
+              hotelID:hotel._id,
               name,
               hotel_Name,
               check_in,

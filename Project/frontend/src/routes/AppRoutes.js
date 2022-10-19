@@ -56,6 +56,7 @@ import {
     FinanceFlightUpdateForm,
     FlightResUpdateForm,
     FinanceHotelUpdateForm,
+    HotelResUpdateForm,
 } from '../pages';
 
 
@@ -111,6 +112,7 @@ function AppRoutes() {
                     <Route path="payments" element={<Payments/>}/>
                     <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm/>}/>
                     <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm/>}/>
+                    <Route path="hotelRes/:hotelID/:hotelResId" element={<HotelResUpdateForm/>}/>
                 </Route>
 
                 <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
