@@ -118,7 +118,7 @@ function FinanceDashboard() {
                     <div className='FinanceInConR1card'>
                         <div className='FinanceInConR1cardData'>
                         {hotels.map((data) => {
-                                        if(data.price == null) {
+                                        if(data.sellingPrice == null) {
                                             countHotel++;
                                         }
                                     })}
