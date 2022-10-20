@@ -284,7 +284,7 @@ function EditorWebContent() {
         cold3 = props.stars;
         cold4 = props.facilities;
         cold5 = props.location;
-        cold6 = props.price;
+        cold6hid = props.price;
         cold7hid = 'none';
         cold8hid = 'none';
         cold9hid = 'none';
@@ -364,7 +364,7 @@ function EditorWebContent() {
       col3 = 'Stars';
       col4 = 'Facilities';
       col5 = 'Location';
-      col6 = 'Price';
+      col6hid = 'Price';
       col7hid = 'none';
       col8hid = 'none';
       col9hid = 'none';
