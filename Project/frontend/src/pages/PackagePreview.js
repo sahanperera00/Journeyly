@@ -45,7 +45,7 @@ function PackagePreview(){
 
    return(
         <div className='previewContainerPackage'>
-            <div>
+            <div className='package'>
                 <h1 className='PreviewHeading'>{name}</h1>
             </div> 
             <div className="Ap">
@@ -54,13 +54,13 @@ function PackagePreview(){
                 </div>
                 <div className='previewtest'>
                     <br></br>
-                    <p className='pkgprice'>Price of the Package: {price}<br/></p>
-                   <p className='pkgprice'>Destination  -{destination}</p>
-                   <p className='pkgprice'>Members -{members}</p>
-                   <p className='pkgprice'>Hotel Name -{hotel}</p>
-                   <p className='pkgprice'>Hotel Room Type -{roomType}</p>
-                   <p className='pkgprice'>Transport type -{vehicle}</p>
-                   <p className='pkgprice'>{guide} Guide</p>
+                    <p className='#'>Price of the Package: {price}<br/></p>
+                   <p className='#'>Destination  -{destination}</p>
+                   <p className='#'>Members -{members}</p>
+                   <p className='#'>Hotel Name -{hotel}</p>
+                   <p className='#'>Hotel Room Type -{roomType}</p>
+                   <p className='#'>Transport type -{vehicle}</p>
+                   <p className='#'>{guide} Guide</p>
 
                     
                     
