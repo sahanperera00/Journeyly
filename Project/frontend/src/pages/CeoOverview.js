@@ -232,10 +232,11 @@ function CeoOverview() {
                 break;
             case 'package':
                 cold1 = props.name;
-                cold2 = props.hotel;
-                cold3 = props.destination;
-                cold4 = props.vehicle;
+                cold2 = props.destination;
+                cold3 = props.members;
+                cold4 = props.hotel;
                 cold5 = props.price;
+                cold6hid = 'none';
                 cold6hid = 'none';
                 break;
             case 'user':
@@ -293,11 +294,11 @@ function CeoOverview() {
         case ('package'):
             topicType = 'Packages';
             col1 = 'Name';
-            col2 = 'Hotel';
-            col3 = 'Destination';
-            col4 = 'Vehicle';
+            col2 = 'destination';
+            col3 = 'members';
+            col4 = 'Hotel';
             col5 = 'Price';
-            col6 = 'Ratings';
+            cold6hid = 'none';
             break;
         case ('user'):
             topicType = 'Users';
