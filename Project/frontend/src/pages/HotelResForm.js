@@ -42,6 +42,18 @@ function HotelResForm({}) {
 //         /*Dont allow */
 //     }
 // }
+
+
+function getDifference(day1,day2){
+
+
+  const dateOne= new Date(day1);
+  const dateTwo= new Date(day2);
+  const time=Math.abs(dateOne-dateTwo);
+  const days =Math.ceil(time/(1000*60*60*24));
+
+  return days;
+}
   return (
     <div id="hotelresform" className="hotelresContainer">
         <h1>Booking Details</h1>
@@ -52,8 +64,9 @@ function HotelResForm({}) {
 
             const newBook = {
               hotelID:hotel._id,
+              sellingpPrice:hotel.sellingPrice,
               name,
-              hotel_Name,
+              hotel_Name:hotel.name,
               check_in,
               check_out,
               suite,
@@ -80,11 +93,11 @@ function HotelResForm({}) {
             </div>
             <div className="form-group">
               <label className="form-label">Check In </label>
-              <input type="date" className="form-control" onChange={(e) => {setCheckin(e.target.value)}} required/>
+              <input type="date" className="form-control" id="arrdate" onChange={(e) => {setCheckin(e.target.value)}} required/>
             </div>
             <div className="form-group">
               <label className="form-label">Check Out</label>
-              <input type="date" className="form-control" onChange={(e) => {setCheckout(e.target.value)}} required/>
+              <input type="date" className="form-control" id="depdate" onChange={(e) => {setCheckout(e.target.value)}} required/>
             </div>
             <div className="form-group">
               <label className="form-label">Suite</label>
@@ -109,15 +122,16 @@ function HotelResForm({}) {
            <div className='hotelrestcktcont'>
             <div className='hotelrestckt'>
               <p>Name :{name}</p>
-              <p>Hotel Name :{hotel_Name}</p>
+              <p>Hotel Name :{hotel.name}</p>
               <p>Check In Date :{check_in}</p>
               <p>Check Out Date :{check_out}</p>
               {/* <p>Suite :</p> */}
               <p>Suite :{suite}</p>
               <p>Contact Number :{contactNo}</p>
               {/* <p>Number of Children</p> */}
+              <p>Number of days at the hotel: {getDifference(check_in,check_out)} days</p>
               <br/>
-              <h3>Total :</h3>
+              <h3>Total :{getDifference(check_in,check_out)*hotel.sellingPrice}</h3>
               </div>
           </div> 
         </div><br />
