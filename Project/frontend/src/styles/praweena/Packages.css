@@ -153,12 +153,14 @@ font-size: 20px;
   padding-top: 7%;
   padding-bottom: 70pc;
   background-color: rgba(166, 162, 223, 0.327);
+  
  
 }
 
 .PreviewHeading{
   font-weight: bolder;
   text-align: center;
+  font-family: "Times New Roman", Times, serif;
 }
     
 .PackagePreview{
@@ -196,13 +198,15 @@ padding-bottom: 10pc;
 }
 
 .previewtest{
-  font-size: 30px;
-  width: 32pc;
+  text-align: center;
+  font-weight:bolder;
+  font-size: x-large;
+  margin: auto;
+  width: 25%;
+  border: 4px solid rgb(97, 87, 137);
   padding: 10px;
-  border: 5px solid rgb(8, 7, 7);
-  margin-left: 950px;
-  margin-top: 2pc;
-  
+  border-radius: 15px;
+  font-family: Lucida , Helvetica, sans-serif;
 }
 
 .btnPkg{
@@ -213,7 +217,10 @@ padding-bottom: 10pc;
  height: 5pc;
  font-weight: bolder;
  font-size: 25px;
+ color: rgb(40, 23, 123);
  background-color: rgb(187, 188, 245);
- border-radius: 2;
+ border-radius: 15px;
+ font-family: "Lucida Console", "Courier New", monospace;
+ border-color:rgb(187, 188, 245) ;
 
 }
