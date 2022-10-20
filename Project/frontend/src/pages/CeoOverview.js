@@ -209,8 +209,8 @@ function CeoOverview() {
             case 'hotel':
                 cold1 = props.name;
                 cold2 = props.stars;
-                cold3 = props.price;
-                cold4hid = 'none';
+                cold3 = props.sellingPrice;
+                cold4 = props.buyingPrice;
                 cold5hid = 'none';
                 cold6hid = 'none';
                 break;
@@ -267,8 +267,8 @@ function CeoOverview() {
             topicType = 'Hotels';
             col1 = 'Name';
             col2 = 'Star';
-            col3 = 'Price';
-            col4 = 'Ratings';
+            col3 = 'Selling Price';
+            col4 = 'Buying Price';
             col5hid = 'none';
             col6hid = 'none';
             break;
