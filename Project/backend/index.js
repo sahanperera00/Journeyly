@@ -46,8 +46,7 @@ app.use(session({
 
 }));
 
-// const URL = process.env.MONGODB_URL;
-const URL = "mongodb+srv://shaggy__00:shaggy123@shaggy00.soguaxg.mongodb.net/journelyly_db?retryWrites=true&w=majority";
+const URL = process.env.MONGODB_URL;
 mongoose.connect(URL);
 const connection = mongoose.connection;
 connection.once("open", () => {
