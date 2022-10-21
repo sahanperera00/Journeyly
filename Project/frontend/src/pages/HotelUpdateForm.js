@@ -98,13 +98,13 @@ function HotelUpdateForm() {
                                 setLocation(e.target.value);
                             }} required />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label className="form-label">Price</label>
                         <input type="number" className="form-control" value={price}
                             onChange={(e) => {
                                 setPrice(e.target.value);
                             }} required />
-                    </div>
+                    </div> */}
                     <div className="form-group">
                         <label className="form-label">Description</label>
                         <textarea rows={3} type="text" className="form-control" value={description}

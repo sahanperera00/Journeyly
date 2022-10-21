@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-//import '../styles/sudul/FlightResUpdateForm.css';
+import '../styles/sudul/flightResUpdateForm.css';
 
 
 function FlightResUpdateForm() {

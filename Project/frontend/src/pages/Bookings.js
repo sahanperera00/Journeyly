@@ -198,7 +198,7 @@ function Bookings() {
           });
         break;
       case 'package':
-        axios.get('http://localhost:8070/packages')
+        axios.get('http://localhost:8070/packageReservation')
           .then((res) => {
             setArray(res.data);
           })
@@ -248,7 +248,7 @@ function Bookings() {
           });
         break;
       case 'package':
-        axios.delete(`http://localhost:8070/packages/delete/${bid}`)
+        axios.delete(`http://localhost:8070/packageReservation/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -286,7 +286,7 @@ function Bookings() {
         cold8 = props.customizations;
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={"/editorDashboard/hotelUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/hotelRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'destination':
@@ -322,18 +322,18 @@ function Bookings() {
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'package':
-        cold1hid = 'none';
-        cold2hid = 'none';
-        cold3hid = 'none';
-        cold4hid = 'none';
+        cold1 = props.name;
+        cold2 = props.date;
+        cold3 = props.email;
+        cold4 = props.phoneNo;
         cold5hid = 'none';
         cold6hid = 'none';
         cold7hid = 'none';
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11hid = 'none';
-        cold12hid = 'none';
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/packageReservation/${props.flightResId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       default:
         break;
@@ -404,11 +404,11 @@ function Bookings() {
     case ('package'):
       topicType = 'Package';
       col1 = 'Name';
-      col2 = 'Hotel';
-      col3 = 'Destination';
-      col4 = 'Vehicle';
-      col5 = 'Price';
-      col6 = 'Ratings';
+      col2 = 'Date';
+      col3 = 'E-mail';
+      col4 = 'phoneNo';
+      col5hid = 'none';
+      col6hid = 'none';
       col7hid = 'none';
       col8hid = 'none';
       col9hid = 'none';

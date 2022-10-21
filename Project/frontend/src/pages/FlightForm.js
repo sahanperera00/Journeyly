@@ -17,8 +17,6 @@ function FlightForm() {
     const [imageI, setImageI] = useState('');
     // const [images, setImages] = useState('');
 
-
-
     return (
         <div className='FlightFormMainCont'>
             <h1>Add Flight Content</h1>
