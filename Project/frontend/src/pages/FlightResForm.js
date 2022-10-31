@@ -1,16 +1,42 @@
 import '../styles/sudul/flightResForm.css'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 
+function FlightResForm() {
+  const [flight, setFlight] = useState([]);
 
-function FlightResForm({}) {
+  const {id} = useParams();
+
+  const getUniqueFlight = async () => {
+    await axios.get("http://localhost:8070/flights/"+id)
+      .then((res) => {
+        setFlight(res.data);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  useEffect(() => { getUniqueFlight() }, [id]);
+    function radio(value){
+      if(value == "BusinessClass"){
+        setPrice(flight.businessClass)
+        setClass("Business Class")
+      }
+      else{
+        setPrice(flight.economyClass)
+        setClass("Economy Class")
+      }
+
+    }
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNo, setPhoneNo] = useState('');
     const [passportID, setppID] = useState('');
     const [classType, setClass] = useState('');
+    const [price, setPrice] = useState('');
 
     const navigate = useNavigate();
 
@@ -21,25 +47,39 @@ function FlightResForm({}) {
             <div className='flightresformcont'>
             <form className='flightresform' onSubmit={async(e) => {
               e.preventDefault();
-  
+
               const newTicket = {
+                flightID: flight._id,
+                flightName: flight.name,
+                airline:flight.airline,
+                startAirport:flight.startAirport,
+                departureDate:flight.departureDate,
+                departureTime: flight.departureTime,
+                destinationAirport: flight.destinationAirport,
                 firstName,
                 lastName,
                 email,
                 phoneNo,
                 passportID,
-                classType
-              };
+                classType,
+                economyClass:flight.economyClass,
+                businessClass:flight.businessClass,
+                price                
+              }
+              
               console.log(newTicket);
-  
+
               axios.post("http://localhost:8070/flightTicket/create", newTicket)
               .then(() => {
                 alert("Ticket added successfully");
-                navigate('/attractions');
+                navigate('/flights');
               }).catch((err) => {
                 alert("Error adding ticket");
                 console.log(err);
               });
+              
+  
+              
             }}>
               <div className="form-group">
                 <label className="form-label">First Name</label>
@@ -55,7 +95,7 @@ function FlightResForm({}) {
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
+                <input type="number" className="form-control" min="0110000000" max="0799999999" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Passport ID</label>
@@ -63,30 +103,37 @@ function FlightResForm({}) {
               </div>
               <div className="form-group">
               <label className="form-label">Class Type</label>
-              <select class="form-select" aria-label="Default select example" onChange={(e) => {setClass(e.target.value)}} required>
+              {/* <select class="form-select" aria-label="Default select example" onChange={(e) => {setClass(e.target.value)}} required>
                <option value="Economy Class">Economy Class</option>
                <option value="Business Class">Business Class</option>
-              </select>
-              </div>
-              
-              
-              <button type="submit" className="submitbtn">Submit</button>
+              </select> */}<br/>
+              <input type="radio" name="cls" value="EconomyClass" onChange={(e) => {radio(e.target.value)}} />Economy Class<br/>
+              <input type="radio" name="cls" value="BusinessClass" onChange={(e) => {radio(e.target.value)}} />Business Class
+              </div>  
+              <button type="submit" className="submitbtn1">Submit</button>
             </form>
             </div>
             <div className='flightrestcktcont'>
               <div className='flightrestckt'>
-                <p>First Name :</p>
-                <p>Last Name :</p>
-                <p>Email :</p>
-                <p>Phone Number :</p>
-                
+              <center><h3>{flight.name}</h3>
+              <h5>{flight.airline}</h5></center><br/>
+                <p>Starting Airport : {flight.startAirport}</p>
+                <p>Departure Date : {flight.departureDate} (GMT+5.30)</p>
+                <p>Departure Time : {flight.departureTime} (GMT+5.30)</p>
+                <p>Destination Airport : {flight.destinationAirport}</p>
+                <p>Name : {firstName} {lastName}</p>
+                <p>Email Address : {email}</p>
+                <p>Phone Number : {phoneNo}</p>
+                <p>Passport ID : {passportID}</p>
+                <p>Class : {classType}</p>               
                 <br/>
-                <h3>Total :</h3>
+                <h3>Total : {price}</h3>
                 </div>
             </div>
           </div><br />
       </div>
     )
   }
+  
   
   export default FlightResForm

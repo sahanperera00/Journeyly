@@ -52,6 +52,9 @@ import {
     FinanceDashboard,
     FinancePending,
     FinanceDestinationUpdateForm,
+    FinanceFlightUpdateForm,
+    FlightResUpdateForm,
+    FinanceHotelUpdateForm,
 } from '../pages';
 
 
@@ -72,8 +75,8 @@ function AppRoutes() {
                     <Route path="registration" element={<RegistrationForm />} />
                     <Route path='hotelPreview/:id' element={<HotelPreview />} />
                     <Route path='flightPreview/:id' element={<FlightPreview />} />
-                    <Route path='hotelResForm' element={<HotelResForm />} />
-                    <Route path='flightResForm' element={<FlightResForm />} />
+                    <Route path='hotelResForm/:id' element={<HotelResForm />} />
+                    <Route path='flightResForm/:id' element={<FlightResForm />} />
                     <Route path='rentalPreview/:id' element={<RentalPreview />} />
                     <Route path='rentalForm' element={<RentalForm />} />
                 </Route>
@@ -102,9 +105,11 @@ function AppRoutes() {
                 <Route path="/clientDashboard/:id" element={<ClientDashboard />}>
                     <Route index element={<UserProfile />} />
                     <Route path="bookings/:type" element={<Bookings />} />
-                    <Route path="feedback" element={<Feedback/>}/>
-                    <Route path="payments" element={<Payments/>}/>
-                    <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm/>}/>
+                    <Route path="feedback" element={<Feedback />} />
+                    <Route path="updateProfile" element={<ProfileUpdateForm />} />
+                    <Route path="payments" element={<Payments />} />
+                    <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm />} />
+                    <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm />} />
                 </Route>
 
                 <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
@@ -112,6 +117,8 @@ function AppRoutes() {
                     <Route path="pending/:type" element={<FinancePending />} />
                     <Route path="destinationUpdateForm/:id" element={<FinanceDestinationUpdateForm />} />
                     <Route path="financeRevenue" element={<CeoRevenue />} />
+                    <Route path="financeFlightUpdateForm/:id" element={<FinanceFlightUpdateForm />} />
+                    <Route path="financeHotelUpdateForm/:id" element={<FinanceHotelUpdateForm/>}/>
                 </Route>
             </Routes>
         </Router>

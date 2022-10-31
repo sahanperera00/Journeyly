@@ -66,6 +66,16 @@ function CeoRevenue() {
     const [adultTicketSellingRate, setAdultTicketSellingRate] = useState(0);
     const [destinationRevenue, setDestinationRevenue] = useState(0);
 
+    const [flightRes, setFlightRes] = useState([]);
+    const [revFlight, setFlightRev] = useState(0);
+    var totalFlightRev = null;
+
+    const [hotelRes,setHotelRes] = useState([]);
+    const [revHotel,setHotelRev]=useState(0);
+    var totalHotelRev = null;
+
+
+
     useEffect(() => { getData() }, []);
     
     
@@ -95,6 +105,26 @@ const getData = () => {
     .catch((err) => {
         alert(err);
     });
+
+    axios.get("http://localhost:8070/flightTicket")
+    .then((res) => {
+        setFlightRes(res.data);
+        // setPrice(res.data[0].price);
+        // setFlightRev(price*0.08);
+    })
+    .catch((err) => {
+        alert(err);
+    });
+    setFlightRev(totalFlightRev);
+
+    axios.get("http://localhost:8070/hotels")
+    .then((res)=>{
+        setHotelRes(res.data);
+    })
+    .catch((err)=>{
+        alert(err);
+    });
+    setHotelRev(totalHotelRev);
 }
   return (
     // <Line data={data} options={options}/>
@@ -105,10 +135,21 @@ const getData = () => {
                 <div className='CeoRevInConR1card'>
                     <h4>Total Revenue</h4>
                 </div>
+                {
+                flightRes.map((data) => {
+                        totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;          
+                })}
                 <div className='CeoRevInConR1card'>
+                <h1>{revFlight}</h1>
                     <h4>Revenue from Flights</h4>
                 </div>
+                {
+                    hotelRes.map((data)=>{
+                        totalHotelRev=(totalHotelRev+(data.sellingPrice-data.buyingPrice));
+                    })
+                }
                 <div className='CeoRevInConR1card'>
+                <h1>{totalHotelRev}</h1>
                     <h4>Revenue from Hotels</h4>
                 </div>
                 <div className='CeoRevInConR1card'>

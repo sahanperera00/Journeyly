@@ -6,3 +6,53 @@
     padding-top: 2%;
     overflow: scroll;
 }
+
+.packageresContainer {
+    /* background-color: aqua; */
+    /* background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fbg5.webp?alt=media&token=4b037ba3-b1c9-49af-bb87-dd3e52e2d496); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    padding-top: 6%;
+    width: 100%;
+    color: black;
+}
+.packageresMainContainer{
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 6%;
+    width: 100%;
+    color: black;
+}
+.Packgecontainer {
+    width: 10%;
+    height: 100%;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.IneerFormat{
+   width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-top: 4%;}
+
+    .Formtest{
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .submitbtnpackage{
+        border-radius: 50px;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 1px solid rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+        transition: 200ms;
+        font-size: 26px;
+    }

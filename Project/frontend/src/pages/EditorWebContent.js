@@ -214,7 +214,7 @@ function EditorWebContent() {
   function deleteBooking(bid) {
     switch (type) {
       case 'flight':
-        axios.delete(`http://localhost:8070/flights/delete/${bid}`)
+        axios.delete(`http://localhost:8070/flights/remove/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -223,7 +223,7 @@ function EditorWebContent() {
           });
         break;
       case 'hotel':
-        axios.delete(`http://localhost:8070/hotels/delete/${bid}`)
+        axios.delete(`http://localhost:8070/hotels/remove/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -272,8 +272,8 @@ function EditorWebContent() {
         cold6 = props.departureDate;
         cold7 = props.arrivalTime;
         cold8 = props.departureTime;
-        cold9 = props.economyClass;
-        cold10 = props.businessClass;
+        cold9 = props.airline;
+        cold10hid = 'none';
         cold11 = <Link className='updatebttn' to={"/editorDashboard/flightUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/flightForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
@@ -284,7 +284,7 @@ function EditorWebContent() {
         cold3 = props.stars;
         cold4 = props.facilities;
         cold5 = props.location;
-        cold6 = props.price;
+        cold6hid = props.price;
         cold7hid = 'none';
         cold8hid = 'none';
         cold9hid = 'none';
@@ -352,8 +352,8 @@ function EditorWebContent() {
       col6 = 'Departure Date';
       col7 = 'Arrival Time';
       col8 = 'Departure Time';
-      col9 = 'Economy';
-      col10 = 'Business';
+      col9 = 'Airline';
+      col10hid = 'none';
       col11 = 'Update';
       col12 = 'Delete';
       break;
@@ -364,7 +364,7 @@ function EditorWebContent() {
       col3 = 'Stars';
       col4 = 'Facilities';
       col5 = 'Location';
-      col6 = 'Price';
+      col6hid = 'Price';
       col7hid = 'none';
       col8hid = 'none';
       col9hid = 'none';

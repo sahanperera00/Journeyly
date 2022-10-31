@@ -200,19 +200,19 @@ function FinancePending() {
         switch (type) {
             case 'flight':
                 cold1 = props.name;
-                cold2 = props.startAirport;
-                cold3 = props.destinationAirport;
-                cold4 = props.arrivalTime;
-                cold5 = props.departureTime;
+                cold2 = props.airline;
+                cold3 = props.businessClass;
+                cold4 = props.economyClass;
+                cold5 = <Link className='updatebttn' to={"/financeDashboard/financeFlightUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
                 cold6hid = 'none';
                 break;
             case 'hotel':
                 cold1 = props.name;
                 cold2 = props.stars;
-                cold3 = props.price;
-                cold4hid = 'none';
-                cold5hid = 'none';
-                cold6hid = 'none';
+                cold3 = 'none';
+                cold4 = props.buyingPrice;
+                cold5 = props.sellingPrice;
+                cold6 = <Link className='updatebttn' to={"/financeDashboard/financeHotelUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
                 break;
             case 'destination':
                 cold1 = props.name;
@@ -224,9 +224,9 @@ function FinancePending() {
                 break;
             case 'taxi':
                 cold1 = props.driverName;
-                cold2 = props.ownerName;
-                cold3 = props.vehicleType;
-                cold4 = props.fee;
+                cold2hid = 'none';
+                cold3 = props.fee;
+                cold4hid = 'none';
                 cold5hid = 'none';
                 cold6hid = 'none';
                 break;
@@ -256,20 +256,20 @@ function FinancePending() {
         case ('flight'):
             topicType = 'Flights';
             col1 = 'Name';
-            col2 = 'Start';
-            col3 = 'Destination';
-            col4 = 'Arrival Time';
-            col5 = 'Departure Time';
-            col6 = 'Airline';
+            col2 = 'Airline';
+            col3 = 'Business Class(Rs.)';
+            col4 = 'Economy Class(Rs.)';
+            col5 = 'Update';
+            col6hid = 'none';
             break;
         case ('hotel'):
             topicType = 'Hotels';
             col1 = 'Name';
             col2 = 'Star';
-            col3 = 'Price';
-            col4 = 'Ratings';
-            col5hid = 'none';
-            col6hid = 'none';
+            col3 = 'Ratings';
+            col4 = 'Buying Price';
+            col5 = 'Selling Price';
+            col6 = 'Update';
             break;
         case ('destination'):
             topicType = 'Destinations';
@@ -283,10 +283,10 @@ function FinancePending() {
         case ('taxi'):
             topicType = 'Taxis';
             col1 = "Driver's Name";
-            col2 = "Owner's Name";
-            col3 = 'Type';
-            col4 = 'Fee';
+            col2 = 'Fee';
             col5 = 'Ratings';
+            col3hid = 'none';
+            col4hid = 'none';
             col6hid = 'none';
             break;
         case ('package'):

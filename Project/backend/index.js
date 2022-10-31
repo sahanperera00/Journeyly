@@ -6,6 +6,7 @@ import dotenv from "dotenv/config";
 import session from "express-session";
 import destinationRouter from "./routes/destination.js";
 import desTicketRouter from "./routes/desTicket.js";
+import flightTicketRouter from "./routes/flightTicket.js";
 import hotelRouter from "./routes/hotels.js";
 import hotelResRouter from "./routes/hotelReservation.js";
 import flightRouter from "./routes/flights.js";
@@ -22,25 +23,26 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/destination", destinationRouter);
 app.use("/desTicket", desTicketRouter);
-app.use("/hotels",hotelRouter);
-app.use("/hotelRes",hotelResRouter);
-app.use("/flights",flightRouter);
-app.use("/packages",packageRouter);
-app.use("/client",clientRouter);
-app.use("/finance",financeRouter);
+app.use("/flightTicket", flightTicketRouter);
+app.use("/hotels", hotelRouter);
+app.use("/hotelRes", hotelResRouter);
+app.use("/flights", flightRouter);
+app.use("/packages", packageRouter);
+app.use("/client", clientRouter);
+app.use("/finance", financeRouter);
 app.use('/rental', rentalRoutes);
 app.use('/vehicles', vehicleRoutes);
-app.use("/feedback",feedbackRouter);
+app.use("/feedback", feedbackRouter);
 
 app.use(session({
     secret: 'journeyly',
     resave: false,
     saveUninitialized: false,
-    cookie:{
-        maxAge: 1000*60*60,
-        sameSite: 'none', 
-        secure:true
-     }
+    cookie: {
+        maxAge: 1000 * 60 * 60,
+        sameSite: 'none',
+        secure: true
+    }
 
 }));
 
