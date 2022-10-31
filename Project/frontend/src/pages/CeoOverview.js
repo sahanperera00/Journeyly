@@ -209,8 +209,8 @@ function CeoOverview() {
             case 'hotel':
                 cold1 = props.name;
                 cold2 = props.stars;
-                cold3 = props.price;
-                cold4hid = 'none';
+                cold3 = props.sellingPrice;
+                cold4 = props.buyingPrice;
                 cold5hid = 'none';
                 cold6hid = 'none';
                 break;
@@ -232,10 +232,11 @@ function CeoOverview() {
                 break;
             case 'package':
                 cold1 = props.name;
-                cold2 = props.hotel;
-                cold3 = props.destination;
-                cold4 = props.vehicle;
+                cold2 = props.destination;
+                cold3 = props.members;
+                cold4 = props.hotel;
                 cold5 = props.price;
+                cold6hid = 'none';
                 cold6hid = 'none';
                 break;
             case 'user':
@@ -267,8 +268,8 @@ function CeoOverview() {
             topicType = 'Hotels';
             col1 = 'Name';
             col2 = 'Star';
-            col3 = 'Price';
-            col4 = 'Ratings';
+            col3 = 'Selling Price';
+            col4 = 'Buying Price';
             col5hid = 'none';
             col6hid = 'none';
             break;
@@ -293,11 +294,11 @@ function CeoOverview() {
         case ('package'):
             topicType = 'Packages';
             col1 = 'Name';
-            col2 = 'Hotel';
-            col3 = 'Destination';
-            col4 = 'Vehicle';
+            col2 = 'destination';
+            col3 = 'members';
+            col4 = 'Hotel';
             col5 = 'Price';
-            col6 = 'Ratings';
+            cold6hid = 'none';
             break;
         case ('user'):
             topicType = 'Users';
