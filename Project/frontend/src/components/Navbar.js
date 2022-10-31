@@ -11,6 +11,9 @@ import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../firebase';
+import { signOut } from 'firebase/auth';
 
 function Navbar() {
 
@@ -21,6 +24,53 @@ function Navbar() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
+
+  // sign in with email and password
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
+  // sign in with google
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+  // loggin in user in backend
+  useEffect(() => {
+    if (user) {
+      axios.post("http://localhost:8070/client/login", { email, password: password })
+        .then((client) => {
+          return navigate(`/ClientDashboard/${client.data._id}`);
+        }).catch((err) => {
+          alert("Login unsuccessful");
+          signOut(auth);
+          console.log(err);
+        })
+    }
+  }, [user])
+
+  // loggin in google user in backend
+  useEffect(() => {
+    if (gUser) {
+      axios.post("http://localhost:8070/client/login", { email: gUser.user?.email, password: "No Password" })
+        .then((client) => {
+          return navigate(`/ClientDashboard/${client.data._id}`);
+        }).catch((err) => {
+          alert("Login unsuccessful");
+          signOut(auth);
+          console.log(err);
+        })
+    }
+  }, [gUser])
+
+
+  // if (error) {
+  //   console.log(error);
+  // }
+
+  // if (loading) return <span >Loading ...</span>
+
 
   // function handleCallbackResponse(response) {
   //   console.log("Encoded JWT ID token:" + response.credential);
@@ -44,26 +94,26 @@ function Navbar() {
 
 
   /////////coding for google login
-//   const [ profile, setProfile ] = useState([]);
-//   const clientId = '78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com';
+  //   const [ profile, setProfile ] = useState([]);
+  //   const clientId = '78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com';
 
-//       useEffect(() => {
-//         const initClient = () => {
-//               gapi.client.init({
-//               clientId: clientId,
-//               scope: ''
-//             });
-//           };
-//           gapi.load('client:auth2', initClient);
-// });
+  //       useEffect(() => {
+  //         const initClient = () => {
+  //               gapi.client.init({
+  //               clientId: clientId,
+  //               scope: ''
+  //             });
+  //           };
+  //           gapi.load('client:auth2', initClient);
+  // });
 
-// const onSuccess = (res) => {
-//   setProfile(res.profileObj);
-// };
+  // const onSuccess = (res) => {
+  //   setProfile(res.profileObj);
+  // };
 
-// const onFailure = (err) => {
-//   console.log('failed', err);
-// };
+  // const onFailure = (err) => {
+  //   console.log('failed', err);
+  // };
 
 
   return (
@@ -83,6 +133,7 @@ function Navbar() {
           </Nav>
           <Button variant="outline-light" onClick={handleShow}>Login</Button>
 
+
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Login</Modal.Title>
@@ -91,12 +142,7 @@ function Navbar() {
               <Form onSubmit={async (e) => {
                 e.preventDefault();
 
-                axios.post("http://localhost:8070/client/login", { email, password })
-                  .then((client) => {
-                    navigate(`/ClientDashboard/${client.data._id}`);
-                  }).catch((err) => {
-                    alert("Login unsuccessful");
-                  })
+                signInWithEmailAndPassword(email, password);
               }}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                   <Form.Label>Email address</Form.Label>
@@ -119,11 +165,31 @@ function Navbar() {
                     onChange={(e) => {
                       setPassword(e.target.value)
                     }} required />
-
+                  <small className='text-danger'>{error?.message}</small >
 
                 </Form.Group>
                 <div className='btnContainerlogin'>
-                  <Button type="submit" variant="btn btn-dark" >Login</Button>
+                  {
+                    loading
+                      ? <Button type="submit" variant="btn btn-dark disabled" >Loading ...</Button>
+                      : <Button type="submit" variant="btn btn-dark" >Login</Button>
+                  }
+
+                  {
+                    gLoading
+                      ? <span className='btn btn-outline-dark py-2 disabled'>
+                        <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
+                        Loading...
+                      </span>
+                      : <span className='btn btn-outline-dark py-2' onClick={() => {
+                        signInWithGoogle();
+                      }}>
+                        <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
+                        Continue With Google
+                      </span>
+                  }
+
+                  <br /><br />
                   {/* <div id="googlelogin"></div>
                   
                 <GoogleLogin
@@ -134,8 +200,10 @@ function Navbar() {
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
                 /> */}
-            
+
                 </div>
+                <small className='text-danger'>{gError?.message}</small >
+
               </Form>
             </Modal.Body>
           </Modal>
