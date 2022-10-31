@@ -70,6 +70,10 @@ function CeoRevenue() {
     const [revFlight, setFlightRev] = useState(0);
     var totalFlightRev = null;
 
+    const [hotelRes,setHotelRes] = useState([]);
+    const [revHotel,setHotelRev]=useState(0);
+    var totalHotelRev = null;
+
 
 
     useEffect(() => { getData() }, []);
@@ -112,6 +116,15 @@ const getData = () => {
         alert(err);
     });
     setFlightRev(totalFlightRev);
+
+    axios.get("http://localhost:8070/hotels")
+    .then((res)=>{
+        setHotelRes(res.data);
+    })
+    .catch((err)=>{
+        alert(err);
+    });
+    setHotelRev(totalHotelRev);
 }
   return (
     // <Line data={data} options={options}/>
@@ -130,7 +143,13 @@ const getData = () => {
                 <h1>{revFlight}</h1>
                     <h4>Revenue from Flights</h4>
                 </div>
+                {
+                    hotelRes.map((data)=>{
+                        totalHotelRev=(totalHotelRev+(data.sellingPrice-data.buyingPrice));
+                    })
+                }
                 <div className='CeoRevInConR1card'>
+                <h1>{totalHotelRev}</h1>
                     <h4>Revenue from Hotels</h4>
                 </div>
                 <div className='CeoRevInConR1card'>
