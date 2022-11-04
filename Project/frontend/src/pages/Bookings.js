@@ -137,7 +137,8 @@ function Bookings() {
     })
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
-      SetData(data);
+      if(data.userID==localStorage.getItem("ID")){
+        SetData(data);
       return (
         <tr>
         <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
@@ -153,7 +154,7 @@ function Bookings() {
         <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
         <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
         </tr>
-      )
+      )}
     });
 
   const pageCount = Math.ceil(array.length / PER_PAGE);
@@ -261,7 +262,6 @@ function Bookings() {
   }
 
   function SetData(props) {
-    if(props.userID==localStorage.getItem("ID")){
     switch (type) {
       case 'flight':
         
@@ -341,7 +341,6 @@ function Bookings() {
       default:
         break;
     }}
-  }
 
   switch (type) {
     case ('flight'):
