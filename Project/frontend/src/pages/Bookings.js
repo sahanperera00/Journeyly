@@ -261,8 +261,10 @@ function Bookings() {
   }
 
   function SetData(props) {
+    if(props.userID==localStorage.getItem("ID")){
     switch (type) {
       case 'flight':
+        
         cold1 = props.firstName+" "+props.lastName;
         cold2 = props.flightName;
         cold3 = props.airline;
@@ -338,7 +340,7 @@ function Bookings() {
         break;
       default:
         break;
-    }
+    }}
   }
 
   switch (type) {

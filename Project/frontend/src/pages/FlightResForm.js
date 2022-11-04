@@ -56,6 +56,7 @@ function FlightResForm() {
                 departureDate:flight.departureDate,
                 departureTime: flight.departureTime,
                 destinationAirport: flight.destinationAirport,
+                userID:localStorage.getItem("ID"),
                 firstName,
                 lastName,
                 email,

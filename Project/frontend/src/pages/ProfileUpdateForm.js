@@ -2,9 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import { storage } from '../firebase';
+import auth, { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
- 
+import { useUpdateEmail, useUpdatePassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+
 
 
 function ProfileUpdateForm() {
@@ -16,12 +17,20 @@ function ProfileUpdateForm() {
     // const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [image, setImage] = useState('');
+    const [file, setFile] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [client, setClient] = useState('');
 
-    
-    const {id} = useParams();
+
+    const { id } = useParams();
     const navigate = useNavigate();
-  
-    const getClient = () => {   
+
+    // update imagae
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
+    const [updateEmail, eUpdating, eError] = useUpdateEmail(auth);
+    const [updatePassword, passUpdating, passError] = useUpdatePassword(auth);
+
+    const getClient = () => {
         axios.get("http://localhost:8070/client/" + id)
             .then((res) => {
                 setFirstName(res.data.firstName);
@@ -31,24 +40,26 @@ function ProfileUpdateForm() {
                 // setUsername(res.data.username);
                 setPassword(res.data.password);
                 setImage(res.data.image);
-               
+                setClient(res.data);
             })
             .catch((err) => {
                 alert(err);
             });
     };
-    
+
+
     useEffect(() => { getClient() }, []);
 
     return (
 
         <div>
-            
+
             <h1 className='text-center'>Update User Profile</h1>
             <div className="App">
                 <form onSubmit={async (e) => {
                     e.preventDefault();
-
+                    setLoading(true);
+                    /* 
                     const imageRef = ref(storage, `image/client/${image}`);
 
                     uploadBytes(imageRef, image)
@@ -62,53 +73,94 @@ function ProfileUpdateForm() {
                         .then((url) => {
                             console.log(url);
 
-                            const newClient = {
-                                firstName,
-                                lastName,
-                                email,
-                                contactNo,
-                                // username,
-                                password,
-                                image
-                            };
+                            
 
-                            axios.put("http://localhost:8070/client/update/" + id, newClient)
-                                .then(() => {
-                                    alert("Profile updated successfully");
-                                    navigate('/ClientDashboard/'+id);
-                                }).catch((err) => {
-                                    alert(err);
-                                })
-
-                            }).catch((err) => {
+                        }).catch((err) => {
                             console.log(err);
                         });
-                    }}>
 
-<div className="form-group">
+                        */
+
+                    let newClient = {
+                        firstName,
+                        lastName,
+                        email,
+                        contactNo,
+                        // username,
+                        password
+                    };
+
+                    // updating image if changed by client
+                    if (file) {
+                        const formData = new FormData();
+                        formData.append('image', file);
+                        const imageApiKey = "772d81807f269fa7cc60900ab5a66310";
+
+                        try {
+                            const res = await axios.post(`https://api.imgbb.com/1/upload?key=${imageApiKey}`, formData);
+                            if (res.status === 200) {
+                                await updateProfile({ photoURL: res.data.data.url });
+                                newClient = { ...newClient, image: res.data.data.url }
+                            }
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    }
+
+                    // changing email if changed by client
+
+                    if (email !== client.email) {
+                        try {
+                            await updateEmail(email);
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    }
+
+                    if (password !== client.password) {
+                        try {
+                            await updatePassword(password);
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    }
+
+                    axios.put("http://localhost:8070/client/update/" + id, newClient)
+                        .then(() => {
+                            setLoading(false);
+                            alert("Profile updated successfully");
+                            navigate('/ClientDashboard/' + id);
+                        }).catch((err) => {
+                            alert(err);
+                            setLoading(false);
+                        })
+                }}>
+
+                    <div className="form-group">
                         <label className="form-label">First Name</label>
-                        <input type="text" className="form-control" value={firstName} 
-                        onChange={(e) => { setFirstName(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={firstName}
+                            onChange={(e) => { setFirstName(e.target.value) }} required />
                     </div>
-                   
+
                     <div className="form-group">
                         <label className="form-label">Last Name</label>
-                        <input type="text" className="form-control" value={lastName} 
-                        onChange={(e) => { setLastName(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={lastName}
+                            onChange={(e) => { setLastName(e.target.value) }} required />
                     </div>
-                   
+
                     <div className="form-group">
                         <label className="form-label">Email</label>
-                        <input type="text" className="form-control" value={email} 
-                        onChange={(e) => { setEmail(e.target.value) }} required/>
+                        <input type="email" className="form-control" value={email}
+                            onChange={(e) => { setEmail(e.target.value) }} required />
+                        <small className='text-danger'>{eError?.message}</small >
                     </div>
-                   
+
                     <div className="form-group">
                         <label className="form-label">Contact Number</label>
                         <input type="text" className="form-control" value={contactNo}
-                         onChange={(e) => { setContact(e.target.value) }} required/>
+                            onChange={(e) => { setContact(e.target.value) }} required />
                     </div>
-                   
+
                     {/* <div className="form-group">
                         <label className="form-label">Username</label>
                         <input type="text" className="form-control" value={username} 
@@ -117,23 +169,30 @@ function ProfileUpdateForm() {
                     */}
                     <div className="form-group">
                         <label className="form-label">Password</label>
-                        <input type="text" className="form-control" value={password} 
-                        onChange={(e) => { setPassword(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={password}
+                            onChange={(e) => { setPassword(e.target.value) }} required />
+                        <small className='text-danger'>{eError?.message}</small >
                     </div>
 
                     <div className="form-group">
                         <label className="form-label">Upload profile picture</label>
                         <input type="file" className="form-control" onChange={(e) => {
-                            setImage(e.target.files[0]);
-                            }}  />
+                            setFile(e.target.files[0]);
+                        }} />
                     </div>
-                  
-                   <br />
-                   
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
-                    </form>
-</div></div>
-)
+
+                    <br />
+
+
+                    {
+                        loading
+                            ? <button type="submit" className="btn btn-dark disabled">Loading...</button>
+                            : <button type="submit" className="btn btn-dark">Submit</button>
+                    }
+                    <br /><br />
+                </form>
+            </div></div>
+    )
 
 }
 

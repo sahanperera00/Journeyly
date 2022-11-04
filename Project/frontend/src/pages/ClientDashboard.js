@@ -1,14 +1,25 @@
 import ClientDashSidebar from '../components/ClientDashSidebar';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import '../styles/nash/ClientDashboard.css';
+import { signOut } from 'firebase/auth';
+import auth from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function ClientDashboard() {
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  if (loading) return <p className='text-center mt-5'>Loading ...</p>
+
+  if (!user) {
+    navigate('/registration');
+  }
   return (
     <div className='CDashMainCont'>
-        <ClientDashSidebar />
-        <Link className='logoutBtn' to={'/'}>Logout</Link>
+      <ClientDashSidebar />
+      <span className='logoutBtn' onClick={() => signOut(auth)&localStorage.removeItem("ID")}>Logout</span>
 
-        <Outlet />
+      <Outlet />
     </div>
   )
 }
