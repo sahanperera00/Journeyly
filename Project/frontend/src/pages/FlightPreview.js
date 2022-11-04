@@ -5,6 +5,10 @@ import '../styles/sudul/flightPreview.css';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+function alertt(){
+    alert("Please login to reserve a flight");
+}
+
 function FlightPreview() {
     const [name, setName]=useState('');
     const [flightId,setFligtId]=useState('');
@@ -19,6 +23,24 @@ function FlightPreview() {
     const [businessClass,setBusinessPrice]=useState('');
     const [imageI, setImageI] = useState('');
  //   const [images, setImages] = useState('');
+
+
+ function checkLogin(){
+    if(localStorage.getItem("ID")==null){
+        return(
+        <Link to={'/registration'} onClick={alertt} >
+        <div>
+            <button className='flightBtn'>Make A Reservation</button>
+        </div>
+        </Link>)   
+    }else{
+        return(<Link to={'/flightResForm/'+id}>
+        <div>
+            <button className='flightBtn' >Make A Reservation</button>
+        </div>
+        </Link>)   
+    }
+ }
 
     const {id} = useParams();
   
@@ -77,16 +99,20 @@ function FlightPreview() {
                  <b> Economy Class Ticket Price : </b>{economyClass}<br/>
                  <b> Business Class Ticket Price: </b>{businessClass}<br/></div>
                  <br/>
-                 <Link to={'/flightResForm/'+id}>
+                 {
+                    checkLogin()
+                 }
+                 {/* <Link to={'/flightResForm/'+id}>
             <div>
-                <button className='flightBtn'>Make A Reservation</button>
+                <button className='flightBtn' >Make A Reservation</button>
             </div>
-            </Link>
+            </Link> */}
         </div>
         
             </div>
         </div>
     )
+
 }   
 
 export default FlightPreview;

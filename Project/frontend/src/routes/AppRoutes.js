@@ -105,6 +105,7 @@ function AppRoutes() {
 
                 <Route path="/clientDashboard/:id" element={<ClientDashboard />}>
                     <Route index element={<UserProfile />} />
+                    <Route path='home' element={<Home/>}/>
                     <Route path="bookings/:type" element={<Bookings />} />
                     <Route path="feedback" element={<Feedback />} />
                     <Route path="updateProfile" element={<ProfileUpdateForm />} />
