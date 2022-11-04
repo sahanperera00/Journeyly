@@ -7,8 +7,9 @@ function ClientDashSidebar() {
   return (
     <div className="ClientDashSidebarMainCont">
         <div className='ClientDSLogoCont'>
-            <center>
+            <center><Link to={`/`}>
                 <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-color.webp?alt=media&token=46432dde-c8e0-43e9-bc91-77b8a98e3f76'} alt='logo' />
+                </Link>
             </center>
         </div>
         <Link className='ClientSTabContS' to={`/clientDashboard/${id}`}>
