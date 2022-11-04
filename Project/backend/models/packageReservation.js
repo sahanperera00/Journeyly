@@ -19,6 +19,13 @@ const packageReservationSchema= new Schema({
         type: Number,
         required: true
     },
+    name1:{
+        type:String,
+        
+    },
+    price: {
+        type:Number
+    }
    
 
 });  //DataBase attributes

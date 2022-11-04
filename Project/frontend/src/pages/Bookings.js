@@ -200,6 +200,7 @@ function Bookings() {
         break;
       case 'package':
         axios.get('http://localhost:8070/packageReservation')
+        
           .then((res) => {
             setArray(res.data);
           })
