@@ -69,3 +69,13 @@ export const getUserHotelTickets = async(req,res)=>{
          res.status(404).json({ message: error });
      } 
 }
+
+export const getHotelTicket = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const hotelTicket = await hotelReservation.findById(id);
+        res.status(200).json(hotelTicket);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
+}
