@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 const Schema =mongoose.Schema;
 
 const packageReservationSchema= new Schema({
+    packageReservationId: {
+        type: String,
+        required: true
+    },
     name:{
         type:String,
         required: true
@@ -25,6 +29,10 @@ const packageReservationSchema= new Schema({
     },
     price: {
         type:Number
+    },
+    userID:{
+        type: String,
+        required: true
     }
    
 

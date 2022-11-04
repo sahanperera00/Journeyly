@@ -8,6 +8,9 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import '../styles/praweena/Packages.css'
 
 import { Link } from 'react-router-dom';
+function alertt(){
+    alert("Please login to reserve a Package");
+}
 
 
 function PackagePreview(){
@@ -22,6 +25,23 @@ function PackagePreview(){
     const [image, setImage] = useState('');
   
   
+
+    function checkLogin(){
+        if(localStorage.getItem("ID")==null){
+            return(
+            <Link to={'/registration'} onClick={alertt} >
+            <div>
+            <button className='btnPkg'>Reserve a Package</button>
+            </div>
+            </Link>)   
+        }else{
+            return(<Link to={'/PackageReservationForm/'+id}>
+            <div>
+            <button className='btnPkg'>Reserve a Package</button>
+            </div>
+            </Link>)   
+        }
+     }
 
     const{id}=useParams();
 
@@ -62,14 +82,16 @@ function PackagePreview(){
                    <p className='#'>Transport type -{vehicle}</p>
                    <p className='#'>{guide} Guide</p>
 
-                    
+                   {
+                    checkLogin()
+                 }
                     
             </div>
-            <Link to={'/PackageReservationForm/'+id}>
+            {/*<Link to={'/PackageReservationForm/'+id}>
             <div>
                 <button className='btnPkg'>Reserve a Package</button>
             </div>
-            </Link>
+   </Link>*/}
         </div> </div>
     )
 }   
