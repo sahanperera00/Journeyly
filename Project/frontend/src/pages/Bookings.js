@@ -137,7 +137,8 @@ function Bookings() {
     })
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
-      SetData(data);
+      if(data.userID==localStorage.getItem("ID")){
+        SetData(data);
       return (
         <tr>
         <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
@@ -153,7 +154,7 @@ function Bookings() {
         <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
         <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
         </tr>
-      )
+      )}
     });
 
   const pageCount = Math.ceil(array.length / PER_PAGE);
@@ -199,6 +200,7 @@ function Bookings() {
         break;
       case 'package':
         axios.get('http://localhost:8070/packageReservation')
+        
           .then((res) => {
             setArray(res.data);
           })
@@ -262,6 +264,7 @@ function Bookings() {
   function SetData(props) {
     switch (type) {
       case 'flight':
+        
         cold1 = props.firstName+" "+props.lastName;
         cold2 = props.flightName;
         cold3 = props.airline;
@@ -337,8 +340,7 @@ function Bookings() {
         break;
       default:
         break;
-    }
-  }
+    }}
 
   switch (type) {
     case ('flight'):

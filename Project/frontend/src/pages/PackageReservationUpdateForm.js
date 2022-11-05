@@ -7,12 +7,12 @@ import '../styles/praweena/PackageForm.css'
 
 function PackageReservationUpdateForm({}) {
     const {id} = useParams();
-
+  const { packageReservationId } = useParams();
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNo, setphoneNo]=useState('');
-  const { packageReservationId } = useParams();
+ // const { packageReservationId } = useParams();
     
 
   
