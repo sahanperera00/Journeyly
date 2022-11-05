@@ -36,6 +36,7 @@ import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
 import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
+import FinanceForm from './FinanceForm';
 import ProfileUpdateForm from './ProfileUpdateForm';
 import ClientDashboard from './ClientDashboard';
 import Bookings from './Bookings';
@@ -102,6 +103,7 @@ export {
     HotelPreview,
     UserProfile,
     DesResForm,
+    FinanceForm,
     FeedbackForm,
     ProfileUpdateForm,
     ClientDashboard,
