@@ -5,30 +5,38 @@
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
+    /* background-color: aliceblue; */
     padding-top: 6%;
     width: 100%;
+    height: 100vh;
     color: black;
+    overflow: scroll;
 }
 
 .desreseinnercontainer {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
+    font-family: 'Courier Prime', monospace;
+    /* background-color: antiquewhite; */
+    /* display: flex; */
     margin-top: 2%;
 }
 
 .desresformcont {
-    width: 50%;
+    width: 100%;
     height: 100%;
+    padding: 0 100px;
+    padding-top: 40px;
+    /* background-color: aqua; */
 }
 
 .desresform {
-    width: 70%;
-    /* margin-left: auto;
-    margin-right: auto; */
-    float: right;
-    margin-right: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    /* float: right; */
+    /* margin-right: 30px; */
     padding: 50px;
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.073);
@@ -37,26 +45,73 @@
 .desrestcktcont {
     width: 50%;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: aquamarine; */
 }
 
 .desrestckt {
-    width: 70%;
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+    border-radius: 15px;
+    display: flex;
+    /* height: 300px; */
+    /* margin-left: 30px; */
     /* margin-left: auto;
     margin-right: auto; */
-    padding: 50px;
-    margin-left: 30px;
-    backdrop-filter: blur(8px);
-    text-align: left;
-    background-color: rgba(0, 0, 0, 0.073);
+    /* padding: 50px; */
+    /* backdrop-filter: blur(8px); */
+    /* text-align: left; */
+    /* background-color: rgba(0, 0, 0, 0.073); */
+}
+
+.desrestcktinner{
+    width: 565px;
+    height: 280px;
+    position: absolute;
+    text-align: start;
+    padding: 0 40px;
+    color: #000000;
+    
+    /* background-color: aliceblue; */
+    /* display: flex; */
+    
+}
+
+.qrcont{
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    right: 110px;
+    position: absolute;
+}
+
+.desrestckt img {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .submitbtn {
     border-radius: 50px;
     padding: 10px 20px;
     background-color: transparent;
-    border: 1px solid rgb(0, 0, 0);
+    border: 0.3px solid rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     transition: 200ms;
+}
+
+.rotate {
+    justify-content: center ;
+    width: 250px;
+    position: absolute;
+    /* background-color: aqua; */
+    left: 570px;
+    top: 115px;
+    transform: rotate(270deg);
 }
 
 .submitbtn:hover {
