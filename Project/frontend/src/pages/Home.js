@@ -80,9 +80,11 @@ function Home() {
             </Carousel>
             <script type="text/javascript" src="vanilla-tilt.js"></script>
             {/* <Footer/> */}
+
             <Link to={"/financeDashboard"}>
                 <button className='FinanceBtn'>Finance Dashboard</button>
-            </Link>
+                </Link>
+
             <Link to={"/editorDashboard"}>
                 <button className='EditorBtn'>Editor Dashboard</button>
             </Link>
