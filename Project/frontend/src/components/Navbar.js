@@ -18,12 +18,25 @@ import { signOut } from 'firebase/auth';
 function Navbar() {
 
   const [show, setShow] = useState(false);
+  const [showLogout, setLogout] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
+
+  function view(){
+    if(localStorage.getItem("ID")===null){
+      return(<Button variant="outline-light" onClick={handleShow}>Login</Button>)  
+    }else{
+      return(
+      <Link to={`/clientDashboard/${localStorage.getItem("ID")}`}>
+      <Button variant='outline-light' >Profile</Button>
+      </Link>)
+    }
+  }
+
 
   // sign in with email and password
   const [
@@ -41,6 +54,7 @@ function Navbar() {
     if (user) {
       axios.post("http://localhost:8070/client/login", { email, password: password })
         .then((client) => {
+          localStorage.setItem("ID",client.data._id);
           return navigate(`/ClientDashboard/${client.data._id}`);
         }).catch((err) => {
           alert("Login unsuccessful");
@@ -115,7 +129,6 @@ function Navbar() {
   //   console.log('failed', err);
   // };
 
-
   return (
     <Navbarx className='NavbarCont' expand="lg">
       <Container>
@@ -131,9 +144,10 @@ function Navbar() {
             <Nav.Link as={Link} to="/taxis" className='navlink'>Taxis</Nav.Link>
             <Nav.Link as={Link} to="/packages" className='navlink'>Packages</Nav.Link>
           </Nav>
-          <Button variant="outline-light" onClick={handleShow}>Login</Button>
-
-
+          {
+            view()
+          }
+        
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Login</Modal.Title>

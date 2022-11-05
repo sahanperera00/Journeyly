@@ -137,7 +137,8 @@ function Bookings() {
     })
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
-      SetData(data);
+      if(data.userID==localStorage.getItem("ID")){
+        SetData(data);
       return (
         <tr>
         <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
@@ -153,7 +154,7 @@ function Bookings() {
         <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
         <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
         </tr>
-      )
+      )}
     });
 
   const pageCount = Math.ceil(array.length / PER_PAGE);
@@ -199,6 +200,7 @@ function Bookings() {
         break;
       case 'package':
         axios.get('http://localhost:8070/packageReservation')
+        
           .then((res) => {
             setArray(res.data);
           })
@@ -262,6 +264,7 @@ function Bookings() {
   function SetData(props) {
     switch (type) {
       case 'flight':
+        
         cold1 = props.firstName+" "+props.lastName;
         cold2 = props.flightName;
         cold3 = props.airline;
@@ -294,9 +297,9 @@ function Bookings() {
           cold2 = props.firstName + ' ' + props.lastName;
           cold3hid = 'none';
           cold4 = props.phoneNo;
-
-          const date = new Date(props.date);
-          cold5 = date.toISOString().split('T')[0];
+          cold5 = props.date;
+          // const date = new Date(props.date);
+          // cold5 = date.toISOString().split('T')[0];
           cold6 = props.time;
           cold7 = props.adults;
           cold8 = props.children;
@@ -332,13 +335,12 @@ function Bookings() {
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/packageReservation/${props.flightResId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/PackageRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       default:
         break;
-    }
-  }
+    }}
 
   switch (type) {
     case ('flight'):
