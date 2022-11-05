@@ -1,6 +1,7 @@
 import '../styles/sahan/CeoOverview.css'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {jsPDF} from "jspdf";
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
@@ -44,6 +45,14 @@ function CeoOverview() {
     function handlePageClick({ selected: selectedPage }) {
         console.log("selectedPage", selectedPage);
         setCurrentPage(selectedPage);
+    }
+
+    const DownloadReportPDF = () =>{
+        const pdf = new jsPDF("landscape", "px", "B2",false);
+        const data = document.querySelector("#pdfcontent");
+        pdf.html(data).then(()=>{
+            pdf.save("Report.pdf");
+        })
     }
 
     const offset = currentPage * PER_PAGE;
@@ -322,7 +331,7 @@ function CeoOverview() {
             </div>
             <div className='CeoDashOverviewInnerCont'>
                 <div className='CeoDashOverviewInnerContC1'>
-                    <div className='ceoOverviewTableCont'>
+                    <div className='ceoOverviewTableCont' id="pdfcontent">
                         <table className="table table-striped">
                             <thead>
                                 <tr>
@@ -352,7 +361,7 @@ function CeoOverview() {
                             disabledClassName={"pagination__link--disabled"}
                             activeClassName={"pagination__link--active"}
                         />
-                        <button className='ceoOverviewprintBtn' onClick={() => { window.print() }}>Print</button>
+                        <button className='ceoOverviewprintBtn' onClick={DownloadReportPDF}>Print</button>
                     </div>
                 </div>
                 <div className='CeoDashOverviewInnerContC2'>

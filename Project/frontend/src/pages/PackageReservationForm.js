@@ -40,12 +40,15 @@ function PackageReservationForm({}) {
             e.preventDefault();
 
             const newBook = {
+              packageReservationId: packages._id,
               name1: packages.name,
               price:packages.price,
               name,
               date,
               email,
               phoneNo,
+              userID:localStorage.getItem("ID"),
+
            
             };
             console.log(newBook);

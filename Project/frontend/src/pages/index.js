@@ -36,6 +36,7 @@ import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
 import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
+import FinanceForm from './FinanceForm';
 import ProfileUpdateForm from './ProfileUpdateForm';
 import ClientDashboard from './ClientDashboard';
 import Bookings from './Bookings';
@@ -62,6 +63,8 @@ import FlightResUpdateForm from './FlightResUpdateForm';
 import FinanceHotelUpdateForm from './FinanceHotelUpdateForm';
 import HotelResUpdateForms from './HotelResUpdateForms';
 import PackageReservationUpdateForm from './PackageReservationUpdateForm';
+
+
 export {
     Home,
     EditorDashboard,
@@ -100,6 +103,7 @@ export {
     HotelPreview,
     UserProfile,
     DesResForm,
+    FinanceForm,
     FeedbackForm,
     ProfileUpdateForm,
     ClientDashboard,
@@ -126,6 +130,8 @@ export {
     PackageReservationUpdateForm,
     PackageReservationForm,
     FinanceHotelUpdateForm,
-    HotelResUpdateForms
+    HotelResUpdateForms,
+    
+
 
 };

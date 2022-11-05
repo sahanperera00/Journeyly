@@ -55,23 +55,10 @@ function Packages() {
               Guide              = {data.guide}<br/> <br/>
               Price (LK rupees)  = {data.price}  
            
-          <button type="button" class="PackageSelect" data-bs-toggle="modal" data-bs-target="#exampleModal">
-           Select
+          <button type="button" class="PackageSelect" data-bs-toggle="modal" data-bs-target="#exampleModal"><Link to={'/PackagePreview/'+data._id}>
+           Select</Link>
           </button>
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-          <h1  >Confirm the Package</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      
-      
-        <button type="button" class="PopupNo"  data-bs-dismiss="modal">NO</button> <br></br>
-        <button type="button" class="PopupYes"> <Link to={'/PackagePreview/'+data._id}> Yes</Link></button> <br></br>
-      </div>
-    </div>
-  </div>
+   
 
               </Card.Text>
             </Card.Body>
