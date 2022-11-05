@@ -34,7 +34,6 @@ import {
     UserProfile,
     FinanceForm,
     ClientDashboard,
-    UserProfile,
     ProfileUpdateForm,
     Bookings,
     Feedback,
@@ -101,13 +100,6 @@ function AppRoutes() {
                     <Route path="ceoRevenue" element={<CeoRevenue />} />
                 </Route>
 
-                <Route path="/editorDashboard" element={<SharedLayoutEditorDashboard />}>
-                    <Route index element={<EditorDashboard />} />
-                    <Route path="editorWebContent/:type" element={<EditorWebContent />} />
-                    <Route path="flightForm" element={<FlightForm />} />
-                    <Route path="hotelForm" element={<HotelForm />} />
-
-                <Route path="/feedback/create" element={<FeedbackForm/>}/>
                 <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard/>}>
                     <Route index element={<CeoDashboard/>}/>
                     <Route path="ceoOverview/:type" element={<CeoOverview/>}/>
