@@ -122,7 +122,7 @@ function AppRoutes() {
                     <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm />} />
                     <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm />} />
                     <Route path="hotelRes/:hotelResId" element={<HotelResUpdateForms />}/>
-                    <Route path="PackageReservationUpdateForm/:packageReservationId" element={<PackageReservationUpdateForm />}/>
+                    <Route path="PackageRes/:packageReservationId" element={<PackageReservationUpdateForm />}/>
                 </Route>
 
                 <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
