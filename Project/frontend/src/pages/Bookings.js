@@ -294,9 +294,9 @@ function Bookings() {
           cold2 = props.firstName + ' ' + props.lastName;
           cold3hid = 'none';
           cold4 = props.phoneNo;
-
-          const date = new Date(props.date);
-          cold5 = date.toISOString().split('T')[0];
+          cold5 = props.date;
+          // const date = new Date(props.date);
+          // cold5 = date.toISOString().split('T')[0];
           cold6 = props.time;
           cold7 = props.adults;
           cold8 = props.children;
