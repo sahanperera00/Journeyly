@@ -1,34 +1,35 @@
 .desresContainer {
     /* background-color: aqua; */
-    /* background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fbg5.webp?alt=media&token=4b037ba3-b1c9-49af-bb87-dd3e52e2d496); */
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fticketback.jpg?alt=media&token=4b152c76-5d84-4f04-8406-eb5c3905843f);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
     padding-top: 6%;
     width: 100%;
+    height: 100vh;
     color: black;
+    overflow: scroll;
 }
 
 .desreseinnercontainer {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
     margin-top: 2%;
 }
 
 .desresformcont {
-    width: 50%;
+    width: 100%;
     height: 100%;
+    padding: 0 100px;
+    padding-top: 40px;
 }
 
 .desresform {
-    width: 70%;
-    /* margin-left: auto;
-    margin-right: auto; */
-    float: right;
-    margin-right: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 50px;
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.073);
@@ -37,26 +38,61 @@
 .desrestcktcont {
     width: 50%;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .desrestckt {
-    width: 70%;
-    /* margin-left: auto;
-    margin-right: auto; */
-    padding: 50px;
-    margin-left: 30px;
-    backdrop-filter: blur(8px);
-    text-align: left;
-    background-color: rgba(0, 0, 0, 0.073);
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+    border-radius: 15px;
+    display: flex;
+    border: 0.01px solid rgba(255, 255, 255, 0.141);
+}
+
+.desrestcktinner{
+    width: 565px;
+    height: 280px;
+    position: absolute;
+    text-align: start;
+    padding: 0 40px;
+    color: #000000;
+    font-family: 'Space Mono', monospace;
+}
+
+.qrcont{
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    right: 110px;
+    position: absolute;
+}
+
+.desrestckt img {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .submitbtn {
     border-radius: 50px;
     padding: 10px 20px;
     background-color: transparent;
-    border: 1px solid rgb(0, 0, 0);
+    border: 0.3px solid rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     transition: 200ms;
+}
+
+.rotate {
+    justify-content: center ;
+    width: 250px;
+    position: absolute;
+    left: 570px;
+    top: 110px;
+    transform: rotate(270deg);
 }
 
 .submitbtn:hover {

@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate';
 const PER_PAGE = 5;
 
 function Bookings() {
-  var {id} = useParams();
+  var { id } = useParams();
   var { type } = useParams();
   var topicType = 'topic';
   const [array, setArray] = useState([]);
@@ -107,7 +107,7 @@ function Bookings() {
             return data;
           } else if (data.firstName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
-          }  else if (data.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
+          } else if (data.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
           }
           break;
@@ -137,24 +137,27 @@ function Bookings() {
     })
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
-      if(data.userID==localStorage.getItem("ID")){
+      if (data.userID == localStorage.getItem("ID")) {
         SetData(data);
-      return (
-        <tr>
-        <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
-        <td className='setWidth concat' style={{ display: cold2hid }}>{cold2}</td>
-        <td className='setWidth concat' style={{ display: cold3hid }}>{cold3}</td>
-        <td className='setWidth concat' style={{ display: cold4hid }}>{cold4}</td>
-        <td className='setWidth concat' style={{ display: cold5hid }}>{cold5}</td>
-        <td className='setWidth concat' style={{ display: cold6hid }}>{cold6}</td>
-        <td className='setWidth concat' style={{ display: cold7hid }}>{cold7}</td>
-        <td className='setWidth concat' style={{ display: cold8hid }}>{cold8}</td>
-        <td className='setWidth concat' style={{ display: cold9hid }}>{cold9}</td>
-        <td className='setWidth concat' style={{ display: cold10hid }}>{cold10}</td>
-        <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
-        <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
-        </tr>
-      )}
+        return (
+          <>
+          <tr>
+            <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
+            <td className='setWidth concat' style={{ display: cold2hid }}>{cold2}</td>
+            <td className='setWidth concat' style={{ display: cold3hid }}>{cold3}</td>
+            <td className='setWidth concat' style={{ display: cold4hid }}>{cold4}</td>
+            <td className='setWidth concat' style={{ display: cold5hid }}>{cold5}</td>
+            <td className='setWidth concat' style={{ display: cold6hid }}>{cold6}</td>
+            <td className='setWidth concat' style={{ display: cold7hid }}>{cold7}</td>
+            <td className='setWidth concat' style={{ display: cold8hid }}>{cold8}</td>
+            <td className='setWidth concat' style={{ display: cold9hid }}>{cold9}</td>
+            <td className='setWidth concat' style={{ display: cold10hid }}>{cold10}</td>
+            <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
+            <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
+          </tr>
+          </>
+        )
+      }
     });
 
   const pageCount = Math.ceil(array.length / PER_PAGE);
@@ -200,7 +203,7 @@ function Bookings() {
         break;
       case 'package':
         axios.get('http://localhost:8070/packageReservation')
-        
+
           .then((res) => {
             setArray(res.data);
           })
@@ -264,8 +267,8 @@ function Bookings() {
   function SetData(props) {
     switch (type) {
       case 'flight':
-        
-        cold1 = props.firstName+" "+props.lastName;
+
+        cold1 = props.firstName + " " + props.lastName;
         cold2 = props.flightName;
         cold3 = props.airline;
         cold4 = props.passportID;
@@ -293,23 +296,19 @@ function Bookings() {
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'destination':
-          cold1 = props.desName;
-          cold2 = props.firstName + ' ' + props.lastName;
-          cold3hid = 'none';
-          cold4 = props.phoneNo;
-
-          const date = new Date(props.date);
-          cold5 = date.toISOString().split('T')[0];
-          cold6 = props.time;
-          cold7 = props.adults;
-          cold8 = props.children;
-          cold9 = props.total;
-          cold10hid = 'none';
-          cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/desRes/${props.desId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
-          cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
-          break;
-
-        // cold1 = props.desId;
+        cold1 = props.desName;
+        cold2 = props.firstName + ' ' + props.lastName;
+        cold3hid = 'none';
+        cold4 = props.phoneNo;
+        cold5 = props.date;
+        cold6 = props.time;
+        cold7 = props.adults;
+        cold8 = props.children;
+        cold9 = props.total;
+        cold10hid = 'none';
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/desRes/${props.desId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
+        break;
       case 'taxi':
         cold1 = props.driverName;
         cold2 = props.firstName + ' ' + props.lastName;
@@ -335,12 +334,13 @@ function Bookings() {
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/packageReservation/${props.flightResId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/PackageRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       default:
         break;
-    }}
+    }
+  }
 
   switch (type) {
     case ('flight'):

@@ -159,10 +159,10 @@ function Navbar() {
                 signInWithEmailAndPassword(email, password);
               }}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="email"
+                    placeholder="Enter your email"
                     autoFocus
                     onChange={(e) => {
                       setEmail(e.target.value)
@@ -175,7 +175,7 @@ function Navbar() {
                 >
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password"
-                    placeholder="password"
+                    placeholder="Enter your password"
                     onChange={(e) => {
                       setPassword(e.target.value)
                     }} required />
@@ -199,7 +199,7 @@ function Navbar() {
                         signInWithGoogle();
                       }}>
                         <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
-                        Continue With Google
+                        Continue with Google
                       </span>
                   }
 

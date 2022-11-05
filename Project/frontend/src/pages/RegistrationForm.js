@@ -141,7 +141,7 @@ function RegistrationForm() {
                         signInWithGoogle();
                     }}>
                         <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
-                        Continue With Google</span><br /><br />
+                        Continue with Google</span><br /><br />
 
                     Already have an account?
                     <Link to={"/"}>

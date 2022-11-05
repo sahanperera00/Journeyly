@@ -114,7 +114,7 @@ function DestinationUpdateForm() {
                     </div>
                     {/* <input type="checkbox" id="imageCheck" name="images" value="Images" onChange={handleCheck()} /> Set Image */}
                     <br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Update</button><br /><br />
                 </form>
             </div>
         </div>
