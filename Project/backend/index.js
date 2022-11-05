@@ -15,6 +15,7 @@ import financeRouter from "./routes/finance.js";
 import rentalRoutes from './routes/rental.js'
 import vehicleRoutes from './routes/vehicles.js'
 import feedbackRouter from "./routes/feedback.js";
+import feedbackRouter from "./routes/invoice.js";
 const app = express();
 const PORT = process.env.PORT || 8070;
 
@@ -31,6 +32,7 @@ app.use("/finance",financeRouter);
 app.use('/rental', rentalRoutes);
 app.use('/vehicles', vehicleRoutes);
 app.use("/feedback",feedbackRouter);
+app.use("/feedback",invoiceRouter);
 
 app.use(session({
     secret: 'journeyly',

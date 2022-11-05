@@ -51,6 +51,8 @@ import SharedLayoutCeoDashboard from './SharedLayoutCeoDashboard';
 import CeoOverview from './CeoOverview';
 import CeoRevenue from './CeoRevenue';
 import EditorWebContent from './EditorWebContent';
+import InvoiceForm from './InvoiceForm';
+
 
 export {
     Home,
@@ -106,4 +108,5 @@ export {
     CeoOverview,
     CeoRevenue,
     EditorWebContent,
+    InvoiceForm,
 };

@@ -31,7 +31,6 @@ import {
     VehicleForm,
     VehiclesEdit,
     UserDashboard,
-    UserProfile,
     FinanceForm,
     ClientDashboard,
     UserProfile,
@@ -50,6 +49,9 @@ import {
     CeoOverview,
     CeoRevenue,
     EditorWebContent,
+    FinanceUpdateForm,
+    FinanceEdit,
+    InvoiceForm,
 } from '../pages';
 
 
@@ -92,7 +94,6 @@ function AppRoutes() {
                     <Route path="ceoRevenue" element={<CeoRevenue/>}/>
                 </Route>
                <Route path="/fianaceForm" element={<FinanceForm/>}/>
-               
                 <Route path="/editorDashboard" element={<SharedLayoutEditorDashboard/>}>
                     <Route index element={<EditorDashboard/>}/>
                     <Route path="editorWebContent/:type" element={<EditorWebContent/>}/>
@@ -106,6 +107,7 @@ function AppRoutes() {
                     <Route path="destinationUpdateForm/:id" element={<DestinationUpdateForm />}/>
                     <Route path="vehicleUpdateForm/:id" element={<VehicleUpdateForm/>}/>
                     <Route path="packageUpdateForm/:id" element={<PackageUpdateForm/>}/>
+                    <Route path="invoiceForm/:id" element={<InvoiceForm/>}/>
                 </Route>
                 
             </Routes>
