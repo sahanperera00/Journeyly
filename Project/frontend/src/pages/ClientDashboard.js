@@ -12,7 +12,7 @@ function ClientDashboard() {
   if (loading) return <p className='text-center mt-5'>Loading ...</p>
 
   if (!user) {
-    navigate('/registration');
+    navigate('/');
   }
   return (
     <div className='CDashMainCont'>
