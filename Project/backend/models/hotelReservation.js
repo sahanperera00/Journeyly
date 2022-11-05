@@ -30,6 +30,10 @@ const hotelResSchema= new Schema({
     contactNo:{
         type:String,
         required:true
+    },
+    userID:{
+        type: String,
+        required: true
     }
     // adults:{
     //     type:Number,

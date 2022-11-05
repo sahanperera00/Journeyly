@@ -70,7 +70,8 @@ function getDifference(day1,day2){
               check_in,
               check_out,
               suite,
-              contactNo
+              contactNo,
+              userID:localStorage.getItem("ID"),
             };
             console.log(newBook);
 
