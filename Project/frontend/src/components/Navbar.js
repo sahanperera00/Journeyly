@@ -185,7 +185,7 @@ function Navbar() {
                         signInWithGoogle();
                       }}>
                         <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
-                        Continue With Google
+                        Continue with Google
                       </span>
                   }
 
