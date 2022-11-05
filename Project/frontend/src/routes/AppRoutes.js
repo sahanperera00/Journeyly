@@ -30,8 +30,10 @@ import {
     VehicleUpdateForm,
     VehicleForm,
     VehiclesEdit,
-    ClientDashboard,
+    UserDashboard,
     UserProfile,
+    FinanceForm,
+    ClientDashboard,
     ProfileUpdateForm,
     Bookings,
     Feedback,
@@ -91,17 +93,26 @@ function AppRoutes() {
                     
                 </Route>
 
+
                 <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard />}>
                     <Route index element={<CeoDashboard />} />
                     <Route path="ceoOverview/:type" element={<CeoOverview />} />
                     <Route path="ceoRevenue" element={<CeoRevenue />} />
                 </Route>
 
-                <Route path="/editorDashboard" element={<SharedLayoutEditorDashboard />}>
-                    <Route index element={<EditorDashboard />} />
-                    <Route path="editorWebContent/:type" element={<EditorWebContent />} />
-                    <Route path="flightForm" element={<FlightForm />} />
-                    <Route path="hotelForm" element={<HotelForm />} />
+                <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard/>}>
+                    <Route index element={<CeoDashboard/>}/>
+                    <Route path="ceoOverview/:type" element={<CeoOverview/>}/>
+                    <Route path="ceoRevenue" element={<CeoRevenue/>}/>
+                </Route>
+               <Route path="/fianaceForm" element={<FinanceForm/>}/>
+               
+                <Route path="/editorDashboard" element={<SharedLayoutEditorDashboard/>}>
+                    <Route index element={<EditorDashboard/>}/>
+                    <Route path="editorWebContent/:type" element={<EditorWebContent/>}/>
+                    <Route path="flightForm" element={<FlightForm/>}/>
+                    <Route path="hotelForm" element={<HotelForm/>}/>
+
                     <Route path="destinationForm" element={<DestinationForm />} />
                     <Route path="vehicleForm" element={<VehicleForm />} />
                     <Route path="packageForm" element={<PackageForm />} />
@@ -136,7 +147,7 @@ function AppRoutes() {
                 </Route>
             </Routes>
         </Router>
-    );
+    ); 
 }
 
 export default AppRoutes;
