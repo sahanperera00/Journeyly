@@ -83,11 +83,8 @@ function Home() {
 
             <Link to={"/financeDashboard"}>
                 <button className='FinanceBtn'>Finance Dashboard</button>
+                </Link>
 
-            <Link to ={"/fianaceForm"}>
-            <button className='FinanceBtn'>Finance Login</button>
-
-            </Link>
             <Link to={"/editorDashboard"}>
                 <button className='EditorBtn'>Editor Dashboard</button>
             </Link>
