@@ -1,9 +1,9 @@
 .CeoDashSidebarMainCont {
     height: 100%;
     width: 320px;
-    background-color: rgba(17, 17, 17, 0.1);
     overflow-x: hidden;
     display: block;
+    /* background-color: rgba(17, 17, 17, 0.1); */
     /* position: absolute; */
     /* z-index: 1; */
     /* top: 0; */

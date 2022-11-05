@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import CeoDashSidebar from '../components/CeoDashSidebar.js'
 import '../styles/sahan/SharedLayoutCeoDashboard.css'
 
@@ -7,6 +7,9 @@ function SharedLayoutCeoDashboard() {
     <div className='SharedLayoutCeoDashMainCont'>
         <CeoDashSidebar />
         <Outlet />
+      <Link to={"/"}>
+        <button className='HomeBtn'>Home</button>
+      </Link>
     </div>
   )
 }

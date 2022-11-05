@@ -7,7 +7,7 @@ import '../styles/leo/HotelForm.css';
 function HotelForm() {
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
-    const [price, setPrice] = useState('');
+    // const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [stars, setStars] = useState('');
     const [facilities, setFacilities] = useState('');
@@ -37,7 +37,7 @@ function HotelForm() {
                             const newHotel = {
                                 name,
                                 location,
-                                price,
+                                // price,
                                 description,
                                 stars,
                                 facilities,
@@ -71,13 +71,13 @@ function HotelForm() {
                                 setLocation(e.target.value);
                             }} required />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label className="form-label">Price</label>
                         <input type="number" className="form-control"
                             onChange={(e) => {
                                 setPrice(e.target.value);
                             }} required />
-                    </div>
+                    </div> */}
                     <div className="form-group">
                         <label className="form-label">Description</label>
                         <textarea rows={3} type="text" className="form-control"

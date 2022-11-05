@@ -7,18 +7,15 @@ import '../styles/sudul/FlightForm.css';
 function FlightForm() {
     const [name, setName] = useState('');
     const [flightId, setFligtId] = useState('');
+    const [airline, setAirline] = useState('');
     const [startAirport, setStartAirport] = useState('');
     const [departureDate, setDepartureDate] = useState('');
     const [departureTime, setDepartureTime] = useState('');
     const [destinationAirport, setDestinationAirport] = useState('');
     const [arrivalDate, setArrivalDate] = useState('');
     const [arrivalTime, setArrivalTime] = useState('');
-    const [economyClass, setEconomyPrice] = useState('');
-    const [businessClass, setBusinessPrice] = useState('');
     const [imageI, setImageI] = useState('');
     // const [images, setImages] = useState('');
-
-
 
     return (
         <div className='FlightFormMainCont'>
@@ -45,14 +42,13 @@ function FlightForm() {
                             const newFlight = {
                                 name,
                                 flightId,
+                                airline,
                                 startAirport,
                                 departureDate,
                                 departureTime,
                                 destinationAirport,
                                 arrivalDate,
                                 arrivalTime,
-                                economyClass,
-                                businessClass,
                                 imageI: url
                             }
 
@@ -82,6 +78,13 @@ function FlightForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setFligtId(e.target.value);
+                            }} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Airline</label>
+                        <input type="text" className="form-control"
+                            onChange={(e) => {
+                                setAirline(e.target.value);
                             }} required />
                     </div>
                     <div className="form-group">
@@ -124,20 +127,6 @@ function FlightForm() {
                         <input type="time" className="form-control"
                             onChange={(e) => {
                                 setArrivalTime(e.target.value);
-                            }} required />
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Economy Class Flight Ticket Price</label>
-                        <input type="number" className="form-control"
-                            onChange={(e) => {
-                                setEconomyPrice(e.target.value);
-                            }} required />
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">Business Class Flight Ticket Price</label>
-                        <input type="number" className="form-control"
-                            onChange={(e) => {
-                                setBusinessPrice(e.target.value);
                             }} required />
                     </div>
                     <div className="form-group">

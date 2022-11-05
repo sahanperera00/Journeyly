@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import { useNavigate } from 'react-router-dom';
 import '../styles/Madusha/VehicleForm.css';
 
 
@@ -15,7 +16,7 @@ function VehicleForm(){
     const [fee,setfee]=useState('');
     const [image,setImage]=useState('');
     
-
+    const navigate = useNavigate();
 
     return (
         <div className='VehicleFormMainCont'>
@@ -49,7 +50,6 @@ function VehicleForm(){
                     ownerName,
                     email,
                     phoneNo,
-                    fee,
                     image
               
                 }
@@ -57,6 +57,7 @@ function VehicleForm(){
                 axios.post("http://localhost:8070/vehicles/create", newVehicle)
                     .then(() => {
                         alert("Vehicle Content added successfully");
+                        navigate('/editorDashboard/editorWebContent/taxi');
                     }).catch((err) => {
                         alert("Error adding Vehicle Content");
                         console.log(err);
@@ -64,16 +65,22 @@ function VehicleForm(){
             }}>
 
 
+                {/* <div className="form-group">
+                    <label className="form-label">Enter Type Of Service</label>
+                    <select className="form-control" onChange={(e) => {
+                        settype(e.target.value);
+                    }} required> 
+                        <option value = "Taxi" selected = "selected">Taxi</option>
+                        <option value = "Rent-a-Car">Rent-a-Car</option>
+                    </select>
+                </div> */}
+
                 <div className="form-group">
                     <label className="form-label">Enter Type Of Service</label>
-                    <select className="form-control" >
-                        <option value = "Taxi">Taxi</option>
-                        <option value = "Rent-a-Car">Rent-a-Car</option>
+                    <input type = "text" className="form-control" 
                     onChange={(e) => {
                         settype(e.target.value);
-                    }} required
-
-                    </select>
+                    }} required />
                 </div>
 
                 <div className="form-group">
@@ -114,17 +121,7 @@ function VehicleForm(){
                         setphoneNo(e.target.value);
                     }} />
                 </div>
-
-                <div className="form-group">
-                    <label className="form-label">Fee</label>
-                    <input type="text" className="form-control" 
-                    onChange={(e) => {
-                        setfee(e.target.value);
-                    }} />
-                </div>
                 
-                
-
                 <div className="form-group">
                     <label className="form-label">Add Image</label>
                     <input type="file" className="form-control" 
