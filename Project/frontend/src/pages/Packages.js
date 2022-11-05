@@ -1,12 +1,22 @@
-
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../styles/praweena/Packages.css'
+import { Link } from 'react-router-dom';
+import React from "react";
+
+
+
+import { useNavigate } from "react-router-dom";
+
+
+
 
 
 function Packages() { 
   const [packages, setPackages] = useState([]);
+  const navigate = useNavigate();
+ 
 
   const getPackages = () => {
     axios.get("http://localhost:8070/packages")
@@ -24,7 +34,8 @@ function Packages() {
     <div className='packageMain'>
    
     <h1 className='packageHeader'>Packages
-          <h2 className='PackageDiscription'>Enjoy WonderFul Experience in Sri Lanka<br/>Let us Help You Prepare <br/>Plan Your Trip With Us </h2></h1>
+    
+          <h2 className='PackageDiscription'>Enjoy WonderFul Experience in Sri Lanka<br/>Plan Your Trip With Us </h2></h1>
     <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
       {packages.map((data) => {
         return (
@@ -43,8 +54,12 @@ function Packages() {
               Vehicle            ={data.vehicle}<br/>
               Guide              = {data.guide}<br/> <br/>
               Price (LK rupees)  = {data.price}  
-              <button className='PackageSelect' > Select</button>      
-            
+           
+          <button type="button" class="PackageSelect" data-bs-toggle="modal" data-bs-target="#exampleModal"><Link to={'/PackagePreview/'+data._id}>
+           Select</Link>
+          </button>
+   
+
               </Card.Text>
             </Card.Body>
           </Card>

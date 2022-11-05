@@ -1,29 +1,58 @@
 import '../styles/leo/HotelResForm.css'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 function HotelResForm({}) {
+  const {id} = useParams();
+
+  const[hotel,setHotel]=useState('');
+
+  const getUniqueHotel = async () => {
+    await axios.get("http://localhost:8070/hotels/"+id)
+      .then((res) => {
+        setHotel(res.data);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  useEffect(() => { getUniqueHotel() }, [id]);
+
   const [name, setName] = useState('');
   const [hotel_Name, setHotelName] = useState('');
   const [check_in, setCheckin] = useState('');
   const [check_out, setCheckout] = useState('');
   const [suite, setSuite] = useState('');
-  const [customizations, setCustomizations] = useState('');
-  const [adults, setAdults] = useState('');
-  const [children, setChildren] = useState('');
+  const [contactNo, setContactNo]=useState('');
+  // const [customizations, setCustomizations] = useState('');
+  // const [adults, setAdults] = useState('');
+  // const [children, setChildren] = useState('');
 
 
   const navigate = useNavigate();
-function checkDate(){
-    var indate= document.getElementById();
-    var outdate = document.getElementById();
-    if(indate.getDate()<=outdate.getDate()){
-        /*Allow transaction*/ 
-    }else{
-        /*Dont allow */
-    }
+// function checkDate(){
+//     var indate= document.getElementById();
+//     var outdate = document.getElementById();
+//     if(indate.getDate()<=outdate.getDate()){
+//         /*Allow transaction*/ 
+//     }else{
+//         /*Dont allow */
+//     }
+// }
+
+
+function getDifference(day1,day2){
+
+
+  const dateOne= new Date(day1);
+  const dateTwo= new Date(day2);
+  const time=Math.abs(dateOne-dateTwo);
+  const days =Math.ceil(time/(1000*60*60*24));
+
+  return days;
 }
   return (
     <div id="hotelresform" className="hotelresContainer">
@@ -34,22 +63,22 @@ function checkDate(){
             e.preventDefault();
 
             const newBook = {
-              
+              hotelID:hotel._id,
+              sellingpPrice:hotel.sellingPrice,
               name,
-              hotel_Name,
+              hotel_Name:hotel.name,
               check_in,
               check_out,
               suite,
-              customizations,
-              adults,
-              children
+              contactNo,
+              userID:localStorage.getItem("ID"),
             };
             console.log(newBook);
 
-            axios.post("http://localhost:8070/hotelRes/create", newBook)
+            await axios.post("http://localhost:8070/hotelRes/create", newBook)
             .then(() => {
               alert("Hotel Booked Successfully");
-              navigate('/hotels');
+              // navigate('/hotels');
             }).catch((err) => {
               alert("Error ");
               console.log(err);
@@ -65,45 +94,47 @@ function checkDate(){
             </div>
             <div className="form-group">
               <label className="form-label">Check In </label>
-              <input type="date" className="form-control" onChange={(e) => {setCheckin(e.target.value)}} required/>
+              <input type="date" className="form-control" id="arrdate" onChange={(e) => {setCheckin(e.target.value)}} required/>
             </div>
             <div className="form-group">
               <label className="form-label">Check Out</label>
-              <input type="date" className="form-control" onChange={(e) => {setCheckout(e.target.value)}} required/>
+              <input type="date" className="form-control" id="depdate" onChange={(e) => {setCheckout(e.target.value)}} required/>
             </div>
             <div className="form-group">
               <label className="form-label">Suite</label>
               <input type="text" className="form-control" onChange={(e) => {setSuite(e.target.value)}} required/>
             </div>
             <div className="form-group">
-              <label className="form-label">customizations</label>
-              <input type="text" className="form-control" onChange={(e) => {setCustomizations(e.target.value)}} required/>
+              <label className="form-label">Contact Number</label>
+              <input type="Number" className="form-control" min="100000000" max="9999999999"onChange={(e) => {setContactNo(e.target.value)}} required/>
             </div>
-            <div className="form-group">
+            <br/>
+            {/* <div className="form-group">
               <label className="form-label">Number of Adults</label>
               <input type="Number" className="form-control" onChange={(e) => {setAdults(e.target.value)}} min={0} required/>
             </div>
             <div className="form-group">
               <label className="form-label">Number of Children</label>
               <input type="Number" className="form-control" onChange={(e) => {setChildren(e.target.value)}} min={0} required/>
-            </div><br />
+            </div><br /> */}
             <button type="submit" className="submitbtn">Submit</button>
           </form>
           </div>
-          {/* <div className='hotelrestcktcont'>
+           <div className='hotelrestcktcont'>
             <div className='hotelrestckt'>
-              <p>First Name :</p>
-              <p>Last Name :</p>
-              <p>Email :</p>
-              <p>Phone Number :</p>
-              <p>Date :</p>
-              <p>Time :</p>
-              <p>Number of Adults :</p>
-              <p>Number of Children</p>
+              <p>Name :{name}</p>
+              <p>Hotel Name :{hotel.name}</p>
+              <p>Check In Date :{check_in}</p>
+              <p>Check Out Date :{check_out}</p>
+              {/* <p>Suite :</p> */}
+              <p>Suite :{suite}</p>
+              <p>Contact Number :{contactNo}</p>
+              {/* <p>Number of Children</p> */}
+              <p>Number of days at the hotel: {getDifference(check_in,check_out)} days</p>
               <br/>
-              <h3>Total :</h3>
+              <h3>Total :{getDifference(check_in,check_out)*hotel.sellingPrice}</h3>
               </div>
-          </div> */}
+          </div> 
         </div><br />
     </div>
   )

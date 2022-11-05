@@ -2,8 +2,11 @@ import '../styles/ranmina/Feedback.css';
 
 function Feedback() {
   return (
-    <div className='FeedbackContainer'>
-        <h1 className='feedbackTopic'>Feedback</h1>
+    <div className='FeedbackMainCont'>
+        <h1>Feedback</h1>
+        <div className='feedbackCont'>
+        
+        </div>
     </div>
   )
 }

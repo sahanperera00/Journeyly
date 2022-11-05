@@ -1,6 +1,5 @@
 import '../styles/sahan/CeoDashboard.css'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function CeoDashboard() {
@@ -118,9 +117,6 @@ function CeoDashboard() {
           </div>
         </div>
       </div>
-      <Link to={"/"}>
-        <button className='FeedbackBtn'>Home</button>
-      </Link>
     </div>
   )
 }

@@ -2,8 +2,11 @@ import '../styles/sahan/Payments.css';
 
 function Payments() {
   return (
-    <div className='PaymentsContainer'>
-        <h1 className='paymentsTopic'>Payments</h1>
+    <div className='PaymentsMainCont'>
+        <h1>Payments</h1>
+        <div className='PaymentsCont'>
+        
+        </div>
     </div>
   )
 }

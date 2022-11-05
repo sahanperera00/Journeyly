@@ -36,6 +36,7 @@ function Hotels() {
         </div>
         <div className="hotelBodyContainer">
           {hotels.filter((data)=>{
+            if(data.sellingPrice!= null){
             if(searchTerm==""){
               return data
             }else if(data.location.toLowerCase().includes(searchTerm.toLowerCase())){
@@ -43,6 +44,7 @@ function Hotels() {
             }else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
               return data
             }
+          }
           }).map((data) => {
           return (
             <Link to={'/hotelPreview/'+data._id}>
@@ -52,7 +54,7 @@ function Hotels() {
               </div>
               <div className='TextContainer'>
                 <center><h2>{data.name} ({data.location})</h2></center>
-                  <p className='priceTage'>Price:Rs. {data.price}<br/></p>
+                  <p className='priceTage'>Price:Rs. {data.sellingPrice}<br/></p>
                   <p className='desTage'>Description: {data.description}<br/></p>
                   <p className='starTage'>Stars: {data.stars}<br/></p>
               </div>
