@@ -22,26 +22,16 @@ function PackageUpdateForm() {
     const newPackage = () => {   
         axios.get("http://localhost:8070/packages/"+id) //get id
             .then((res) => {
-                const updatePackages  = {
-                    name: res.data.name,
-                    destination: res.data.destination,
-                    members: res.data.members,
-                    hotel: res.data.hotel,
-                    roomType: res.data.roomType,
-                    vehicle: res.data.vehicle,
-                    guide: res.data.guide,
-                    price: res.data.price,
-                    image: res.data.image
-                }
-                setName(updatePackages.name);
-                setDestination(updatePackages.destination);
-                setMembers(updatePackages.members);
-                setHotel(updatePackages.hotel);
-                setRoomType(updatePackages.roomType);
-                setVehicle(updatePackages.vehicle);
-                setGuide(updatePackages.guide);
-                setPrice(updatePackages.price);
-                setImage(updatePackages.image);
+             
+                setName(res.data.name);
+                setDestination(res.data.destination);
+                setMembers(res.data.members);
+                setHotel(res.data.hotel);
+                setRoomType(res.data.roomType);
+                setVehicle(res.data.vehicle);
+                setGuide(res.data.guide);
+                setPrice(res.data.price);
+                setImage(res.data.image);
             })
             .catch((err) => {
                 alert(err);
@@ -70,9 +60,7 @@ function PackageUpdateForm() {
                     .then((url) => {
                         console.log(url);
                         setImage(url);
-                    }).catch((err) => {
-                        console.log(err);
-                    });
+                   
 
                 const newPackage = {
                     name,
@@ -93,6 +81,9 @@ function PackageUpdateForm() {
                     }).catch((err) => {
                         alert(err);
                     })
+                }).catch((err) => {
+                    console.log(err);
+                });
             }}>
 
                 <div className="form-group">

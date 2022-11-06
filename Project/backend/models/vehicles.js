@@ -5,12 +5,12 @@ const vehicle = mongoose.Schema;
 const newVehicle = new vehicle({
     type: {
         type: String,
-        required: true
+        
     },
     
     vehicleType: {
         type: String,
-        required: true
+
     }, 
 
     driverName: {
@@ -23,21 +23,20 @@ const newVehicle = new vehicle({
 
     email: {
         type: String,
-        required: true
+
     },
     phoneNo: {
         type: String,
-        required: true
+
     },
 
     fee: {
         type: Number,
-        required: true
     },
 
     image: {
         type: String,
-        required: true
+
     }
 });
 

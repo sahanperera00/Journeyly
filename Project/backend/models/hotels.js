@@ -11,10 +11,10 @@ const hotelSchema = new Schema({
         type: String,
         required: true
     },
-    price:{
-        type: Number,
-        required: true
-    },
+    // price:{
+    //     type: Number,
+    //     required: true
+    // },
     description:{
         type: String,
         required: true
@@ -30,7 +30,13 @@ const hotelSchema = new Schema({
     images:{
         type:[String],
         required: true
-    }
+    },
+    buyingPrice:{
+        type:Number,
+    },
+    sellingPrice:{
+        type:Number,
+    },
 });
 
 const Hotel = mongoose.model("hotel",hotelSchema); /*Document to be directed in the mongoDB*/

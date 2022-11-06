@@ -20,6 +20,8 @@ import FlightPreview from './FlightPreview';
 import PackageForm from "./PackageForm";
 import PackagesEdit from './PackagesEdit';
 import PackageUpdateForm from "./PackageUpdateForm";
+import PackagePreview from "./PackagePreview";
+import PackageReservationForm from "./PackageReservationForm";
 import HotelUpdateForm from "./HotelUpdateForm";
 import FlightUpdateForm from "./FlightUpdateForm";
 import RegistrationForm from './RegistrationForm';
@@ -34,6 +36,7 @@ import VehiclesEdit from './VehiclesEdit';
 import HotelPreview from './HotelPreview';
 import UserProfile from './UserProfile';
 import DesResForm from './DesResForm';
+import FinanceForm from './FinanceForm';
 import ProfileUpdateForm from './ProfileUpdateForm';
 import ClientDashboard from './ClientDashboard';
 import Bookings from './Bookings';
@@ -50,6 +53,17 @@ import SharedLayoutCeoDashboard from './SharedLayoutCeoDashboard';
 import CeoOverview from './CeoOverview';
 import CeoRevenue from './CeoRevenue';
 import EditorWebContent from './EditorWebContent';
+import DesResUpdateForm from './DesResUpdateForm';
+import SharedLayoutFinanceDashboard from './SharedLayoutFinanceDashboard';
+import FinanceDashboard from './FinanceDashboard';
+import FinancePending from './FinancePending';
+import FinanceDestinationUpdateForm from './FinanceDestinationUpdateForm';
+import FinanceFlightUpdateForm from './FinanceFlightUpdateForm';
+import FlightResUpdateForm from './FlightResUpdateForm';
+import FinanceHotelUpdateForm from './FinanceHotelUpdateForm';
+import HotelResUpdateForms from './HotelResUpdateForms';
+import PackageReservationUpdateForm from './PackageReservationUpdateForm';
+
 
 export {
     Home,
@@ -74,6 +88,7 @@ export {
     PackageForm,
     PackagesEdit,
     PackageUpdateForm,
+    PackagePreview,
     HotelUpdateForm,
     FlightUpdateForm,
     RegistrationForm,
@@ -88,6 +103,7 @@ export {
     HotelPreview,
     UserProfile,
     DesResForm,
+    FinanceForm,
     FeedbackForm,
     ProfileUpdateForm,
     ClientDashboard,
@@ -104,4 +120,18 @@ export {
     CeoOverview,
     CeoRevenue,
     EditorWebContent,
+    DesResUpdateForm,
+    SharedLayoutFinanceDashboard,
+    FinanceDashboard,
+    FinancePending,
+    FinanceDestinationUpdateForm,
+    FinanceFlightUpdateForm,
+    FlightResUpdateForm,
+    PackageReservationUpdateForm,
+    PackageReservationForm,
+    FinanceHotelUpdateForm,
+    HotelResUpdateForms,
+    
+
+
 };

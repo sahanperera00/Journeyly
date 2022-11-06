@@ -7,6 +7,34 @@ const flightTicketSchema = new Schema({
         type: String,
         required: true
     },
+    flightName:{
+        type: String,
+        required: true
+    },
+    airline:{
+        type:String,
+        required:true
+    },
+    startAirport:{
+        type: String,
+        required: true
+    },
+    departureDate:{
+        type: String,
+        required: true
+    },
+    departureTime:{
+        type: String,
+        required: true
+    },
+    destinationAirport:{
+        type: String,
+        required: true
+    },
+    userID:{
+        type: String,
+        required: true
+    },
     firstName: {
         type: String,
         required: true
@@ -30,6 +58,12 @@ const flightTicketSchema = new Schema({
     classType: {
         type: String,
         required: true
+    },
+    economyClass:{
+        type: Number,
+    },
+    businessClass:{
+        type:Number,
     },
     price: {
         type:Number

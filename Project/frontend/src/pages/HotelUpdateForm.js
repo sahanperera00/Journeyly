@@ -69,7 +69,7 @@ function HotelUpdateForm() {
                                 description,
                                 stars,
                                 facilities,
-                                images: url
+                                // images: url
                             }
 
                             axios.put("http://localhost:8070/hotels/update/" + id, newHotel)
@@ -98,13 +98,13 @@ function HotelUpdateForm() {
                                 setLocation(e.target.value);
                             }} required />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label className="form-label">Price</label>
                         <input type="number" className="form-control" value={price}
                             onChange={(e) => {
                                 setPrice(e.target.value);
                             }} required />
-                    </div>
+                    </div> */}
                     <div className="form-group">
                         <label className="form-label">Description</label>
                         <textarea rows={3} type="text" className="form-control" value={description}
@@ -126,13 +126,13 @@ function HotelUpdateForm() {
                                 setFacilities(e.target.value);
                             }} required />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label className="form-label">Images</label>
                         <input type="file" className="form-control"
                             onChange={(e) => {
                                 setImages(e.target.files[0]);
                             }} required />
-                    </div>
+                    </div> */}
                     <br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />
                 </form>

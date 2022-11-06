@@ -5,12 +5,11 @@ export const createHotelReservation= async (req,res)=>{
     
     const hotelRes = req.body;
 
-    const newHotelRes = hotelReservation(hotelRes);
+    const newHotelRes = new hotelReservation(hotelRes);
 
     try {
-
         await newHotelRes.save();
-        res.status(201).json(hotelReservation);
+        res.status(201).json(newHotelRes);
     } catch (error) {
         res.status(409).json({message: error.message});
     }
@@ -37,7 +36,7 @@ export const customizeHotelReservation = async(req,res)=>{
     }
 
     try {
-        await hotelRes.findByIdAndUpdate(id,up);
+        await hotelReservation.findByIdAndUpdate(id,up);
         res.status(200).send({status:"Hotel Reservation Updated"});
     } catch (error) {
         res.status(404).json({message:error});
@@ -53,7 +52,7 @@ export const cancelHotelReservation = async(req,res)=>{
     }
 
     try {
-        await hotelRes.findByIdAndDelete(id);
+        await hotelReservation.findByIdAndDelete(id);
         res.status(200).send({status: "Hotel Reservation Deleted..."});
         
     } catch (error) {
@@ -64,9 +63,19 @@ export const cancelHotelReservation = async(req,res)=>{
 export const getUserHotelTickets = async(req,res)=>{
     const userID = req.params.userId;
     try {
-        const hotelTickets = await hotelReservation.find({userId: userID});
+        const hotelTickets = await hotelReservation.findOne({userId: userID});
          res.status(200).json(hotelTickets);
      } catch (error) {
          res.status(404).json({ message: error });
      } 
+}
+
+export const getHotelTicket = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const hotelTicket = await hotelReservation.findById(id);
+        res.status(200).json(hotelTicket);
+    } catch (error) {
+        res.status(404).json({ message: error });
+    }
 }

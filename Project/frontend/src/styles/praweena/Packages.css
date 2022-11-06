@@ -6,6 +6,14 @@
   
    
 }
+
+.pakgeMain2{
+  background-color:  rgba(166, 162, 223, 0.327);
+  ;
+   height: 99pc;
+
+
+}
 .packageHeader{
    
   padding-top: 8%;
@@ -15,13 +23,13 @@
    position: relative;
   overflow: hidden;
   border-radius: 0 0 85% 85% / 5%;
-  font-size: 45px;
+  font-size: 50px;
   font-weight: 500;
   width: 100%;
   height: 100%;
   
   color: #090b0f;
-  text-shadow: 1px 0px 0px rgb(58, 38, 141);
+  text-shadow: 1px 1px 1px rgb(42, 17, 133);
    background-image: linear-gradient(135deg, #9e9eb069 10%, #c3c3c569 100%);
   
 }
@@ -29,8 +37,8 @@
 .PackageDiscription{
 padding :  10px;
 font-family: 'Leckerli One', cursive;
-color: #46397a;
-font-size: 0px;
+color: #3d2782;
+font-size: 20px;
 
 }
 
@@ -108,16 +116,111 @@ font-size: 0px;
     
         .PackageSelect    
         {
+          height: 3pc;
+          width: 8pc;
           margin-left: 10pc;
           color: rgb(4, 4, 12);
-          background-color: rgb(136, 136, 155);
+          background-color: rgb(123, 123, 214);
           border-radius: 1pc;
           border: #a6afbe;
+          font-weight:bolder
           
         }
     
 
 
+.PopupNo{
+  background-color: rgb(128, 138, 138);
+  font-weight:700;
+ height: 40pt;
+ width: 20pc;
+ align-self: center;
+  
+  
+}
 
+.PopupYes{
+  background-color: rgba(26, 33, 174, 0.5);
+  font-weight: bold;
+  height: 40pt;
+  width: 20pc;
+  align-self: center;
+  
+  
+  
+}
+.previewContainerPackage{
+  padding-top: 7%;
+  padding-bottom: 70pc;
+  background-color: rgba(166, 162, 223, 0.327);
+  
+ 
+}
 
+.PreviewHeading{
+  font-weight: bolder;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
     
+.PackagePreview{
+  font-size: 35px;
+  font-weight: 500;
+  padding-left: 4pc; 
+
+}
+.PackImg{
+  display: grid;
+  place-items: center;
+ 
+}
+.packageRes{
+  width: 70%;
+  /* margin-left: auto;
+  margin-right: auto; */
+  float: right;
+ margin-right: 500px;
+ 
+ width: 220px;
+  padding: 50px;
+  backdrop-filter: blur(8px);
+  background-color: rgba(49, 39, 237, 0.073);
+  align-self: center;
+padding-bottom: 10pc;
+  width: 50%;
+  height: 100%;
+}
+
+.pkgprice{
+  text-align: center;
+  font-weight:bolder;
+  font-size: x-large;
+}
+
+.previewtest{
+  text-align: center;
+  font-weight:bolder;
+  font-size: x-large;
+  margin: auto;
+  width: 25%;
+  border: 4px solid rgb(97, 87, 137);
+  padding: 10px;
+  border-radius: 15px;
+  font-family: Lucida , Helvetica, sans-serif;
+}
+
+.btnPkg{
+  position: absolute;
+ top: 100px; 
+ left: 10pc;
+ width: 21pc;
+ height: 5pc;
+ font-weight: bolder;
+ font-size: 25px;
+ color: rgb(40, 23, 123);
+ background-color: rgb(187, 188, 245);
+ border-radius: 15px;
+ font-family: "Lucida Console", "Courier New", monospace;
+ border-color:rgb(187, 188, 245) ;
+
+}

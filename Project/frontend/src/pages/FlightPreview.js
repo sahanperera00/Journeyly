@@ -5,9 +5,14 @@ import '../styles/sudul/flightPreview.css';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+function alertt(){
+    alert("Please login to reserve a flight");
+}
+
 function FlightPreview() {
     const [name, setName]=useState('');
     const [flightId,setFligtId]=useState('');
+    const [airline,setAirline]=useState('');
     const [startAirport,setStartAirport]=useState('');
     const [departureDate,setDepartureDate]=useState('');
     const [departureTime,setDepartureTime]=useState('');
@@ -18,6 +23,24 @@ function FlightPreview() {
     const [businessClass,setBusinessPrice]=useState('');
     const [imageI, setImageI] = useState('');
  //   const [images, setImages] = useState('');
+
+
+ function checkLogin(){
+    if(localStorage.getItem("ID")==null){
+        return(
+        <Link to={'/registration'} onClick={alertt} >
+        <div>
+            <button className='flightBtn'>Make A Reservation</button>
+        </div>
+        </Link>)   
+    }else{
+        return(<Link to={'/flightResForm/'+id}>
+        <div>
+            <button className='flightBtn' >Make A Reservation</button>
+        </div>
+        </Link>)   
+    }
+ }
 
     const {id} = useParams();
   
@@ -38,6 +61,7 @@ function FlightPreview() {
                 } */
                 setName(res.data.name);
                 setFligtId(res.data.flightId);
+                setAirline(res.data.airline);
                 setStartAirport(res.data.startAirport);
                 setDepartureDate(res.data.departureDate);
                 setDepartureTime(res.data.departureTime);
@@ -60,6 +84,7 @@ function FlightPreview() {
         <div className='previewBG'>
             <div className='prevCont'>
             <h1 className='text-center'>{name}</h1>
+            <center><h7>{airline}</h7></center>
         <div className="App">
             <div>
                 <img alt='pic' className='pic' src={imageI}/>
@@ -73,15 +98,21 @@ function FlightPreview() {
                  <b> Arrival Time               : </b>{arrivalTime}<br/>
                  <b> Economy Class Ticket Price : </b>{economyClass}<br/>
                  <b> Business Class Ticket Price: </b>{businessClass}<br/></div>
-        </div>
-        <Link to={'/flightResForm'}>
+                 <br/>
+                 {
+                    checkLogin()
+                 }
+                 {/* <Link to={'/flightResForm/'+id}>
             <div>
-                <button className='flightBtn'>Make A Reservation</button>
+                <button className='flightBtn' >Make A Reservation</button>
             </div>
-            </Link>
+            </Link> */}
+        </div>
+        
             </div>
         </div>
     )
+
 }   
 
 export default FlightPreview;

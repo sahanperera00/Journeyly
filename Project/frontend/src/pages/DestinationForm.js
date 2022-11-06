@@ -77,18 +77,10 @@ function DestinationForm() {
                         <input type="text" className="form-control" onChange={(e) => { setLocation(e.target.value) }} required/>
                     </div>
                     <div className="form-group">
-                        <label className="form-label">What you need to know</label>
-                        <textarea rows={3} type="text" className="form-control" onChange={(e) => { setExtra(e.target.value) }} required/>
-                    </div>
-                    <div className="form-group">
-                        <label className="form-label">What's included</label>
-                        <textarea rows={3} type="text" className="form-control" onChange={(e) => { setIncludes(e.target.value) }} required/>
-                    </div>
-                    <div className="form-group">
                         <label className="form-label">Images</label>
                         <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }} required/>
                     </div><br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Add Destination</button><br /><br />
                 </form>
             </div>
         </div>

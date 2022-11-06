@@ -5,6 +5,13 @@ const Schema = mongoose.Schema;
 const desTicketSchema = new Schema({
     desId: {
         type: String,
+    },
+    userID:{
+        type: String,
+        required: true
+    },
+    desName: {
+        type: String,
         required: true
     },
     firstName: {
