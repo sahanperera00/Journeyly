@@ -139,8 +139,8 @@ function EditorWebContent() {
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
       SetData(data);
-      // SetBttn(data);
       return (
+        <>
         <tr>
           <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
           <td className='setWidth concat' style={{ display: cold2hid }}>{cold2}</td>
@@ -155,6 +155,7 @@ function EditorWebContent() {
           <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
           <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
         </tr>
+          </>
       )
     });
 
@@ -305,7 +306,7 @@ function EditorWebContent() {
         cold9hid = 'none';
         cold10hid = 'none';
         cold11 = <Link className='updatebttn' to={"/editorDashboard/destinationUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
+        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/destinationForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
       case 'taxi':
