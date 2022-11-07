@@ -1,11 +1,10 @@
 .desresContainer {
     /* background-color: aqua; */
-    /* background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fbg5.webp?alt=media&token=4b037ba3-b1c9-49af-bb87-dd3e52e2d496); */
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fticketback.jpg?alt=media&token=4b152c76-5d84-4f04-8406-eb5c3905843f);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    /* background-color: aliceblue; */
     padding-top: 6%;
     width: 100%;
     height: 100vh;
@@ -17,9 +16,6 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Courier Prime', monospace;
-    /* background-color: antiquewhite; */
-    /* display: flex; */
     margin-top: 2%;
 }
 
@@ -28,15 +24,12 @@
     height: 100%;
     padding: 0 100px;
     padding-top: 40px;
-    /* background-color: aqua; */
 }
 
 .desresform {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    /* float: right; */
-    /* margin-right: 30px; */
     padding: 50px;
     backdrop-filter: blur(8px);
     background-color: rgba(0, 0, 0, 0.073);
@@ -47,7 +40,6 @@
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    /* background-color: aquamarine; */
 }
 
 .desrestckt {
@@ -56,14 +48,7 @@
     overflow: hidden;
     border-radius: 15px;
     display: flex;
-    /* height: 300px; */
-    /* margin-left: 30px; */
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* padding: 50px; */
-    /* backdrop-filter: blur(8px); */
-    /* text-align: left; */
-    /* background-color: rgba(0, 0, 0, 0.073); */
+    border: 0.01px solid rgba(255, 255, 255, 0.141);
 }
 
 .desrestcktinner{
@@ -73,10 +58,7 @@
     text-align: start;
     padding: 0 40px;
     color: #000000;
-    
-    /* background-color: aliceblue; */
-    /* display: flex; */
-    
+    font-family: 'Space Mono', monospace;
 }
 
 .qrcont{
@@ -108,9 +90,8 @@
     justify-content: center ;
     width: 250px;
     position: absolute;
-    /* background-color: aqua; */
     left: 570px;
-    top: 115px;
+    top: 110px;
     transform: rotate(270deg);
 }
 
