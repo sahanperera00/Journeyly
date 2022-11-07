@@ -76,9 +76,10 @@ function HotelPreview(){
                     <img className='hotelImg' alt='pic' src={images}/>
                 </div>
                 <div>
-                    <p>Price per Night: {price}<br/></p>
+                    <p>Location:<b>{location}</b> </p>
+                    <p>Price per Night:<b> {price}</b><br/></p>
                     <p>{description}<br/></p>
-                    <p>Stars: {stars}<br/></p>
+                    <p>Stars: <b>{stars}</b><br/></p>
                     Facilities;<p className='facil'> {facilities}<br/></p>
                 </div>
                 {
