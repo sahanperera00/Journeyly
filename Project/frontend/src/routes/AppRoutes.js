@@ -61,7 +61,10 @@ import {
     PackagePreview,
     PackageReservationForm,
     PackageReservationUpdateForm,
-
+   
+    FinanceUpdateForm,
+    FinanceEdit,
+    
 } from '../pages';
 
 
@@ -106,7 +109,6 @@ function AppRoutes() {
                     <Route path="ceoRevenue" element={<CeoRevenue/>}/>
                 </Route>
                <Route path="/fianaceForm" element={<FinanceForm/>}/>
-               
                 <Route path="/editorDashboard" element={<SharedLayoutEditorDashboard/>}>
                     <Route index element={<EditorDashboard/>}/>
                     <Route path="editorWebContent/:type" element={<EditorWebContent/>}/>
@@ -134,6 +136,7 @@ function AppRoutes() {
                     <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm />} />
                     <Route path="hotelRes/:hotelResId" element={<HotelResUpdateForms />}/>
                     <Route path="PackageRes/:packageReservationId" element={<PackageReservationUpdateForm />}/>
+                   
                 </Route>
 
                 <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
@@ -143,6 +146,7 @@ function AppRoutes() {
                     <Route path="financeRevenue" element={<CeoRevenue />} />
                     <Route path="financeFlightUpdateForm/:id" element={<FinanceFlightUpdateForm />} />
                     <Route path="financeHotelUpdateForm/:id" element={<FinanceHotelUpdateForm/>}/>
+                   
                    
                 </Route>
             </Routes>

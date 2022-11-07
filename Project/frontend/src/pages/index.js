@@ -65,6 +65,7 @@ import HotelResUpdateForms from './HotelResUpdateForms';
 import PackageReservationUpdateForm from './PackageReservationUpdateForm';
 
 
+
 export {
     Home,
     EditorDashboard,
@@ -131,7 +132,5 @@ export {
     PackageReservationForm,
     FinanceHotelUpdateForm,
     HotelResUpdateForms,
-    
-
-
+   
 };
