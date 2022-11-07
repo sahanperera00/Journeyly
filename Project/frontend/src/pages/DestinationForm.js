@@ -80,7 +80,7 @@ function DestinationForm() {
                         <label className="form-label">Images</label>
                         <input type="file" className="form-control" onChange={(e) => { setImageI(e.target.files[0]) }} required/>
                     </div><br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Add Destination</button><br /><br />
                 </form>
             </div>
         </div>
