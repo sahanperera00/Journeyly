@@ -287,8 +287,8 @@ function Bookings() {
         cold3 = props.check_in;
         cold4 = props.check_out;
         cold5 = props.suite;
-        cold6 = props.adults;
-        cold7 = props.children;
+        cold6hid = 'none';
+        cold7hid = 'none';
         cold8 = props.customizations;
         cold9hid = 'none';
         cold10hid = 'none';
@@ -365,8 +365,8 @@ function Bookings() {
       col3 = 'Check In';
       col4 = 'Check Out';
       col5 = 'Suite';
-      col6 = 'No of Adults';
-      col7 = 'No of Children';
+      col6hid = 'none';
+      col7hid = 'none';
       col8 = 'Customizations';
       col9hid = 'none';
       col10hid = 'none';
