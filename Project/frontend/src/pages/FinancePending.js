@@ -209,7 +209,7 @@ function FinancePending() {
             case 'hotel':
                 cold1 = props.name;
                 cold2 = props.stars;
-                cold3 = 'none';
+                cold3hid = 'none';
                 cold4 = props.buyingPrice;
                 cold5 = props.sellingPrice;
                 cold6 = <Link className='updatebttn' to={"/financeDashboard/financeHotelUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
@@ -266,7 +266,7 @@ function FinancePending() {
             topicType = 'Hotels';
             col1 = 'Name';
             col2 = 'Star';
-            col3 = 'Ratings';
+            col3hid = 'none';
             col4 = 'Buying Price';
             col5 = 'Selling Price';
             col6 = 'Update';
