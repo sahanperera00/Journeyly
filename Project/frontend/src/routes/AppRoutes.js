@@ -31,6 +31,7 @@ import {
     VehicleForm,
     VehiclesEdit,
     UserDashboard,
+    UserProfile,
     FinanceForm,
     ClientDashboard,
     ProfileUpdateForm,
@@ -60,10 +61,10 @@ import {
     PackagePreview,
     PackageReservationForm,
     PackageReservationUpdateForm,
-
+   
     FinanceUpdateForm,
     FinanceEdit,
-    InvoiceForm,
+    
 } from '../pages';
 
 
@@ -135,7 +136,7 @@ function AppRoutes() {
                     <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm />} />
                     <Route path="hotelRes/:hotelResId" element={<HotelResUpdateForms />}/>
                     <Route path="PackageRes/:packageReservationId" element={<PackageReservationUpdateForm />}/>
-                    <Route path="invoiceForm/:id" element={<InvoiceForm/>}/>
+                   
                 </Route>
 
                 <Route path="/financeDashboard" element={<SharedLayoutFinanceDashboard />}>
@@ -145,6 +146,7 @@ function AppRoutes() {
                     <Route path="financeRevenue" element={<CeoRevenue />} />
                     <Route path="financeFlightUpdateForm/:id" element={<FinanceFlightUpdateForm />} />
                     <Route path="financeHotelUpdateForm/:id" element={<FinanceHotelUpdateForm/>}/>
+                   
                    
                 </Route>
             </Routes>
