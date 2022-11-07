@@ -328,7 +328,7 @@ function Bookings() {
         cold2 = props.date;
         cold3 = props.email;
         cold4 = props.phoneNo;
-        cold5hid = 'none';
+        cold5 = props.name1;
         cold6hid = 'none';
         cold7hid = 'none';
         cold8hid = 'none';
@@ -409,7 +409,7 @@ function Bookings() {
       col2 = 'Date';
       col3 = 'E-mail';
       col4 = 'phoneNo';
-      col5hid = 'none';
+      col5 = 'Package Name';
       col6hid = 'none';
       col7hid = 'none';
       col8hid = 'none';

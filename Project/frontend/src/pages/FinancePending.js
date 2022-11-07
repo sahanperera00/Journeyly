@@ -296,7 +296,7 @@ function FinancePending() {
             col3 = 'Destination';
             col4 = 'Vehicle';
             col5 = 'Price';
-            col6 = 'Ratings';
+            col6hid = 'none';
             break;
         case ('user'):
             topicType = 'Users';
@@ -307,6 +307,7 @@ function FinancePending() {
             col5hid = 'none';
             col6hid = 'none';
             break;  
+
     }
 
     useEffect(() => { getArray() }, [type]);
