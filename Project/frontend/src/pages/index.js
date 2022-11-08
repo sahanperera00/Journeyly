@@ -134,3 +134,4 @@ export {
 //     HotelResUpdateForm,
     FinanceVehicleUpdateForm,
     HotelResUpdateForms,
+};
