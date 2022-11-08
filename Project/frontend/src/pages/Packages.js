@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
+
 import { useEffect, useState } from 'react';
 import '../styles/praweena/Packages.css'
 import { Link } from 'react-router-dom';
@@ -16,7 +17,9 @@ import { useNavigate } from "react-router-dom";
 function Packages() { 
   const [packages, setPackages] = useState([]);
   const navigate = useNavigate();
- 
+  const [searchTerm, setSearchTerm] = useState("");
+
+
 
   const getPackages = () => {
     axios.get("http://localhost:8070/packages")
@@ -36,8 +39,22 @@ function Packages() {
     <h1 className='packageHeader'>Packages
     
           <h2 className='PackageDiscription'>Enjoy WonderFul Experience in Sri Lanka<br/>Plan Your Trip With Us </h2></h1>
+    
     <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
-      {packages.map((data) => {
+    <input className='packageSerach' type='text' placeholder='Search Your Destination here' onChange={(e) => { setSearchTerm(e.target.value) }} />
+
+    {packages.filter((data) => {
+
+     if(data.price!= null){
+    if (searchTerm == "") {
+      return data;
+    }else if(data.destination.toLowerCase().includes(searchTerm.toLowerCase())){
+      return data
+    }else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
+      return data
+    }}
+   } )
+      .map((data) => {
         return (
           <Card style={{ width: '75rem',height:'25rem', margin: '2rem', padding: '0rem'}} className='PackageCard'>
             <Card.Img src={data.image} className='imagePackage' />
@@ -45,7 +62,6 @@ function Packages() {
               <Card.Title className='packageTitle'>{data.name}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{data.PackagesId}</Card.Subtitle>
               <Card.Text>
-             
               Enter Package Name = {data.name}<br/>
               Travel Destination = {data.destination}<br/>
               Members Count      = {data.members}<br/>
@@ -55,23 +71,10 @@ function Packages() {
               Guide              = {data.guide}<br/> <br/>
               Price (LK rupees)  = {data.price}  
            
-          <button type="button" class="PackageSelect" data-bs-toggle="modal" data-bs-target="#exampleModal">
-           Select
+          <button type="button" class="PackageSelect" data-bs-toggle="modal" data-bs-target="#exampleModal"><Link to={'/PackagePreview/'+data._id}>
+           Select</Link>
           </button>
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-          <h1  >Confirm the Package</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      
-      
-        <button type="button" class="PopupNo"  data-bs-dismiss="modal">NO</button> <br></br>
-        <button type="button" class="PopupYes"> <Link to={'/PackagePreview/'+data._id}> Yes</Link></button> <br></br>
-      </div>
-    </div>
-  </div>
+   
 
               </Card.Text>
             </Card.Body>

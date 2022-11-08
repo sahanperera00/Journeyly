@@ -22,17 +22,7 @@ function PackageUpdateForm() {
     const newPackage = () => {   
         axios.get("http://localhost:8070/packages/"+id) //get id
             .then((res) => {
-             /*   const updatePackages  = {
-                    name: res.data.name,
-                    destination: res.data.destination,
-                    members: res.data.members,
-                    hotel: res.data.hotel,
-                    roomType: res.data.roomType,
-                    vehicle: res.data.vehicle,
-                    guide: res.data.guide,
-                    price: res.data.price,
-                    image: res.data.image
-                }*/
+             
                 setName(res.data.name);
                 setDestination(res.data.destination);
                 setMembers(res.data.members);

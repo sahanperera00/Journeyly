@@ -1,37 +1,37 @@
 .packageMain{
     
-    background-color: #d0daeb;
-    border: double;
-    
+  background-color: #d0daeb;
+  border: double;
   
-   
+
+ 
 }
 
 .pakgeMain2{
-  background-color:  rgba(166, 162, 223, 0.327);
-  ;
-   height: 99pc;
+background-color:  rgba(166, 162, 223, 0.327);
+;
+ height: 99pc;
 
 
 }
 .packageHeader{
-   
-  padding-top: 8%;
-  padding-bottom: 2%;
- font-family: 'Times New Roman', serif;
-  text-align: center;
-   position: relative;
-  overflow: hidden;
-  border-radius: 0 0 85% 85% / 5%;
-  font-size: 50px;
-  font-weight: 500;
-  width: 100%;
-  height: 100%;
-  
-  color: #090b0f;
-  text-shadow: 1px 1px 1px rgb(42, 17, 133);
-   background-image: linear-gradient(135deg, #9e9eb069 10%, #c3c3c569 100%);
-  
+ 
+padding-top: 8%;
+padding-bottom: 2%;
+font-family: 'Times New Roman', serif;
+text-align: center;
+ position: relative;
+overflow: hidden;
+border-radius: 0 0 85% 85% / 5%;
+font-size: 50px;
+font-weight: 500;
+width: 100%;
+height: 100%;
+
+color: #090b0f;
+text-shadow: 1px 1px 1px rgb(42, 17, 133);
+ background-image: linear-gradient(135deg, #9e9eb069 10%, #c3c3c569 100%);
+
 }
 
 .PackageDiscription{
@@ -44,183 +44,196 @@ font-size: 20px;
 
 .packageTitle
 {
-    text-align: left; 
-    font-size: 35px;
-  font-weight: 500; 
-  padding: 20px;
-  color: rgba(10, 15, 106, 0.86);
-  font-family:'Times New Roman', serif;
-  font-weight:bold
+  text-align: left; 
+  font-size: 35px;
+font-weight: 500; 
+padding: 20px;
+color: rgba(10, 15, 106, 0.86);
+font-family:'Times New Roman', serif;
+font-weight:bold
 }
 
 
 .packageBody{
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  
+  background-repeat: no-repeat;
+  display: block;
    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;  
-    
-    background-repeat: no-repeat;
-    display: block;
-     
-    
+  
 }
 
 .PackageCard{
-    
+  
 
-   
-    border: 4px solid #f8f8f8;
-    text-align:left ;
-    color: rgb(28, 1, 54);
-    font-size: 20px;
-    font-weight:bolder;
-    font-family: 'Times New Roman', serif;
-    margin-right: 40pc;
-   
+ 
+  border: 4px solid #f8f8f8;
+  text-align:left ;
+  color: rgb(28, 1, 54);
+  font-size: 20px;
+  font-weight:bolder;
+  font-family: 'Times New Roman', serif;
+  margin-right: 40pc;
+ 
+  
+  box-sizing: border-box;
+ 
+    overflow: hidden;
+    border-radius: 3pc;
     
-    box-sizing: border-box;
-   
-      overflow: hidden;
-      border-radius: 3pc;
-      
-      background-color: rgb(247, 248, 249);
-      
+    background-color: rgb(247, 248, 249);
+    
 
 }
 
 
-  .imagePackage{
+.imagePackage{
+      
+      
+      object-fit: cover;
+      display: block;
+      margin-right: 28px;
+      margin-top: 38px;
+      margin-bottom: 11pc;
+      float: left;
+      width: 30%;
+      height: 80%;
+      overflow: hidden;
+      display: block;
+      border-radius: 25px;
+      
+      aspect-ratio: 4/3;
+      position: absolute;
+     right: 0px;
+     width: 30rem;
+     height:'30rem';
+     padding: 0px;
+     
+      }
+  
+      .PackageSelect    
+      {
+        height: 3pc;
+        width: 8pc;
+        margin-left: 10pc;
+        color: rgb(4, 4, 12);
+        background-color: rgb(123, 123, 214);
+        border-radius: 1pc;
+        border: #a6afbe;
+        font-weight:bolder
         
-        
-        object-fit: cover;
-        display: block;
-        margin-right: 28px;
-        margin-top: 38px;
-        margin-bottom: 11pc;
-        float: left;
-        width: 30%;
-        height: 80%;
-        overflow: hidden;
-        display: block;
-        border-radius: 25px;
-        
-        aspect-ratio: 4/3;
-        position: absolute;
-       right: 0px;
-       width: 30rem;
-       height:'30rem';
-       padding: 0px;
-       
-        }
-    
-        .PackageSelect    
-        {
-          height: 3pc;
-          width: 8pc;
-          margin-left: 10pc;
-          color: rgb(4, 4, 12);
-          background-color: rgb(123, 123, 214);
-          border-radius: 1pc;
-          border: #a6afbe;
-          font-weight:bolder
-          
-        }
-    
+      }
+  
 
 
 .PopupNo{
-  background-color: rgb(128, 138, 138);
-  font-weight:700;
- height: 40pt;
- width: 20pc;
- align-self: center;
-  
-  
+background-color: rgb(128, 138, 138);
+font-weight:700;
+height: 40pt;
+width: 20pc;
+align-self: center;
+
+
 }
 
 .PopupYes{
-  background-color: rgba(26, 33, 174, 0.5);
-  font-weight: bold;
-  height: 40pt;
-  width: 20pc;
-  align-self: center;
-  
-  
-  
+background-color: rgba(26, 33, 174, 0.5);
+font-weight: bold;
+height: 40pt;
+width: 20pc;
+align-self: center;
+
+
+
 }
 .previewContainerPackage{
-  padding-top: 7%;
-  padding-bottom: 70pc;
-  background-color: rgba(166, 162, 223, 0.327);
-  
- 
+padding-top: 7%;
+padding-bottom: 70pc;
+background-color: rgba(166, 162, 223, 0.327);
+
+
 }
 
 .PreviewHeading{
-  font-weight: bolder;
-  text-align: center;
-  font-family: "Times New Roman", Times, serif;
+font-weight: bolder;
+text-align: center;
+font-family: "Times New Roman", Times, serif;
 }
-    
+  
 .PackagePreview{
-  font-size: 35px;
-  font-weight: 500;
-  padding-left: 4pc; 
+font-size: 35px;
+font-weight: 500;
+padding-left: 4pc; 
 
 }
 .PackImg{
-  display: grid;
-  place-items: center;
- 
+display: grid;
+place-items: center;
+
 }
 .packageRes{
-  width: 70%;
-  /* margin-left: auto;
-  margin-right: auto; */
-  float: right;
- margin-right: 500px;
- 
- width: 220px;
-  padding: 50px;
-  backdrop-filter: blur(8px);
-  background-color: rgba(49, 39, 237, 0.073);
-  align-self: center;
+width: 70%;
+/* margin-left: auto;
+margin-right: auto; */
+float: right;
+margin-right: 500px;
+
+width: 220px;
+padding: 50px;
+backdrop-filter: blur(8px);
+background-color: rgba(49, 39, 237, 0.073);
+align-self: center;
 padding-bottom: 10pc;
-  width: 50%;
-  height: 100%;
+width: 50%;
+height: 100%;
 }
 
 .pkgprice{
-  text-align: center;
-  font-weight:bolder;
-  font-size: x-large;
+text-align: center;
+font-weight:bolder;
+font-size: x-large;
 }
 
 .previewtest{
-  text-align: center;
-  font-weight:bolder;
-  font-size: x-large;
-  margin: auto;
-  width: 25%;
-  border: 4px solid rgb(97, 87, 137);
-  padding: 10px;
-  border-radius: 15px;
-  font-family: Lucida , Helvetica, sans-serif;
+text-align: center;
+font-weight:bolder;
+font-size: x-large;
+margin: auto;
+width: 25%;
+border: 4px solid rgb(97, 87, 137);
+padding: 10px;
+border-radius: 15px;
+font-family: Lucida , Helvetica, sans-serif;
 }
 
 .btnPkg{
-  position: absolute;
- top: 100px; 
- left: 10pc;
- width: 21pc;
- height: 5pc;
- font-weight: bolder;
- font-size: 25px;
- color: rgb(40, 23, 123);
- background-color: rgb(187, 188, 245);
- border-radius: 15px;
- font-family: "Lucida Console", "Courier New", monospace;
- border-color:rgb(187, 188, 245) ;
+position: absolute;
+top: 100px; 
+left: 10pc;
+width: 21pc;
+height: 5pc;
+font-weight: bolder;
+font-size: 25px;
+color: rgb(40, 23, 123);
+background-color: rgb(187, 188, 245);
+border-radius: 15px;
+font-family: "Lucida Console", "Courier New", monospace;
+border-color:rgb(187, 188, 245) ;
+
+}
+.packageSerach{
+  width: 100%;
+    padding-left: 20px;
+    border-radius: 15px;
+    height: 4pc;
+    background-color: #25041500;
+    border: 0.1px solid rgba(32, 6, 201, 0.258);
+    font-weight: bolder;
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+
 
 }

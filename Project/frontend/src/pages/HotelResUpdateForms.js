@@ -4,11 +4,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 //import '../styles/sudul/HotelResUpdateForm.css';
 
 
-function HotelResUpdateForm() {
+function HotelResUpdateForms() {
     const [name, setName] = useState('');
     const [check_in, setCheckIn] = useState('');
     const [check_out, setCheckOut] = useState('');
     const [contactNo, setcontact] = useState('');
+    const [hotel_Name, setHotelName] =useState('');
+    const [suite,setSuite]=useState('');
     // const [airline, setAirline] = useState('');
     // const [depDate, setDepDate] = useState('');
     // const [depTime, setDepTime] = useState('');
@@ -28,12 +30,15 @@ function HotelResUpdateForm() {
     const navigate = useNavigate();
 
     const getReservation = () => {
-        axios.get("http://localhost:8070/hotelRes/user/" + hotelResId)
+        axios.get("http://localhost:8070/hotelRes/" + hotelResId)
             .then((res) => {
                 setName(res.data.name);
                 setCheckIn(res.data.check_in);
                 setCheckOut(res.data.check_out);
                 setcontact(res.data.contactNo);
+                setHotelName(res.data.hotel_Name);
+                setSuite(res.data.suite);
+                
                 
 
                 // const date = new Date(res.data.date);
@@ -61,7 +66,8 @@ function HotelResUpdateForm() {
                         name,
                         check_in,
                         check_out,
-                        contactNo
+                        contactNo,
+                        suite
                     };
 
                     axios.put(`http://localhost:8070/hotelRes/customize/${hotelResId}`, newTicket)
@@ -79,19 +85,23 @@ function HotelResUpdateForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Name</label>
-                        <input type="text" className="form-control" value={name} onChange={(e) => { setFirstName(e.target.value) }} required />
+                        <input type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Suite</label>
+                        <input type="text" className="form-control" value={suite} onChange={(e) => { setSuite(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Check In Time</label>
-                        <input type="date" className="form-control" value={check_in} onChange={(e) => { setLastName(e.target.value) }} required />
+                        <input type="date" className="form-control" value={check_in} onChange={(e) => { setCheckIn(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                 <label className="form-label">Check Out Time</label>
-                <input type="date" className="form-control" value={check_out} onChange={(e) => {setEmail(e.target.value)}} required/>
+                <input type="date" className="form-control" value={check_out} onChange={(e) => {setCheckOut(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="Number" className="form-control" value={contactNo} onChange={(e) => {setPhoneNo(e.target.value)}} required/>
+                <input type="Number" className="form-control" value={contactNo} onChange={(e) => {setcontact(e.target.value)}} required/>
               </div>
                
               <button type="submit" className="submitbtn">Submit</button>
@@ -101,4 +111,4 @@ function HotelResUpdateForm() {
     )
 }
 
-export default HotelResUpdateForm;
+export default HotelResUpdateForms;

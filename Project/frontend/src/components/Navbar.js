@@ -18,12 +18,25 @@ import { signOut } from 'firebase/auth';
 function Navbar() {
 
   const [show, setShow] = useState(false);
+  const [showLogout, setLogout] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
+
+  function view() {
+    if (localStorage.getItem("ID") === null) {
+      return (<Button variant="outline-light" onClick={handleShow}>Login</Button>)
+    } else {
+      return (
+        <Link to={`/clientDashboard/${localStorage.getItem("ID")}`}>
+          <Button variant='outline-light' >Profile</Button>
+        </Link>)
+    }
+  }
+
 
   // sign in with email and password
   const [
@@ -41,6 +54,7 @@ function Navbar() {
     if (user) {
       axios.post("http://localhost:8070/client/login", { email, password: password })
         .then((client) => {
+          localStorage.setItem("ID", client.data._id);
           return navigate(`/ClientDashboard/${client.data._id}`);
         }).catch((err) => {
           alert("Login unsuccessful");
@@ -63,6 +77,10 @@ function Navbar() {
         })
     }
   }, [gUser])
+
+  useEffect(() => {
+    if (error || gError) alert("Login unsuccessful");
+  }, [error, gError])
 
 
   // if (error) {
@@ -115,7 +133,6 @@ function Navbar() {
   //   console.log('failed', err);
   // };
 
-
   return (
     <Navbarx className='NavbarCont' expand="lg">
       <Container>
@@ -131,8 +148,9 @@ function Navbar() {
             <Nav.Link as={Link} to="/taxis" className='navlink'>Taxis</Nav.Link>
             <Nav.Link as={Link} to="/packages" className='navlink'>Packages</Nav.Link>
           </Nav>
-          <Button variant="outline-light" onClick={handleShow}>Login</Button>
-
+          {
+            view()
+          }
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -145,10 +163,10 @@ function Navbar() {
                 signInWithEmailAndPassword(email, password);
               }}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="email"
+                    placeholder="Enter your email"
                     autoFocus
                     onChange={(e) => {
                       setEmail(e.target.value)
@@ -161,11 +179,10 @@ function Navbar() {
                 >
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password"
-                    placeholder="password"
+                    placeholder="Enter your password"
                     onChange={(e) => {
                       setPassword(e.target.value)
                     }} required />
-                  <small className='text-danger'>{error?.message}</small >
 
                 </Form.Group>
                 <div className='btnContainerlogin'>
@@ -185,7 +202,7 @@ function Navbar() {
                         signInWithGoogle();
                       }}>
                         <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
-                        Continue With Google
+                        Continue with Google
                       </span>
                   }
 
@@ -202,7 +219,6 @@ function Navbar() {
                 /> */}
 
                 </div>
-                <small className='text-danger'>{gError?.message}</small >
 
               </Form>
             </Modal.Body>

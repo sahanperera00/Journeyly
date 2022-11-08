@@ -6,6 +6,9 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import '../styles/leo/HotelPreview.css'
 import { Link } from 'react-router-dom';
 
+function alertt(){
+    alert("Please login to reserve a flight");
+}
 
 function HotelPreview(){
     const [name, setName]=useState('');
@@ -16,6 +19,23 @@ function HotelPreview(){
     const [facilities,setFacilities]=useState('');
     const [images,setImages]=useState('');
     // const [hotel, setHotel] = useState('');
+
+    function checkLogin(){
+        if(localStorage.getItem("ID")==null){
+            return(
+            <Link to={'/registration'} onClick={alertt} >
+            <div>
+                <button className='hotelbtn'>Make A Reservation</button>
+            </div>
+            </Link>)   
+        }else{
+            return(<Link to={'/hotelResForm/'+id}>
+            <div>
+                <button className='hotelbtn' >Make A Reservation</button>
+            </div>
+            </Link>)   
+        }
+     }
 
     const{id}=useParams();
 
@@ -56,17 +76,21 @@ function HotelPreview(){
                     <img className='hotelImg' alt='pic' src={images}/>
                 </div>
                 <div>
-                    <p>Price per Night: {price}<br/></p>
+                    <p>Location:<b>{location}</b> </p>
+                    <p>Price per Night:<b> {price}</b><br/></p>
                     <p>{description}<br/></p>
-                    <p>Stars: {stars}<br/></p>
+                    <p>Stars: <b>{stars}</b><br/></p>
                     Facilities;<p className='facil'> {facilities}<br/></p>
                 </div>
+                {
+                    checkLogin()
+                }
             </div>
-            <Link to={'/hotelResForm/'+id}>
+            {/* <Link to={'/hotelResForm/'+id}>
             <div>
                 <button className='hotelbtn'>Make A Reservation</button>
             </div>
-            </Link>
+            </Link> */}
         </div>
     )
 }   

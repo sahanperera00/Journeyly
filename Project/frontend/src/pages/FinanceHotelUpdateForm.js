@@ -36,7 +36,7 @@ function FinanceHotelUpdateForm() {
                         sellingPrice
                     }
                     await axios.put("http://localhost:8070/hotels/update/" + id, newHotel).then(() => {
-                        alert("Flight Updated");
+                        alert("Hotel Details Updated And Uploaded");
                         navigate("/financeDashboard/pending/hotel");
                     }).catch((err) => {
                         alert(err);

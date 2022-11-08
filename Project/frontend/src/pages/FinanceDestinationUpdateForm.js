@@ -96,7 +96,7 @@ function FinanceDestinationUpdateForm() {
                         <label className="form-label">Adult Ticket Selling Rate</label>
                         <input type="text" className="form-control" onChange={(e) => { setAdultTicketSellingRate(e.target.value) }} required/>
                     </div><br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Update Details</button><br /><br />
                 </form>
             </div>
         </div>

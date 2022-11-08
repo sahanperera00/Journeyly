@@ -140,7 +140,7 @@ const getData = () => {
                         totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;          
                 })}
                 <div className='CeoRevInConR1card'>
-                <h1>{revFlight}</h1>
+                <h1>{totalFlightRev}</h1>
                     <h4>Revenue from Flights</h4>
                 </div>
                 {

@@ -12,12 +12,12 @@ function ClientDashboard() {
   if (loading) return <p className='text-center mt-5'>Loading ...</p>
 
   if (!user) {
-    navigate('/registration');
+    navigate('/');
   }
   return (
     <div className='CDashMainCont'>
       <ClientDashSidebar />
-      <span className='logoutBtn' onClick={() => signOut(auth)}>Logout</span>
+      <span className='logoutBtn' onClick={() => signOut(auth)&localStorage.removeItem("ID")}>Logout</span>
 
       <Outlet />
     </div>

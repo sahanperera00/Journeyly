@@ -52,6 +52,10 @@ function getDifference(day1,day2){
   const time=Math.abs(dateOne-dateTwo);
   const days =Math.ceil(time/(1000*60*60*24));
 
+  if (days==NaN){
+    return 0;
+  }
+
   return days;
 }
   return (
@@ -70,7 +74,8 @@ function getDifference(day1,day2){
               check_in,
               check_out,
               suite,
-              contactNo
+              contactNo,
+              userID:localStorage.getItem("ID"),
             };
             console.log(newBook);
 
@@ -84,13 +89,13 @@ function getDifference(day1,day2){
             });
           }}>
             <div className="form-group">
-              <label className="form-label">First Name</label>
+              <label className="form-label">Full Name</label>
               <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <label className="form-label">Hotel Name</label>
               <input type="text" className="form-control" onChange={(e) => {setHotelName(e.target.value)}} required/>
-            </div>
+            </div> */}
             <div className="form-group">
               <label className="form-label">Check In </label>
               <input type="date" className="form-control" id="arrdate" onChange={(e) => {setCheckin(e.target.value)}} required/>
@@ -121,17 +126,17 @@ function getDifference(day1,day2){
           </div>
            <div className='hotelrestcktcont'>
             <div className='hotelrestckt'>
-              <p>Name :{name}</p>
-              <p>Hotel Name :{hotel.name}</p>
-              <p>Check In Date :{check_in}</p>
-              <p>Check Out Date :{check_out}</p>
+              <p>Name :<b>{name}</b></p>
+              <p>Hotel Name :<b>{hotel.name}</b></p>
+              <p>Check In Date :<b>{check_in}</b></p>
+              <p>Check Out Date :<b>{check_out}</b></p>
               {/* <p>Suite :</p> */}
-              <p>Suite :{suite}</p>
-              <p>Contact Number :{contactNo}</p>
+              <p>Suite :<b>{suite}</b></p>
+              <p>Contact Number :<b>{contactNo}</b></p>
               {/* <p>Number of Children</p> */}
-              <p>Number of days at the hotel: {getDifference(check_in,check_out)} days</p>
+              <p>Number of days at the hotel: <b>{getDifference(check_in,check_out)}</b> days</p>
               <br/>
-              <h3>Total :{getDifference(check_in,check_out)*hotel.sellingPrice}</h3>
+              <h3>Total :<b>{getDifference(check_in,check_out)*hotel.sellingPrice}</b></h3>
               </div>
           </div> 
         </div><br />

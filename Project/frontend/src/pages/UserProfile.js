@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
+import { deleteUser } from 'firebase/auth';
+import auth from '../firebase';
 
 function UserProfile() {
 
@@ -36,15 +38,25 @@ function UserProfile() {
       });
   }
 
-  const deleteClient = (id) => {
-    axios.delete(`http://localhost:8070/client/delete/${id}`)
-      .then(() => {
-        alert("User account deleted");
-        navigate('/');
-      })
-      .catch((err) => {
-        alert(err);
-      });
+  const deleteClient = async (id) => {
+
+    try {
+      await deleteUser(auth.currentUser);
+
+      axios.delete(`http://localhost:8070/client/delete/${id}`)
+        .then(() => {
+          localStorage.removeItem("ID");
+          alert("User account deleted");
+          navigate('/');
+        })
+        .catch((err) => {
+          alert(err);
+        });
+
+    } catch (error) {
+      alert("Could not delete user");
+      console.log(error);
+    }
   }
 
   useEffect(() => { getClient() }, [id]);

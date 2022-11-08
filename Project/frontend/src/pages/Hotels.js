@@ -31,8 +31,8 @@ function Hotels() {
 
       <div className='hotelContainer'>
         <div className="hotelSideBar">
-          <h1>SideBar</h1>
-          <input type="text" placeholder='Hakuna Matata' onChange={event=>{setSearchTerm(event.target.value)}}/>
+          <h1>Search</h1>
+          <input type="text" placeholder='Hotel Name or Location' onChange={event=>{setSearchTerm(event.target.value)}}/>
         </div>
         <div className="hotelBodyContainer">
           {hotels.filter((data)=>{
@@ -55,7 +55,7 @@ function Hotels() {
               <div className='TextContainer'>
                 <center><h2>{data.name} ({data.location})</h2></center>
                   <p className='priceTage'>Price:Rs. {data.sellingPrice}<br/></p>
-                  <p className='desTage'>Description: {data.description}<br/></p>
+                  <p className='desTage'>{data.description}<br/></p>
                   <p className='starTage'>Stars: {data.stars}<br/></p>
               </div>
             </div>
