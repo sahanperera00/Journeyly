@@ -27,11 +27,11 @@ function Navbar() {
   const navigate = useNavigate();
 
   function view(){
-    if(localStorage.getItem("ID")===null){
+    if(sessionStorage.getItem("ID")===null){
       return(<Button variant="outline-light" onClick={handleShow}>Login</Button>)  
     }else{
       return(
-      <Link to={`/clientDashboard/${localStorage.getItem("ID")}`}>
+      <Link to={`/clientDashboard/${sessionStorage.getItem("ID")}`}>
       <Button variant='outline-light' >Profile</Button>
       </Link>)
     }
@@ -54,7 +54,7 @@ function Navbar() {
     if (user) {
       axios.post("http://localhost:8070/client/login", { email, password: password })
         .then((client) => {
-          localStorage.setItem("ID",client.data._id);
+          sessionStorage.setItem("ID",client.data._id);
           return navigate(`/ClientDashboard/${client.data._id}`);
         }).catch((err) => {
           alert("Login unsuccessful");

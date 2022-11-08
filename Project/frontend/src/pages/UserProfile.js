@@ -39,7 +39,7 @@ function UserProfile() {
   const deleteClient = (id) => {
     axios.delete(`http://localhost:8070/client/delete/${id}`)
       .then(() => {
-        localStorage.removeItem("ID");
+        sessionStorage.removeItem("ID");
         alert("User account deleted");
         navigate('/');
       })
