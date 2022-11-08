@@ -48,10 +48,6 @@ function UserProfile() {
       .catch((err) => {
         alert(err);
       });
-    } catch (error) {
-      alert("Could not delete user");
-      console.log(error);
-    }
   }
 
   useEffect(() => { getClient() }, [id]);
