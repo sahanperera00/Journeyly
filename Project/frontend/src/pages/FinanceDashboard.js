@@ -9,7 +9,7 @@ function FinanceDashboard() {
     const [packages, setPackages] = useState([]);
     const [clients, setClients] = useState([]);
     const [destinations, setDestinations] = useState([]);
-
+    const [invoice, setInvoice] = useState([]);
     var countFlight = 0;
     var countHotel = 0;
     var countDestination = 0 ;
@@ -61,6 +61,14 @@ function FinanceDashboard() {
         axios.get('http://localhost:8070/client')
             .then((response) => {
                 setClients(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+            axios.get('http://localhost:8070/invoice')
+            .then((response) => {
+                setInvoice(response.data);
             })
             .catch((error) => {
                 console.log(error);
