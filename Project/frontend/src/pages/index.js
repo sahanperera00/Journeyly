@@ -131,7 +131,7 @@ export {
     PackageReservationForm,
     FinanceHotelUpdateForm,
     HotelResUpdateForm,
-    FinanceVehicleUpdateForm
+    FinanceVehicleUpdateForm,
     HotelResUpdateForms,
 
 };
