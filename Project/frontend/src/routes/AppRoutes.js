@@ -61,7 +61,6 @@ import {
     PackagePreview,
     PackageReservationForm,
     PackageReservationUpdateForm,
-    InvoiceForm,
    
     FinanceUpdateForm,
     FinanceEdit,
@@ -147,7 +146,7 @@ function AppRoutes() {
                     <Route path="financeRevenue" element={<CeoRevenue />} />
                     <Route path="financeFlightUpdateForm/:id" element={<FinanceFlightUpdateForm />} />
                     <Route path="financeHotelUpdateForm/:id" element={<FinanceHotelUpdateForm/>}/>
-                    <Route path="invoiceForm/" element={<InvoiceForm/>}/>
+                    
                    
                    
                 </Route>
