@@ -27,6 +27,9 @@ function PackageReservationForm({}) {
               alert(err.message);
           });
       }
+      
+
+
       useEffect(()=> getPackages(),[]);
 
   return (
@@ -90,14 +93,13 @@ function PackageReservationForm({}) {
             </div>
             <div className='Packgecontainer'>
            
-           
+           <p> Price :{packages.price}</p>
             <p>Name :{name}</p>
               <p>Reserve Date :{date}</p>
-              <p>Email :{phoneNo}</p>
+              <p>Email :{email}</p>
               <p>Contact Number :{phoneNo}</p>
               <br/>
-            
-
+           
             </div>
             
             </div>
