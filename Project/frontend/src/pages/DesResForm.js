@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import QRCode from 'react-qr-code';
 import BarCode from 'react-barcode';
+import Tilt from '../components/Tilt';
 
 function DesResForm({ destination }) {
   const [firstName, setFirstName] = useState('');
@@ -17,11 +18,19 @@ function DesResForm({ destination }) {
 
   const navigate = useNavigate();
 
+  const options = {
+    reverse: true,
+    speed: 1000,
+    max: 10,
+    glare: false,
+    "max-glare": 0.1,
+};
   return (
     <div id="desresform" className="desresContainer">
       <h1>Ticket Details</h1>
       <div className='desreseinnercontainer'>
         <div className='desrestcktcont'>
+        <Tilt options={options}>
           <div className='desrestckt'>
             <div className='desrestcktinner'>
               <div className='row'>
@@ -31,7 +40,7 @@ function DesResForm({ destination }) {
                 <div className='col-md-3' style={{ fontSize: "12px" }}>
                   <p>Name :</p>
                 </div>
-                <div className='col-md-9' style={{ fontSize: "14px", fontFamily: "Courier Prime, monospace" }}>
+                <div className='col-md-9' style={{ fontSize: "14px", fontWeight: "bold"}}>
                   <p>{firstName} {lastName}</p>
                 </div>
                 <div className='col-md-3' style={{ fontSize: "12px" }}>
@@ -86,14 +95,15 @@ function DesResForm({ destination }) {
                     width={0.6}
                     height={30}
                     fontSize={10}
-                    displayValue={false}
+                    displayValue={true}
                     background="#FFFFFF00" />
                     </center>
                 </div>
               </div>
             </div>
-            <img src={"https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fticket.png?alt=media&token=523e1274-1e53-4e6f-a0c8-62cbd22fb312"} alt="destination" />
+            <img src={"https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fticket.png?alt=media&token=ed30c548-d368-40df-b445-03350ab7d9e5"} alt="destination" />
           </div>
+        </Tilt>
         </div>
         <div className='desresformcont'>
           <form className='row' onSubmit={async (e) => {
@@ -101,6 +111,7 @@ function DesResForm({ destination }) {
 
             const newTicket = {
               desId: destination._id,
+              userID:localStorage.getItem("ID"),
               desName: destination.name,
               firstName,
               lastName,
@@ -133,7 +144,7 @@ function DesResForm({ destination }) {
             </div>
             <div className="col-md-3">
               <label className="form-label">Email <span style={{ color: "red" }}>*</span></label>
-              <input type="email" className="form-control" onChange={(e) => { setEmail(e.target.value) }} pattern="/[a-z]+@+[a-z]{7}+.com/" required />
+              <input type="email" className="form-control" onChange={(e) => { setEmail(e.target.value) }} pattern="[a-z0-9]+@+[a-z]+.com" required />
             </div>
             <div className="col-md-3">
               <label className="form-label">Phone Number <span style={{ color: "red" }}>*</span></label>
@@ -156,7 +167,7 @@ function DesResForm({ destination }) {
               <input type="Number" className="form-control" onChange={(e) => { setChildren(e.target.value) }} min={0} max={10} required/>
             </div><br />
             <div className="col-md-12 gy-4">
-              <button type="submit" className="submitbtn">Submit</button>
+              <button type="submit" className="submitbtn">Buy Ticket</button>
             </div>
           </form>
         </div>

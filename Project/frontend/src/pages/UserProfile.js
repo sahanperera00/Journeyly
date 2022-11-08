@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
+import { deleteUser } from 'firebase/auth';
+import auth from '../firebase';
 
 function UserProfile() {
 
@@ -46,6 +48,10 @@ function UserProfile() {
       .catch((err) => {
         alert(err);
       });
+    } catch (error) {
+      alert("Could not delete user");
+      console.log(error);
+    }
   }
 
   useEffect(() => { getClient() }, [id]);

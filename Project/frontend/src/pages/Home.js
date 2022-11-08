@@ -44,7 +44,7 @@ function Home() {
                             <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-W.webp?alt=media&token=a652ffa4-96d9-4f20-987f-c0d8019a5283'} alt='heroimg' />
                             <h1>Travel with us</h1>
                             <p>Travel with us to the most beautiful places in Sri Lanka</p>
-                            <Link to={user?.email ? `/clientDashboard/${id}` : `/registration`}>
+                            <Link to='/registration'>
                                 <Button variant="outline-light">Let's get started</Button >
                             </Link>
                         </Carousel.Caption>
@@ -57,7 +57,7 @@ function Home() {
                             <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-W.webp?alt=media&token=a652ffa4-96d9-4f20-987f-c0d8019a5283'} alt='heroimg' />
                             <h1>Travel with us</h1>
                             <p>Travel with us to the most beautiful places in Sri Lanka</p>
-                            <Link to={user?.email ? `/clientDashboard/${id}` : `/registration`}>
+                            <Link to='/registration'>
                                 <Button variant="outline-light">Let's get started</Button >
                             </Link>
                         </Carousel.Caption>
@@ -70,7 +70,7 @@ function Home() {
                             <img src={'https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-W.webp?alt=media&token=a652ffa4-96d9-4f20-987f-c0d8019a5283'} alt='heroimg' />
                             <h1>Travel with us</h1>
                             <p>Travel with us to the most beautiful places in Sri Lanka</p>
-                            <Link to={user?.email ? `/clientDashboard/${id}` : `/registration`}>
+                            <Link to='/registration'>
                                 <Button variant="outline-light">Let's get started</Button >
                             </Link>
                         </Carousel.Caption>
@@ -83,7 +83,7 @@ function Home() {
 
             <Link to={"/financeDashboard"}>
                 <button className='FinanceBtn'>Finance Dashboard</button>
-                </Link>
+            </Link>
 
             <Link to={"/editorDashboard"}>
                 <button className='EditorBtn'>Editor Dashboard</button>

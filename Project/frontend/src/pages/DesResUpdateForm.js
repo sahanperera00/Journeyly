@@ -111,7 +111,7 @@ function DesResUpdateForm() {
                         <label className="form-label">Number of Children</label>
                         <input type="Number" className="form-control" value={children} onChange={(e) => { setChildren(e.target.value) }} min={0} required />
                     </div><br />
-                    <button type="submit" className="btn btn-dark">Submit</button>
+                    <button type="submit" className="submitbtn">Update</button>
                 </form>
             </div><br />
         </div>
