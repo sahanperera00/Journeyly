@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import auth from '../firebase';
 import { signOut } from 'firebase/auth';
 import '../styles/nash/RegistrationForm.css'
+import { useCallback } from 'react';
 
 
 function RegistrationForm() {
@@ -12,7 +13,7 @@ function RegistrationForm() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [contactNo, setContactNo] = useState('');
-    const [username, setUsername] = useState('');
+    // const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const newClient = {
@@ -20,7 +21,7 @@ function RegistrationForm() {
         lastName,
         email,
         contactNo,
-        username,
+        // username,
         password
 
     }
@@ -55,7 +56,7 @@ function RegistrationForm() {
                 lastName: "No name",
                 email: gUser.user?.email,
                 contactNo: "No contact",
-                username: "No username",
+                // username: "No username",
                 password: "No Password"
 
             }
@@ -71,9 +72,11 @@ function RegistrationForm() {
                     console.log(err);
                 })
         }
-    }, [user, gUser]);
 
-    if (error) console.log(error);
+        if (error || gError) alert("Unsuccessful!");
+
+    }, [user, gUser, error, gError]);
+
 
     return (
         <div>
@@ -112,15 +115,15 @@ function RegistrationForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setContactNo(e.target.value);
-                            }} required />
+                            }} pattern='[0-9]{10}' required />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label className="form-label">Username</label>
                         <input type="text" className="form-control" min="0" max="5"
                             onChange={(e) => {
                                 setUsername(e.target.value);
                             }} required />
-                    </div>
+                    </div> */}
                     <div className="form-group">
                         <label className="form-label">Password</label>
                         <input type="password" className="form-control"
@@ -129,7 +132,6 @@ function RegistrationForm() {
                             }} required />
                     </div>
                     <br />
-                    <small className='text-danger'>{error?.message}</small> <br />
                     {
                         loading
                             ? <button type="signup" className="btn btn-dark disabled">Signing Up...</button>
@@ -141,7 +143,7 @@ function RegistrationForm() {
                         signInWithGoogle();
                     }}>
                         <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
-                        Continue with Google</span><br /><br />
+                        Sign Up with Google</span><br /><br />
 
                     Already have an account?
                     <Link to={"/"}>

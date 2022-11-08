@@ -65,7 +65,7 @@ function VehicleForm(){
             }}>
 
 
-                {/* <div className="form-group">
+                <div className="form-group">
                     <label className="form-label">Enter Type Of Service</label>
                     <select className="form-control" onChange={(e) => {
                         settype(e.target.value);
@@ -73,27 +73,25 @@ function VehicleForm(){
                         <option value = "Taxi" selected = "selected">Taxi</option>
                         <option value = "Rent-a-Car">Rent-a-Car</option>
                     </select>
-                </div> */}
-
-                <div className="form-group">
-                    <label className="form-label">Enter Type Of Service</label>
-                    <input type = "text" className="form-control" 
-                    onChange={(e) => {
-                        settype(e.target.value);
-                    }} required />
                 </div>
+
+            
 
                 <div className="form-group">
                     <label className="form-label">Vehicle Type</label>
-                    <input type = "text" className="form-control" 
-                    onChange={(e) => {
+                    <select className="form-control" onChange={(e) => {
                         setvehicleType(e.target.value);
-                    }} required />
+                    }} required> 
+                        <option value = "Car" selected = "selected">Car</option>
+                        <option value = "Van">Van</option>
+                        <option value = "Three-Wheel">Three-Wheel</option>
+                        <option value = "Bus">Bus</option>
+                    </select>
                 </div>
 
                 <div className="form-group">
                     <label className="form-label">Driver Name </label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" pattern = "[a-z,A-Z]{3,}"
                     onChange={(e) => {
                         setdriverName(e.target.value);
                     }} required/>
@@ -101,7 +99,7 @@ function VehicleForm(){
 
                 <div className="form-group">
                     <label className="form-label">Owner Name</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" patter = "[a-z,A-Z]{3,}"
                     onChange={(e) => {
                         setownerName(e.target.value);
                     }}/>
@@ -109,14 +107,14 @@ function VehicleForm(){
 
                 <div className="form-group">
                     <label className="form-label">Email</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" pattern = "[a-z0-9]+@+[a-z]+.com"
                     onChange={(e) => {
                         setemail(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Phone Number</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" pattern="[0-9]{10}"
                     onChange={(e) => {
                         setphoneNo(e.target.value);
                     }} />

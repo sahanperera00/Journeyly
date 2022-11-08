@@ -3,7 +3,20 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate,useParams } from 'react-router-dom';
 
+function seat(){
+  const containers = document.querySelector('.containers');
+  containers.addEventListener('click', (e) => {
+    if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
+      e.target.classList.toggle('selected');
+      console.log("dg");
+    }
+  });
+}
+setTimeout(seat,1000);
+
 function FlightResForm() {
+  
+  
   const [flight, setFlight] = useState([]);
 
   const {id} = useParams();
@@ -39,6 +52,7 @@ function FlightResForm() {
     const [price, setPrice] = useState('');
 
     const navigate = useNavigate();
+
 
     return (
       <div id="flightresform" className="flightresContainer">
@@ -111,6 +125,92 @@ function FlightResForm() {
               <input type="radio" name="cls" value="EconomyClass" onChange={(e) => {radio(e.target.value)}} />Economy Class<br/>
               <input type="radio" name="cls" value="BusinessClass" onChange={(e) => {radio(e.target.value)}} />Business Class
               </div>  
+              <br/>
+              <ul class="showcase">
+      <li>
+        <div className="seat"></div>
+        <small>N/A</small>
+      </li>
+
+      <li>
+        <div className="seat selected"></div>
+        <small>Selected</small>
+      </li>
+
+      <li>
+        <div className="seat occupied"></div>
+        <small>Occupied</small>
+      </li>
+    </ul>
+
+    <div className="containers" >
+      <div className="screen"></div>
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+      </div>
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+      </div>
+
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+      </div>
+
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+      </div>
+
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+      </div>
+
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat" ></div>
+      </div>
+    </div>
+
               <button type="submit" className="submitbtn1">Submit</button>
             </form>
             </div>
@@ -135,6 +235,5 @@ function FlightResForm() {
       </div>
     )
   }
-  
   
   export default FlightResForm
