@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import auth from '../firebase';
 import { signOut } from 'firebase/auth';
 import '../styles/nash/RegistrationForm.css'
+import { useCallback } from 'react';
 
 
 function RegistrationForm() {
@@ -71,9 +72,11 @@ function RegistrationForm() {
                     console.log(err);
                 })
         }
-    }, [user, gUser]);
 
-    if (error) console.log(error);
+        if (error || gError) alert("Unsuccessful!");
+
+    }, [user, gUser, error, gError]);
+
 
     return (
         <div>
@@ -129,7 +132,6 @@ function RegistrationForm() {
                             }} required />
                     </div>
                     <br />
-                    <small className='text-danger'>{error?.message}</small> <br />
                     {
                         loading
                             ? <button type="signup" className="btn btn-dark disabled">Signing Up...</button>
