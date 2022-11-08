@@ -10,6 +10,7 @@ function HotelResUpdateForms() {
     const [check_out, setCheckOut] = useState('');
     const [contactNo, setcontact] = useState('');
     const [hotel_Name, setHotelName] =useState('');
+    const [suite,setSuite]=useState('');
     // const [airline, setAirline] = useState('');
     // const [depDate, setDepDate] = useState('');
     // const [depTime, setDepTime] = useState('');
@@ -36,6 +37,7 @@ function HotelResUpdateForms() {
                 setCheckOut(res.data.check_out);
                 setcontact(res.data.contactNo);
                 setHotelName(res.data.hotel_Name);
+                setSuite(res.data.suite);
                 
                 
 
@@ -64,7 +66,8 @@ function HotelResUpdateForms() {
                         name,
                         check_in,
                         check_out,
-                        contactNo
+                        contactNo,
+                        suite
                     };
 
                     axios.put(`http://localhost:8070/hotelRes/customize/${hotelResId}`, newTicket)
@@ -83,6 +86,10 @@ function HotelResUpdateForms() {
                     <div className="form-group">
                         <label className="form-label">Name</label>
                         <input type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Suite</label>
+                        <input type="text" className="form-control" value={suite} onChange={(e) => { setSuite(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Check In Time</label>
