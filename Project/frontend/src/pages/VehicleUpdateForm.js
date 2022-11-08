@@ -102,15 +102,19 @@ function VehicleUpdateForm() {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label className="form-label">Vehicle Type</label>
-                        <input type="text" className="form-control" value={vehicleType}
-                            onChange={(e) => {
-                                setvehicleType(e.target.value);
-                            }} required />
-                    </div>
+                    <label className="form-label">Vehicle Type</label>
+                    <select className="form-control" onChange={(e) => {
+                        setvehicleType(e.target.value);
+                    }} required> 
+                        <option value = "Car" selected = "selected">Car</option>
+                        <option value = "Van">Van</option>
+                        <option value = "Three-Wheel">Three-Wheel</option>
+                        <option value = "Bus">Bus</option>
+                    </select>
+                </div>
                     <div className="form-group">
                         <label className="form-label">Driver Name</label>
-                        <input type="text" className="form-control" value={driverName}
+                        <input type="text" className="form-control" value={driverName} 
                             onChange={(e) => {
                                 setdriverName(e.target.value);
                             }} required />
