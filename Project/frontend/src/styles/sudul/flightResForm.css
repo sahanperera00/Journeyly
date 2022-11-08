@@ -69,7 +69,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.container {
+.containers {
     perspective: 1000px;
     margin-bottom: 30px;
     display: flex;

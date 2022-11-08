@@ -38,21 +38,16 @@ function UserProfile() {
       });
   }
 
-  const deleteClient = async (id) => {
-
-    try {
-      await deleteUser(auth.currentUser);
-
-      axios.delete(`http://localhost:8070/client/delete/${id}`)
-        .then(() => {
-          localStorage.removeItem("ID");
-          alert("User account deleted");
-          navigate('/');
-        })
-        .catch((err) => {
-          alert(err);
-        });
-
+  const deleteClient = (id) => {
+    axios.delete(`http://localhost:8070/client/delete/${id}`)
+      .then(() => {
+        sessionStorage.removeItem("ID");
+        alert("User account deleted");
+        navigate('/');
+      })
+      .catch((err) => {
+        alert(err);
+      });
     } catch (error) {
       alert("Could not delete user");
       console.log(error);

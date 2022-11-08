@@ -3,11 +3,43 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate,useParams } from 'react-router-dom';
 
+function checkAndChange(e){
+  if (e.target.className === 'seat' && localStorage.getItem("check")=="0") {
+    e.target.className = 'seat selected';
+    localStorage.setItem("check","1");
+    console.log(e.target.value);
+  }
+  else if (e.target.className === 'seat selected') {
+    e.target.className = 'seat';
+    localStorage.setItem("check","0");
+    console.log(localStorage.getItem("check"));
+  }
+}
+
+
 function FlightResForm() {
+  
   
   const [flight, setFlight] = useState([]);
 
   const {id} = useParams();
+
+  var seat = 0;
+
+
+  const checkFlight = () => {
+    const container = document.querySelector('.containers');
+    localStorage.setItem("check","0");
+    container.addEventListener('click', (e) => {
+      seat++;
+      checkAndChange(e);
+      console.log(seat);
+    
+    });
+  }
+  
+
+  
 
   const getUniqueFlight = async () => {
     await axios.get("http://localhost:8070/flights/"+id)
@@ -20,6 +52,7 @@ function FlightResForm() {
   }
 
   useEffect(() => { getUniqueFlight() }, [id]);
+  useEffect(() => { checkFlight() }, [seat]);
     function radio(value){
       if(value == "BusinessClass"){
         setPrice(flight.businessClass)
@@ -40,6 +73,7 @@ function FlightResForm() {
     const [price, setPrice] = useState('');
 
     const navigate = useNavigate();
+
 
     return (
       <div id="flightresform" className="flightresContainer">
@@ -115,86 +149,86 @@ function FlightResForm() {
               <br/>
               <ul class="showcase">
       <li>
-        <div class="seat"></div>
+        <div className="seat"></div>
         <small>N/A</small>
       </li>
 
       <li>
-        <div class="seat selected"></div>
+        <div className="seat selected"></div>
         <small>Selected</small>
       </li>
 
       <li>
-        <div class="seat occupied"></div>
+        <div className="seat occupied"></div>
         <small>Occupied</small>
       </li>
     </ul>
 
-    <div class="container">
-      <div class="screen"></div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+    <div className="containers" >
+      <div className="screen"></div>
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
       </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
       </div>
 
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
       </div>
 
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
       </div>
 
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+      </div>
+
+      <div className="row">
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat occupied"></div>
+        <div className="seat"></div>
       </div>
     </div>
 
