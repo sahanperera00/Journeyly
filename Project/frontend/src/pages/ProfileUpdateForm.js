@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import auth, { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useUpdateEmail, useUpdatePassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { updateEmail, updatePassword, updateProfile } from 'firebase/auth';
 
 
 
@@ -26,9 +27,9 @@ function ProfileUpdateForm() {
     const navigate = useNavigate();
 
     // update imagae
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
-    const [updateEmail, eUpdating, eError] = useUpdateEmail(auth);
-    const [updatePassword, passUpdating, passError] = useUpdatePassword(auth);
+    // const [updateProfile, updating, error] = useUpdateProfile(auth);
+    // const [updateEmail, eUpdating, eError] = useUpdateEmail(auth);
+    // const [updatePassword, passUpdating, passError] = useUpdatePassword(auth);
 
     const getClient = () => {
         axios.get("http://localhost:8070/client/" + id)
@@ -81,14 +82,7 @@ function ProfileUpdateForm() {
 
                         */
 
-                    let newClient = {
-                        firstName,
-                        lastName,
-                        email,
-                        contactNo,
-                        // username,
-                        password
-                    };
+                    let newClient = {};
 
                     // updating image if changed by client
                     if (file) {
@@ -99,28 +93,45 @@ function ProfileUpdateForm() {
                         try {
                             const res = await axios.post(`https://api.imgbb.com/1/upload?key=${imageApiKey}`, formData);
                             if (res.status === 200) {
-                                await updateProfile({ photoURL: res.data.data.url });
+                                await updateProfile(auth.currentUser, { photoURL: res.data.data.url });
                                 newClient = { ...newClient, image: res.data.data.url }
                             }
                         } catch (error) {
+                            alert("Could not update Profile Photo")
                             console.log(error);
                         }
                     }
 
                     // changing email if changed by client
 
+                    if (firstName !== client.firstName) {
+                        newClient = { ...newClient, firstName: firstName }
+                    }
+
+                    if (lastName !== client.lastName) {
+                        newClient = { ...newClient, lastName: lastName }
+                    }
+                    if (contactNo !== client.contactNo) {
+                        newClient = { ...newClient, contactNo: contactNo }
+                    }
+
                     if (email !== client.email) {
                         try {
-                            await updateEmail(email);
+                            await updateEmail(auth.currentUser, email);
+                            newClient = { ...newClient, email: email }
+
                         } catch (error) {
+                            alert("Could not update email")
                             console.log(error);
                         }
                     }
 
                     if (password !== client.password) {
                         try {
-                            await updatePassword(password);
+                            await updatePassword(auth.currentUser, password);
+                            newClient = { ...newClient, password: password }
                         } catch (error) {
+                            alert("Could not update Password")
                             console.log(error);
                         }
                     }
@@ -152,7 +163,6 @@ function ProfileUpdateForm() {
                         <label className="form-label">Email</label>
                         <input type="email" className="form-control" value={email}
                             onChange={(e) => { setEmail(e.target.value) }} required />
-                        <small className='text-danger'>{eError?.message}</small >
                     </div>
 
                     <div className="form-group">
@@ -171,7 +181,6 @@ function ProfileUpdateForm() {
                         <label className="form-label">Password</label>
                         <input type="text" className="form-control" value={password}
                             onChange={(e) => { setPassword(e.target.value) }} required />
-                        <small className='text-danger'>{eError?.message}</small >
                     </div>
 
                     <div className="form-group">
