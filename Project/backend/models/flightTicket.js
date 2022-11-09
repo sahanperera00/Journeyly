@@ -59,6 +59,9 @@ const flightTicketSchema = new Schema({
         type: String,
         required: true
     },
+    seatNo:{
+        type:String
+    },
     economyClass:{
         type: Number,
     },
