@@ -47,6 +47,9 @@ const flightSchema = new Schema({
     },
     imageI:{
         type:String,
+    },
+    bookedSeats:{
+        type:[String],
     }
 });
 

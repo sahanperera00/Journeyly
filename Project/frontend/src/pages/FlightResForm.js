@@ -4,18 +4,27 @@ import axios from 'axios';
 import { useNavigate,useParams } from 'react-router-dom';
 
 function seat(){
+  var seatCount = 0;
   const containers = document.querySelector('.containers');
+  
   containers.addEventListener('click', (e) => {
-    if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
-      e.target.classList.toggle('selected');
-      console.log("dg");
+    if (e.target.className == 'seat'&& seatCount == 0) {
+      e.target.className = 'seat selected';
+      sessionStorage.setItem("value",e.target.id);
+      seatCount++;
+      console.log("+");
+    }
+    else if(e.target.className == 'seat selected'){
+      e.target.className = 'seat';
+      sessionStorage.removeItem("value");
+      seatCount--;
+      console.log("-");
     }
   });
 }
 setTimeout(seat,1000);
 
 function FlightResForm() {
-  
   
   const [flight, setFlight] = useState([]);
 
@@ -25,6 +34,12 @@ function FlightResForm() {
     await axios.get("http://localhost:8070/flights/"+id)
       .then((res) => {
         setFlight(res.data);
+        var occupied;
+        for(var i=0;i<res.data.bookedSeats.length;i++){
+          occupied=document.getElementById(res.data.bookedSeats[i]);
+          occupied.className = 'seat occupied';
+         }
+        console.log(occupied);
       })
       .catch((err) => {
         alert(err);
@@ -43,6 +58,7 @@ function FlightResForm() {
       }
 
     }
+    
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -50,6 +66,7 @@ function FlightResForm() {
     const [passportID, setppID] = useState('');
     const [classType, setClass] = useState('');
     const [price, setPrice] = useState('');
+    const [selSeat, setSeat] = useState('');
 
     const navigate = useNavigate();
 
@@ -70,13 +87,14 @@ function FlightResForm() {
                 departureDate:flight.departureDate,
                 departureTime: flight.departureTime,
                 destinationAirport: flight.destinationAirport,
-                userID:localStorage.getItem("ID"),
+                userID:sessionStorage.getItem("ID"),
                 firstName,
                 lastName,
                 email,
                 phoneNo,
                 passportID,
                 classType,
+                seatNo:sessionStorage.getItem("value"),
                 economyClass:flight.economyClass,
                 businessClass:flight.businessClass,
                 price                
@@ -92,6 +110,26 @@ function FlightResForm() {
                 alert("Error adding ticket");
                 console.log(err);
               });
+
+               var bookedseats=[];
+               for(var i=0;i<flight.bookedSeats.length;i++){
+                bookedseats[i]=flight.bookedSeats[i];
+               }
+               bookedseats[flight.bookedSeats.length]=sessionStorage.getItem('value');
+
+              // bookedseats.append();
+              const tickFlight ={
+                bookedSeats:bookedseats
+              }
+
+              axios.put("http://localhost:8070/flights/update/"+id, tickFlight)
+                    .then(() => {
+                        alert("Flight updated successfully");
+                        sessionStorage.removeItem("value");
+
+                    }).catch((err) => {
+                        alert(err);
+                    })
               
   
               
@@ -128,7 +166,7 @@ function FlightResForm() {
               <br/>
               <ul class="showcase">
       <li>
-        <div className="seat"></div>
+        <div className="seat" value='A1'></div>
         <small>N/A</small>
       </li>
 
@@ -143,75 +181,75 @@ function FlightResForm() {
       </li>
     </ul>
 
-    <div className="containers" >
+    <div className="containers"  onClick={() => {setSeat(sessionStorage.getItem("value"))}} >
       <div className="screen"></div>
       <div className="row">
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
+        <div className="seat" id='A1'></div>
+        <div className="seat" id='A2'></div>
+        <div className="seat" id='A3'></div>
+        <div className="seat" id='A4'></div>
+        <div className="seat" id='A5'></div>
+        <div className="seat" id='A6'></div>
+        <div className="seat" id='A7'></div>
+        <div className="seat" id='A8'></div>
       </div>
       <div className="row">
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat occupied"></div>
-        <div className="seat occupied"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
+        <div className="seat" id='B1'></div>
+        <div className="seat" id='B2'></div>
+        <div className="seat" id='B3'></div>
+        <div className="seat" id='B4'></div>
+        <div className="seat" id='B5'></div>
+        <div className="seat" id='B6'></div>
+        <div className="seat" id='B7'></div>
+        <div className="seat" id='B8'></div>
       </div>
 
       <div className="row">
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat occupied"></div>
-        <div className="seat occupied"></div>
+        <div className="seat" id='C1'></div>
+        <div className="seat" id='C2'></div>
+        <div className="seat" id='C3'></div>
+        <div className="seat" id='C4'></div>
+        <div className="seat" id='C5'></div>
+        <div className="seat" id='C6'></div>
+        <div className="seat" id='C7'></div>
+        <div className="seat" id='C8'></div>
       </div>
 
       <div className="row">
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
+        <div className="seat" id='D1'></div>
+        <div className="seat" id='D2'></div>
+        <div className="seat" id='D3'></div>
+        <div className="seat" id='D4'></div>
+        <div className="seat" id='D5'></div>
+        <div className="seat" id='D6'></div>
+        <div className="seat" id='D7'></div>
+        <div className="seat" id='D8'></div>
       </div>
 
       <div className="row">
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat occupied"></div>
-        <div className="seat occupied"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
+        <div className="seat" id='E1'></div>
+        <div className="seat" id='E2'></div>
+        <div className="seat" id='E3'></div>
+        <div className="seat" id='E4'></div>
+        <div className="seat" id='E5'></div>
+        <div className="seat" id='E6'></div>
+        <div className="seat" id='E7'></div>
+        <div className="seat" id='E8'></div>
       </div>
 
       <div className="row">
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat"></div>
-        <div className="seat occupied"></div>
-        <div className="seat occupied"></div>
-        <div className="seat occupied"></div>
-        <div className="seat" ></div>
+        <div className="seat" id='F1'></div>
+        <div className="seat" id='F2'></div>
+        <div className="seat" id='F3'></div>
+        <div className="seat" id='F4'></div>
+        <div className="seat" id='F5'></div>
+        <div className="seat" id='F6'></div>
+        <div className="seat" id='F7'></div>
+        <div className="seat" id='F8'></div>
       </div>
-    </div>
+    </div><script src='FlightResForm.js'></script>
 
-              <button type="submit" className="submitbtn1">Submit</button>
+              <button type="submit" className="submitbtn1" >Submit</button>
             </form>
             </div>
             <div className='flightrestcktcont'>
@@ -226,7 +264,8 @@ function FlightResForm() {
                 <p>Email Address : {email}</p>
                 <p>Phone Number : {phoneNo}</p>
                 <p>Passport ID : {passportID}</p>
-                <p>Class : {classType}</p>               
+                <p>Class : {classType}</p> 
+                <p>Seat : {selSeat}</p>               
                 <br/>
                 <h3>Total : {price}</h3>
                 </div>
