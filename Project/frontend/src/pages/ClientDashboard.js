@@ -17,7 +17,7 @@ function ClientDashboard() {
   return (
     <div className='CDashMainCont'>
       <ClientDashSidebar />
-      <span className='logoutBtn' onClick={() => signOut(auth)&localStorage.removeItem("ID")}>Logout</span>
+      <span className='logoutBtn' onClick={() => signOut(auth)&sessionStorage.removeItem("ID")}>Logout</span>
 
       <Outlet />
     </div>
