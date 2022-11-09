@@ -275,10 +275,10 @@ function Bookings() {
         cold5 = props.email;
         cold6 = props.startAirport;
         cold7 = props.destinationAirport;
-        cold8 = '8.30'//props.departureDate.toString() + " " + props.departureTime.toString();
+        cold8 = '8.30';//props.departureDate.toString() + " " + props.departureTime.toString();
         cold9 = props.classType;
         cold10 = props.price;
-        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/flightRes/${props.flightResId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/flightRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'hotel':
