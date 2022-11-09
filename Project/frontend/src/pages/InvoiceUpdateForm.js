@@ -87,7 +87,7 @@ function InvoiceUpdateForm() {
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Type</label>
+                    <label className="form-label">Type (Flights/Taxis/Packages)</label>
                     <input type="text" className="form-control" value={Type}
                     onChange={(e) => {
                         setType(e.target.value);
