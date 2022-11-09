@@ -80,15 +80,13 @@ function Bookings() {
         case 'flight':
           if (searchTerm == "") {
             return data;
-          // } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-          //   return data;
+          } else if (data.airline.toLowerCase().includes(searchTerm.toLowerCase())) {
+             return data;
+          } else if (data.flightName.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
           } else if (data.startAirport.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
           } else if (data.destinationAirport.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return data;
-          } else if (data.arrivalTime.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return data;
-          } else if (data.departureTime.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
           }
           break;
@@ -138,7 +136,7 @@ function Bookings() {
     })
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
-    //  if(data.userID==sessionStorage.getItem("ID")){
+     if(data.userID==sessionStorage.getItem("ID")){
         SetData(data);
         return (
           <>
@@ -158,7 +156,7 @@ function Bookings() {
           </tr>
           </>
         )
-   //   }
+     }
     });
 
   const pageCount = Math.ceil(array.length / PER_PAGE);
