@@ -228,7 +228,7 @@ function FinancePending() {
                 cold3 = props.fee;
                 cold4hid = 'none';
                 cold5hid = 'none';
-                cold6hid = 'none';
+                cold6 = <Link className='updatebttn' to={"/financeDashboard/FinanceVehicleUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;;
                 break;
             case 'package':
                 cold1 = props.name;
@@ -246,6 +246,7 @@ function FinancePending() {
                 cold5hid = 'none';
                 cold6hid = 'none';
                 break;
+                
             default:
                 break;
         }

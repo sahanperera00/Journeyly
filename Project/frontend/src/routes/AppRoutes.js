@@ -57,13 +57,14 @@ import {
     FinanceFlightUpdateForm,
     FlightResUpdateForm,
     FinanceHotelUpdateForm,
+    FinanceVehicleUpdateForm,
     HotelResUpdateForms,
     PackagePreview,
     PackageReservationForm,
     PackageReservationUpdateForm,
-   
     FinanceUpdateForm,
     FinanceEdit,
+    InvoiceForm,
     
 } from '../pages';
 
@@ -146,6 +147,9 @@ function AppRoutes() {
                     <Route path="financeRevenue" element={<CeoRevenue />} />
                     <Route path="financeFlightUpdateForm/:id" element={<FinanceFlightUpdateForm />} />
                     <Route path="financeHotelUpdateForm/:id" element={<FinanceHotelUpdateForm/>}/>
+
+                    <Route path="financeVehicleUpdateForm/:id" element={<FinanceVehicleUpdateForm/>}/>
+                    <Route path="invoiceForm" element={<InvoiceForm />} />
                    
                    
                 </Route>

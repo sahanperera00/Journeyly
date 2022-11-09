@@ -63,8 +63,8 @@ import FlightResUpdateForm from './FlightResUpdateForm';
 import FinanceHotelUpdateForm from './FinanceHotelUpdateForm';
 import HotelResUpdateForms from './HotelResUpdateForms';
 import PackageReservationUpdateForm from './PackageReservationUpdateForm';
-
-
+import FinanceVehicleUpdateForm from './FinanceVehicleUpdateForm';
+import InvoiceForm from './InvoiceForm';
 
 export {
     Home,
@@ -131,6 +131,9 @@ export {
     PackageReservationUpdateForm,
     PackageReservationForm,
     FinanceHotelUpdateForm,
+//     HotelResUpdateForm,
+    FinanceVehicleUpdateForm,
     HotelResUpdateForms,
-   
+    InvoiceForm,
+    
 };
