@@ -111,7 +111,7 @@ function DesResForm({ destination }) {
 
             const newTicket = {
               desId: destination._id,
-              userID:localStorage.getItem("ID"),
+              userID:sessionStorage.getItem("ID"),
               desName: destination.name,
               firstName,
               lastName,

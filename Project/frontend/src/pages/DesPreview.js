@@ -27,7 +27,7 @@ function DesPreview() {
 
   function checkLogin() {
     console.log(localStorage.getItem("ID"));
-    if (localStorage.getItem("ID") != null) {
+    if (sessionStorage.getItem("ID") != null) {
       setValue("");
     }else {
       alertt();
