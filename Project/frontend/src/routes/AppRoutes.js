@@ -134,7 +134,7 @@ function AppRoutes() {
                     <Route path="updateProfile" element={<ProfileUpdateForm />} />
                     <Route path="payments" element={<Payments />} />
                     <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm />} />
-                    <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm />} />
+                    <Route path="flightRes/:flightResId" element={<FlightResUpdateForm />} />
                     <Route path="hotelRes/:hotelResId" element={<HotelResUpdateForms />}/>
                     <Route path="PackageRes/:packageReservationId" element={<PackageReservationUpdateForm />}/>
                    
