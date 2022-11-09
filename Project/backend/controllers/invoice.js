@@ -2,7 +2,7 @@ import Invoice from "../models/invoice.js"
 
 export const getAllInvoice = async (req, res) => {
     try {
-        const invoice = await invoice.find();
+        const invoice = await Invoice.find();
         res.status(200).json(invoice);
     } catch (error) {
         res.status(404).json({ message: error });
@@ -12,7 +12,7 @@ export const getAllInvoice = async (req, res) => {
 export const getInvoice = async (req, res) => {
     const id = req.params.id;
     try {
-        const invoice = await invoice.findById(id);
+        const invoice = await Invoice.findById(id);
         res.status(200).json(invoice);
     } catch (error) {
         res.status(404).json({ message: error });
@@ -21,7 +21,7 @@ export const getInvoice = async (req, res) => {
 
 export const createInvoice = async (req, res) => {
     const invoice = req.body;
-    const newInvoice = new invoice(invoice);
+    const newInvoice = new Invoice(invoice);
     try {
         await newInvoice.save();
         res.status(201).json(newInvoice);

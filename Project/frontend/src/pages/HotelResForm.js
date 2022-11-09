@@ -51,12 +51,15 @@ function getDifference(day1,day2){
   const dateTwo= new Date(day2);
   const time=Math.abs(dateOne-dateTwo);
   const days =Math.ceil(time/(1000*60*60*24));
+  console.log(dateOne);
 
-  if (days==NaN){
+  if (dateOne!="Invalid Date" && dateTwo!="Invalid Date"){
+    return days;
+  }else{
     return 0;
   }
 
-  return days;
+  
 }
   return (
     <div id="hotelresform" className="hotelresContainer">
@@ -75,7 +78,7 @@ function getDifference(day1,day2){
               check_out,
               suite,
               contactNo,
-              userID:localStorage.getItem("ID"),
+              userID:sessionStorage.getItem("ID"),
             };
             console.log(newBook);
 
