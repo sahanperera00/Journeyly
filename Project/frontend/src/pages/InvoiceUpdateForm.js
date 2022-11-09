@@ -69,42 +69,42 @@ function InvoiceUpdateForm() {
                     <label className="form-label">Full Name</label>
                     <input type="text" className="form-control" value={fName}
                     onChange={(e) => {
-                        setName(e.target.value);
+                        setfName(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Email</label>
                     <input type="text" className="form-control" value={email}
                     onChange={(e) => {
-                        setDestination(e.target.value);
+                        setemail(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Phone</label>
                     <input type="text" className="form-control" value={phone}
                     onChange={(e) => {
-                        setMembers(e.target.value);
+                        setphone(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Type</label>
                     <input type="text" className="form-control" value={Type}
                     onChange={(e) => {
-                        setHotel(e.target.value);
+                        setType(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Price</label>
                     <input type="text" className="form-control" value={price}
                     onChange={(e) => {
-                        setRoomType(e.target.value);
+                        setsprice(e.target.value);
                     }} />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Additional Note</label>
                     <input type="text" className="form-control" value={additonalaNote}
                     onChange={(e) => {
-                        setVehicle(e.target.value);
+                        setadditonalaNote(e.target.value);
                     }} />
                 </div>
               <br />

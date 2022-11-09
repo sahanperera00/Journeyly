@@ -54,7 +54,7 @@ function Invoice() {
                 </Card.Text>
                 
                 
-                <Link key={`${data._id} + 4`} to={"/editorDash/PackageUpdateForm/"+data._id}> 
+                <Link key={`${data._id} + 4`} to={"/financeDashboard/InvoiceUpdateForm/"+data._id}> 
                 <Button key={`${data._id} + 1`}variant="warning">Update</Button>
                 </Link>
                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteInvoice(data._id)}>Delete</Button>
@@ -68,4 +68,4 @@ function Invoice() {
   )
 }
 
-export default PackagesEdit;
+export default Invoice;
