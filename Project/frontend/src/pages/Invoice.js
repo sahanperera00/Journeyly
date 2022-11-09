@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 function Invoice() { 
   const [invoice, setInvoice] = useState([]);
 
@@ -34,22 +35,25 @@ function Invoice() {
 
   return (
     <div className='Invoice-text-center'>
-      <h1 className='PackageIcon'>Packages Edit</h1>
+
+      <button className='btnnPkg'> <Link  to="/financeDashboard/InvoiceForm/">  Add Invoice</Link></button>
+
+      <h1 className='PackageIcon'>Invoice </h1>
 <form>
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {invoice.map((data) => {
           return (
-            <Card style={{ width: '19rem', margin: '1rem', padding: '1rem'}}>
+            <Card style={{ width: '100rem', margin: '1rem', padding: '1rem'}}>
               <Card.Body>
                 <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
                 <Card.Text>
                
-                fName: {data.fName}<br/>
-                email: {data.email}<br/>
-                phone: {data.phone}<br/>
-                Type: {data.Type}<br/>
-                price: {data.price}<br/>
-                additonalaNote: {data.additonalaNote}<br/>
+                Full Name  : {data.fName}<br/>
+                Email  : {data.email}<br/>
+                Phone Number  : {data.phone}<br/>
+                Type (Flights/Taxis/Packages): {data.Type}<br/>
+                Price : {data.price}<br/>
+                AdditonalaNote : {data.additonalaNote}<br/>
                
                 </Card.Text>
                 
@@ -58,6 +62,7 @@ function Invoice() {
                 <Button key={`${data._id} + 1`}variant="warning">Update</Button>
                 </Link>
                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteInvoice(data._id)}>Delete</Button>
+                <Button >Download</Button>
               </Card.Body>
             </Card>
           )        
