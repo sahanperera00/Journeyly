@@ -108,7 +108,7 @@ function FlightResUpdateForm() {
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" value={phoneNo} onChange={(e) => {setPhoneNo(e.target.value)}} required/>
+                <input type="text" className="form-control" value={phoneNo} min="0110000000" max="0799999999" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Passport ID</label>
@@ -123,7 +123,7 @@ function FlightResUpdateForm() {
                 <input type="radio" name="cls" value="EconomyClass" onChange={(e) => {radio(e.target.value)}} />Economy Class<br/>
                 <input type="radio" name="cls" value="BusinessClass" onChange={(e) => {radio(e.target.value)}} />Business Class
               </div>  
-              <button type="submit" className="submitbtn">Submit</button>
+              <button type="submit" className="submitbtn">Update</button>
             </form>
             </div><br />
         </div>
