@@ -57,7 +57,7 @@ import {
     FinanceFlightUpdateForm,
     FlightResUpdateForm,
     FinanceHotelUpdateForm,
-    FinanceVehicleUpdateForm
+    FinanceVehicleUpdateForm,
     HotelResUpdateForms,
     PackagePreview,
     PackageReservationForm,
