@@ -154,3 +154,8 @@ input::-webkit-inner-spin-button {
   p.text span {
     color: #6feaf6;
   }
+  #enabler{
+    color:aquamarine;
+    font-size: x-small;
+    cursor: pointer;
+  }
