@@ -64,8 +64,10 @@ import {
     PackageReservationUpdateForm,
     FinanceUpdateForm,
     FinanceEdit,
+    RentalUpdateForm
     
 } from '../pages';
+
 
 
 function AppRoutes() {
@@ -88,7 +90,7 @@ function AppRoutes() {
                     <Route path='hotelResForm/:id' element={<HotelResForm />} />
                     <Route path='flightResForm/:id' element={<FlightResForm />} />
                     <Route path='rentalPreview/:id' element={<RentalPreview />} />
-                    <Route path='rentalForm' element={<RentalForm />} />
+                    <Route path='rentalForm/:id' element={<RentalForm />} />
                     <Route path="PackagePreview/:id" element={<PackagePreview />} />
                     <Route path='PackageReservationForm/:id' element={<PackageReservationForm />} />
                     
@@ -136,6 +138,7 @@ function AppRoutes() {
                     <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm />} />
                     <Route path="hotelRes/:hotelResId" element={<HotelResUpdateForms />}/>
                     <Route path="PackageRes/:packageReservationId" element={<PackageReservationUpdateForm />}/>
+                    <Route path="rental/:rentalId" element={<RentalUpdateForm />}/>
                    
                 </Route>
 

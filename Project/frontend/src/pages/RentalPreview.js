@@ -5,7 +5,7 @@ import '../styles/Madusha/TaxiPreview.css';
 import { Link } from 'react-router-dom';
 
 function alertt(){
-  alert("Please login to reserve a flight");
+  alert("Please login to rent a vehicle");
 }
 
 function RentalPreview() {
@@ -25,7 +25,7 @@ function RentalPreview() {
         </div>
         </Link>)   
     }else{
-        return(<Link to={'/RentalForm/'+id}>
+        return(<Link to={'/rentalForm/'+id}>
         <div>
             <button className='rentbtn' >Rent this Vehicle</button>
         </div>

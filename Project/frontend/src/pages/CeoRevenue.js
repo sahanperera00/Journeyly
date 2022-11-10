@@ -13,6 +13,61 @@ import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+
+// function chartData(){
+
+//     const [array, setArray] = useState([]);
+//     const [key, setKey] = useState("");
+
+//     useEffect(() => {getData() },[]);
+
+//     desRes.filter((data) =>{
+//         if(data.date.includes("2022-09")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         }else if(data.date.includes("2022-10")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         } else if(data.date.includes("2022-11")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         }else if(data.date.includes("2022-12")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         }   
+//     })
+
+//     hotelRes.filter((data) =>{
+//         if(data.date.includes("2022-09")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         }else if(data.date.includes("2022-10")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         } else if(data.date.includes("2022-11")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         }else if(data.date.includes("2022-12")){
+//             return totalDesRev = (totalDesRev + data.total);
+//         }   
+//     })
+
+//     flightRes.filter((data) =>{
+//         if(data.date.includes("2022-09")){
+//             return totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;  
+//         }else if(data.date.includes("2022-10")){
+//             return totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;  
+//         } else if(data.date.includes("2022-11")){
+//             return totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;  
+//         }else if(data.date.includes("2022-12")){
+//             return totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;  
+//         }   
+//     })
+
+    
+
+//     const monthData = array
+//     .filter((data) => {
+
+
+        
+//     })
+// }
+
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -64,7 +119,11 @@ function CeoRevenue() {
     const [adultTicketBuyingRate, setAdultTicketBuyingRate] = useState(0);
     const [childTicketSellingRate, setChildTicketSellingRate] = useState(0);
     const [adultTicketSellingRate, setAdultTicketSellingRate] = useState(0);
+    
+    const [desRes, setDesRes] = useState([]);
     const [destinationRevenue, setDestinationRevenue] = useState(0);
+    var totalDesRev = null;
+
 
     const [flightRes, setFlightRes] = useState([]);
     const [revFlight, setFlightRev] = useState(0);
@@ -93,18 +152,22 @@ const getData = () => {
     //         alert(err);
     //     });
         
-    axios.get("http://localhost:8070/destination")
+    axios.get("http://localhost:8070/desTicket")
     .then((res) => {
-        setChildTicketBuyingRate(res.data[0].childTicketBuyingRate);
-        setAdultTicketBuyingRate(res.data[0].adultTicketBuyingRate);
-        setChildTicketSellingRate(res.data[0].childTicketSellingRate);
-        setAdultTicketSellingRate(res.data[0].adultTicketSellingRate);
-        console.log(res.data[0].childTicketBuyingRate);
-        setDestinationRevenue((adultTicketSellingRate - adultTicketBuyingRate) + (childTicketSellingRate - childTicketBuyingRate));
+        // setChildTicketBuyingRate(res.data[0].childTicketBuyingRate);
+        // setAdultTicketBuyingRate(res.data[0].adultTicketBuyingRate);
+        // setChildTicketSellingRate(res.data[0].childTicketSellingRate);
+        // setAdultTicketSellingRate(res.data[0].adultTicketSellingRate);
+        // console.log(res.data[0].childTicketBuyingRate);
+        // setDestinationRevenue((adultTicketSellingRate - adultTicketBuyingRate) + (childTicketSellingRate - childTicketBuyingRate));
+
+        setDesRes(res.data);
     })
     .catch((err) => {
         alert(err);
     });
+    setDestinationRevenue(totalDesRev);
+    
 
     axios.get("http://localhost:8070/flightTicket")
     .then((res) => {
@@ -125,41 +188,59 @@ const getData = () => {
         alert(err);
     });
     setHotelRev(totalHotelRev);
+
+    
+
+    
 }
   return (
     // <Line data={data} options={options}/>
+    
     <div className='CeoRevenueMainCont'>
+        {
+            desRes.map((data) => {
+                totalDesRev = (totalDesRev + data.total);
+            })
+        }
+        {
+            flightRes.map((data) => {
+                totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;  
+                // totalFlightRev = (totalFlightRev+data.price);        
+            })
+        }
+
+        {
+            hotelRes.map((data)=>{
+                totalHotelRev=(totalHotelRev+(data.sellingPrice-data.buyingPrice));
+            })
+        }
         <h1>Revenue</h1>
         <div className='CeoRevenueInnerCont'>
             <div className='CeoRevenueInnerContR1'>
                 <div className='CeoRevInConR1card'>
+                    <h1>{"Rs. " + (totalDesRev+totalFlightRev+totalHotelRev)}</h1>
                     <h4>Total Revenue</h4>
                 </div>
-                {
-                flightRes.map((data) => {
-                        totalFlightRev = Math.round((totalFlightRev + (data.price*0.08))*100)/100;          
-                })}
+                
                 <div className='CeoRevInConR1card'>
-                <h1>{totalFlightRev}</h1>
+                <h1>{"Rs. " + totalFlightRev}</h1>
                     <h4>Revenue from Flights</h4>
                 </div>
-                {
-                    hotelRes.map((data)=>{
-                        totalHotelRev=(totalHotelRev+(data.sellingPrice-data.buyingPrice));
-                    })
-                }
+                
                 <div className='CeoRevInConR1card'>
-                <h1>{totalHotelRev}</h1>
+                <h1>{"Rs. " + totalHotelRev}</h1>
                     <h4>Revenue from Hotels</h4>
                 </div>
+                
                 <div className='CeoRevInConR1card'>
-                    <h1>{destinationRevenue}</h1>
+                    <h1>{"Rs. " + totalDesRev}</h1>
                     <h4>Revenue from Destinations</h4>
                 </div>
                 <div className='CeoRevInConR1card'>
                     <h4>Revenue from Vehicles</h4>
                 </div>
             </div>
+           
             <div className='CeoRevenueInnerContR2'>
                 <div className='CeoRevenueInnerContR2C1'>
                     <Line data={data} options={options}/>
