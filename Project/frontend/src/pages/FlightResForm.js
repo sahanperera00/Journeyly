@@ -34,12 +34,6 @@ function FlightResForm() {
     await axios.get("http://localhost:8070/flights/"+id)
       .then((res) => {
         setFlight(res.data);
-        var occupied;
-        for(var i=0;i<res.data.bookedSeats.length;i++){
-          occupied=document.getElementById(res.data.bookedSeats[i]);
-          occupied.className = 'seat occupied';
-         }
-        console.log(occupied);
       })
       .catch((err) => {
         alert(err);
@@ -49,14 +43,71 @@ function FlightResForm() {
   useEffect(() => { getUniqueFlight() }, [id]);
     function radio(value){
       if(value == "BusinessClass"){
-        setPrice(flight.businessClass)
-        setClass("Business Class")
+        setPrice(flight.businessClass);
+        setClass("Business Class");
+        var nonoccupied;
+        for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
+          nonoccupied=document.getElementById(flight.bookedSeatsEconomy[i]);
+          nonoccupied.className = 'seat';
+         }
+         var inBusiness,charactor;
+         charactor = "D";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='none';
+         }
+         charactor = "E";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='none';
+         }
+         charactor = "F";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='none';
+         }
+        var occupied;
+        for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
+          occupied=document.getElementById(flight.bookedSeatsBusiness[i]);
+          occupied.className = 'seat occupied';
+         }
       }
       else{
-        setPrice(flight.economyClass)
-        setClass("Economy Class")
+        setPrice(flight.economyClass);
+        setClass("Economy Class");
+        var nonoccupied;
+        for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
+          nonoccupied=document.getElementById(flight.bookedSeatsBusiness[i]);
+          nonoccupied.className = 'seat';
+         }
+         var inBusiness,charactor;
+         charactor = "D";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='';
+         }
+         charactor = "E";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='';
+         }
+         charactor = "F";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='';
+         }
+        var occupied;
+        for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
+          occupied=document.getElementById(flight.bookedSeatsEconomy[i]);
+          occupied.className = 'seat occupied';
+         }
       }
-
     }
     
     const [firstName, setFirstName] = useState('');
@@ -74,6 +125,7 @@ function FlightResForm() {
     return (
       <div id="flightresform" className="flightresContainer">
           <h1>Flight Reservation</h1>
+          <h15 id="enabler" onClick={()=>window.location.reload()}>Click Once to Enable Seat Selector</h15>
           <div className='flightreseinnercontainer'>
             <div className='flightresformcont'>
             <form className='flightresform' onSubmit={async(e) => {
@@ -111,15 +163,16 @@ function FlightResForm() {
                 console.log(err);
               });
 
-               var bookedseats=[];
-               for(var i=0;i<flight.bookedSeats.length;i++){
-                bookedseats[i]=flight.bookedSeats[i];
+              if(classType=="Economy Class"){
+                var bookedseats=[];
+               for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
+                bookedseats[i]=flight.bookedSeatsEconomy[i];
                }
-               bookedseats[flight.bookedSeats.length]=sessionStorage.getItem('value');
+               bookedseats[flight.bookedSeatsEconomy.length]=sessionStorage.getItem('value');
 
               // bookedseats.append();
               const tickFlight ={
-                bookedSeats:bookedseats
+                bookedSeatsEconomy:bookedseats
               }
 
               axios.put("http://localhost:8070/flights/update/"+id, tickFlight)
@@ -130,6 +183,30 @@ function FlightResForm() {
                     }).catch((err) => {
                         alert(err);
                     })
+              }else if(classType=="Business Class"){
+                var bookedseats=[];
+               for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
+                bookedseats[i]=flight.bookedSeatsBusiness[i];
+               }
+               bookedseats[flight.bookedSeatsBusiness.length]=sessionStorage.getItem('value');
+
+              // bookedseats.append();
+              const tickFlight ={
+                bookedSeatsBusiness:bookedseats
+              }
+
+              axios.put("http://localhost:8070/flights/update/"+id, tickFlight)
+                    .then(() => {
+                        alert("Flight updated successfully");
+                        sessionStorage.removeItem("value");
+
+                    }).catch((err) => {
+                        alert(err);
+                    })
+
+              }
+
+               
               
   
               
