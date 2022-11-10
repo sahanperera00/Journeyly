@@ -166,14 +166,14 @@ function Navbar() {
             <Nav.Link as={Link} to="/hotels" className="navlink">
               Hotels
             </Nav.Link>
-            <Nav.Link as={Link} to="/attractions" className="navlink">
-              Attractions
-            </Nav.Link>
             <Nav.Link as={Link} to="/taxis" className="navlink">
               Taxis
             </Nav.Link>
             <Nav.Link as={Link} to="/packages" className="navlink">
               Packages
+            </Nav.Link>
+            <Nav.Link as={Link} to="/attractions" className="navlink">
+              Attractions
             </Nav.Link>
           </Nav>
           {view()}
