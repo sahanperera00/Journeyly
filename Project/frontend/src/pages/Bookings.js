@@ -312,60 +312,6 @@ function Bookings() {
           }
         }, 1000);
         
-      
-        
-
-          // if(flight.classType=="Economy Class"){
-          //   var bookedseats=[];
-          //   var j = 0;
-          //   console.log()
-          //   for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
-          //     if(res.data.seatNo==flight.bookedSeatsEconomy[i]){
-          //       console.log("true");
-          //     bookedseats[j]=flight.bookedSeatsEconomy[i+1];
-          //      i++;
-          //      j++;
-          //      }else{
-          //       bookedseats[j]=flight.bookedSeatsEconomy[i];
-          //       console.log("false");
-          //       j++;
-          //       } 
-          //   }
-
-          // // bookedseats.append();
-          //   const tickFlight ={
-          //     bookedSeatsEconomy:bookedseats
-          //   }
-
-          // axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
-          //       .then(() => {
-          //           alert("Flight updated successfully");
-          //       }).catch((err) => {
-          //           alert(err);
-          //       })
-          // }else if(flight.classType=="Business Class"){
-          //   var bookedseats=[];
-          //   for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
-          //     if(sessionStorage.getItem("delSeat")==flight.bookedSeatsBusiness[i]){
-          //     bookedseats[i]=null;
-          //      }else{
-          //       bookedseats[i]=flight.bookedSeatsBusiness[i];
-          //       } 
-          //   }
-          // // bookedseats.append();
-          // const tickFlight ={
-          //   bookedSeatsBusiness:bookedseats
-          // }
-
-          // axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
-          //       .then(() => {
-          //           alert("Flight updated successfully");
-
-          //       }).catch((err) => {
-          //           alert(err);
-          //       })
-
-          // }
             
             axios.delete(`http://localhost:8070/flightTicket/delete/${bid}`)
             .then((res) => {
