@@ -13,7 +13,10 @@ function Bookings() {
   const [array, setArray] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
+  const [flight, setFlight] = useState([]);
   const [destinationName, setDestinationName] = useState("");
+  const [flightTicket, setFlightTicket] = useState([]);
+ 
 
   var col1 = null;
   var col2 = null;
@@ -213,16 +216,164 @@ function Bookings() {
     }
   }
 
-  function deleteBooking(bid) {
+  function deleteBooking(bid,ofid) {
     switch (type) {
       case 'flight':
-        axios.delete(`http://localhost:8070/flightTicket/delete/${bid}`)
-          .then((res) => {
-            getArray();
-          })
-          .catch((err) => {
-            alert(err);
-          });
+        function getUniqueFlight(e){
+           axios.get("http://localhost:8070/flights/"+e)
+            .then((res) => {
+              setFlight(res.data);
+              window.sessionStorage.setItem("seatArrEcon", JSON.stringify(res.data.bookedSeatsEconomy));
+              window.sessionStorage.setItem("seatArrBusiness", JSON.stringify(res.data.bookedSeatsBusiness));
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }
+        function getUniqueFlightTicket(e){
+          axios.get("http://localhost:8070/flightTicket/"+e)
+            .then((res) => {
+              setFlightTicket(res.data);
+              console.log(res.data.seatNo);
+              sessionStorage.setItem("delSeat",res.data.seatNo);
+              sessionStorage.setItem("delSeatClass",res.data.classType);
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }
+        getUniqueFlightTicket(bid);
+        getUniqueFlight(ofid);
+        setTimeout(() => {
+          console.log(sessionStorage.getItem("delSeat"));
+          console.log(sessionStorage.getItem("delSeatClass"));
+          if(sessionStorage.getItem("delSeatClass")=="Economy Class"){
+            var bookedseats=[];
+            var j = 0;
+            var arr = JSON.parse(sessionStorage.getItem("seatArrEcon"));;
+            console.log(arr)
+            for(var i=0;i<arr.length;i++){
+              if(sessionStorage.getItem("delSeat")==arr[i]){
+                console.log("true");
+                if(i==arr.length-1){
+                  i++;
+                }else{
+                  bookedseats[j]=arr[i+1];
+                  i++;
+                }                
+               }else{
+                bookedseats[j]=arr[i];
+                console.log("false");
+                }
+                j++;
+            }
+            console.log(bookedseats);
+            const tickFlight ={
+                  bookedSeatsEconomy:bookedseats
+                }
+    
+              axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
+                    .then(() => {
+                        alert("Flight updated successfully");
+                    }).catch((err) => {
+                        alert(err);
+                    })
+          }else if(sessionStorage.getItem("delSeatClass")=="Business Class"){
+            var bookedseats=[];
+            var j = 0;
+            var arr = JSON.parse(sessionStorage.getItem("seatArrBusiness"));
+            console.log(arr)
+            for(var i=0;i<arr.length;i++){
+              if(sessionStorage.getItem("delSeat")==arr[i]){
+                console.log("true");
+                if(i==arr.length-1){
+                  i++;
+                }else{
+                  bookedseats[j]=arr[i+1];
+                  i++;
+                }                
+               }else{
+                bookedseats[j]=arr[i];
+                console.log("false");
+                }
+                j++;
+            }
+            console.log(bookedseats);
+            const tickFlight ={
+              bookedSeatsBusiness:bookedseats
+            }
+
+          axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
+                .then(() => {
+                    alert("Flight updated successfully");
+                }).catch((err) => {
+                    alert(err);
+                })
+          }
+        }, 1000);
+        
+      
+        
+
+          // if(flight.classType=="Economy Class"){
+          //   var bookedseats=[];
+          //   var j = 0;
+          //   console.log()
+          //   for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
+          //     if(res.data.seatNo==flight.bookedSeatsEconomy[i]){
+          //       console.log("true");
+          //     bookedseats[j]=flight.bookedSeatsEconomy[i+1];
+          //      i++;
+          //      j++;
+          //      }else{
+          //       bookedseats[j]=flight.bookedSeatsEconomy[i];
+          //       console.log("false");
+          //       j++;
+          //       } 
+          //   }
+
+          // // bookedseats.append();
+          //   const tickFlight ={
+          //     bookedSeatsEconomy:bookedseats
+          //   }
+
+          // axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
+          //       .then(() => {
+          //           alert("Flight updated successfully");
+          //       }).catch((err) => {
+          //           alert(err);
+          //       })
+          // }else if(flight.classType=="Business Class"){
+          //   var bookedseats=[];
+          //   for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
+          //     if(sessionStorage.getItem("delSeat")==flight.bookedSeatsBusiness[i]){
+          //     bookedseats[i]=null;
+          //      }else{
+          //       bookedseats[i]=flight.bookedSeatsBusiness[i];
+          //       } 
+          //   }
+          // // bookedseats.append();
+          // const tickFlight ={
+          //   bookedSeatsBusiness:bookedseats
+          // }
+
+          // axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
+          //       .then(() => {
+          //           alert("Flight updated successfully");
+
+          //       }).catch((err) => {
+          //           alert(err);
+          //       })
+
+          // }
+            
+            axios.delete(`http://localhost:8070/flightTicket/delete/${bid}`)
+            .then((res) => {
+              getArray();
+            })
+            .catch((err) => {
+              alert(err);
+            });
         break;
       case 'hotel':
         axios.delete(`http://localhost:8070/hotelRes/cancel/${bid}`)
@@ -277,7 +428,7 @@ function Bookings() {
         cold9 = props.classType;
         cold10 = props.price;
         cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/flightRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
+        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id,props.flightID) }}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'hotel':
         cold1 = props.name;

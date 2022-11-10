@@ -48,7 +48,10 @@ const flightSchema = new Schema({
     imageI:{
         type:String,
     },
-    bookedSeats:{
+    bookedSeatsEconomy:{
+        type:[String],
+    },
+    bookedSeatsBusiness:{
         type:[String],
     }
 });
