@@ -27,7 +27,7 @@ function DesResForm({ destination }) {
   };
   return (
     <div id="desresform" className="desresContainer">
-      <h1>Ticket Details</h1>
+      <h1>Buy a Ticket</h1>
       <div className="desreseinnercontainer">
         <div className="desrestcktcont">
           <Tilt options={options}>
@@ -313,7 +313,7 @@ function DesResForm({ destination }) {
             </div>
             <br />
             <div className="col-md-12 gy-4">
-              <button type="submit" className="submitbtn">
+              <button type="submit" className="blackbtn">
                 Buy Ticket
               </button>
             </div>
