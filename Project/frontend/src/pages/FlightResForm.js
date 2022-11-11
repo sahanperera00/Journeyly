@@ -8,12 +8,7 @@ function seat(){
   const containers = document.querySelector('.containers');
   
   containers.addEventListener('click', (e) => {
-    if(sessionStorage.getItem("value")==null){
-      e.target.className = 'seat selected';
-      sessionStorage.setItem("value",e.target.id);
-    }
-    else if (e.target.className == 'seat') {
-      document.getElementById(sessionStorage.getItem("value")).className='seat';
+    if (e.target.className == 'seat'&& seatCount == 0) {
       e.target.className = 'seat selected';
       sessionStorage.setItem("value",e.target.id);
       seatCount++;
@@ -22,6 +17,7 @@ function seat(){
     else if(e.target.className == 'seat selected'){
       e.target.className = 'seat';
       sessionStorage.removeItem("value");
+      seatCount--;
       console.log("-");
     }
   });
