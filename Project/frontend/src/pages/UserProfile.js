@@ -38,7 +38,10 @@ function UserProfile() {
       });
   }
 
-  const deleteClient = (id) => {
+  const deleteClient = async (id) => {
+
+    try {
+      await deleteUser(auth.currentUser);
     axios.delete(`http://localhost:8070/client/delete/${id}`)
       .then(() => {
         sessionStorage.removeItem("ID");
@@ -49,7 +52,11 @@ function UserProfile() {
         alert(err);
       });
   }
-
+  catch (error) {
+    alert("Error!Could not delete user");
+    console.log(error);
+   }
+  }
   useEffect(() => { getClient() }, [id]);
   // console.log(client);
 
@@ -110,6 +117,6 @@ function UserProfile() {
       </div>
     </div>
   )
-
+    
 }
 export default UserProfile;
