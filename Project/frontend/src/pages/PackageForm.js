@@ -20,14 +20,14 @@ function PackageForm() {
     return (
         <div className='PackageFormMainCont'>
             <h1>Add Package Details</h1>
-            <div className="PackageFormCont">
+            <div className="PackageForm">
                 <br />
                 <form onSubmit={async(e) => {
                     e.preventDefault();
                     //image
                     const imageRef = ref(storage, `images/packages/${name + image.name}`);
 
-                    await uploadBytes(imageRef, image)
+                    await uploadBytes(imageRef, image) //uploads image to the DataBase
                         .then(() => {
                             console.log('Uploaded image');
                         }).catch((err) => {
@@ -37,11 +37,7 @@ function PackageForm() {
                     await getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
                         .then((url) => {
                             console.log(url);
-                           // setImage(url);
-                       // }).catch((err) => {
-                           // console.log(err);
-                      //  })
-                    //
+                       
                     const newPackage = {
                         name,
                         destination,
