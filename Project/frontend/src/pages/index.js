@@ -67,6 +67,7 @@ import FinanceVehicleUpdateForm from './FinanceVehicleUpdateForm';
 import InvoiceForm from './InvoiceForm';
 import Invoice from "./Invoice";
 import InvoiceUpdateForm from './InvoiceUpdateForm';
+import FlightTicketView from './FlightTicketView';
 
 
 export {
@@ -139,6 +140,7 @@ export {
     HotelResUpdateForms,
     InvoiceForm,
     Invoice,
-    InvoiceUpdateForm
+    InvoiceUpdateForm,
+    FlightTicketView
     
 };

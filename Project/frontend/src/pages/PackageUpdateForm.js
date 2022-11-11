@@ -42,8 +42,8 @@ function PackageUpdateForm() {
 
     return (
         <div className='PackageUpdateFormMainCont'>
-            <h1>Update Package </h1>
-        <div className="PackageUpdateFormCont">
+            <h1>Update Package Details </h1>
+        <div className="PackageUpdateForm">
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -133,7 +133,7 @@ function PackageUpdateForm() {
                     <input type="file" className="form-control" 
                     onChange={(e) => {
                         setImage(e.target.files[0]);
-                    }} required/>
+                    }} readOnly/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Guide</label>

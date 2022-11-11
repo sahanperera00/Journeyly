@@ -8,7 +8,12 @@ function seat(){
   const containers = document.querySelector('.containers');
   
   containers.addEventListener('click', (e) => {
-    if (e.target.className == 'seat'&& seatCount == 0) {
+    if(sessionStorage.getItem("value")==null){
+      e.target.className = 'seat selected';
+      sessionStorage.setItem("value",e.target.id);
+    }
+    else if (e.target.className == 'seat') {
+      document.getElementById(sessionStorage.getItem("value")).className='seat';
       e.target.className = 'seat selected';
       sessionStorage.setItem("value",e.target.id);
       seatCount++;
@@ -17,7 +22,6 @@ function seat(){
     else if(e.target.className == 'seat selected'){
       e.target.className = 'seat';
       sessionStorage.removeItem("value");
-      seatCount--;
       console.log("-");
     }
   });
@@ -147,6 +151,7 @@ function FlightResForm() {
                 passportID,
                 classType,
                 seatNo:sessionStorage.getItem("value"),
+                gate:flight.gate,
                 economyClass:flight.economyClass,
                 businessClass:flight.businessClass,
                 price                
@@ -243,7 +248,7 @@ function FlightResForm() {
               <br/>
               <ul class="showcase">
       <li>
-        <div className="seat" value='A1'></div>
+        <div className="seat"></div>
         <small>N/A</small>
       </li>
 
@@ -342,7 +347,8 @@ function FlightResForm() {
                 <p>Phone Number : {phoneNo}</p>
                 <p>Passport ID : {passportID}</p>
                 <p>Class : {classType}</p> 
-                <p>Seat : {selSeat}</p>               
+                <p>Seat : {selSeat}</p>  
+                <p>Gate : {flight.gate}</p>             
                 <br/>
                 <h3>Total : {price}</h3>
                 </div>

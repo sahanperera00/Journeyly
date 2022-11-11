@@ -53,6 +53,9 @@ const flightSchema = new Schema({
     },
     bookedSeatsBusiness:{
         type:[String],
+    },
+    gate:{
+        type:String,
     }
 });
 
