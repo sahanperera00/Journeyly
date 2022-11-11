@@ -58,7 +58,7 @@ function PackageReservationUpdateForm({}) {
                         });
                 }}>
                     <div className="form-group">
-                        <label className="form-label">Name</label>
+                        <label className="form-label">Full Name</label>
                         <input type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }} required />
                     </div>
                     <div className="form-group">
