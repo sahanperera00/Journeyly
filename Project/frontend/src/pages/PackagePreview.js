@@ -27,7 +27,7 @@ function PackagePreview(){
   
 
     function checkLogin(){
-        if(localStorage.getItem("ID")==null){
+        if(sessionStorage.getItem("ID")==null){
             return(
             <Link to={'/registration'} onClick={alertt} >
             <div>

@@ -4,6 +4,10 @@ import { useParams } from 'react-router-dom';
 import '../styles/Madusha/TaxiPreview.css';
 import { Link } from 'react-router-dom';
 
+function alertt(){
+  alert("Please login to rent a vehicle");
+}
+
 function RentalPreview() {
 
   const [vehicleType, setVType]=useState('');
@@ -11,6 +15,23 @@ function RentalPreview() {
   const [driverName, setDriverName]=useState('');
   const [fee, setFee]=useState('');
   const [image, setImage]=useState('');
+
+  function checkLogin(){
+    if(localStorage.getItem("ID")==null){
+        return(
+        <Link to={'/registration'} onClick={alertt} >
+        <div>
+            <button className='rentbtn'>Rent this vehicle</button>
+        </div>
+        </Link>)   
+    }else{
+        return(<Link to={'/rentalForm/'+id}>
+        <div>
+            <button className='rentbtn' >Rent this Vehicle</button>
+        </div>
+        </Link>)   
+    }
+ }
 
 
   const {id} = useParams();
@@ -48,12 +69,16 @@ function RentalPreview() {
                     
                     <p className='faci'> Fee per KM:  {fee}<br/></p>
                 </div>
+                {
+                    checkLogin()
+                }
             </div>
-            <Link to={'/RentalForm'}>
+            
+            {/* <Link to={'/RentalForm'}>
             <div>
                 <button className='rentbtn'>Rent this Vehicle</button>
             </div>
-            </Link>
+            </Link> */}
         </div>
   )
 }

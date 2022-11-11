@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import '../styles/sudul/FlightUpdateForm.css';
+import { useNavigate } from 'react-router-dom';
 
 function FlightUpdateForm() {
     const [name, setName]=useState('');
@@ -17,6 +18,9 @@ function FlightUpdateForm() {
     const [arrivalTime,setArrivalTime]=useState('');
     const [imageI, setImageI] = useState('');
     const [images, setImages] = useState('');
+    const [gate, setGate] = useState('');
+
+    const navigate = useNavigate();
 
     const {id} = useParams();
   
@@ -32,6 +36,7 @@ function FlightUpdateForm() {
                     destinationAirport: res.data.destinationAirport,
                     arrivalDate: res.data.arrivalDate,
                     arrivalTime: res.data.arrivalTime,
+                    gate: res.data.gate,
                     imageI: res.data.imageI
                 }
                 setName(updateFlight.name);
@@ -44,6 +49,7 @@ function FlightUpdateForm() {
                 setArrivalDate(updateFlight.arrivalDate);
                 setArrivalTime(updateFlight.arrivalTime);
                 setImages(updateFlight.imageI);
+                setGate(updateFlight.gate);
             })
             .catch((err) => {
                 alert(err);
@@ -86,19 +92,21 @@ function FlightUpdateForm() {
                     destinationAirport,
                     arrivalDate,
                     arrivalTime,
+                    gate
                    // imageI
                 }
 
                 axios.put("http://localhost:8070/flights/update/"+id, newFlight)
                     .then(() => {
                         alert("Flight updated successfully");
+                        navigate('/editorDashboard/editorWebContent/flight');
 
                     }).catch((err) => {
                         alert(err);
                     })
             }}>
 
-<div className="form-group">
+                <div className="form-group">
                     <label className="form-label">Name</label>
                     <input type="text" className="form-control" value={name}
                     onChange={(e) => {
@@ -160,7 +168,15 @@ function FlightUpdateForm() {
                     onChange={(e) => {
                         setArrivalTime(e.target.value);
                     }} required/>
-                </div>              
+                </div>
+                <div className="form-group">
+                        <label className="form-label">Gate</label>
+                        <input type="text" className="form-control" value={gate}
+                            onChange={(e) => {
+                                setGate(e.target.value);
+                            }} required />
+                    </div>    
+                    <br />          
                 {/* <div className="form-group">
                     <label className="form-label">Images</label>
                     <input type="file" className="form-control" value={imageI}
