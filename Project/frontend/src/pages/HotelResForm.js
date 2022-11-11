@@ -27,9 +27,10 @@ function HotelResForm({}) {
   const [check_out, setCheckout] = useState('');
   const [suite, setSuite] = useState('');
   const [contactNo, setContactNo]=useState('');
-  // const [customizations, setCustomizations] = useState('');
+  const [customizations, setCustomizations] = useState('');
   // const [adults, setAdults] = useState('');
   // const [children, setChildren] = useState('');
+  
 
 
   const navigate = useNavigate();
@@ -43,6 +44,11 @@ function HotelResForm({}) {
 //     }
 // }
 
+
+function radio(data1){
+  
+  setCustomizations(data1);
+}
 
 function getDifference(day1,day2){
 
@@ -78,6 +84,7 @@ function getDifference(day1,day2){
               check_out,
               suite,
               contactNo,
+              customizations,
               userID:sessionStorage.getItem("ID"),
             };
             console.log(newBook);
@@ -116,14 +123,23 @@ function getDifference(day1,day2){
               <input type="Number" className="form-control" min="100000000" max="9999999999"onChange={(e) => {setContactNo(e.target.value)}} required/>
             </div>
             <br/>
+            <div>
+              <p>
+                Access to the dishes available in the Buffet(No Additional Fee)<br/>
+                <input type="radio" name="Cuzzi" value="Normal" onChange={(e) => {radio(e.target.value)}}/> Normal Package
+              </p>
+              <p>Upto 2 pre-Ordered meals served for prefered meals(Additional Fee to be paid at check-in)<br/>
+              <input type="radio" name="Cuzzi" value="Gold" onChange={(e) => {radio(e.target.value)}}/> Gold Package
+              </p>
+              <p>Upto 5 pre-Ordered meals with desired drinks(Additional Fee to be paid at check-in)<br/>
+                <input type="radio" name="Cuzzi" value="Platinum" onChange={(e) => {radio(e.target.value)}}/> Platinum Package
+              </p>
+            </div>
             {/* <div className="form-group">
               <label className="form-label">Number of Adults</label>
               <input type="Number" className="form-control" onChange={(e) => {setAdults(e.target.value)}} min={0} required/>
-            </div>
-            <div className="form-group">
-              <label className="form-label">Number of Children</label>
-              <input type="Number" className="form-control" onChange={(e) => {setChildren(e.target.value)}} min={0} required/>
-            </div><br /> */}
+            </div> */}
+            <br />
             <button type="submit" className="submitbtn">Submit</button>
           </form>
           </div>
@@ -136,6 +152,7 @@ function getDifference(day1,day2){
               {/* <p>Suite :</p> */}
               <p>Suite :<b>{suite}</b></p>
               <p>Contact Number :<b>{contactNo}</b></p>
+              <p>Customizations: <b>{customizations}</b></p>
               {/* <p>Number of Children</p> */}
               <p>Number of days at the hotel: <b>{getDifference(check_in,check_out)}</b> days</p>
               <br/>
