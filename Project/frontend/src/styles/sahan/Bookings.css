@@ -101,3 +101,15 @@
 .pagination__link--disabled a {
     color: #adadad;
 }
+.clicktoview:link{
+    text-decoration: none;
+    color: #000000;
+}
+.clicktoview:hover{
+    text-decoration: none;
+    color: #000000;
+}
+.clicktoview:visited{
+    text-decoration: none;
+    color: #000000;
+}
