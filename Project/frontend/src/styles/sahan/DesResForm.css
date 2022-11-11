@@ -1,6 +1,6 @@
 .desresContainer {
     /* background-color: aqua; */
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fticketback.jpg?alt=media&token=4b152c76-5d84-4f04-8406-eb5c3905843f);
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fbgs4.jpg?alt=media&token=fb009e6f-aabd-44a7-9696-c747cc7dee01);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -51,7 +51,7 @@
     border: 0.01px solid rgba(255, 255, 255, 0.141);
 }
 
-.desrestcktinner{
+.desrestcktinner {
     width: 565px;
     height: 280px;
     position: absolute;
@@ -61,7 +61,7 @@
     font-family: 'Space Mono', monospace;
 }
 
-.qrcont{
+.qrcont {
     width: 50px;
     height: 50px;
     top: 100px;
@@ -87,7 +87,7 @@
 }
 
 .rotate {
-    justify-content: center ;
+    justify-content: center;
     width: 250px;
     position: absolute;
     left: 570px;

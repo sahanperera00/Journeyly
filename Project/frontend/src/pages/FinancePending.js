@@ -246,6 +246,7 @@ function FinancePending() {
                 cold5hid = 'none';
                 cold6hid = 'none';
                 break;
+                
             default:
                 break;
         }

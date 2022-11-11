@@ -13,7 +13,10 @@ function Bookings() {
   const [array, setArray] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
+  const [flight, setFlight] = useState([]);
   const [destinationName, setDestinationName] = useState("");
+  const [flightTicket, setFlightTicket] = useState([]);
+ 
 
   var col1 = null;
   var col2 = null;
@@ -75,19 +78,18 @@ function Bookings() {
 
   const currentPageData = array
     .filter((data) => {
+      if(data.userID==sessionStorage.getItem("ID")){
       switch (type) {
         case 'flight':
           if (searchTerm == "") {
             return data;
-          } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          } else if (data.airline.toLowerCase().includes(searchTerm.toLowerCase())) {
+             return data;
+          } else if (data.flightName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
           } else if (data.startAirport.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
           } else if (data.destinationAirport.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return data;
-          } else if (data.arrivalTime.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return data;
-          } else if (data.departureTime.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
           }
           break;
@@ -133,11 +135,11 @@ function Bookings() {
             return data;
           }
           break;
-      }
+      }}
     })
     .slice(offset, offset + PER_PAGE)
     .map((data) => {
-      if (data.userID == localStorage.getItem("ID")) {
+     if(data.userID==sessionStorage.getItem("ID")){
         SetData(data);
         return (
           <>
@@ -157,7 +159,7 @@ function Bookings() {
           </tr>
           </>
         )
-      }
+     }
     });
 
   const pageCount = Math.ceil(array.length / PER_PAGE);
@@ -214,16 +216,110 @@ function Bookings() {
     }
   }
 
-  function deleteBooking(bid) {
+  function deleteBooking(bid,ofid) {
     switch (type) {
       case 'flight':
-        axios.delete(`http://localhost:8070/flightTicket/delete/${bid}`)
-          .then((res) => {
-            getArray();
-          })
-          .catch((err) => {
-            alert(err);
-          });
+        function getUniqueFlight(e){
+           axios.get("http://localhost:8070/flights/"+e)
+            .then((res) => {
+              setFlight(res.data);
+              window.sessionStorage.setItem("seatArrEcon", JSON.stringify(res.data.bookedSeatsEconomy));
+              window.sessionStorage.setItem("seatArrBusiness", JSON.stringify(res.data.bookedSeatsBusiness));
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }
+        function getUniqueFlightTicket(e){
+          axios.get("http://localhost:8070/flightTicket/"+e)
+            .then((res) => {
+              setFlightTicket(res.data);
+              console.log(res.data.seatNo);
+              sessionStorage.setItem("delSeat",res.data.seatNo);
+              sessionStorage.setItem("delSeatClass",res.data.classType);
+            })
+            .catch((err) => {
+              alert(err);
+            });
+        }
+        getUniqueFlightTicket(bid);
+        getUniqueFlight(ofid);
+        setTimeout(() => {
+          console.log(sessionStorage.getItem("delSeat"));
+          console.log(sessionStorage.getItem("delSeatClass"));
+          if(sessionStorage.getItem("delSeatClass")=="Economy Class"){
+            var bookedseats=[];
+            var j = 0;
+            var arr = JSON.parse(sessionStorage.getItem("seatArrEcon"));;
+            console.log(arr)
+            for(var i=0;i<arr.length;i++){
+              if(sessionStorage.getItem("delSeat")==arr[i]){
+                console.log("true");
+                if(i==arr.length-1){
+                  i++;
+                }else{
+                  bookedseats[j]=arr[i+1];
+                  i++;
+                }                
+               }else{
+                bookedseats[j]=arr[i];
+                console.log("false");
+                }
+                j++;
+            }
+            console.log(bookedseats);
+            const tickFlight ={
+                  bookedSeatsEconomy:bookedseats
+                }
+    
+              axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
+                    .then(() => {
+                        alert("Flight updated successfully");
+                    }).catch((err) => {
+                        alert(err);
+                    })
+          }else if(sessionStorage.getItem("delSeatClass")=="Business Class"){
+            var bookedseats=[];
+            var j = 0;
+            var arr = JSON.parse(sessionStorage.getItem("seatArrBusiness"));
+            console.log(arr)
+            for(var i=0;i<arr.length;i++){
+              if(sessionStorage.getItem("delSeat")==arr[i]){
+                console.log("true");
+                if(i==arr.length-1){
+                  i++;
+                }else{
+                  bookedseats[j]=arr[i+1];
+                  i++;
+                }                
+               }else{
+                bookedseats[j]=arr[i];
+                console.log("false");
+                }
+                j++;
+            }
+            console.log(bookedseats);
+            const tickFlight ={
+              bookedSeatsBusiness:bookedseats
+            }
+
+          axios.put("http://localhost:8070/flights/update/"+ofid, tickFlight)
+                .then(() => {
+                    alert("Flight updated successfully");
+                }).catch((err) => {
+                    alert(err);
+                })
+          }
+        }, 1000);
+        
+            
+            axios.delete(`http://localhost:8070/flightTicket/delete/${bid}`)
+            .then((res) => {
+              getArray();
+            })
+            .catch((err) => {
+              alert(err);
+            });
         break;
       case 'hotel':
         axios.delete(`http://localhost:8070/hotelRes/cancel/${bid}`)
@@ -267,19 +363,19 @@ function Bookings() {
   function SetData(props) {
     switch (type) {
       case 'flight':
-
-        cold1 = props.firstName + " " + props.lastName;
-        cold2 = props.flightName;
-        cold3 = props.airline;
-        cold4 = props.passportID;
-        cold5 = props.email;
-        cold6 = props.startAirport;
-        cold7 = props.destinationAirport;
-        cold8 = '8.30'//props.departureDate.toString() + " " + props.departureTime.toString();
-        cold9 = props.classType;
-        cold10 = props.price;
-        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/flightRes/${props.flightResId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
+        
+        cold1 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.firstName + " " + props.lastName} </Link>;
+        cold2 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.flightName} </Link>;
+        cold3 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.airline} </Link>;
+        cold4 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.passportID} </Link>;
+        cold5 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.email} </Link>;
+        cold6 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.startAirport} </Link>;
+        cold7 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.destinationAirport} </Link>;
+        cold8 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.departureDate + " " + props.departureTime} </Link>;
+        cold9 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.classType} </Link>;
+        cold10 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.price} </Link>;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/flightRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id,props.flightID) }}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'hotel':
         cold1 = props.name;

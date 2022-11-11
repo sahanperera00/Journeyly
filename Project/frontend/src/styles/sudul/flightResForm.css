@@ -69,7 +69,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.container {
+.containers {
     perspective: 1000px;
     margin-bottom: 30px;
     display: flex;
@@ -153,4 +153,9 @@ input::-webkit-inner-spin-button {
   
   p.text span {
     color: #6feaf6;
+  }
+  #enabler{
+    color:aquamarine;
+    font-size: x-small;
+    cursor: pointer;
   }

@@ -47,6 +47,15 @@ const flightSchema = new Schema({
     },
     imageI:{
         type:String,
+    },
+    bookedSeatsEconomy:{
+        type:[String],
+    },
+    bookedSeatsBusiness:{
+        type:[String],
+    },
+    gate:{
+        type:String,
     }
 });
 
