@@ -8,6 +8,11 @@ const newRental = new postSchema({
         
     },
 
+    userID:{
+        type: String,
+        required: true
+    },
+
     driverName: {
         type: String,
         
