@@ -1,5 +1,6 @@
 import packageReservation from "../models/packageReservation.js";
 
+//read 
 export const getAllpackageReservation = async (req, res) => {
     try {
         const packageReservations = await packageReservation.find();
