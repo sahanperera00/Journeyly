@@ -1,72 +1,265 @@
-import Card from 'react-bootstrap/Card';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import '../styles/leo/Hotel.css'
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import Card from "react-bootstrap/Card";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "../styles/leo/Hotel.css";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import NavbarDark from "../components/NavbarDark";
 
-function Hotels() { 
+function Hotels() {
   const [hotels, setHotels] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(""); // created to catch and set the searching options
+  const [isChecked5, setIsChecked5] = useState(false);
+  const [isChecked4, setIsChecked4] = useState(false);
+  const [isChecked3, setIsChecked3] = useState(false);
+  const [isChecked2, setIsChecked2] = useState(false);
+  const [isChecked1, setIsChecked1] = useState(false);
 
-  const{id}=useParams();
+  const handleOnChange5 = () => {
+    setIsChecked5(!isChecked5);
+  };
+
+  const handleOnChange4 = () => {
+    setIsChecked4(!isChecked4);
+  };
+
+  const handleOnChange3 = () => {
+    setIsChecked3(!isChecked3);
+  };
+
+  const handleOnChange2 = () => {
+    setIsChecked2(!isChecked2);
+  };
+
+  const handleOnChange1 = () => {
+    setIsChecked1(!isChecked1);
+  };
+
+  const { id } = useParams();
 
   const getHotels = () => {
-    axios.get("http://localhost:8070/hotels")
+    axios
+      .get("http://localhost:8070/hotels")
       .then((res) => {
         setHotels(res.data);
       })
       .catch((err) => {
         alert(err);
       });
-  }
-  
+  };
 
-  useEffect(() => { getHotels() } , []);  //Shows changes of the page
-
-  const [searchTerm,setSearchTerm]=useState(''); // created to catch and set the searching options
+  useEffect(() => {
+    getHotels();
+  }, []); //Shows changes of the page
 
   return (
-    <div className='hotelMainContainer'>
-      <h1 className='hotelHeader'>Hotels</h1>
-
-      <div className='hotelContainer'>
-        <div className="hotelSideBar">
-          <h1>Search</h1>
-          <input type="text" placeholder='Hotel Name or Location' onChange={event=>{setSearchTerm(event.target.value)}}/>
-        </div>
-        <div className="hotelBodyContainer">
-          {hotels.filter((data)=>{
-            if(data.sellingPrice!= null){
-            if(searchTerm==""){
-              return data
-            }else if(data.location.toLowerCase().includes(searchTerm.toLowerCase())){
-              return data
-            }else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
-              return data
-            }
-          }
-          }).map((data) => {
-          return (
-            <Link to={'/hotelPreview/'+data._id}>
-            <div className='CardContainer'>
-              <div className='ImageContainer'>
-                <img className='hotelCardImg' alt='pic' src={data.images}/>
-              </div>
-              <div className='TextContainer'>
-                <center><h2>{data.name} ({data.location})</h2></center>
-                  <p className='priceTage'>Price:Rs. {data.sellingPrice}<br/></p>
-                  <p className='desTage'>{data.description}<br/></p>
-                  <p className='starTage'>Stars: {data.stars}<br/></p>
-              </div>
+    <div className="hotelMainContainer">
+      <NavbarDark />
+      <div className="hotelInnerContainer">
+        <h1 className="hotelHeader">Hotels</h1>
+        <div className="hotelContainer">
+          <div className="hotelSearch">
+            Hotel Location
+            <br />
+            <br />
+            <input
+              className="hotelSearchInput"
+              type="text"
+              placeholder="Search by location"
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+            />
+            <hr />
+            Rating
+            <br />
+            <br />
+            <div className="hotelSeatCount">
+              <input
+                disabled={isChecked4 || isChecked3 || isChecked2 || isChecked1}
+                checked={isChecked5}
+                onChange={handleOnChange5}
+                type="checkbox"
+                name="5seats"
+                value="5"
+              />{" "}
+              5 Stars
+              <br />
+              <input
+                disabled={isChecked5 || isChecked3 || isChecked2 || isChecked1}
+                checked={isChecked4}
+                onChange={handleOnChange4}
+                type="checkbox"
+                name="4seats"
+                value="4"
+              />{" "}
+              4 Stars
+              <br />
+              <input
+                disabled={isChecked5 || isChecked4 || isChecked2 || isChecked1}
+                checked={isChecked3}
+                onChange={handleOnChange3}
+                type="checkbox"
+                name="3seats"
+                value="3"
+              />{" "}
+              3 Stars
+              <br />
+              <input
+                disabled={isChecked5 || isChecked4 || isChecked3 || isChecked1}
+                checked={isChecked2}
+                onChange={handleOnChange2}
+                type="checkbox"
+                name="2seats"
+                value="2"
+              />{" "}
+              2 Stars
+              <br />
+              <input
+                disabled={isChecked5 || isChecked4 || isChecked3 || isChecked2}
+                checked={isChecked1}
+                onChange={handleOnChange1}
+                type="checkbox"
+                name="2seats"
+                value="1"
+              />{" "}
+              1 Stars
             </div>
-            </Link>
-          )        
-        })}
+          </div>
+          <div className="hotelBodyContainer">
+            {hotels
+              .filter((data) => {
+                if (data.sellingPrice != null) {
+                  if (searchTerm == "") {
+                    if (isChecked5) {
+                      if (data.stars == 5) {
+                        return data;
+                      }
+                    } else if (isChecked4) {
+                      if (data.stars == 4) {
+                        return data;
+                      }
+                    } else if (isChecked3) {
+                      if (data.stars == 3) {
+                        return data;
+                      }
+                    } else if (isChecked2) {
+                      if (data.stars == 2) {
+                        return data;
+                      }
+                    } else if (isChecked1) {
+                      if (data.stars == 1) {
+                        return data;
+                      }
+                    } else {
+                      return data;
+                    }
+                  } else if (
+                    data.location
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase())
+                  ) {
+                    if (isChecked5) {
+                      if (data.stars == 5) {
+                        return data;
+                      }
+                    } else if (isChecked4) {
+                      if (data.stars == 4) {
+                        return data;
+                      }
+                    } else if (isChecked3) {
+                      if (data.stars == 3) {
+                        return data;
+                      }
+                    } else if (isChecked2) {
+                      if (data.stars == 2) {
+                        return data;
+                      }
+                    } else if (isChecked1) {
+                      if (data.stars == 1) {
+                        return data;
+                      }
+                    } else {
+                      return data;
+                    }
+                  }
+                }
+              })
+              .map((data) => {
+                return (
+                  <Link to={"/hotelPreview/" + data._id}>
+                    <div className="hotelCardContainer">
+                      <div className="hotelImageContainer">
+                        <img
+                          className="hotelCardImg"
+                          alt="pic"
+                          src={data.images}
+                        />
+                      </div>
+                      <div className="hotelTextContainer">
+                        <h4 className="taxititlesec">
+                          {data.name}{" "}
+                          <span
+                            style={{ fontWeight: "normal", fontSize: "12px" }}
+                          >
+                            {data.location}
+                          </span>
+                        </h4>
+                        <div className="row" style={{ width: "100%" }}>
+                          <div
+                            style={{
+                              fontSize: "14px",
+                              height: "65px",
+                              width: "80%",
+                              overflow: "hidden",
+                            }}
+                            className="col-12 "
+                          >
+                            {data.description}
+                          </div>
+                          <div className="col-7" />
+
+                          <div
+                            className="col-5"
+                            style={{
+                              textAlign: "end",
+                              marginTop: "10px",
+                              marginRight: "0px",
+                              // backgroundColor: "#f5f5f5",
+                            }}
+                          >
+                            {Array(data.stars).fill(
+                              <span
+                                className="material-symbols-outlined"
+                                style={{ color: "#FFC107", textAlign: "end" }}
+                              >
+                                star
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <p className="hotelpriceTage">
+                          {/* Price:Rs. {data.sellingPrice} */}
+                          <br />
+                        </p>
+                        <p className="hoteldesTage">
+                          {/* {data.description} */}
+                          <br />
+                        </p>
+                        <p className="hotelstarTage">
+                          {/* Stars: {data.stars} */}
+                          <br />
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+          </div>
         </div>
-        
       </div>
     </div>
-  )
+  );
 }
 
 export default Hotels;
