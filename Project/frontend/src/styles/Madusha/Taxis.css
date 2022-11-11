@@ -1,5 +1,5 @@
 * {
-    color: black;
+    /* color: black; */
     text-decoration: none;
     font-style: normal;
 }
@@ -38,7 +38,7 @@
 .taxiSearch {
     width: 25%;
     height: 500px;
-    /* background-color: #ffffff; */
+    background-color: white;
     border: 1px solid #00000031;
     /* border-radius: 15px; */
     padding: 20px;
@@ -74,9 +74,16 @@
     display: flex;
     margin-bottom: 30px;
     text-decoration: none;
+    background-color: white;
     color: black;
+    border-radius: 10px;
     padding: 20px;
     border: 1px solid #00000031;
+    transition: 0.3s;
+}
+
+.taxiCardContainer:hover {
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .taxiImageContainer {
