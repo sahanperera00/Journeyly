@@ -276,7 +276,7 @@ function EditorWebContent() {
         cold9 = props.airline;
         cold10hid = 'none';
         cold11 = <Link className='updatebttn' to={"/editorDashboard/flightUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
+        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/flightForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
       case 'hotel':

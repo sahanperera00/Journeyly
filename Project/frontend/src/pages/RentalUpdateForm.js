@@ -13,10 +13,20 @@ function RentalUpdateForm() {
     const [startDes, setStartDes] = useState('');
     const [endDes, setEndDes] = useState('');
 
-    const {vehicleId} = useParams();
     const { id } = useParams();
     const { rentalId } = useParams();
     const navigate = useNavigate();
+
+    const [destination, setDestination] = useState([]);
+    const [hotel, setHotel] = useState([]);
+
+    const handleOnChangeSD = (e) => {
+        setStartDes(e.target.value);
+      };
+    
+      const handleOnChangeED = (e) => {
+        setEndDes(e.target.value);
+      };
 
     const getRental = () => {
         axios.get("http://localhost:8070/rental/" + rentalId)
@@ -27,8 +37,8 @@ function RentalUpdateForm() {
                 setEmail(res.data.email);
                 setPhoneNo(res.data.phoneNo);
 
-                const date = new Date(res.data.date);
-                setDate(date.toISOString().split('T')[0]);
+                // const date = new Date(res.data.date);
+                // setDate(date.toISOString().split('T')[0]);
                 setTime(res.data.time);
                 setStartDes(res.data.startDes);
                 setEndDes(res.data.endDes);
@@ -118,7 +128,7 @@ function RentalUpdateForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Email</label>
-                        <input type="text" className="form-control" value={lastName} onChange={(e) => { setEmail(e.target.value) }} required />
+                        <input type="text" className="form-control" value={email} onChange={(e) => { setEmail(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Phone Number</label>

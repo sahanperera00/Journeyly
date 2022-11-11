@@ -1,7 +1,7 @@
 import express from "express";
 import { getAllPackages, getPackages, createPackages, updatePackages, deletePackages } from "../controllers/Packages.js";
 
-const router = express.Router();
+const router = express.Router(); //set routers
 
 router.get("/", getAllPackages);
 router.get("/:id", getPackages);

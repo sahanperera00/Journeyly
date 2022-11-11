@@ -363,16 +363,17 @@ function Bookings() {
   function SetData(props) {
     switch (type) {
       case 'flight':
-        cold1 = props.firstName + " " + props.lastName;
-        cold2 = props.flightName;
-        cold3 = props.airline;
-        cold4 = props.passportID;
-        cold5 = props.email;
-        cold6 = props.startAirport;
-        cold7 = props.destinationAirport;
-        cold8 = props.departureDate + " " + props.departureTime;
-        cold9 = props.classType;
-        cold10 = props.price;
+        
+        cold1 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.firstName + " " + props.lastName} </Link>;
+        cold2 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.flightName} </Link>;
+        cold3 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.airline} </Link>;
+        cold4 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.passportID} </Link>;
+        cold5 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.email} </Link>;
+        cold6 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.startAirport} </Link>;
+        cold7 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.destinationAirport} </Link>;
+        cold8 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.departureDate + " " + props.departureTime} </Link>;
+        cold9 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.classType} </Link>;
+        cold10 = <Link className='clicktoview' to={`/clientDashboard/${id}/flightTicket/${props._id}`}>{props.price} </Link>;
         cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/flightRes/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id,props.flightID) }}><span className="material-symbols-outlined">delete</span></button>;
         break;
@@ -415,7 +416,7 @@ function Bookings() {
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/rental/${props.vehicleId}/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
+        cold11 = <Link className='updatebttn' to={`/clientDashboard/${id}/rental/${props._id}`}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         break;
       case 'package':

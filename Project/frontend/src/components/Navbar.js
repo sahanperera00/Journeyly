@@ -96,53 +96,6 @@ function Navbar() {
     if (error || gError) alert("Login unsuccessful");
   }, [error, gError]);
 
-  // if (error) {
-  //   console.log(error);
-  // }
-
-  // if (loading) return <span >Loading ...</span>
-
-  // function handleCallbackResponse(response) {
-  //   console.log("Encoded JWT ID token:" + response.credential);
-  //   var userObject = jwt_decode(response.credential);
-  //   console.log(userObject);
-  //   SetUser(userObject);
-  // }
-
-  // useEffect(()=> {
-  //   /*global google */
-  //   google.accounts.id.initialize({
-  //     client_id: "78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com",
-  //     callback: handleCallbackResponse
-  //   });
-
-  //   google.accounts.id.renderButton(
-  //     document.getElementById("googlelogin"),
-  //     {theme:"outline", size:"large"}
-  //   );
-  // });
-
-  /////////coding for google login
-  //   const [ profile, setProfile ] = useState([]);
-  //   const clientId = '78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com';
-
-  //       useEffect(() => {
-  //         const initClient = () => {
-  //               gapi.client.init({
-  //               clientId: clientId,
-  //               scope: ''
-  //             });
-  //           };
-  //           gapi.load('client:auth2', initClient);
-  // });
-
-  // const onSuccess = (res) => {
-  //   setProfile(res.profileObj);
-  // };
-
-  // const onFailure = (err) => {
-  //   console.log('failed', err);
-  // };
 
   return (
     <Navbarx className="NavbarCont" expand="lg">
@@ -254,6 +207,7 @@ function Navbar() {
                       Continue with Google
                     </span>
                   )}
+
                   {/* <div id="googlelogin"></div>
                   
                 <GoogleLogin

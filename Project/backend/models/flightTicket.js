@@ -60,6 +60,10 @@ const flightTicketSchema = new Schema({
         required: true
     },
     seatNo:{
+        type:String,
+        required: true
+    },
+    gate:{
         type:String
     },
     economyClass:{
