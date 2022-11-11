@@ -109,7 +109,7 @@ function DesResForm({ destination }) {
                     style={{ color: "black", transform: "rotate:180deg" }}
                   >
                     <h3>
-                      Total : $
+                      Total : Rs{" "}
                       {destination.adultTicketSellingRate * adults +
                         destination.childTicketSellingRate * children}
                     </h3>
