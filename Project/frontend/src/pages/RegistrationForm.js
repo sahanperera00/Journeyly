@@ -94,28 +94,28 @@ function RegistrationForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setFirstName(e.target.value);
-                            }} required />
+                            }}  required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Last Name</label>
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setLastName(e.target.value);
-                            }} required />
+                            }}  required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Email</label>
                         <input type="email" className="form-control"
                             onChange={(e) => {
                                 setEmail(e.target.value);
-                            }} required />
+                            }} pattern="[a-z0-9]+@+[a-z]+.com" required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Contact Number</label>
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setContactNo(e.target.value);
-                            }} pattern='[0-9]{10}' required />
+                            }}  pattern='[0-9]{10}' title='Contact number should be 10 digits' required />
                     </div>
                     {/* <div className="form-group">
                         <label className="form-label">Username</label>
@@ -129,7 +129,7 @@ function RegistrationForm() {
                         <input type="password" className="form-control"
                             onChange={(e) => {
                                 setPassword(e.target.value);
-                            }} required />
+                            }} minLength='6' required />
                     </div>
                     <br />
                     {
@@ -138,10 +138,10 @@ function RegistrationForm() {
                             : <button type="signup" className="btn btn-dark">Sign Up</button>
                     }
                     <br /><br />
-
+                
                     <span className='btn btn-outline-dark' onClick={() => {
                         signInWithGoogle();
-                    }}>
+                    }}>             
                         <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
                         Sign Up with Google</span><br /><br />
 

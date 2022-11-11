@@ -54,7 +54,7 @@ function UserProfile() {
         });
 
     } catch (error) {
-      alert("Could not delete user");
+      alert("Error!Could not delete user");
       console.log(error);
     }
   }

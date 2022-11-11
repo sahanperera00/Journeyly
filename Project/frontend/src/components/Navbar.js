@@ -83,55 +83,6 @@ function Navbar() {
   }, [error, gError])
 
 
-  // if (error) {
-  //   console.log(error);
-  // }
-
-  // if (loading) return <span >Loading ...</span>
-
-
-  // function handleCallbackResponse(response) {
-  //   console.log("Encoded JWT ID token:" + response.credential);
-  //   var userObject = jwt_decode(response.credential);
-  //   console.log(userObject);
-  //   SetUser(userObject);
-  // }
-
-  // useEffect(()=> {
-  //   /*global google */
-  //   google.accounts.id.initialize({
-  //     client_id: "78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com",
-  //     callback: handleCallbackResponse
-  //   });
-
-  //   google.accounts.id.renderButton(
-  //     document.getElementById("googlelogin"),
-  //     {theme:"outline", size:"large"}
-  //   );
-  // });
-
-
-  /////////coding for google login
-  //   const [ profile, setProfile ] = useState([]);
-  //   const clientId = '78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com';
-
-  //       useEffect(() => {
-  //         const initClient = () => {
-  //               gapi.client.init({
-  //               clientId: clientId,
-  //               scope: ''
-  //             });
-  //           };
-  //           gapi.load('client:auth2', initClient);
-  // });
-
-  // const onSuccess = (res) => {
-  //   setProfile(res.profileObj);
-  // };
-
-  // const onFailure = (err) => {
-  //   console.log('failed', err);
-  // };
 
   return (
     <Navbarx className='NavbarCont' expand="lg">
@@ -183,15 +134,13 @@ function Navbar() {
                     onChange={(e) => {
                       setPassword(e.target.value)
                     }} required />
-
                 </Form.Group>
                 <div className='btnContainerlogin'>
                   {
                     loading
                       ? <Button type="submit" variant="btn btn-dark disabled" >Loading ...</Button>
                       : <Button type="submit" variant="btn btn-dark" >Login</Button>
-                  }
-
+                  }               
                   {
                     gLoading
                       ? <span className='btn btn-outline-dark py-2 disabled'>
@@ -202,7 +151,7 @@ function Navbar() {
                         signInWithGoogle();
                       }}>
                         <img className='googleIcon' src="https://i.ibb.co/XzVFGzb/google.png" alt="" />
-                        Continue with Google
+                        Sign in with Google
                       </span>
                   }
 
