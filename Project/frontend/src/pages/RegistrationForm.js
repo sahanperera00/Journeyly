@@ -72,8 +72,57 @@ function RegistrationForm() {
         });
     }
 
-    if (error || gError) alert("Unsuccessful!");
-  }, [user, gUser, error, gError]);
+    const navigate = useNavigate();
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+
+    useEffect(() => {
+        if (user) {
+            signOut(auth);
+            axios.post("http://localhost:8070/client/create", newClient)
+                .then(() => {
+                    alert("Registration successfull!");
+                    navigate('/');
+                }).catch((err) => {
+                    alert("Unsuccessful!");
+                    console.log(err);
+                })
+        }
+        if (gUser) {
+            const googleClient = {
+                firstName: "No name",
+                lastName: "No name",
+                email: gUser.user?.email,
+                contactNo: "No contact",
+                // username: "No username",
+                password: "No Password"
+
+            }
+
+            axios.post("http://localhost:8070/client/create", googleClient)
+                .then(() => {
+                    alert("Registration successfull!");
+                    signOut(auth);
+                    navigate('/');
+                }).catch((err) => {
+                    alert("Unsuccessful!");
+                    signOut(auth);
+                    console.log(err);
+                })
+        }
+
+        if (error || gError) alert("Unsuccessful!");
+
+    }, [user, gUser, error, gError]);
+
 
   return (
     <div className="RegistrationFormMainCont">
@@ -144,12 +193,14 @@ function RegistrationForm() {
                 />
               </div>
               {/* <div className="form-group">
+  
                         <label className="form-label">Username</label>
                         <input type="text" className="form-control" min="0" max="5"
                             onChange={(e) => {
                                 setUsername(e.target.value);
                             }} required />
                     </div> */}
+
               <div className="form-group">
                 <label className="form-label">Password</label>
                 <input
