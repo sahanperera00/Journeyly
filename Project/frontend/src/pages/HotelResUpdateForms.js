@@ -11,17 +11,7 @@ function HotelResUpdateForms() {
     const [contactNo, setcontact] = useState('');
     const [hotel_Name, setHotelName] =useState('');
     const [suite,setSuite]=useState('');
-    // const [airline, setAirline] = useState('');
-    // const [depDate, setDepDate] = useState('');
-    // const [depTime, setDepTime] = useState('');
-    // const [startAirport, setDepAir] = useState('');
-    // const [hotelAirport, setHotelAir] = useState('');
-    // const [passportID, setppID] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [classType, setClass] = useState('');
-    // const [price, setPrice] = useState('');
-    // const [business, setBusiness] = useState('');
-    // const [economy, setEconomy] = useState('');
+    const [customizations, setCustomizations] = useState('');
 
     
 
@@ -38,7 +28,7 @@ function HotelResUpdateForms() {
                 setcontact(res.data.contactNo);
                 setHotelName(res.data.hotel_Name);
                 setSuite(res.data.suite);
-                
+                setCustomizations(res.data.customizations);
                 
 
                 // const date = new Date(res.data.date);
@@ -67,7 +57,8 @@ function HotelResUpdateForms() {
                         check_in,
                         check_out,
                         contactNo,
-                        suite
+                        suite,
+                        customizations
                     };
 
                     axios.put(`http://localhost:8070/hotelRes/customize/${hotelResId}`, newTicket)
@@ -99,6 +90,12 @@ function HotelResUpdateForms() {
                 <label className="form-label">Check Out Time</label>
                 <input type="date" className="form-control" value={check_out} onChange={(e) => {setCheckOut(e.target.value)}} required/>
               </div>
+              <div >
+                        <label className="form-label">Customizations</label><br/>
+                        <input type="radio"  name="Cuz" value="Normal" onChange={(e) => { setCustomizations(e.target.value) }} required />Normal
+                        <input type="radio"  name="Cuz" value="Gold" onChange={(e) => { setCustomizations(e.target.value) }} required />Gold
+                        <input type="radio"  name="Cuz" value="Platinum" onChange={(e) => { setCustomizations(e.target.value) }} required />Platinum
+                    </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
                 <input type="Number" className="form-control" value={contactNo} onChange={(e) => {setcontact(e.target.value)}} required/>
