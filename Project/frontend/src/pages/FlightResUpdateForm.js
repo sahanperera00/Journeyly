@@ -20,6 +20,7 @@ function FlightResUpdateForm() {
     const [price, setPrice] = useState('');
     const [business, setBusiness] = useState('');
     const [economy, setEconomy] = useState('');
+    const [seat, setSeat] = useState('');
 
     
 
@@ -39,6 +40,13 @@ function FlightResUpdateForm() {
                 setClass(res.data.classType);
                 setEconomy(res.data.economyClass);
                 setBusiness(res.data.businessClass);
+                setAirline(res.data.airline);
+                setPrice(res.data.price);
+                setDepAir(res.data.startAirport);
+                setFlightAir(res.data.destinationAirport);
+                setDepDate(res.data.departureDate);
+                setDepTime(res.data.departureTime);
+                setSeat(res.data.seatNo);
 
                 // const date = new Date(res.data.date);
                 // setDate(date.toISOString().split('T')[0]);
@@ -52,17 +60,17 @@ function FlightResUpdateForm() {
     };
 
     useEffect(() => { getReservation() }, []);
-    function radio(value){
-        if(value == "BusinessClass"){
-          setPrice(business)
-          setClass("Business Class")
-        }
-        else{
-          setPrice(economy)
-          setClass("Economy Class")
-        }
-      }
-      console.log(economy)
+    // function radio(value){
+    //     if(value == "BusinessClass"){
+    //       setPrice(business)
+    //       setClass("Business Class")
+    //     }
+    //     else{
+    //       setPrice(economy)
+    //       setClass("Economy Class")
+    //     }
+    //   }
+      // console.log(economy)
 
     return (
         <div className="FlightResUpdateFormMainCont">
@@ -77,7 +85,6 @@ function FlightResUpdateForm() {
                         email,
                         phoneNo,
                         passportID,
-                        classType,
                         price 
                     };
 
@@ -114,17 +121,34 @@ function FlightResUpdateForm() {
                 <label className="form-label">Passport ID</label>
                 <input type="text" className="form-control" value={passportID} onChange={(e) => {setppID(e.target.value)}} required/>
               </div>
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label className="form-label">Class Type</label>
-              {/* <select class="form-select" aria-label="Default select example" onChange={(e) => {setClass(e.target.value)}} required>
-               <option value="Economy Class">Economy Class</option>
-               <option value="Business Class">Business Class</option>
-              </select> */}<br/>
+              <br/>
                 <input type="radio" name="cls" value="EconomyClass" onChange={(e) => {radio(e.target.value)}} />Economy Class<br/>
                 <input type="radio" name="cls" value="BusinessClass" onChange={(e) => {radio(e.target.value)}} />Business Class
-              </div>  
+              </div>   */}
+              <br/>
               <button type="submit" className="submitbtn">Update</button>
             </form>
+            <br/>
+            <div className='flightrestcktcont'>
+              <div className='flightrestckt'>
+              <center><h3>{flight}</h3>
+              <h5>{airline}</h5></center><br/>
+                <p>Starting Airport : {startAirport}</p>
+                <p>Departure Date : {depDate} (GMT+5.30)</p>
+                <p>Departure Time : {depTime} (GMT+5.30)</p>
+                <p>Destination Airport : {flightAirport}</p>
+                <p>Name : {firstName} {lastName}</p>
+                <p>Email Address : {email}</p>
+                <p>Phone Number : {phoneNo}</p>
+                <p>Passport ID : {passportID}</p>
+                <p>Class : {classType}</p> 
+                <p>Seat : {seat}</p>               
+                <br/>
+                <h3>Total : {price}</h3>
+                </div>
+            </div>
             </div><br />
         </div>
     )

@@ -147,6 +147,7 @@ function FlightResForm() {
                 passportID,
                 classType,
                 seatNo:sessionStorage.getItem("value"),
+                gate:flight.gate,
                 economyClass:flight.economyClass,
                 businessClass:flight.businessClass,
                 price                
@@ -243,7 +244,7 @@ function FlightResForm() {
               <br/>
               <ul class="showcase">
       <li>
-        <div className="seat" value='A1'></div>
+        <div className="seat"></div>
         <small>N/A</small>
       </li>
 
@@ -342,7 +343,8 @@ function FlightResForm() {
                 <p>Phone Number : {phoneNo}</p>
                 <p>Passport ID : {passportID}</p>
                 <p>Class : {classType}</p> 
-                <p>Seat : {selSeat}</p>               
+                <p>Seat : {selSeat}</p>  
+                <p>Gate : {flight.gate}</p>             
                 <br/>
                 <h3>Total : {price}</h3>
                 </div>

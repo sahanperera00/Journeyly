@@ -1,6 +1,6 @@
 import Package from "../models/packages.js";
 
-//read
+//read packages
 export const getAllPackages = async (req, res) => {
     try {
         const packages = await Package.find();
@@ -19,7 +19,7 @@ export const getPackages = async (req, res) => {
         res.status(404).json({ message: error });
     }
 }
-//create
+//create packages
 export const createPackages = async (req, res) => {
     const packages = req.body;
     const newPackages = new Package(packages);
@@ -30,23 +30,23 @@ export const createPackages = async (req, res) => {
         res.status(404).json({ message: error });
     }        
 }
-//update
+//update packages
 export const updatePackages = async (req, res) => {
     const id = req.params.id;
     const update = req.body;
     try {
         await Package.findByIdAndUpdate(id, update);
-        res.status(200).send({status: "Package updated"});
+        res.status(200).send({status: "Package updated Succsessfully"});
     } catch (error) {
         res.status(404).json({ message: error });
     }
 }
-//delete
+//delete packages
 export const deletePackages = async (req, res) => {
     const id = req.params.id;
     try {
         await Package.findByIdAndDelete(id);
-        res.status(200).send({status: "Package deleted"});
+        res.status(200).send({status: "Package deleted Succsessfully"});
     }catch{
         res.status(404).json({ message: error });
     }

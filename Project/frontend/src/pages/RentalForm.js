@@ -78,6 +78,7 @@ function RentalForm() {
 
             const newRental = {
               vehicleId: vehicle._id,
+              userID:localStorage.getItem("ID"),
               driverName: vehicle.driverName,
               firstName,
               lastName,

@@ -1,7 +1,7 @@
 import express from "express";
 import { getAllpackageReservation, getpackageReservation, getUserpackageReservations, createpackageReservation, updatepackageReservation, deletepackageReservation, getpackageReservationbyUID } from "../controllers/packageReservation.js";
 
-const router = express.Router();
+const router = express.Router(); //set routers
 
 router.get("/", getAllpackageReservation);
 router.get("/:id", getpackageReservation);
