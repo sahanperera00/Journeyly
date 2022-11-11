@@ -27,11 +27,14 @@ function PackageReservationForm({}) {
               alert(err.message);
           });
       }
+      
+
+
       useEffect(()=> getPackages(),[]);
 
   return (
     <div className='pakgeMain2'>
-        <h1 className="packageresMainContainer">Package Booking Details</h1>
+        <h1 className="packageresMainContainer">Package Reservation Booking Details</h1>
         <p className='pkgprice'>Package Name - {packages.name}</p>
         <p className='pkgprice'>Price of the Package: {packages.price}<br/></p>
         <div className='IneerFormat'>
@@ -47,7 +50,7 @@ function PackageReservationForm({}) {
               date,
               email,
               phoneNo,
-              userID:localStorage.getItem("ID"),
+              userID:sessionStorage.getItem("ID"),
 
            
             };
@@ -56,7 +59,7 @@ function PackageReservationForm({}) {
             await axios.post("http://localhost:8070/packageReservation/create", newBook)
             .then(() => {
               alert("Package Booked Successfully");
-              // navigate('/hotels');
+             
             }).catch((err) => {
               alert("Error ");
               console.log(err);
@@ -82,7 +85,7 @@ function PackageReservationForm({}) {
               
   <div className="form-group">
                 <label className="Formtest">phoneNo</label>
-                <input type="text" className="form-control" onChange={(e) => {setphoneNo(e.target.value)}} required/>
+                <input type="Number" className="form-control"  min="100000000" max="9999999999" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
           <br />
               <button type="submit" className="submitbtnpackage">Submit</button>
@@ -90,14 +93,13 @@ function PackageReservationForm({}) {
             </div>
             <div className='Packgecontainer'>
            
-           
+           <p> Price :{packages.price}</p>
             <p>Name :{name}</p>
               <p>Reserve Date :{date}</p>
-              <p>Email :{phoneNo}</p>
+              <p>Email :{email}</p>
               <p>Contact Number :{phoneNo}</p>
               <br/>
-            
-
+           
             </div>
             
             </div>

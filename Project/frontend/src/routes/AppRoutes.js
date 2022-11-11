@@ -57,15 +57,21 @@ import {
     FinanceFlightUpdateForm,
     FlightResUpdateForm,
     FinanceHotelUpdateForm,
+    FinanceVehicleUpdateForm,
     HotelResUpdateForms,
     PackagePreview,
     PackageReservationForm,
     PackageReservationUpdateForm,
-   
     FinanceUpdateForm,
     FinanceEdit,
+    InvoiceForm,
+    Invoice,
+    InvoiceUpdateForm,
+    FlightTicketView,
+    RentalUpdateForm
     
 } from '../pages';
+
 
 
 function AppRoutes() {
@@ -88,7 +94,7 @@ function AppRoutes() {
                     <Route path='hotelResForm/:id' element={<HotelResForm />} />
                     <Route path='flightResForm/:id' element={<FlightResForm />} />
                     <Route path='rentalPreview/:id' element={<RentalPreview />} />
-                    <Route path='rentalForm' element={<RentalForm />} />
+                    <Route path='rentalForm/:id' element={<RentalForm />} />
                     <Route path="PackagePreview/:id" element={<PackagePreview />} />
                     <Route path='PackageReservationForm/:id' element={<PackageReservationForm />} />
                     
@@ -133,9 +139,11 @@ function AppRoutes() {
                     <Route path="updateProfile" element={<ProfileUpdateForm />} />
                     <Route path="payments" element={<Payments />} />
                     <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm />} />
-                    <Route path="flightRes/:flightID/:flightResId" element={<FlightResUpdateForm />} />
+                    <Route path="flightRes/:flightResId" element={<FlightResUpdateForm />} />
+                    <Route path="flightTicket/:flightResId" element={<FlightTicketView />} />
                     <Route path="hotelRes/:hotelResId" element={<HotelResUpdateForms />}/>
                     <Route path="PackageRes/:packageReservationId" element={<PackageReservationUpdateForm />}/>
+                    <Route path="rental/:rentalId" element={<RentalUpdateForm />}/>
                    
                 </Route>
 
@@ -146,6 +154,12 @@ function AppRoutes() {
                     <Route path="financeRevenue" element={<CeoRevenue />} />
                     <Route path="financeFlightUpdateForm/:id" element={<FinanceFlightUpdateForm />} />
                     <Route path="financeHotelUpdateForm/:id" element={<FinanceHotelUpdateForm/>}/>
+
+                    <Route path="financeVehicleUpdateForm/:id" element={<FinanceVehicleUpdateForm/>}/>
+                    <Route path="invoiceForm" element={<InvoiceForm />} />
+                    <Route path="Invoice" element={<Invoice />} />
+                    <Route path="InvoiceUpdateForm/:id" element={<InvoiceUpdateForm />} />
+
                    
                    
                 </Route>

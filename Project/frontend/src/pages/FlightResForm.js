@@ -3,6 +3,27 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate,useParams } from 'react-router-dom';
 
+function seat(){
+  var seatCount = 0;
+  const containers = document.querySelector('.containers');
+  
+  containers.addEventListener('click', (e) => {
+    if (e.target.className == 'seat'&& seatCount == 0) {
+      e.target.className = 'seat selected';
+      sessionStorage.setItem("value",e.target.id);
+      seatCount++;
+      console.log("+");
+    }
+    else if(e.target.className == 'seat selected'){
+      e.target.className = 'seat';
+      sessionStorage.removeItem("value");
+      seatCount--;
+      console.log("-");
+    }
+  });
+}
+setTimeout(seat,1000);
+
 function FlightResForm() {
   
   const [flight, setFlight] = useState([]);
@@ -22,15 +43,73 @@ function FlightResForm() {
   useEffect(() => { getUniqueFlight() }, [id]);
     function radio(value){
       if(value == "BusinessClass"){
-        setPrice(flight.businessClass)
-        setClass("Business Class")
+        setPrice(flight.businessClass);
+        setClass("Business Class");
+        var nonoccupied;
+        for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
+          nonoccupied=document.getElementById(flight.bookedSeatsEconomy[i]);
+          nonoccupied.className = 'seat';
+         }
+         var inBusiness,charactor;
+         charactor = "D";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='none';
+         }
+         charactor = "E";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='none';
+         }
+         charactor = "F";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='none';
+         }
+        var occupied;
+        for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
+          occupied=document.getElementById(flight.bookedSeatsBusiness[i]);
+          occupied.className = 'seat occupied';
+         }
       }
       else{
-        setPrice(flight.economyClass)
-        setClass("Economy Class")
+        setPrice(flight.economyClass);
+        setClass("Economy Class");
+        var nonoccupied;
+        for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
+          nonoccupied=document.getElementById(flight.bookedSeatsBusiness[i]);
+          nonoccupied.className = 'seat';
+         }
+         var inBusiness,charactor;
+         charactor = "D";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='';
+         }
+         charactor = "E";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='';
+         }
+         charactor = "F";
+         for(var i=1;i<9;i++){
+          console.log(charactor);
+          inBusiness=document.getElementById(charactor+i);
+          inBusiness.style.display='';
+         }
+        var occupied;
+        for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
+          occupied=document.getElementById(flight.bookedSeatsEconomy[i]);
+          occupied.className = 'seat occupied';
+         }
       }
-
     }
+    
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -38,12 +117,15 @@ function FlightResForm() {
     const [passportID, setppID] = useState('');
     const [classType, setClass] = useState('');
     const [price, setPrice] = useState('');
+    const [selSeat, setSeat] = useState('');
 
     const navigate = useNavigate();
+
 
     return (
       <div id="flightresform" className="flightresContainer">
           <h1>Flight Reservation</h1>
+          <h15 id="enabler" onClick={()=>window.location.reload()}>Click Once to Enable Seat Selector</h15>
           <div className='flightreseinnercontainer'>
             <div className='flightresformcont'>
             <form className='flightresform' onSubmit={async(e) => {
@@ -57,13 +139,15 @@ function FlightResForm() {
                 departureDate:flight.departureDate,
                 departureTime: flight.departureTime,
                 destinationAirport: flight.destinationAirport,
-                userID:localStorage.getItem("ID"),
+                userID:sessionStorage.getItem("ID"),
                 firstName,
                 lastName,
                 email,
                 phoneNo,
                 passportID,
                 classType,
+                seatNo:sessionStorage.getItem("value"),
+                gate:flight.gate,
                 economyClass:flight.economyClass,
                 businessClass:flight.businessClass,
                 price                
@@ -79,6 +163,51 @@ function FlightResForm() {
                 alert("Error adding ticket");
                 console.log(err);
               });
+
+              if(classType=="Economy Class"){
+                var bookedseats=[];
+               for(var i=0;i<flight.bookedSeatsEconomy.length;i++){
+                bookedseats[i]=flight.bookedSeatsEconomy[i];
+               }
+               bookedseats[flight.bookedSeatsEconomy.length]=sessionStorage.getItem('value');
+
+              // bookedseats.append();
+              const tickFlight ={
+                bookedSeatsEconomy:bookedseats
+              }
+
+              axios.put("http://localhost:8070/flights/update/"+id, tickFlight)
+                    .then(() => {
+                        alert("Flight updated successfully");
+                        sessionStorage.removeItem("value");
+
+                    }).catch((err) => {
+                        alert(err);
+                    })
+              }else if(classType=="Business Class"){
+                var bookedseats=[];
+               for(var i=0;i<flight.bookedSeatsBusiness.length;i++){
+                bookedseats[i]=flight.bookedSeatsBusiness[i];
+               }
+               bookedseats[flight.bookedSeatsBusiness.length]=sessionStorage.getItem('value');
+
+              // bookedseats.append();
+              const tickFlight ={
+                bookedSeatsBusiness:bookedseats
+              }
+
+              axios.put("http://localhost:8070/flights/update/"+id, tickFlight)
+                    .then(() => {
+                        alert("Flight updated successfully");
+                        sessionStorage.removeItem("value");
+
+                    }).catch((err) => {
+                        alert(err);
+                    })
+
+              }
+
+               
               
   
               
@@ -115,90 +244,90 @@ function FlightResForm() {
               <br/>
               <ul class="showcase">
       <li>
-        <div class="seat"></div>
+        <div className="seat"></div>
         <small>N/A</small>
       </li>
 
       <li>
-        <div class="seat selected"></div>
+        <div className="seat selected"></div>
         <small>Selected</small>
       </li>
 
       <li>
-        <div class="seat occupied"></div>
+        <div className="seat occupied"></div>
         <small>Occupied</small>
       </li>
     </ul>
 
-    <div class="container">
-      <div class="screen"></div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+    <div className="containers"  onClick={() => {setSeat(sessionStorage.getItem("value"))}} >
+      <div className="screen"></div>
+      <div className="row">
+        <div className="seat" id='A1'></div>
+        <div className="seat" id='A2'></div>
+        <div className="seat" id='A3'></div>
+        <div className="seat" id='A4'></div>
+        <div className="seat" id='A5'></div>
+        <div className="seat" id='A6'></div>
+        <div className="seat" id='A7'></div>
+        <div className="seat" id='A8'></div>
       </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
+      <div className="row">
+        <div className="seat" id='B1'></div>
+        <div className="seat" id='B2'></div>
+        <div className="seat" id='B3'></div>
+        <div className="seat" id='B4'></div>
+        <div className="seat" id='B5'></div>
+        <div className="seat" id='B6'></div>
+        <div className="seat" id='B7'></div>
+        <div className="seat" id='B8'></div>
       </div>
 
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+      <div className="row">
+        <div className="seat" id='C1'></div>
+        <div className="seat" id='C2'></div>
+        <div className="seat" id='C3'></div>
+        <div className="seat" id='C4'></div>
+        <div className="seat" id='C5'></div>
+        <div className="seat" id='C6'></div>
+        <div className="seat" id='C7'></div>
+        <div className="seat" id='C8'></div>
       </div>
 
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+      <div className="row">
+        <div className="seat" id='D1'></div>
+        <div className="seat" id='D2'></div>
+        <div className="seat" id='D3'></div>
+        <div className="seat" id='D4'></div>
+        <div className="seat" id='D5'></div>
+        <div className="seat" id='D6'></div>
+        <div className="seat" id='D7'></div>
+        <div className="seat" id='D8'></div>
       </div>
 
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
+      <div className="row">
+        <div className="seat" id='E1'></div>
+        <div className="seat" id='E2'></div>
+        <div className="seat" id='E3'></div>
+        <div className="seat" id='E4'></div>
+        <div className="seat" id='E5'></div>
+        <div className="seat" id='E6'></div>
+        <div className="seat" id='E7'></div>
+        <div className="seat" id='E8'></div>
       </div>
-    </div>
 
-              <button type="submit" className="submitbtn1">Submit</button>
+      <div className="row">
+        <div className="seat" id='F1'></div>
+        <div className="seat" id='F2'></div>
+        <div className="seat" id='F3'></div>
+        <div className="seat" id='F4'></div>
+        <div className="seat" id='F5'></div>
+        <div className="seat" id='F6'></div>
+        <div className="seat" id='F7'></div>
+        <div className="seat" id='F8'></div>
+      </div>
+    </div><script src='FlightResForm.js'></script>
+
+              <button type="submit" className="submitbtn1" >Submit</button>
             </form>
             </div>
             <div className='flightrestcktcont'>
@@ -213,7 +342,9 @@ function FlightResForm() {
                 <p>Email Address : {email}</p>
                 <p>Phone Number : {phoneNo}</p>
                 <p>Passport ID : {passportID}</p>
-                <p>Class : {classType}</p>               
+                <p>Class : {classType}</p> 
+                <p>Seat : {selSeat}</p>  
+                <p>Gate : {flight.gate}</p>             
                 <br/>
                 <h3>Total : {price}</h3>
                 </div>
@@ -222,6 +353,5 @@ function FlightResForm() {
       </div>
     )
   }
-  
   
   export default FlightResForm

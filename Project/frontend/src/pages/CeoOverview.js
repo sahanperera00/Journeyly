@@ -48,9 +48,18 @@ function CeoOverview() {
     }
 
     const DownloadReportPDF = () =>{
-        const pdf = new jsPDF("landscape", "px", "B2",false);
+       const pdf = new jsPDF("landscape", "px", "A2",false);
+       //const pdf = new jsPDF("p","pt","A3");
         const data = document.querySelector("#pdfcontent");
         pdf.html(data).then(()=>{
+            
+            
+            for (let i = 0; i < 11; i++) {
+                var pageCount=pdf.getNumberOfPages();
+                console.log(pageCount);
+                pdf.deletePage(pageCount);
+              }
+            
             pdf.save("Report.pdf");
         })
     }
@@ -331,8 +340,8 @@ function CeoOverview() {
             </div>
             <div className='CeoDashOverviewInnerCont'>
                 <div className='CeoDashOverviewInnerContC1'>
-                    <div className='ceoOverviewTableCont' id="pdfcontent">
-                        <table className="table table-striped">
+                    <div className='ceoOverviewTableCont' >
+                        <table className="table table-striped" id="pdfcontent">
                             <thead>
                                 <tr>
                                     <th scope="col" style={{ display: col1hid }}>{col1}</th>

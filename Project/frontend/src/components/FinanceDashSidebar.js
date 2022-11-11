@@ -36,7 +36,7 @@ function FinanceDashSidebar() {
       <Link className='FinanceSTabContS' to={`/financeDashboard/financeRevenue`}>
         <span className="material-symbols-outlined">monitoring</span><p>Revenue</p>
       </Link>
-      <Link className='FinanceSTabContS' to={``}>
+      <Link className='FinanceSTabContS' to={`/financeDashboard/invoice`}>
         <span className="material-symbols-outlined">receipt_long</span><p>Invoices</p>
       </Link>
     </div>
