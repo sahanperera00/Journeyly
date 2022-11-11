@@ -108,14 +108,14 @@ function RegistrationForm() {
                         <input type="email" className="form-control"
                             onChange={(e) => {
                                 setEmail(e.target.value);
-                            }} pattern="[a-z0-9]+@+[a-z]+.com" required />
+                            }}required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Contact Number</label>
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setContactNo(e.target.value);
-                            }}  pattern='[0-9]{10}' title='Contact number should be 10 digits' required />
+                            }} required />
                     </div>
                     {/* <div className="form-group">
                         <label className="form-label">Username</label>
@@ -129,7 +129,7 @@ function RegistrationForm() {
                         <input type="password" className="form-control"
                             onChange={(e) => {
                                 setPassword(e.target.value);
-                            }} minLength='6' required />
+                            }}required />
                     </div>
                     <br />
                     {
