@@ -67,6 +67,7 @@ import {
     InvoiceForm,
     Invoice,
     InvoiceUpdateForm,
+    FlightTicketView,
     
 } from '../pages';
 
@@ -137,6 +138,7 @@ function AppRoutes() {
                     <Route path="payments" element={<Payments />} />
                     <Route path="desRes/:desId/:desResId" element={<DesResUpdateForm />} />
                     <Route path="flightRes/:flightResId" element={<FlightResUpdateForm />} />
+                    <Route path="flightTicket/:flightResId" element={<FlightTicketView />} />
                     <Route path="hotelRes/:hotelResId" element={<HotelResUpdateForms />}/>
                     <Route path="PackageRes/:packageReservationId" element={<PackageReservationUpdateForm />}/>
                    

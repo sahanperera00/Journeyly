@@ -22,6 +22,7 @@ function FlightPreview() {
     const [economyClass,setEconomyPrice]=useState('');
     const [businessClass,setBusinessPrice]=useState('');
     const [imageI, setImageI] = useState('');
+    const [gate, setGate] = useState('');
  //   const [images, setImages] = useState('');
 
 
@@ -71,6 +72,7 @@ function FlightPreview() {
                 setEconomyPrice(res.data.economyClass);
                 setBusinessPrice(res.data.businessClass);
                 setImageI(res.data.imageI);
+                setGate(res.data.gate);
             })
             .catch((err) => {
                 alert(err);
@@ -96,6 +98,7 @@ function FlightPreview() {
                  <b> Destination Airport        : </b>{destinationAirport}<br/>
                  <b> Arrival Date               : </b>{arrivalDate}<br/>
                  <b> Arrival Time               : </b>{arrivalTime}<br/>
+                 <b> Gate                       : </b>{gate}<br/>
                  <b> Economy Class Ticket Price : </b>{economyClass}<br/>
                  <b> Business Class Ticket Price: </b>{businessClass}<br/></div>
                  <br/>

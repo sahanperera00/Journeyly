@@ -3,6 +3,7 @@ import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import '../styles/sudul/FlightForm.css';
+import { useNavigate } from 'react-router-dom';
 
 function FlightForm() {
     const [name, setName] = useState('');
@@ -14,8 +15,10 @@ function FlightForm() {
     const [destinationAirport, setDestinationAirport] = useState('');
     const [arrivalDate, setArrivalDate] = useState('');
     const [arrivalTime, setArrivalTime] = useState('');
+    const [gate, setGate] = useState('');
     const [imageI, setImageI] = useState('');
     // const [images, setImages] = useState('');
+    const navigate = useNavigate();
 
     return (
         <div className='FlightFormMainCont'>
@@ -49,12 +52,14 @@ function FlightForm() {
                                 destinationAirport,
                                 arrivalDate,
                                 arrivalTime,
+                                gate,
                                 imageI: url
                             }
 
                             axios.post("http://localhost:8070/flights/create", newFlight)
                                 .then(() => {
                                     alert("Flight Content added successfully");
+                                    navigate('/editorDashboard/editorWebContent/flight');
                                 }).catch((err) => {
                                     alert("Error adding Flight Content");
                                     console.log(err);
@@ -127,6 +132,13 @@ function FlightForm() {
                         <input type="time" className="form-control"
                             onChange={(e) => {
                                 setArrivalTime(e.target.value);
+                            }} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Gate</label>
+                        <input type="text" className="form-control"
+                            onChange={(e) => {
+                                setGate(e.target.value);
                             }} required />
                     </div>
                     <div className="form-group">
