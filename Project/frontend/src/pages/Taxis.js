@@ -320,7 +320,6 @@ function Taxis() {
                           <h4>
                             <b>Rs {data.fee}.00</b>
                           </h4>
-                          <br />
                         </p>
                         <br />
                         <p>Pickup: {data.pickup}</p>

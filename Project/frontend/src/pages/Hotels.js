@@ -197,37 +197,21 @@ function Hotels() {
                         />
                       </div>
                       <div className="hotelTextContainer">
-                        <h4 className="taxititlesec">
-                          {data.name}{" "}
-                          <span
-                            style={{ fontWeight: "normal", fontSize: "12px" }}
-                          >
-                            {data.location}
-                          </span>
-                        </h4>
-                        <div className="row" style={{ width: "100%" }}>
-                          <div
-                            style={{
-                              fontSize: "14px",
-                              height: "65px",
-                              width: "80%",
-                              overflow: "hidden",
-                            }}
-                            className="col-12 "
-                          >
-                            {data.description}
+                        <div className="row">
+                          <div className="col-6">
+                            <h4 className="taxititlesec">
+                              {data.name}{" "}
+                              <span
+                                style={{
+                                  fontWeight: "normal",
+                                  fontSize: "12px",
+                                }}
+                              >
+                                {data.location}
+                              </span>
+                            </h4>
                           </div>
-                          <div className="col-7" />
-
-                          <div
-                            className="col-5"
-                            style={{
-                              textAlign: "end",
-                              marginTop: "10px",
-                              marginRight: "0px",
-                              // backgroundColor: "#f5f5f5",
-                            }}
-                          >
+                          <div className="col-6" style={{ textAlign: "end" }}>
                             {Array(data.stars).fill(
                               <span
                                 className="material-symbols-outlined"
@@ -238,18 +222,42 @@ function Hotels() {
                             )}
                           </div>
                         </div>
-                        <p className="hotelpriceTage">
-                          {/* Price:Rs. {data.sellingPrice} */}
+                        <div className="row">
+                          <div
+                            style={{
+                              fontSize: "13px",
+                              height: "62px",
+                              width: "70%",
+                              overflow: "hidden",
+                            }}
+                            className="col-12 "
+                          >
+                            {data.description}
+                          </div>
+                          <div className="col-12" style={{ textAlign: "end" }}>
+                            Price per night:
+                            <br />
+                          </div>
+                          <div className="col-6" />
+
+                          <div className="col-6" style={{ textAlign: "end" }}>
+                            <h4>
+                              <b>Rs {data.sellingPrice}.00</b>
+                            </h4>
+                          </div>
+                        </div>
+                        {/* <p className="hotelpriceTage">
+                          Price:Rs. {data.sellingPrice}
                           <br />
                         </p>
                         <p className="hoteldesTage">
-                          {/* {data.description} */}
+                          {data.description}
                           <br />
                         </p>
                         <p className="hotelstarTage">
-                          {/* Stars: {data.stars} */}
+                          Stars: {data.stars}
                           <br />
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                   </Link>
