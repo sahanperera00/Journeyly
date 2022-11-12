@@ -214,23 +214,23 @@ function FlightResForm() {
             }}>
               <div className="form-group">
                 <label className="form-label">First Name</label>
-                <input type="text" className="form-control" onChange={(e) => {setFirstName(e.target.value)}} required/>
+                <input type="text" className="form-control" placeholder='Enter First Name' onChange={(e) => {setFirstName(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Last Name</label>
-                <input type="text" className="form-control" onChange={(e) => {setLastName(e.target.value)}} required/>
+                <input type="text" className="form-control" placeholder='Enter Last Name' onChange={(e) => {setLastName(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Email</label>
-                <input type="email" className="form-control" onChange={(e) => {setEmail(e.target.value)}} required/>
+                <input type="email" className="form-control" placeholder='Enter Email' onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="number" className="form-control" min="0110000000" max="0799999999" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
+                <input type="number" className="form-control" placeholder='Enter Contact Number' min="0110000000" max="0799999999" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Passport ID</label>
-                <input type="text" className="form-control" onChange={(e) => {setppID(e.target.value)}} required/>
+                <input type="text" className="form-control" placeholder='Enter Passport ID' onChange={(e) => {setppID(e.target.value)}} required/>
               </div>
               <div className="form-group">
               <label className="form-label">Class Type</label>

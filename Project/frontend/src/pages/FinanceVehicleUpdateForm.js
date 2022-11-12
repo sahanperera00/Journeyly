@@ -75,7 +75,7 @@ function FinanceVehicleUpdateForm() {
                         <input type="text" className="form-control" value={fee} onChange={(e) => { setFee(e.target.value) }} required/>
                     </div>
                     <br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Submit</button><br /><br />
                 </form>
             </div>
         </div>

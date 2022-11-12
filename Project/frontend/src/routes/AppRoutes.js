@@ -70,6 +70,7 @@ import {
   InvoiceUpdateForm,
   FlightTicketView,
   RentalUpdateForm,
+  FeedbackUpdateForm,
 } from "../pages";
 
 function AppRoutes() {
@@ -94,6 +95,10 @@ function AppRoutes() {
           <Route path="rentalPreview/:id" element={<RentalPreview />} />
           <Route path="rentalForm/:id" element={<RentalForm />} />
           <Route path="PackagePreview/:id" element={<PackagePreview />} />
+          <Route path="FeedbackForm" element={<FeedbackForm />} />
+
+
+
           <Route
             path="PackageReservationForm/:id"
             element={<PackageReservationForm />}
@@ -163,6 +168,8 @@ function AppRoutes() {
           />
           <Route path="rental/:rentalId" element={<RentalUpdateForm />} />
         </Route>
+        <Route path="feedbackUpdateForm/:id" element={<FeedbackUpdateForm />} />
+
 
         <Route
           path="/financeDashboard"
@@ -191,6 +198,7 @@ function AppRoutes() {
           <Route path="invoiceForm" element={<InvoiceForm />} />
           <Route path="Invoice" element={<Invoice />} />
           <Route path="InvoiceUpdateForm/:id" element={<InvoiceUpdateForm />} />
+        
         </Route>
       </Routes>
     </Router>
