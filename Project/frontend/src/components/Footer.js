@@ -1,12 +1,11 @@
-import  '../styles/sahan/Footer.css';
+import "../styles/sahan/Footer.css";
 
 function Footer() {
-    return (
-        <div className="footerCont">
-            <div className='blurContainer'/>
-            <button>Send A Feedback</button>
-        </div>
-    )
+  return (
+    <div className="footerCont">
+      <div className="blurContainer" />
+    </div>
+  );
 }
 
 export default Footer;
