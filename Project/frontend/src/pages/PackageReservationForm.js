@@ -38,8 +38,7 @@ function PackageReservationForm({}) {
       <NavbarDark />
 
       <h1>Package Reservation Booking Details</h1>
-      <h2 className='#'>Package Name - {packages.name}</h2>
-        <h2 className='#'>Price of the Package: {packages.price}<br/></h2>
+   
       <div className="rentaleinnercontainer">
         <div className="rentalformcont">
           <form
@@ -102,8 +101,9 @@ function PackageReservationForm({}) {
         </div>
         <div className="rentcont">
           <div className="rent">
-           
-            <p> Price :{packages.price}</p>
+          <h6 className='#'>Package Name - {packages.name}</h6>
+        <h6 className='#'>Price of the Package: {packages.price}<br/></h6>
+            
             <p>Name :{name}</p>
               <p>Reserve Date :{date}</p>
               <p>Email :{email}</p>
