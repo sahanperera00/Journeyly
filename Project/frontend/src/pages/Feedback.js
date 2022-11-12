@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-function FeedbackEdit() { 
+function Feedback() { 
   const [feedback, setFeedback] = useState([]);
 
   const getFeedback = () => {
@@ -64,4 +64,4 @@ function FeedbackEdit() {
   )
 }
 
-export default FeedbackEdit;
+export default Feedback;

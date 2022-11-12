@@ -7,7 +7,7 @@ function SharedLayoutHome() {
   return (
     <div className="bg-light">
       <Outlet />
-      <Link to={"/feedback/create"}>
+      <Link to={"/FeedbackForm/"}>
         <button className="feedrotate" style={{}}>
           <span
             class="material-symbols-outlined"
