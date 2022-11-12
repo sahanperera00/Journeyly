@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-function FeedbackEdit() { 
+function Feedback() { 
   const [feedback, setFeedback] = useState([]);
 
   const getFeedback = () => {
@@ -51,7 +51,7 @@ function FeedbackEdit() {
                  <b>Image                       : </b>{data.images}<br/>
                  
                 </Card.Text>
-                <Link to={"/editorDash/feedbackUpdateForm/" + data._id}>
+                <Link to={"/clientDashboard/FeedbackUpdateForm/" + data._id}>
                 <Button variant="warning">Update</Button>
                 </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteFeedback(data._id)}>Delete</Button>
@@ -64,4 +64,4 @@ function FeedbackEdit() {
   )
 }
 
-export default FeedbackEdit;
+export default Feedback;

@@ -3,25 +3,29 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema;
 
 const feedbackSchema = new Schema ({
-    subject: {
+    feedbacktype: {
         type:String,
         required:true
     },
-    message: {
+    placeofincident: {
         type:String,
         required:true
     },
     phonenumber: {
-        type:String,
-        required:true
-    },
-    feedbacktype:{
-        type:String,
-        required:true
-    },
-    rating:{
         type:Number,
+        required:true
+    },
+    subject:{
+        type:String,
+        required:true
+    },
+    message:{
+        type:String,
         required:false
+    },
+    images: {
+        type: String,
+        required: true
     },
 
 });
