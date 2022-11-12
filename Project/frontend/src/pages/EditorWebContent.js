@@ -132,7 +132,9 @@ function EditorWebContent() {
             return data;
           } else if (data.ownerName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
-          }
+          } else if (data.vehicleType.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
+          } 
           break;
       }
     })

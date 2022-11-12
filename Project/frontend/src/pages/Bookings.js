@@ -131,7 +131,7 @@ function Bookings() {
             return data;
           } else if (data.driverName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
-          } else if (data.ownerName.toLowerCase().includes(searchTerm.toLowerCase())) {
+          } else if (data.startDes.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
           }
           break;

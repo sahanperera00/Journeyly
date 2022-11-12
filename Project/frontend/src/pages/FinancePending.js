@@ -102,7 +102,7 @@ function FinancePending() {
                         return data;
                     } else if (data.driverName.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return data;
-                    } else if (data.ownerName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    } else if (data.fee.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return data;
                     }
                     break;
@@ -285,9 +285,9 @@ function FinancePending() {
             topicType = 'Taxis';
             col1 = "Driver's Name";
             col2 = 'Fee';
-            col5 = 'Ratings';
             col3hid = 'none';
             col4hid = 'none';
+            col5 = 'Update';
             col6hid = 'none';
             break;
         case ('package'):
