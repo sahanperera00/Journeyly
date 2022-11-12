@@ -1,45 +1,75 @@
-.hotelMainContainer{
+* {
+    /* color: black; */
+    text-decoration: none;
+    font-style: normal;
+}
+
+.hotelMainContainer {
     width: 100%;
+    height: 100vh;
     /* height: 100vh; */
-    background-color: #b8b8b8;
+    /* background-color: #b8b8b8; */
     padding-top: 7%;
-    
+    color: black;
+
 }
-.hotelHeader{
+
+.hotelInnerContainer {
+    width: 70%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: #b6b6b6; */
+}
+
+.hotelHeader {
     text-align: center;
-    padding-bottom: 2%;
+    margin-bottom: 20px;
 }
 
-
-.hotelContainer{
+.hotelContainer {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    padding: 0 5%;
+    /* padding: 0 5%; */
     /* right: 10%; */
     width: 100%;
+    justify-content: space-evenly;
     /* background-color: cadetblue; */
 }
-.hotelSideBar{
-    background-color: #454545;
-    width: 20%;
-    height:100%;
-    
-}
-.hotelBodyContainer{
-    width: 80%;
-    height: 100%;
+
+.hotelSearch {
+    width: 25%;
+    height: 500px;
+    background-color: white;
+    border: 1px solid #00000031;
+    /* border-radius: 15px; */
+    padding: 20px;
+
 }
 
+.hotelBodyContainer {
+    width: 68%;
+    height: 500px;
+    /* background-color: antiquewhite; */
+    overflow: scroll;
+}
 
+.hotelBodyContainer a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 
 .hotelCardBody{
     background-color: blueviolet;
     width: 80%;
 
-}
-.hotelImageContainer{
+} */
+
+.hotelImageContainer {
     width: 20%;
-    height: 100%; 
+    height: 100%;
     /* background-color: lawngreen; */
     background-position: center;
     background-repeat: no-repeat;
@@ -48,49 +78,72 @@
     /* background-image: url(); */
 }
 
-.CardContainer{
-    width: 93%;
-    height: 250px;
-    background-color: white;
+.hotelCardContainer {
+    width: 100%;
+    /* height: 200px; */
     display: flex;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 25px;
-    margin: 20px 0;
-    float: right;
+    border: 1px solid #00000031;
+    transition: 0.3s;
 }
 
-.ImageContainer{
+.hotelCardContainer:hover {
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.hotelImageContainer {
     /* background-color: azure; */
     width: 30%;
-    height: 100%;
+    height: max-content;
     overflow: hidden;
     display: block;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
-.TextContainer{
-    /* background-color:blueviolet; */
-    width: 70%;
+
+.hotelTextContainer {
+    /* background-color: blueviolet; */
+    width: 465px;
+    margin-left: 3%;
     height: 100%;
     display: block;
 }
-.hotelCardImg{
+
+.hotelCardImg {
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 100%;
 }
 
-.priceTage{
+.hotelpriceTage {
     float: right;
     font-size: 22px;
 }
 
-.desTage{
+.hoteldesTage {
     margin-left: 5%;
     width: 67%;
 }
 
-.starTage{
+.hotelstarTage {
     float: right;
     color: orange;
+}
+
+.hoteltitlesec {
+    width: 100%;
+    font-weight: bold;
+}
+
+.hotelSearchInput {
+    width: 100%;
+    height: 40px;
+    border: 0.5px solid #00000031;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
