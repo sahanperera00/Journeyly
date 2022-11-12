@@ -164,7 +164,7 @@ function Bookings() {
             ) {
               return data;
             } else if (
-              data.ownerName.toLowerCase().includes(searchTerm.toLowerCase())
+              data.startDes.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return data;
             }
