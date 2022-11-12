@@ -5,6 +5,7 @@ import "../styles/leo/Hotel.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import NavbarDark from "../components/NavbarDark";
+import Footer from "../components/Footer";
 
 function Hotels() {
   const [hotels, setHotels] = useState([]);
@@ -266,6 +267,7 @@ function Hotels() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

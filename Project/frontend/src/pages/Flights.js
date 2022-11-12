@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../styles/sudul/flight.css";
 import NavbarDark from "../components/NavbarDark";
+import Footer from "../components/Footer";
 
 function Flights() {
   const [flights, setFlights] = useState([]);
@@ -129,6 +130,7 @@ function Flights() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
