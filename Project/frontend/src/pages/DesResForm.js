@@ -27,7 +27,7 @@ function DesResForm({ destination }) {
   };
   return (
     <div id="desresform" className="desresContainer">
-      <h1>Buy a Ticket</h1>
+      <h1 className="deresticketHeader">Buy a Ticket</h1>
       <div className="desreseinnercontainer">
         <div className="desrestcktcont">
           <Tilt options={options}>
@@ -109,7 +109,7 @@ function DesResForm({ destination }) {
                     style={{ color: "black", transform: "rotate:180deg" }}
                   >
                     <h3>
-                      Total : $
+                      Total : Rs{" "}
                       {destination.adultTicketSellingRate * adults +
                         destination.childTicketSellingRate * children}
                     </h3>

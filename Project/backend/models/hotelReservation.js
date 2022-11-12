@@ -31,6 +31,10 @@ const hotelResSchema= new Schema({
         type:String,
         required:true
     },
+    customizations:{
+        type:String,
+        required:true
+    },
     userID:{
         type: String,
         required: true
@@ -43,10 +47,7 @@ const hotelResSchema= new Schema({
     //     type:Number,
     //     required:true
     // },
-    // customizations:{
-    //     type:[String],
-    //     required:true
-    // }
+    
 });  //DataBase attributes
 
 const HotelResForm = mongoose.model("hotel_reservations",hotelResSchema);  /*Document to be directed in the mongoDB*/
