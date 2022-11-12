@@ -70,6 +70,7 @@ import {
   InvoiceUpdateForm,
   FlightTicketView,
   RentalUpdateForm,
+  FeedbackUpdateForm,
 } from "../pages";
 
 function AppRoutes() {
@@ -94,6 +95,8 @@ function AppRoutes() {
           <Route path="rentalPreview/:id" element={<RentalPreview />} />
           <Route path="rentalForm/:id" element={<RentalForm />} />
           <Route path="PackagePreview/:id" element={<PackagePreview />} />
+          <Route path="FeedbackForm" element={<FeedbackForm />} />
+
           <Route
             path="PackageReservationForm/:id"
             element={<PackageReservationForm />}
@@ -101,7 +104,7 @@ function AppRoutes() {
         </Route>
 
         <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard />}>
-          <Route index element={<CeoDashboard />} />
+          <Route index element={<CeoRevenue />} />
           <Route path="ceoOverview/:type" element={<CeoOverview />} />
           <Route path="ceoRevenue" element={<CeoRevenue />} />
         </Route>
@@ -109,14 +112,13 @@ function AppRoutes() {
         <Route path="/ceoDashboard" element={<SharedLayoutCeoDashboard />}>
           <Route index element={<CeoDashboard />} />
           <Route path="ceoOverview/:type" element={<CeoOverview />} />
-          <Route path="ceoRevenue" element={<CeoRevenue />} />
         </Route>
         <Route path="/fianaceForm" element={<FinanceForm />} />
         <Route
           path="/editorDashboard"
           element={<SharedLayoutEditorDashboard />}
         >
-          <Route index element={<EditorDashboard />} />
+          <Route index element={<CeoDashboard />} />
           <Route path="editorWebContent/:type" element={<EditorWebContent />} />
           <Route path="flightForm" element={<FlightForm />} />
           <Route path="hotelForm" element={<HotelForm />} />
@@ -163,6 +165,7 @@ function AppRoutes() {
           />
           <Route path="rental/:rentalId" element={<RentalUpdateForm />} />
         </Route>
+        <Route path="feedbackUpdateForm/:id" element={<FeedbackUpdateForm />} />
 
         <Route
           path="/financeDashboard"

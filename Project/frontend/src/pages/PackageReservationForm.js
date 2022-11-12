@@ -1,8 +1,9 @@
-import '../styles/praweena/PackageForm.css'
-
-import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+//import "../styles/Madusha/Rental.css";
+import NavbarDark from "../components/NavbarDark";
+import Footer from "../components/Footer";
 
 function PackageReservationForm({}) {
   
@@ -33,39 +34,43 @@ function PackageReservationForm({}) {
       useEffect(()=> getPackages(),[]);
 
   return (
-    <div className='pakgeMain2'>
-        <h1 className="packageresMainContainer">Package Reservation Booking Details</h1>
-        <p className='pkgprice'>Package Name - {packages.name}</p>
-        <p className='pkgprice'>Price of the Package: {packages.price}<br/></p>
-        <div className='IneerFormat'>
-          <div className='hotelresformcont'>
-          <form className='hotelresform' onSubmit={async(e) => {
-            e.preventDefault();
+    <div id="rentalform" className="rentalContainer">
+      <NavbarDark />
 
-            const newBook = {
-              packageReservationId: packages._id,
-              name1: packages.name,
-              price:packages.price,
-              name,
-              date,
-              email,
-              phoneNo,
-              userID:sessionStorage.getItem("ID"),
+      <h1>Package Reservation Booking Details</h1>
+   
+      <div className="rentaleinnercontainer">
+        <div className="rentalformcont">
+          <form
+            className="rentalform"
+            onSubmit={async (e) => {
+              e.preventDefault();
 
-           
-            };
-            console.log(newBook);
-
-            await axios.post("http://localhost:8070/packageReservation/create", newBook)
-            .then(() => {
-              alert("Package Booked Successfully");
+              const newBook = {
+                packageReservationId: packages._id,
+                name1: packages.name,
+                price:packages.price,
+                name,
+                date,
+                email,
+                phoneNo,
+                userID:sessionStorage.getItem("ID"),
+  
              
-            }).catch((err) => {
-              alert("Error ");
-              console.log(err);
-            });
-          }}>
-              <div className="form-group">
+              };
+              console.log(newBook);
+
+              await axios.post("http://localhost:8070/packageReservation/create", newBook)
+              .then(() => {
+                alert("Package Booked Successfully");
+               
+              }).catch((err) => {
+                alert("Error ");
+                console.log(err);
+              });
+            }}>
+
+        <div className="form-group">
               
               </div>
 
@@ -88,28 +93,31 @@ function PackageReservationForm({}) {
                 <input type="Number" className="form-control"  min="100000000" max="9999999999" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
           <br />
-              <button type="submit" className="submitbtnpackage">Submit</button>
-            </form>
-            </div>
-            <div className='Packgecontainer'>
-           
-           <p> Price :{packages.price}</p>
+
+            <button type="submit" className="submitbtn">
+              Submit
+            </button>
+          </form>
+        </div>
+        <div className="rentcont">
+          <div className="rent">
+          <h6 className='#'>Package Name - {packages.name}</h6>
+        <h6 className='#'>Price of the Package: {packages.price}<br/></h6>
+            
             <p>Name :{name}</p>
               <p>Reserve Date :{date}</p>
               <p>Email :{email}</p>
               <p>Contact Number :{phoneNo}</p>
-              <br/>
-           
-            </div>
-            
-            </div>
-            </div>
-        
+            <br />
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <Footer />
+    </div>
+  );
+}
 
+export default PackageReservationForm;
 
-    )
-
-    
-
-    
-        }  export default PackageReservationForm

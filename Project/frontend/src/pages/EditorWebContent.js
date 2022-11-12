@@ -132,7 +132,9 @@ function EditorWebContent() {
             return data;
           } else if (data.ownerName.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
-          }
+          } else if (data.vehicleType.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
+          } 
           break;
       }
     })
@@ -335,8 +337,10 @@ function EditorWebContent() {
         cold8 = props.price;
         cold9hid = 'none';
         cold10hid = 'none';
+     
+
         cold11 = <Link className='updatebttn' to={"/editorDashboard/packageUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
+        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/packageForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
     }

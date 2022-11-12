@@ -22,7 +22,7 @@ function Finance() {
   return (
     <div className='financeMain'>
    
-    <h1 className='financeHeader'>Finance></h1>
+    <h1 className='financeHeader'>Finance</h1>
     <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
       {packages.map((data) => {
         return (
@@ -52,4 +52,4 @@ function Finance() {
 }
 
 
-export default Packages;
+export default Finance;
