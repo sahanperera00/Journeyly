@@ -122,6 +122,8 @@ function CeoOverview() {
                         return data;
                     } else if (data.ownerName.toLowerCase().includes(searchTerm.toLowerCase())) {
                         return data;
+                    }  else if (data.vehicleType.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        return data;
                     }
                     break;
                 case 'user':
@@ -306,7 +308,7 @@ function CeoOverview() {
             col2 = "Owner's Name";
             col3 = 'Type';
             col4 = 'Fee';
-            col5 = 'Ratings';
+            col5hid = 'None';
             col6hid = 'none';
             break;
         case ('package'):
