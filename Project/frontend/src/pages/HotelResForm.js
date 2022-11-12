@@ -85,6 +85,7 @@ function getDifference(day1,day2){
               suite,
               contactNo,
               customizations,
+              total:getDifference(check_in,check_out)*hotel.sellingPrice,
               userID:sessionStorage.getItem("ID"),
             };
             console.log(newBook);
@@ -100,7 +101,7 @@ function getDifference(day1,day2){
           }}>
             <div className="form-group">
               <label className="form-label">Full Name</label>
-              <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
+              <input type="text" className="form-control" placeholder="Enter Full Name" onChange={(e) => {setName(e.target.value)}} required/>
             </div>
             {/* <div className="form-group">
               <label className="form-label">Hotel Name</label>
@@ -116,22 +117,22 @@ function getDifference(day1,day2){
             </div>
             <div className="form-group">
               <label className="form-label">Suite</label>
-              <input type="text" className="form-control" onChange={(e) => {setSuite(e.target.value)}} required/>
+              <input type="text" className="form-control" placeholder="Enter Prefered Suite" onChange={(e) => {setSuite(e.target.value)}} required/>
             </div>
             <div className="form-group">
               <label className="form-label">Contact Number</label>
-              <input type="Number" className="form-control" min="100000000" max="9999999999"onChange={(e) => {setContactNo(e.target.value)}} required/>
+              <input type="Number" className="form-control" placeholder="Enter Contact Number" min="100000000" max="9999999999"onChange={(e) => {setContactNo(e.target.value)}} required/>
             </div>
             <br/>
             <div>
               <p>
-                Access to the dishes available in the Buffet(No Additional Fee)<br/>
+                Access to the dishes available in the Buffet<br/>(No Additional Fee)<br/>
                 <input type="radio" name="Cuzzi" value="Normal" onChange={(e) => {radio(e.target.value)}}/> Normal Package
               </p>
-              <p>Upto 2 pre-Ordered meals served for prefered meals(Additional Fee to be paid at check-in)<br/>
+              <p>Upto 2 pre-Ordered meals served for prefered meals<br/>(Additional Fee to be paid at check-in)<br/>
               <input type="radio" name="Cuzzi" value="Gold" onChange={(e) => {radio(e.target.value)}}/> Gold Package
               </p>
-              <p>Upto 5 pre-Ordered meals with desired drinks(Additional Fee to be paid at check-in)<br/>
+              <p>Upto 5 pre-Ordered meals with desired drinks<br/>(Additional Fee to be paid at check-in)<br/>
                 <input type="radio" name="Cuzzi" value="Platinum" onChange={(e) => {radio(e.target.value)}}/> Platinum Package
               </p>
             </div>
