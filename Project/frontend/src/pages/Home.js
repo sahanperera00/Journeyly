@@ -97,10 +97,6 @@ function Home() {
       </Carousel>
       <script type="text/javascript" src="vanilla-tilt.js"></script>
       {/* <Footer/> */}
-
-      <Link to={"/feedback/create"}>
-        <button className="FeedbackBtn">Send A Feedback</button>
-      </Link>
     </div>
   );
 }
