@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
-import '../styles/praweena/PackageForm.css'
+import '../styles/ranmina/Feedback.css'
 
 function FeedbackForm(){
     const [feedbacktype,setfeedbacktype]=useState('');
@@ -14,9 +14,9 @@ function FeedbackForm(){
 
 
     return (
-        <div className='PackageFormMainCont'>
+        <div className='FeedbackMainCont'>
             <h1>Feedback Management System</h1>
-            <div className="#">
+            <div className="FeedbackMainCont">
                 <br />
                 <form onSubmit={async(e) => {
                     e.preventDefault();
