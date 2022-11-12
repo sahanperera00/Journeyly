@@ -54,7 +54,7 @@ function FeedbackUpdateForm(){
                         console.log(err);
                     });
 
-                await getDownloadURL(ref(storage, `images/flights/${feedbacktype + images.name}`))
+                await getDownloadURL(ref(storage, `images/feedback/${feedbacktype + images.name}`))
                     .then((url) => {
                         console.log(url);
                         setImages(url);
