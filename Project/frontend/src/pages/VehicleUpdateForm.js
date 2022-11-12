@@ -84,32 +84,32 @@ function VehicleUpdateForm() {
             )
               .then((url) => {
                 console.log(url);
-                setImage(url);
+                const newVehicle = {
+                  type,
+                  vehicleType,
+                  driverName,
+                  ownerName,
+                  email,
+                  phoneNo,
+                  seats,
+                  transmission,
+                  pickup,
+                };
+
+                axios
+                  .put(
+                    "http://localhost:8070/vehicles/update/" + id,
+                    newVehicle
+                  )
+                  .then(() => {
+                    alert("vehicles updated successfully");
+                  })
+                  .catch((err) => {
+                    alert(err);
+                  });
               })
               .catch((err) => {
                 console.log(err);
-              });
-
-            const newVehicle = {
-              type,
-              vehicleType,
-              driverName,
-              ownerName,
-              email,
-              phoneNo,
-              image,
-              seats,
-              transmission,
-              pickup,
-            };
-
-            axios
-              .put("http://localhost:8070/vehicles/update/" + id, newVehicle)
-              .then(() => {
-                alert("vehicles updated successfully");
-              })
-              .catch((err) => {
-                alert(err);
               });
           }}
         >
@@ -187,7 +187,7 @@ function VehicleUpdateForm() {
               }}
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label className="form-label">Images</label>
             <input
               type="file"
@@ -197,7 +197,7 @@ function VehicleUpdateForm() {
               }}
               required
             />
-          </div>
+          </div> */}
           {/* <div className="form-group">
             <label className="form-label">Fee</label>
             <input
