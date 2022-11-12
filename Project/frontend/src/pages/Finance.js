@@ -52,4 +52,4 @@ function Finance() {
 }
 
 
-export default Packages;
+export default Finance;

@@ -11,7 +11,7 @@ function FeedbackUpdateForm(){
     const [phonenumber,setPhonenumber]=useState('');
     const [subject,setSubject]=useState('');
     const [message,setMessage]=useState('');
-    const [images, setImages] =useState('');
+    const [image, setImage] =useState('');
 
     const {id} = useParams();
   
@@ -22,14 +22,14 @@ function FeedbackUpdateForm(){
                     placeofincident: res.data.placeofincident,
                     phonenumber: res.data.phonenumber,
                     message: res.data.message,
-                    images: res.data.images
+                    image: res.data.image
                 }
                 setFeedbacktype(updateFeedback.feedbacktype);
                 setPlaceofincident(updateFeedback.placeofincident);
                 setPhonenumber(updateFeedback.phonenumber);
                 setSubject(updateFeedback.subject);
                 setMessage(updateFeedback.message);
-                setImages(updateFeedback.images);
+                setImage(updateFeedback.image);
             })
             .catch((err) => {
                 alert(err);
@@ -45,19 +45,19 @@ function FeedbackUpdateForm(){
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
-                const imageRef = ref(storage, `images/feedback/${feedbacktype + images.name}`);
+                const imageRef = ref(storage, `image/feedback/${feedbacktype + image.name}`);
         
-                uploadBytes(imageRef, images)
+                uploadBytes(imageRef, image)
                     .then(() => {
                         console.log('Uploaded image');
                     }).catch((err) => {
                         console.log(err);
                     });
 
-                await getDownloadURL(ref(storage, `images/feedback/${feedbacktype + images.name}`))
+                await getDownloadURL(ref(storage, `image/feedback/${feedbacktype + image.name}`))
                     .then((url) => {
                         console.log(url);
-                        setImages(url);
+                        setImage(url);
                     }).catch((err) => {
                         console.log(err);
                     });  
@@ -68,7 +68,7 @@ function FeedbackUpdateForm(){
                     phonenumber,
                     subject,
                     message,
-                    images,
+                    image,
                 }
 
                 axios.put("http://localhost:8070/feedback/update/"+id, newFeedback)

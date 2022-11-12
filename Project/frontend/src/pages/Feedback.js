@@ -18,7 +18,7 @@ function Feedback() {
   }
 
   const deleteFeedback = (id) => {
-    axios.delete(`http://localhost:8070/feedback/remove/${id}`)  //Activates Flight deleting function
+    axios.delete(`http://localhost:8070/feedback/delete/${id}`)  //Activates Flight deleting function
         .then((res) => {
             alert("Feedback Content Deleted");
             getFeedback();
