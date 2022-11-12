@@ -70,6 +70,7 @@ import {
   InvoiceUpdateForm,
   FlightTicketView,
   RentalUpdateForm,
+  FeedbackUpdateForm,
 } from "../pages";
 
 function AppRoutes() {
