@@ -69,6 +69,7 @@ import Invoice from "./Invoice";
 import InvoiceUpdateForm from './InvoiceUpdateForm';
 import FlightTicketView from './FlightTicketView';
 import RentalUpdateForm from './RentalUpdateForm';
+import FeedbackUpdateForm from './FeedbackUpdateForm';
 
 export {
     Home,
@@ -142,5 +143,6 @@ export {
     Invoice,
     InvoiceUpdateForm,
     FlightTicketView,
-    RentalUpdateForm
+    RentalUpdateForm,
+    FeedbackUpdateForm
 };

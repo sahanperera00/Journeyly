@@ -23,8 +23,11 @@ function HotelResUpdateForms() {
         axios.get("http://localhost:8070/hotelRes/" + hotelResId)
             .then((res) => {
                 setName(res.data.name);
-                setCheckIn(res.data.check_in);
-                setCheckOut(res.data.check_out);
+                
+                const date = new Date(res.data.check_in);
+                const date2 = new Date(res.data.check_out);
+                setCheckIn(date.toISOString().split('T')[0]);
+                setCheckOut(date2.toISOString().split('T')[0]);
                 setcontact(res.data.contactNo);
                 setHotelName(res.data.hotel_Name);
                 setSuite(res.data.suite);
@@ -58,7 +61,7 @@ function HotelResUpdateForms() {
                         check_out,
                         contactNo,
                         suite,
-                        customizations
+                        customizations,
                     };
 
                     axios.put(`http://localhost:8070/hotelRes/customize/${hotelResId}`, newTicket)
@@ -83,23 +86,23 @@ function HotelResUpdateForms() {
                         <input type="text" className="form-control" value={suite} onChange={(e) => { setSuite(e.target.value) }} required />
                     </div>
                     <div className="form-group">
-                        <label className="form-label">Check In Time</label>
-                        <input type="date" className="form-control" value={check_in} onChange={(e) => { setCheckIn(e.target.value) }} required />
+                        <label className="form-label">Check In Date</label>
+                        <input type="date" className="form-control" defaultValue={check_in} onChange={(e) => { setCheckIn(e.target.value) }} required />
                     </div>
                     <div className="form-group">
-                <label className="form-label">Check Out Time</label>
-                <input type="date" className="form-control" value={check_out} onChange={(e) => {setCheckOut(e.target.value)}} required/>
+                <label className="form-label">Check Out Date</label>
+                <input type="date" className="form-control" defaultValue={check_out} onChange={(e) => {setCheckOut(e.target.value)}} required/>
               </div>
               <div >
-                        <label className="form-label">Customizations</label><br/>
-                        <input type="radio"  name="Cuz" value="Normal" onChange={(e) => { setCustomizations(e.target.value) }} required />Normal
-                        <input type="radio"  name="Cuz" value="Gold" onChange={(e) => { setCustomizations(e.target.value) }} required />Gold
-                        <input type="radio"  name="Cuz" value="Platinum" onChange={(e) => { setCustomizations(e.target.value) }} required />Platinum
+                        <label className="form-label">Customizations;</label><br/>
+                        <input type="radio"  name="Cuz" value="Normal" onChange={(e) => { setCustomizations(e.target.value) }} required /><b>Normal</b><br/>
+                        <input type="radio"  name="Cuz" value="Gold" onChange={(e) => { setCustomizations(e.target.value) }} required /><b>Gold</b><br/>
+                        <input type="radio"  name="Cuz" value="Platinum" onChange={(e) => { setCustomizations(e.target.value) }} required /><b>Platinum</b><br/>
                     </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
                 <input type="Number" className="form-control" value={contactNo} onChange={(e) => {setcontact(e.target.value)}} required/>
-              </div>
+              </div><br/>
                
               <button type="submit" className="submitbtn">Submit</button>
             </form>

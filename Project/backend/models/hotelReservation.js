@@ -35,6 +35,10 @@ const hotelResSchema= new Schema({
         type:String,
         required:true
     },
+    total:{
+        type:Number,
+        required: true
+    },
     userID:{
         type: String,
         required: true
