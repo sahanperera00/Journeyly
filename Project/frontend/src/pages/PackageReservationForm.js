@@ -1,4 +1,4 @@
-import '../styles/praweena/PackageForm.css'
+import '../styles/praweena/PackageResForm.css'
 
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -33,8 +33,8 @@ function PackageReservationForm({}) {
       useEffect(()=> getPackages(),[]);
 
   return (
-    <div className='pakgeMain2'>
-        <h1 className="packageresMainContainer">Package Reservation Booking Details</h1>
+    <div id="pakresform"className='pakgeMain2'>
+        <h1 className="#">Package Reservation Booking Details</h1>
         <p className='pkgprice'>Package Name - {packages.name}</p>
         <p className='pkgprice'>Price of the Package: {packages.price}<br/></p>
         <div className='IneerFormat'>
@@ -91,15 +91,15 @@ function PackageReservationForm({}) {
               <button type="submit" className="submitbtnpackage">Submit</button>
             </form>
             </div>
-            <div className='Packgecontainer'>
-           
+            <div className='pkgCont'>
+           <div className='pkg'>
            <p> Price :{packages.price}</p>
             <p>Name :{name}</p>
               <p>Reserve Date :{date}</p>
               <p>Email :{email}</p>
               <p>Contact Number :{phoneNo}</p>
               <br/>
-           
+              </div>
             </div>
             
             </div>
