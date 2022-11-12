@@ -219,10 +219,14 @@ font-weight: bolder;
 font-size: 25px;
 color: rgb(40, 23, 123);
 background-color: rgb(187, 188, 245);
-border-radius: 15px;
+border-radius: 50px;
 font-family: "Lucida Console", "Courier New", monospace;
 border-color:rgb(187, 188, 245) ;
 
+}
+.btnPkg:hover{
+  color: rgb(0, 0, 0);
+  background-color: rgba(187, 188, 245, 0.212);
 }
 .packageSerach{
   width: 100%;
