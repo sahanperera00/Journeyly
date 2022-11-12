@@ -129,11 +129,15 @@ function PackageUpdateForm() {
                     }} />
                 </div>
                 <div className="form-group">
-                    <label className="form-label">Images</label>
-                    <input type="file" className="form-control" 
+                    <label className="form-label">Image Link</label>
+                    <input
+                 type="text"
+                 className="form-control"
+                value={image}
                     onChange={(e) => {
-                        setImage(e.target.files[0]);
-                    }} readOnly/>
+                        setImage(e.target.value);
+              }}
+              required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label">Guide</label>
@@ -149,7 +153,9 @@ function PackageUpdateForm() {
                         setPrice(e.target.value);
                     }} required/>
                 </div><br />
-                <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                <button type="submit" className="submitbtn">
+                  Update
+                </button><br /><br />
             </form>
         </div>
         </div>
