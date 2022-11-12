@@ -14,7 +14,7 @@ function Footer() {
         alt="heroimg"
       />
       © 2022 Journeyly LP.
-      <p style={{ fontSize: "14px" }}>
+      <p style={{ fontSize: "12px", marginTop: "4px" }}>
         Journeyly is part of Journeyly Holdings Inc., the world leader in online
         travel & related services.
       </p>
