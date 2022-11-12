@@ -30,13 +30,14 @@
         padding-top: 2%;
         width: 100%;
         color: black;
-        background-color: #7764b95b;
+        background-color: #d7ebff46;
     
 }
 .pkgCont{
      
         width: 50%;
         height: 100%;
+        
     
 }
 .pkg{
@@ -48,9 +49,9 @@
     margin-left: 30px;
     backdrop-filter: blur(8px);
     text-align: left;
-    background-color: rgba(0, 0, 0, 0.073);
-    font-size: 1.5pc;
-    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid #00000031;
+    background-color: white;
 }
 
 
