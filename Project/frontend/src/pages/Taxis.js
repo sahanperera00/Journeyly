@@ -5,6 +5,7 @@ import "../styles/Madusha/Taxis.css";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import NavbarDark from "../components/NavbarDark";
+import Footer from "../components/Footer";
 
 function Taxis() {
   const [taxis, setTaxis] = useState([]);
@@ -331,6 +332,7 @@ function Taxis() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
