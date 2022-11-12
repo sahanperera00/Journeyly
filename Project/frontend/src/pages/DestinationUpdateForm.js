@@ -160,7 +160,7 @@ function DestinationUpdateForm() {
               onChange={(e) => {
                 setLocation(e.target.value);
               }}
-              required
+              required 
             />
           </div>
           <div className="form-group">
