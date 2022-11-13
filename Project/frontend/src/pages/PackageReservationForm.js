@@ -36,8 +36,8 @@ function PackageReservationForm({}) {
   return (
     <div id="rentalform" className="rentalContainer">
       <NavbarDark />
-
-      <h1>Package Reservation Booking Details</h1>
+      <h1 ></h1>
+      <h1>Package Reservation </h1><h1>Booking Details</h1>
    
       <div className="rentaleinnercontainer">
         <div className="rentalformcont">
@@ -78,22 +78,23 @@ function PackageReservationForm({}) {
                 <label className="Formtest">Full Name</label>
                 <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
               </div>
-              
+              <br />
               <div className="form-group">
                 <label className="Formtest">Reserve Date </label>
                 <input type="date" className="form-control" onChange={(e) => {setDate(e.target.value)}} required/>
               </div>
+              <br />
               <div className="form-group">
                 <label className="Formtest">Email</label>
                 <input type="email" className="form-control" onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
-              
+              <br />
   <div className="form-group">
                 <label className="Formtest">phoneNo</label>
                 <input type="Number" className="form-control"  min="100000000" max="9999999999" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
           <br />
-
+<br />
             <button type="submit" className="submitbtn">
               Submit
             </button>
@@ -101,13 +102,12 @@ function PackageReservationForm({}) {
         </div>
         <div className="rentcont">
           <div className="rent">
-          <h6 className='#'>Package Name - {packages.name}</h6>
-        <h6 className='#'>Price of the Package: {packages.price}<br/></h6>
-            
-            <p>Name :{name}</p>
+          <h6 className='#'>Package Name - <b>{packages.name}</b></h6>
+              <p>Name :{name}</p>
               <p>Reserve Date :{date}</p>
               <p>Email :{email}</p>
               <p>Contact Number :{phoneNo}</p>
+              <h3 className='#'><b>Package: Rs. {packages.price}.00</b><br/></h3>
             <br />
           </div>
         </div>

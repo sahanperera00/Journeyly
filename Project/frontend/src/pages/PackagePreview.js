@@ -75,7 +75,7 @@ function PackagePreview(){
                 <div className='packageTextContainer'>
                     <br></br>
                     <h1 className='PackageHeading'>{name}</h1>
-                    <p className='packpriceTag'>Price of the Package: Rs {price}<br/></p>
+                    <p className='packpriceTag'><b>Price of the Package: Rs {price}.00</b><br/></p>
                     <p className='#'>Destination: {destination}</p>
                     <p className='#'>Members: {members}</p>
                     <p className='#'>Hotel Name: {hotel}</p>
