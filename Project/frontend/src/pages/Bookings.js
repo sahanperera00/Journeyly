@@ -140,18 +140,7 @@ function Bookings() {
             ) {
               return data;
             } else if (
-              data.price
-                .toString()
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase())
-            ) {
-              return data;
-            } else if (
-              data.hotel.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return data;
-            } else if (
-              data.destination.toLowerCase().includes(searchTerm.toLowerCase())
+              data.name1.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return data;
             }

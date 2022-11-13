@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
+import '../styles/kalana/invoiceForm.css';
 
 
 function InvoiceForm(){
@@ -18,12 +18,12 @@ function InvoiceForm(){
 
 
     return (
-        <div>
+        <div className='InvoiceFormMainCont'>
             <h1 className='feedText'>Invoice</h1>
            
             
 
-        <div className="App">
+        <div className="InvoiceForm">
             
             
                 <form onSubmit={async (e) => {
@@ -60,35 +60,35 @@ function InvoiceForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'><b>Email</b></label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" pattern="[a-z0-9]+@+[a-z]+.com"
                     onChange={(e) => {
                         setemail(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'><b>Phone Number</b></label>
-                    <input type="number" className="form-control" 
+                    <input type="number" className="form-control"  pattern="[0-9]{10}"
                     onChange={(e) => {
                         setphone(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'><b>Type (Flights/Taxis/Packages)</b></label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control"   
                     onChange={(e) => {
                         setType(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label class="formlabel" className="form-label" id='form-label-feed'><b>Price</b></label>
-                    <input type="number" className="ratingfeed" 
+                    <label className="form-label" id='form-label-feed'><b>Price</b></label>
+                    <input type="number" className="form-control" 
                     onChange={(e) => {
                         setsprice(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label class="formlabel" className="form-label" id='form-label-feed'><b>Additional Note</b></label>
-                    <input type="text" className="ratingfeed" 
+                    <label class="formlabel" className="form-label-feed" id='form-label-feed'><b>Additional Note</b></label>
+                    <textarea rows={3} type="text" className="form-control"
                     onChange={(e) => {
                         setadditonalaNote(e.target.value);
                     }} required/>
