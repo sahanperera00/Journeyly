@@ -24,41 +24,48 @@
 }
 
 .card-container {
-  width: 85%;
-  height: 82vh;
+  width: 93%;
+  height: 88%;
   background: #fff;
   overflow: hidden;
-  margin: 50px 40px;
+  margin: 30px 10px;
   border-radius: 15px;
+  overflow: hidden;
 }
 
 .upper-container {
-  height: 220px;
+  height: 180px;
   width: 100%;
   background-image: url("../../images/banner3.jpg");
 }
 
 .lower-container {
   position: absolute;
-  top: 10vh;
+  top: 5vh;
   left: 1vw;
   right: 0vw;
   margin: 0 auto;
   width: 90%;
-  height: 80%;
+  height: 80vh;
   text-align: justify;
 }
 
 /* profile data */
+.profile-container {
+  width: 32%;
+}
+
 .image-container {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  border-radius: 100%;
   object-fit: cover;
 }
 
-.tableprofile td {
-  padding: 6px 0px;
+.tableprofile td,
+th {
+  font-size: 14px;
+  padding: 4px 4px;
 }
 
 .info-card {
@@ -68,7 +75,7 @@
 
 /* recently traveled */
 .recent-container {
-  height: 250px;
+  height: 22%;
   overflow: hidden;
   position: relative;
 }
@@ -86,7 +93,7 @@
 
 .recent-title {
   position: absolute;
-  top: 15px;
+  top: 10px;
   left: 20px;
   font-weight: 600;
   font-size: 25px;
@@ -99,7 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  bottom: 20px;
+  bottom: 10px;
   padding: 0 20px;
   font-weight: 600;
   font-size: 15px;
@@ -115,12 +122,12 @@
 }
 
 .calender {
-  width: 40%;
+  width: auto;
   padding: 0 17px;
 }
 
 .weather-card {
-  width: 70%;
+  width: 100%;
 }
 
 /*  weather css */
@@ -197,7 +204,6 @@
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 28px;
-  color: white;
   left: 20px;
   top: 35%;
 }
@@ -210,7 +216,6 @@
   font-weight: 400;
   left: 20px;
   top: 55%;
-  color: white;
 }
 
 #F {
@@ -243,5 +248,41 @@
 @keyframes enlarge {
   50% {
     transform: scale(1.2);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .btnprofile {
+    margin-bottom: 20px;
+  }
+  .card-container {
+    width: 85%;
+    height: 82vh;
+    margin: 50px 40px;
+  }
+  .upper-container {
+    height: 220px;
+  }
+
+  .lower-container {
+    top: 10vh;
+    height: auto;
+  }
+
+  .image-container {
+    width: 250px;
+    height: 250px;
+  }
+  .tableprofile td,
+  th {
+    font-size: 17px;
+    padding: 6px 0px;
+  }
+
+  .recent-container {
+    height: 250px;
+  }
+  .recent-title {
+    top: 15px;
   }
 }

@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/Card';
 import { deleteUser } from 'firebase/auth';
 import auth from '../firebase';
-import sun from '../images/icon3.png'
+import sun from '../images/brightness.png'
 import place from '../images/Sigiriya.jpg'
 import star from '../images/star.png'
 import { DayPicker } from 'react-day-picker';
@@ -81,12 +81,12 @@ function UserProfile() {
         <div className='lower-container d-flex'>
 
           {/* user profile */}
-          <Card className='p-3 border-0 shadow-lg bg-white'>
-            <Card.Img className='image-container mx-auto shadow-lg' variant="top"
+          <Card className='border-0 shadow-lg bg-white profile-container'>
+            <Card.Img className='image-container mx-auto shadow-lg mt-4' variant="top"
               src={image || "https://i.ibb.co/pzpVdPV/no-user-image-icon-3.jpg"} />
 
-            <Card.Body className='d-flex flex-column justify-content-between'>
-              <Card.Text className='pt-4 mx-auto w-100'>
+            <Card.Body className='d-flex flex-column justify-content-between mt-3'>
+              <Card.Text className='mx-auto w-100 px-xxl-4'>
                 <table className='tableprofile' style={{ width: '100%' }}>
                   <tr>
                     <th> First name: </th>
@@ -125,7 +125,7 @@ function UserProfile() {
           </Card>
 
           {/* recent card */}
-          <Card className='info-card border-0 ms-2 gray-bg shadow-lg p-4'>
+          <Card className='info-card border-0 ms-2 gray-bg shadow-lg p-3 p-xxl-4'>
             <Card.Body className='p-0'>
               <div className='mx-auto recent-container rounded-4 shadow'>
                 <div className='overlay'></div>
@@ -140,11 +140,11 @@ function UserProfile() {
                 </div>
               </div>
 
-              <div className='d-flex mt-3 w-100 align-items-center gap-3'>
+              <div className='d-flex mt-2 mt-xxl-3 w-100 align-items-center gap-2'>
 
                 {/* weather card */}
                 <Card className='shadow h-100 weather-card border-0 rounded-4'>
-                  <div class="weather-container">
+                  <div class="weather-container w-100">
                     <div class="background">
                       <div class="Circle1"></div>
                       <div class="Circle2"></div>
@@ -160,9 +160,8 @@ function UserProfile() {
                 </Card>
 
                 {/* calender card */}
-                <div className='bg-white py-1 ms-auto rounded-2 shadow px-4 rounded-4'>
+                <div className='bg-white py-1 ms-auto rounded-2 shadow rounded-4 calender'>
                   <DayPicker
-                    style={{ fontSize: "1.1rem" }}
                     mode="single"
                     selected={selected}
                     onSelect={setSelected}
