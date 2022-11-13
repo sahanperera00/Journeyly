@@ -20,6 +20,7 @@ function HotelPreview(){
     const [stars,setStars]=useState('');
     const [facilities,setFacilities]=useState('');
     const [images,setImages]=useState('');
+    const [sellingPrice,setSellingPrice]=useState('');
     // const [hotel, setHotel] = useState('');
 
     function checkLogin(){
@@ -60,6 +61,7 @@ function HotelPreview(){
             setStars(res.data.stars);
             setFacilities(res.data.facilities);
             setImages(res.data.images);
+            setSellingPrice(res.data.sellingPrice);
             // setHotel(res.data);
         })
         .catch((err) => {
@@ -78,7 +80,7 @@ function HotelPreview(){
                 <div className='hotelTextContainer'>
                     <h1 className='text-center'>{name}</h1>
                     <p>Location: {location}</p>
-                    <p className='pricetag'>Price per Night: Rs {price}<br/></p>
+                    <p className='pricetag'>Price per Night: Rs {sellingPrice}<br/></p>
                     <p>{description}<br/></p>
                     <p>Stars: {stars}<br/></p>
                     Facilities:<p className='facil'> {facilities}<br/></p>
