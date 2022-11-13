@@ -18,7 +18,7 @@ function Feedback() {
   }
 
   const deleteFeedback = (id) => {
-    axios.delete(`http://localhost:8070/feedback/remove/${id}`)  //Activates Flight deleting function
+    axios.delete(`http://localhost:8070/feedback/delete/${id}`)  //Activates Flight deleting function
         .then((res) => {
             alert("Feedback Content Deleted");
             getFeedback();
@@ -38,7 +38,7 @@ function Feedback() {
         {feedback.map((data) => {
           return (
             <Card style={{ width: '25rem', margin: '1rem', padding: '1rem'}}>
-              <Card.Img src = {data.images}/>
+              <Card.Img src = {data.image}/>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.feedbackId}</Card.Subtitle>
@@ -48,10 +48,10 @@ function Feedback() {
                  <b>  phone number              : </b>{data.phonenumber}<br/>
                  <b> subject                    : </b>{data.subject}<br/>
                  <b>Details                     : </b>{data.message}<br/>
-                 <b>Image                       : </b>{data.images}<br/>
+                 <b>Image                       : </b>{data.image}<br/>
                  
                 </Card.Text>
-                <Link to={"/clientDashboard/FeedbackUpdateForm/" + data._id}>
+                <Link to={"/editorDash/feedbackUpdateForm/" + data._id}>
                 <Button variant="warning">Update</Button>
                 </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteFeedback(data._id)}>Delete</Button>

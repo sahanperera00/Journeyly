@@ -21,7 +21,7 @@ function FeedbackForm(){
                 <form onSubmit={async(e) => {
                     e.preventDefault();
                     //image
-                    const imageRef = ref(storage, `images/feedback/${feedbacktype + image.name}`);
+                    const imageRef = ref(storage, `image/feedback/${feedbacktype + image.name}`);
 
                     await uploadBytes(imageRef, image) //uploads image to the DataBase
                         .then(() => {
@@ -30,7 +30,7 @@ function FeedbackForm(){
                             console.log(err);
                         })
 
-                    await getDownloadURL(ref(storage, `images/feedback/${feedbacktype + image.name}`))
+                    await getDownloadURL(ref(storage, `image/feedback/${feedbacktype + image.name}`))
                         .then((url) => {
                             console.log(url);
                        

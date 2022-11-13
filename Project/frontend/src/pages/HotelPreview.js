@@ -5,9 +5,11 @@ import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import '../styles/leo/HotelPreview.css'
 import { Link } from 'react-router-dom';
+import NavbarDark from "../components/NavbarDark";
+import Footer from "../components/Footer";
 
 function alertt(){
-    alert("Please login to reserve a flight");
+    alert("Please login to reserve a Hotel");
 }
 
 function HotelPreview(){
@@ -67,30 +69,31 @@ function HotelPreview(){
     useEffect(()=> getHotel(),[]);
 
     return(
-        <div className='previewContainer'>
-            <div>
-                <h1 className='text-center'>{name}</h1>
-            </div> 
-            <div className="App">
+        <div className='hotelpreviewContainer'>
+            <NavbarDark />
+            <div className="hotelApp">
                 <div className='hotelImgContainer'>
                     <img className='hotelImg' alt='pic' src={images}/>
                 </div>
-                <div>
-                    <p>Location:<b>{location}</b> </p>
-                    <p>Price per Night:<b> {price}</b><br/></p>
+                <div className='hotelTextContainer'>
+                    <h1 className='text-center'>{name}</h1>
+                    <p>Location: {location}</p>
+                    <p className='pricetag'>Price per Night: Rs {price}<br/></p>
                     <p>{description}<br/></p>
-                    <p>Stars: <b>{stars}</b><br/></p>
-                    Facilities;<p className='facil'> {facilities}<br/></p>
-                </div>
-                {
+                    <p>Stars: {stars}<br/></p>
+                    Facilities:<p className='facil'> {facilities}<br/></p>
+                    {
                     checkLogin()
                 }
+                </div>
+               
             </div>
             {/* <Link to={'/hotelResForm/'+id}>
             <div>
                 <button className='hotelbtn'>Make A Reservation</button>
             </div>
             </Link> */}
+            <Footer />
         </div>
     )
 }   

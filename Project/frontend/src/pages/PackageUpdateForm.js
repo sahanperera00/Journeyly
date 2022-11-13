@@ -139,13 +139,29 @@ function PackageUpdateForm() {
               }}
               required/>
                 </div>
-                <div className="form-group">
+              {/*  <div className="form-group">
                     <label className="form-label">Guide</label>
                     <input type="text" className="form-control" value={guide}
                     onChange={(e) => {
                         setGuide(e.target.value);
                     }} />
-                </div>
+                </div>*/}
+                 <div className="form-group">
+            <label className="form-label">Guide</label>
+            <select
+              className="form-control"
+              onChange={(e) => {
+                setGuide(e.target.value);
+              }}
+              required
+            >
+
+              
+              <option value="with">with</option>
+              <option value="without">without</option>
+              
+            </select>
+          </div>
                 <div className="form-group">
                     <label className="form-label">Price</label>
                     <input type="Number" className="form-control" value={price}

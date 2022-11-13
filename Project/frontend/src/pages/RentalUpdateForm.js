@@ -137,6 +137,7 @@ function RentalUpdateForm() {
               type="text"
               className="form-control"
               value={firstName}
+              pattern="[a-z,A-Z]{3,}"
               onChange={(e) => {
                 setFirstName(e.target.value);
               }}
@@ -149,6 +150,7 @@ function RentalUpdateForm() {
               type="text"
               className="form-control"
               value={lastName}
+              pattern="[a-z,A-Z]{3,}"
               onChange={(e) => {
                 setLastName(e.target.value);
               }}
@@ -161,6 +163,7 @@ function RentalUpdateForm() {
               type="text"
               className="form-control"
               value={email}
+              pattern="[a-z0-9]+@+[a-z]+.com"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -173,6 +176,7 @@ function RentalUpdateForm() {
               type="text"
               className="form-control"
               value={phoneNo}
+              pattern="[0-9]{10}"
               onChange={(e) => {
                 setPhoneNo(e.target.value);
               }}
