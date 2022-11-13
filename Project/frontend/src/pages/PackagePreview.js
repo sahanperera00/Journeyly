@@ -3,9 +3,11 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import NavbarDark from "../components/NavbarDark";
+import Footer from "../components/Footer";
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import '../styles/praweena/Packages.css'
+import '../styles/praweena/PackagePreview.css'
 
 import { Link } from 'react-router-dom';
 function alertt(){
@@ -65,26 +67,25 @@ function PackagePreview(){
 
    return(
         <div className='previewContainerPackage'>
-            <div className='package'>
-                <h1 className='PreviewHeading'>{name}</h1>
-            </div> 
-            <div className="Ap">
-                <div className='PackImg'>
-                    <img  alt='pic' src={image}/>
+            <NavbarDark/>
+            <div className="packageApp">
+                <div className='PackImgContainer'>
+                    <img className='packImg'  alt='pic' src={image}/>
                 </div>
-                <div className='previewtest'>
+                <div className='packageTextContainer'>
                     <br></br>
-                    <p className='#'>Price of the Package: {price}<br/></p>
-                   <p className='#'>Destination  -{destination}</p>
-                   <p className='#'>Members -{members}</p>
-                   <p className='#'>Hotel Name -{hotel}</p>
-                   <p className='#'>Hotel Room Type -{roomType}</p>
-                   <p className='#'>Transport type -{vehicle}</p>
-                   <p className='#'>{guide} Guide</p>
+                    <h1 className='PackageHeading'>{name}</h1>
+                    <p className='packpriceTag'>Price of the Package: Rs {price}<br/></p>
+                    <p className='#'>Destination: {destination}</p>
+                    <p className='#'>Members: {members}</p>
+                    <p className='#'>Hotel Name: {hotel}</p>
+                    <p className='#'>Hotel Room Type: {roomType}</p>
+                    <p className='#'>Transport type: {vehicle}</p>
+                    <p className='#'>{guide} Guide</p>
 
-                   {
+                    {
                     checkLogin()
-                 }
+                    }
                     
             </div>
             {/*<Link to={'/PackageReservationForm/'+id}>
@@ -92,7 +93,9 @@ function PackagePreview(){
                 <button className='btnPkg'>Reserve a Package</button>
             </div>
    </Link>*/}
-        </div> </div>
+        </div> 
+        <Footer/>
+        </div>
     )
 }   
    

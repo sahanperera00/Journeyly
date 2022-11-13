@@ -118,6 +118,7 @@ function VehicleUpdateForm() {
             <input
               type="text"
               className="form-control"
+              pattern="[a-z,A-Z,0-9]{3,}"
               value={type}
               onChange={(e) => {
                 settype(e.target.value);
@@ -139,7 +140,6 @@ function VehicleUpdateForm() {
               </option>
               <option value="Van">Van</option>
               <option value="Three-Wheel">Three-Wheel</option>
-              <option value="Bus">Bus</option>
             </select>
           </div>
           <div className="form-group">
@@ -148,6 +148,7 @@ function VehicleUpdateForm() {
               type="text"
               className="form-control"
               value={driverName}
+              pattern="[a-z,A-Z ]{3,}"
               onChange={(e) => {
                 setdriverName(e.target.value);
               }}
@@ -160,6 +161,7 @@ function VehicleUpdateForm() {
               type="text"
               className="form-control"
               value={ownerName}
+              pattern="[a-z,A-Z ]{3,}"
               onChange={(e) => {
                 setownerName(e.target.value);
               }}
@@ -171,6 +173,7 @@ function VehicleUpdateForm() {
               type="text"
               className="form-control"
               value={email}
+              pattern="[a-z0-9]+@+[a-z]+.com"
               onChange={(e) => {
                 setemail(e.target.value);
               }}
@@ -182,6 +185,7 @@ function VehicleUpdateForm() {
               type="text"
               className="form-control"
               value={phoneNo}
+              pattern="[0-9]{10}"
               onChange={(e) => {
                 setphoneNo(e.target.value);
               }}
@@ -216,6 +220,9 @@ function VehicleUpdateForm() {
               type="Number"
               className="form-control"
               value={seats}
+              pattern="[0-9]"
+              min={0}
+              max={6}
               onChange={(e) => {
                 setseats(e.target.value);
               }}
@@ -250,7 +257,7 @@ function VehicleUpdateForm() {
             />
           </div>
           <br />
-          <button type="submit" className="btn btn-dark">
+          <button type="submit" className="submitbtn">
             Submit
           </button>
           <br />

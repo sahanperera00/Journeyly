@@ -1,46 +1,88 @@
 .taxipreviewContainer{
     width: 100%;
-    height: 100vh;
-    background-color: #bfbfb2;
-    padding-top: 7%;
+    height: 100%;
+    background-color: white;
+    
+}
+
+.taxiApp{
+    /* justify-content: center;
+    align-items: center;   */
+    margin: 10%;
+    padding: 7px;
+    width: 80%;
+    height: 400px;
+    display: grid;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 1rem 3rem rgb(0, 0, 0, 0.3);
+    grid-template-columns: 1fr 1fr;
+}
+
+.taxiImgContainer{
+    align-self:flex-start;
+    background-color: white;
+    padding:10px;
 }
 
 .taxiImg{
     width: 100%;
-    height: 100%;
+    height: 20rem;
     align-items: center;
-    border-radius: 25px;
-    background-color: aquamarine;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: white;
     overflow: hidden;
     display: block;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: rgb(0, 0, 0, 0.1);
 }
 
 .rentbtn{
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
+    float: right;
+    bottom: 10%;
+    right: 45%;
+    align-items: center;
     z-index: 2;
     border-radius: 50px;
     padding: 10px 20px;
-    color: rgb(255, 255, 255);
-    border: 0.5px solid white;
+    color: rgb(0,0,0);
+    border: 0.5px solid black;
     background-color: transparent;
 }
 
 .rentbtn:hover{
-    color: rgb(0, 0, 0);
-    background-color: white;
+    color: rgb(255, 255, 255);
+    background-color: black;
 }
 
-.faci{
+.taxiTextContainer{
+   padding-top: 10px;
+    float: right;
+    display: block;
+
+}
+
+.taxiInnerTextContainer{
+    padding-top: 10px;
+}
+
+.taxi-text-center{
+    font-weight: bold;
+    font-size: 39px;
+} 
+
+.taxi-text-center-2{
+    font-size: 28px;
+} 
+
+.taxiFee{
+    font-weight: bold;
     text-decoration: solid;
     text-transform: uppercase;
     font-size: larger;
-    color: brown;
+    color: black;
 }
 
-.name{
-    text-decoration: solid;
-    font-size: large;
 
-}
