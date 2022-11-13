@@ -8,7 +8,7 @@
     padding-top: 6%;
     width: 100%;
     color: black;
-    background-color: #bfbfb2;
+    /* background-color: #bfbfb2; */
 }
 
 .rentaleinnercontainer {
@@ -33,7 +33,9 @@
     margin-right: 30px;
     padding: 50px;
     backdrop-filter: blur(8px);
-    background-color: rgba(0, 0, 0, 0.073);
+    border-radius: 10px;
+    border: 1px solid #00000031;
+    background-color: white;
 }
 
 .rentcont {
@@ -49,7 +51,9 @@
     margin-left: 30px;
     backdrop-filter: blur(8px);
     text-align: left;
-    background-color: rgba(0, 0, 0, 0.073);
+    border-radius: 10px;
+    border: 1px solid #00000031;
+    background-color: white;
 }
 
 .submitbtn {

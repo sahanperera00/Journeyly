@@ -35,7 +35,7 @@ function ClientDashSidebar() {
             <span className="material-symbols-outlined">package</span><p>Packages</p>
           </Link>
         </div>
-        <Link className='ClientSTabContS' to={`/ClientDashboard/${id}/feedback`}>
+        <Link className='ClientSTabContS' to={`/clientDashboard/${id}/feedback`}>
           <span className="material-symbols-outlined">chat</span><p>Feedbacks</p>
         </Link>
         {/* <Link className='ClientSTabContS' to={`/ClientDashboard/${id}/payments`}>

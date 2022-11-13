@@ -64,7 +64,7 @@ function PackageForm() {
 
                     <div className="form-group">
                         <label className="form-label">Enter Package Name</label>
-                        <input type="text" className="form-control"
+                        <input type="text" className="form-control" pattern="[a-z]+[0-9]+[+[a-z]+]"
                             onChange={(e) => {
                                 setName(e.target.value);
                             }} required />
@@ -101,21 +101,30 @@ function PackageForm() {
                                 setRoomType(e.target.value);
                             }}required />
                     </div>
+                    
+                    
                     <div className="form-group">
-                        <label className="form-label">Vehicle</label>
-                        <input type="text" className="form-control"
-                            onChange={(e) => {
-                                setVehicle(e.target.value);
-                            }} required/>
-                    </div>
+                    <label className="form-label">Vehicle </label>
+                    <select className="form-control" onChange={(e) => {
+                        setVehicle(e.target.value);
+                    }} required> 
+                        <option value = "Car" selected = "selected">Car</option>
+                        <option value = "Van">Van</option>
+                        <option value = "Three-Wheel">Three-Wheel</option>
+                        <option value = "Bus">Bus</option>
+                    </select>
+                </div>
 
                     <div className="form-group">
-                        <label className="form-label">Guide</label>
-                        <input type="text" className="form-control"
-                            onChange={(e) => {
-                                setGuide(e.target.value);
-                            }}required />
-                    </div>
+                    <label className="form-label">Guide</label>
+                    <select className="form-control" onChange={(e) => {
+                        setGuide(e.target.value);
+                    }} required> 
+                        <option value = "without" selected = "selected">without</option>
+                        <option value = "with">with</option>
+                      
+                    </select>
+                </div>
 
                     <div className="form-group">
                         <label className="form-label">Package Price (SriLankan rupees)</label>
@@ -134,7 +143,7 @@ function PackageForm() {
                     </div>
 
                     <br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Submit</button><br /><br />
                 </form>
             </div>
         </div>
