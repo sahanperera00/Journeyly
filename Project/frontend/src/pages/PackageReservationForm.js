@@ -75,23 +75,23 @@ function PackageReservationForm({}) {
               </div>
 
               <div className="form-group">
-                <label className="Formtest">Full Name</label>
-                <input type="text" className="form-control" onChange={(e) => {setName(e.target.value)}} required/>
+                <label className="#">Full Name</label>
+                <input type="text" className="form-control" placeholder="Enter Full Name" onChange={(e) => {setName(e.target.value)}} required/>
               </div>
               <br />
               <div className="form-group">
-                <label className="Formtest">Reserve Date </label>
+                <label className="#">Reserve Date </label>
                 <input type="date" className="form-control" onChange={(e) => {setDate(e.target.value)}} required/>
               </div>
               <br />
               <div className="form-group">
-                <label className="Formtest">Email</label>
-                <input type="email" className="form-control" onChange={(e) => {setEmail(e.target.value)}} required/>
+                <label className="#">Email</label>
+                <input type="email" className="form-control" placeholder="Enter Email" onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
               <br />
   <div className="form-group">
-                <label className="Formtest">phoneNo</label>
-                <input type="Number" className="form-control"  min="100000000" max="9999999999" onChange={(e) => {setphoneNo(e.target.value)}} required/>
+                <label className="#">phoneNo</label>
+                <input type="Number" className="form-control"  min="100000000" max="9999999999" placeholder="Enter phone No" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
           <br />
 <br />

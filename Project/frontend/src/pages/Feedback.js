@@ -48,8 +48,7 @@ function Feedback() {
                  <b>  phone number              : </b>{data.phonenumber}<br/>
                  <b> subject                    : </b>{data.subject}<br/>
                  <b>Details                     : </b>{data.message}<br/>
-                 <b>Image                       : </b>{data.image}<br/>
-                 
+              
                 </Card.Text>
                 <Link to={"/editorDash/feedbackUpdateForm/" + data._id}>
                 <Button variant="warning">Update</Button>
