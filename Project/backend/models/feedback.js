@@ -23,7 +23,7 @@ const feedbackSchema = new Schema ({
         type:String,
         required:false
     },
-    images: {
+    image: {
         type: String,
         required: true
     },

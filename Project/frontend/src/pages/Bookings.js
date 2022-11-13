@@ -671,7 +671,14 @@ function Bookings() {
         cold12 = (
           <button
             className="deletebttn"
-            onClick={() => deleteBooking(props._id)}
+            onClick={() => {
+              if (
+                window.confirm(
+                  "Do you really want to delete these record? This process cannot be undone."
+                )
+              )
+                deleteBooking(props._id);
+            }}
           >
             <span className="material-symbols-outlined">delete</span>
           </button>
@@ -679,6 +686,7 @@ function Bookings() {
         break;
       default:
         break;
+
     }
   }
 
