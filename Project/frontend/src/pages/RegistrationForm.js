@@ -9,6 +9,7 @@ import auth from "../firebase";
 import { signOut } from "firebase/auth";
 import "../styles/nash/RegistrationForm.css";
 import { useCallback } from "react";
+import Navbar from "../components/Navbar";
 
 function RegistrationForm() {
   const [firstName, setFirstName] = useState("");
@@ -77,6 +78,7 @@ function RegistrationForm() {
 
   return (
     <div className="RegistrationFormMainCont">
+      <Navbar />
       <div className="RegistrationFormInnerCont">
         <br />
         <br />

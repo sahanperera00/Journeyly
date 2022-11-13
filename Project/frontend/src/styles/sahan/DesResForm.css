@@ -1,15 +1,19 @@
 .desresContainer {
     /* background-color: aqua; */
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fbgs4.jpg?alt=media&token=fb009e6f-aabd-44a7-9696-c747cc7dee01);
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fticketback.jpg?alt=media&token=4b152c76-5d84-4f04-8406-eb5c3905843f);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    padding-top: 6%;
+    padding-top: 7%;
     width: 100%;
-    height: 100vh;
     color: black;
     overflow: scroll;
+}
+
+.deresticketHeader {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .desreseinnercontainer {
@@ -20,10 +24,12 @@
 }
 
 .desresformcont {
-    width: 100%;
+    width: 75%;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0 100px;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .desresform {
@@ -98,4 +104,15 @@
 .submitbtn:hover {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
+}
+
+.feedrotate {
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    z-index: 5;
+    background-color: rgb(0, 34, 49);
+    border: 0.3px solid rgb(0, 34, 49);
+    padding: 10px;
+    border-radius: 55px;
 }

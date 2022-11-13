@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import '../styles/praweena/PackageForm.css'
+import '../styles/praweena/PackageResUpdateForm.css'
 
 
 
@@ -58,7 +58,7 @@ function PackageReservationUpdateForm({}) {
                         });
                 }}>
                     <div className="form-group">
-                        <label className="form-label">Name</label>
+                        <label className="form-label">Full Name</label>
                         <input type="text" className="form-control" value={name} onChange={(e) => { setName(e.target.value) }} required />
                     </div>
                     <div className="form-group">
@@ -71,7 +71,7 @@ function PackageReservationUpdateForm({}) {
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" value={phoneNo} onChange={(e) => {setphoneNo(e.target.value)}} required/>
+                <input type="text" className="form-control" value={phoneNo} min="0110000000" max="0799999999" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
               <br/>
               <button type="submit" className="submitbtn">Submit</button>

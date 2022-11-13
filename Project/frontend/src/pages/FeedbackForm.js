@@ -1,55 +1,62 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 import '../styles/ranmina/Feedback.css'
 
 
 function FeedbackForm(){
-    const [phonenumber,setphonenumber]=useState('');
-    const [message,setmessage]=useState('');
     const [feedbacktype,setfeedbacktype]=useState('');
-    const [rating,setrating]=useState('');
+    const [placeofincident,setplaceofincident]=useState('');
+    const [phonenumber,setphonenumber]=useState('');
     const [subject,setsubject]=useState('');
-    // const [images, setImages] = useState('');
-
+    const [message,setmessage]=useState('');
+    const [image, setimage] =useState('');
 
 
     return (
-        <div>
-            <h1 className='feedText'>Feedback Management System</h1>
-           <div> <button type="submit" className="btn btn-dark">Sign Out</button></div>
-           
-            
-
-        <div className="App">
-         <h2>Feedback Form</h2>  
-            
-            
-                <form onSubmit={async (e) => {
+        <div className='FeedbackMainCont'>
+            <h1>Feedback Management System</h1>
+            <div className="feedbackCont">
+                <br />
+                <form class= "feedback"onSubmit={async(e) => {
                     e.preventDefault();
-    
-        
-                const newFeedback = {
-                    subject,
-                    message,
-                    phonenumber,
-                    feedbacktype,
-                    rating,
-                }
+                    //image
+                    const imageRef = ref(storage, `image/feedback/${feedbacktype + image.name}`);
 
-                axios.post("http://localhost:8070/feedback/create", newFeedback)
-                    .then(() => {
-                        alert("Feedback Form submitted succesfully");
+                    await uploadBytes(imageRef, image) //uploads image to the DataBase
+                        .then(() => {
+                            console.log('Uploaded image');
+                        }).catch((err) => {
+                            console.log(err);
+                        })
+
+                    await getDownloadURL(ref(storage, `image/feedback/${feedbacktype + image.name}`))
+                        .then((url) => {
+                            console.log(url);
+                       
+                    const newFeedback = {
+                                feedbacktype,
+                                placeofincident,
+                                phonenumber,
+                                subject,
+                                message,
+                                image :url
+                    }
+
+                    axios.post("http://localhost:8070/feedback/create", newFeedback)
+                        .then(() => {
+                            alert("Feedback Form submitted succesfully");
+                        }).catch((err) => {
+                            alert("Error adding feedback Content");
+                            console.log(err);
+                        })
                     }).catch((err) => {
-                        alert("Error adding Flight Content");
                         console.log(err);
                     })
-               
-                
-            }}>
+                }}>
 
-                <div className="form-group">
+<div className="form-group">
                 <label className="form-label" id='form-label-feed'>Category</label>
                 <select class="form-select" aria-label="Default select example" 
                 onChange={(e) =>{ setsubject
@@ -62,37 +69,45 @@ function FeedbackForm(){
 
                     </div>
                 <div className="form-group">
-                    <label className="form-label" id='form-label-feed'>Place of incident</label>
-                    <input type="text" className="form-control" 
+                    <label className="form-label" id='form-label-feed' >Place of incident</label>
+                    <input type="text" className="form-control"  placeholder="Enter place of Incident" 
                     onChange={(e) => {
                         setmessage(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Phone Number</label>
-                    <input type="number" className="form-control" 
+                    <input type="number" className="form-control"  placeholder="Enter phone Number" 
                     onChange={(e) => {
                         setphonenumber(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Subject</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control"  placeholder="Enter Subject" 
                     onChange={(e) => {
                         setfeedbacktype(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label" id='form-label-feed'>Details</label>
-                    <input type="text" className="ratingfeed" 
+                    <label className="form-label" id='form-label-feed'>Details</label><br></br>
+                    <textarea rows={3} type="text" className="form-control"  placeholder="Enter Details........" 
                     onChange={(e) => {
-                        setrating(e.target.value);
+                        setplaceofincident(e.target.value);
                     }} required/>
                 </div>
+                <div className="form-group">
+                        <label className="form-label">Add Image</label>
+                        <input type="file" className="form-control"
+                            onChange={(e) => {
+                                setimage(e.target.files[0]);
+                            }} required />
+                    </div>
                 <br />
                 <button type="submit" className="btn btn-dark">Submit</button><br /><br />
             </form>
         </div>
+      
         </div>
     )
 }

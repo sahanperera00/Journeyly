@@ -1,4 +1,4 @@
-import "../styles/sahan/Navbar.css";
+import "../styles/sahan/NavbarDark.css";
 import "../styles/sahan/Home.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -96,13 +96,60 @@ function Navbar() {
     if (error || gError) alert("Login unsuccessful");
   }, [error, gError]);
 
+  // if (error) {
+  //   console.log(error);
+  // }
+
+  // if (loading) return <span >Loading ...</span>
+
+  // function handleCallbackResponse(response) {
+  //   console.log("Encoded JWT ID token:" + response.credential);
+  //   var userObject = jwt_decode(response.credential);
+  //   console.log(userObject);
+  //   SetUser(userObject);
+  // }
+
+  // useEffect(()=> {
+  //   /*global google */
+  //   google.accounts.id.initialize({
+  //     client_id: "78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com",
+  //     callback: handleCallbackResponse
+  //   });
+
+  //   google.accounts.id.renderButton(
+  //     document.getElementById("googlelogin"),
+  //     {theme:"outline", size:"large"}
+  //   );
+  // });
+
+  /////////coding for google login
+  //   const [ profile, setProfile ] = useState([]);
+  //   const clientId = '78309665278-ujnt9950a2jvrm57a9tf4gr845tbvbd8.apps.googleusercontent.com';
+
+  //       useEffect(() => {
+  //         const initClient = () => {
+  //               gapi.client.init({
+  //               clientId: clientId,
+  //               scope: ''
+  //             });
+  //           };
+  //           gapi.load('client:auth2', initClient);
+  // });
+
+  // const onSuccess = (res) => {
+  //   setProfile(res.profileObj);
+  // };
+
+  // const onFailure = (err) => {
+  //   console.log('failed', err);
+  // };
 
   return (
-    <Navbarx className="NavbarCont" expand="lg">
+    <Navbarx className="NavbarDarkCont" expand="lg">
       <Container>
         <Navbarx.Toggle aria-controls="basic-navbar-nav" />
-        <Navbarx.Collapse id="basic-navbar-nav" className="NavbarList">
-          <LinkContainer to="/" className="NavbarLogo">
+        <Navbarx.Collapse id="basic-navbar-nav" className="DarkNavbarList">
+          <LinkContainer to="/" className="DarkNavbarLogo">
             <Navbarx.Brand>
               <img
                 src={
@@ -113,19 +160,19 @@ function Navbar() {
             </Navbarx.Brand>
           </LinkContainer>
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/flights" className="navlink">
+            <Nav.Link as={Link} to="/flights" className="Darknavlink">
               Flights
             </Nav.Link>
-            <Nav.Link as={Link} to="/hotels" className="navlink">
+            <Nav.Link as={Link} to="/hotels" className="Darknavlink">
               Hotels
             </Nav.Link>
-            <Nav.Link as={Link} to="/taxis" className="navlink">
+            <Nav.Link as={Link} to="/taxis" className="Darknavlink">
               Taxis
             </Nav.Link>
-            <Nav.Link as={Link} to="/packages" className="navlink">
+            <Nav.Link as={Link} to="/packages" className="Darknavlink">
               Packages
             </Nav.Link>
-            <Nav.Link as={Link} to="/attractions" className="navlink">
+            <Nav.Link as={Link} to="/attractions" className="Darknavlink">
               Attractions
             </Nav.Link>
           </Nav>
@@ -207,7 +254,6 @@ function Navbar() {
                       Continue with Google
                     </span>
                   )}
-
                   {/* <div id="googlelogin"></div>
                   
                 <GoogleLogin
