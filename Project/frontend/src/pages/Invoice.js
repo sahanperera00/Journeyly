@@ -42,7 +42,7 @@ function Invoice() {
           pdf.deletePage(pageCount);
         }*/
   
-        pdf.save("Report.pdf");
+        pdf.save("Invoice.pdf");
       });
     };
 
@@ -78,7 +78,7 @@ function Invoice() {
                 <Button key={`${data._id} + 1`}variant="warning">Update</Button>
                 </Link>
                 <Button key={`${data._id} + 5`} variant="danger" className='ms-3' onClick={() => deleteInvoice(data._id)}>Delete</Button>
-                <Button onClick={DownloadReportPDF} >Download </Button>
+                <Button onClick={DownloadReportPDF} className="downl" >Download </Button>
               </Card.Body>
             </Card>
           )        
