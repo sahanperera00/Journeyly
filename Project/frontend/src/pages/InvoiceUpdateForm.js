@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import '../styles/kalana/invoiceForm.css';
 
 
 function InvoiceUpdateForm() {
@@ -36,9 +37,9 @@ function InvoiceUpdateForm() {
     useEffect(() => { newInvoice() },[]);
 
     return (
-        <div className='PackageUpdateFormMainCont'>
+        <div className='InvoiceFormMainCont'>
             <h1>Update Invoice </h1>
-        <div className="PackageUpdateFormCont">
+        <div className="InvoiceForm">
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
