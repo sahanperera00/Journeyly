@@ -67,11 +67,11 @@ function PackageReservationUpdateForm({}) {
                     </div>
                     <div className="form-group">
                 <label className="form-label">Email</label>
-                <input type="email" className="form-control" value={email} onChange={(e) => {setEmail(e.target.value)}} required/>
+                <input type="email" className="form-control"pattern="[a-z0-9]+@+[a-z]+.com" value={email} onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" value={phoneNo} min="0110000000" max="0799999999" onChange={(e) => {setphoneNo(e.target.value)}} required/>
+                <input type="text" className="form-control"min="0110000000" max="0799999999" value={phoneNo}  onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
               <br/>
               <button type="submit" className="submitbtn">Submit</button>
