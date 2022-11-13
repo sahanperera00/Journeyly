@@ -99,6 +99,7 @@ function VehicleForm() {
             <label className="form-label">Vehicle Type</label>
             <select
               className="form-control"
+              pattern="[a-z,A-Z,0-9]{3,}"
               onChange={(e) => {
                 setvehicleType(e.target.value);
               }}
@@ -221,6 +222,7 @@ function VehicleForm() {
             <input
               type="text"
               className="form-control"
+              pattern="[a-z,A-Z ]{3,}"
               onChange={(e) => {
                 setpickup(e.target.value);
               }}
