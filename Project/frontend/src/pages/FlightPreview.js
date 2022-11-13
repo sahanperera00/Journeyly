@@ -4,6 +4,8 @@ import { useParams,Link } from 'react-router-dom';
 import '../styles/sudul/flightPreview.css';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import NavbarDark from "../components/NavbarDark";
+import Footer from "../components/Footer";
 
 function alertt(){
     alert("Please login to reserve a flight");
@@ -83,15 +85,16 @@ function FlightPreview() {
 
     return(
         
-        <div className='previewBG'>
-            <div className='prevCont'>
-            <h1 className='text-center'>{name}</h1>
-            <center><h7>{airline}</h7></center>
-        <div className="App">
-            <div>
-                <img alt='pic' className='pic' src={imageI}/>
+        <div className='flightPreviewContainer'>
+            <NavbarDark/>
+        <div className="flightApp">
+            <div className='flightimgContainer'>
+                <img alt='pic' className='flightImg' src={imageI}/>
               </div>
-              <div className='textPart'>
+              <div className='flighttextContainer'>
+                 <h1 className='flightheading'>{name}</h1>
+                 <h3>{airline}</h3>
+                 <br></br>
                  <b> Leaving Airport            : </b>{startAirport}<br/>
                  <b> Departure Date             : </b>{departureDate}<br/>
                  <b> Departure Time             : </b>{departureTime}<br/>
@@ -99,8 +102,8 @@ function FlightPreview() {
                  <b> Arrival Date               : </b>{arrivalDate}<br/>
                  <b> Arrival Time               : </b>{arrivalTime}<br/>
                  <b> Gate                       : </b>{gate}<br/>
-                 <b> Economy Class Ticket Price : </b>{economyClass}<br/>
-                 <b> Business Class Ticket Price: </b>{businessClass}<br/></div>
+                 <b> Economy Class Ticket Price : </b> Rs {economyClass}<br/>
+                 <b> Business Class Ticket Price : </b> Rs {businessClass}<br/>
                  <br/>
                  {
                     checkLogin()
@@ -110,10 +113,11 @@ function FlightPreview() {
                 <button className='flightBtn' >Make A Reservation</button>
             </div>
             </Link> */}
-        </div>
-        
             </div>
         </div>
+        <Footer/>
+        </div>
+
     )
 
 }   
