@@ -110,7 +110,6 @@ function VehicleForm() {
               </option>
               <option value="Van">Van</option>
               <option value="Three-Wheel">Three-Wheel</option>
-              <option value="Bus">Bus</option>
             </select>
           </div>
 
@@ -192,6 +191,7 @@ function VehicleForm() {
             <input
               type="number"
               className="form-control"
+              pattern="[0-9]"
               min={0}
               max={6}
               onChange={(e) => {
@@ -231,7 +231,7 @@ function VehicleForm() {
           </div>
 
           <br />
-          <button type="submit" className="btn btn-dark">
+          <button type="submit" className="submitbtn">
             Submit
           </button>
           <br />
