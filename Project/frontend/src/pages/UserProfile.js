@@ -143,7 +143,7 @@ function UserProfile() {
               <div className='d-flex mt-3 w-100 align-items-center gap-3'>
 
                 {/* weather card */}
-                <Card className='shadow h-100 border-0 rounded-4'>
+                <Card className='shadow h-100 weather-card border-0 rounded-4'>
                   <div class="weather-container">
                     <div class="background">
                       <div class="Circle1"></div>

@@ -45,6 +45,7 @@
   right: 0vw;
   margin: 0 auto;
   width: 90%;
+  height: 80%;
   text-align: justify;
 }
 
@@ -114,8 +115,12 @@
 }
 
 .calender {
-  width: fit-content;
+  width: 40%;
   padding: 0 17px;
+}
+
+.weather-card {
+  width: 70%;
 }
 
 /*  weather css */
@@ -125,7 +130,7 @@
   position: relative;
   margin: 0 auto;
   height: 300px;
-  width: 450px;
+  width: 100%;
   background-color: #1e95ff;
   border-radius: 10px;
 }
