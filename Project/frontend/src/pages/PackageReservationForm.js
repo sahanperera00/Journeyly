@@ -86,7 +86,7 @@ function PackageReservationForm({}) {
               <br />
               <div className="form-group">
                 <label className="#">Email</label>
-                <input type="email" className="form-control" placeholder="Enter Email" onChange={(e) => {setEmail(e.target.value)}} required/>
+                <input type="email" className="form-control"pattern="[a-z0-9]+@+[a-z]+.com" placeholder="Enter Email" onChange={(e) => {setEmail(e.target.value)}} required/>
               </div>
               <br />
   <div className="form-group">
