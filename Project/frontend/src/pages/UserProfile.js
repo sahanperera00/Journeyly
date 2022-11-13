@@ -81,12 +81,14 @@ function UserProfile() {
         <div className='lower-container d-flex'>
 
           {/* user profile */}
-          <Card className='border-0 shadow-lg bg-white profile-container'>
-            <Card.Img className='image-container mx-auto shadow-lg mt-4' variant="top"
-              src={image || "https://i.ibb.co/pzpVdPV/no-user-image-icon-3.jpg"} />
+          <Card className='border-0 shadow-lg bg-white profile-container rounded-4'>
+            <div className='image-container mx-auto mt-1 shadow-lg rounded-circle'>
+              <Card.Img variant="top"
+                src={image || "https://i.ibb.co/pzpVdPV/no-user-image-icon-3.jpg"} />
+            </div>
 
-            <Card.Body className='d-flex flex-column justify-content-between mt-3'>
-              <Card.Text className='mx-auto w-100 px-xxl-4'>
+            <Card.Body className='d-flex flex-column justify-content-between mt-1'>
+              <Card.Text className='mx-auto w-100 px-xxl-2'>
                 <table className='tableprofile' style={{ width: '100%' }}>
                   <tr>
                     <th> First name: </th>
@@ -125,7 +127,7 @@ function UserProfile() {
           </Card>
 
           {/* recent card */}
-          <Card className='info-card border-0 ms-2 gray-bg shadow-lg p-3 p-xxl-4'>
+          <Card className='info-card border-0 ms-2 gray-bg shadow-lg p-2 rounded-4'>
             <Card.Body className='p-0'>
               <div className='mx-auto recent-container rounded-4 shadow'>
                 <div className='overlay'></div>
@@ -140,7 +142,7 @@ function UserProfile() {
                 </div>
               </div>
 
-              <div className='d-flex mt-2 mt-xxl-3 w-100 align-items-center gap-2'>
+              <div className='d-flex mt-2 w-100 align-items-center gap-2 extra-container'>
 
                 {/* weather card */}
                 <Card className='shadow h-100 weather-card border-0 rounded-4'>
