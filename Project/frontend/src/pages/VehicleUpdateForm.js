@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { storage } from "../firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
 import "../styles/Madusha/VehicleUpdateForm.css";
 
 function VehicleUpdateForm() {
@@ -19,6 +20,8 @@ function VehicleUpdateForm() {
   const [pickup, setpickup] = useState("");
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const newVehicle = () => {
     axios
@@ -103,6 +106,7 @@ function VehicleUpdateForm() {
                   )
                   .then(() => {
                     alert("vehicles updated successfully");
+                    navigate("/editorDashboard/editorWebContent/taxi");
                   })
                   .catch((err) => {
                     alert(err);
@@ -118,7 +122,7 @@ function VehicleUpdateForm() {
             <input
               type="text"
               className="form-control"
-              pattern="[a-z,A-Z,0-9]{3,}"
+              pattern="[a-z,A-Z,0-9 ]{3,}"
               value={type}
               onChange={(e) => {
                 settype(e.target.value);
@@ -148,7 +152,7 @@ function VehicleUpdateForm() {
               type="text"
               className="form-control"
               value={driverName}
-              pattern="[a-z,A-Z ]{3,}"
+              pattern="[a-zA-Z ]{3,}"
               onChange={(e) => {
                 setdriverName(e.target.value);
               }}
@@ -161,7 +165,7 @@ function VehicleUpdateForm() {
               type="text"
               className="form-control"
               value={ownerName}
-              pattern="[a-z,A-Z ]{3,}"
+              pattern="[a-zA-Z ]{3,}"
               onChange={(e) => {
                 setownerName(e.target.value);
               }}
