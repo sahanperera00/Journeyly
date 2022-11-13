@@ -72,10 +72,10 @@ function FinanceVehicleUpdateForm() {
                     </div>
                     <div className="form-group">
                         <label className="form-label">Fee per KiloMetre</label>
-                        <input type="text" className="form-control" value={fee} onChange={(e) => { setFee(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={fee} pattern = "[0-9]{3,}" onChange={(e) => { setFee(e.target.value) }} required/>
                     </div>
                     <br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Submit</button><br /><br />
                 </form>
             </div>
         </div>

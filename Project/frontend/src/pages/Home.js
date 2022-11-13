@@ -9,6 +9,7 @@ import auth from "../firebase";
 import axios from "axios";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
+import Navbar from "../components/Navbar";
 
 function Home() {
   const [id, setId] = useState("");
@@ -38,6 +39,7 @@ function Home() {
 
   return (
     <div className="homeCont">
+      <Navbar />
       <Carousel className="carouselCont" fade>
         <Carousel.Item className="heroCont1" interval={2500}>
           <Tilt options={options} className="heroText1">
@@ -95,10 +97,6 @@ function Home() {
       </Carousel>
       <script type="text/javascript" src="vanilla-tilt.js"></script>
       {/* <Footer/> */}
-
-      <Link to={"/feedback/create"}>
-        <button className="FeedbackBtn">Send A Feedback</button>
-      </Link>
     </div>
   );
 }

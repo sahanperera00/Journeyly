@@ -1,0 +1,35 @@
+.btnInvoice{
+   background-color: rgba(203, 203, 241, 0.511);
+   font-size: 22px;
+   margin-left: 12%;
+   margin-top: 10%;
+   border-radius: 50px;
+   height: 4pc;
+   width: 11pc;
+   border-color: rgb(177, 218, 255);
+   
+
+}
+
+.btnPkg{
+   position: absolute;
+   top: 100px; 
+   left: 10pc;
+   width: 19pc;
+   height: 4pc;
+   font: weight 2px;
+   font-size: 22px;
+   color: rgb(0, 0, 0);
+   background-color: rgba(240, 240, 255, 0.678);
+   border-radius: 50px;
+   font-family: "Lucida Console", "Courier New", monospace;
+   border-color:rgb(0, 0, 0) ;
+   
+   }
+   .btnPkg:hover{
+     color: rgb(0, 0, 0);
+     background-color: rgba(0, 0, 0, 0.212);
+   }
+   .downl{
+      margin-left: 2%;
+   }
