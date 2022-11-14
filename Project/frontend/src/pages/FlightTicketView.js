@@ -7,22 +7,22 @@ import {jsPDF} from "jspdf";
 // import ReactToPrint from 'react-to-print';
 
 function FlightTicketView() {
-    const DownloadReportPDF = () =>{
-        // const pdf = new jsPDF("landscape", "px", "A4",false);
-        const pdf = new jsPDF("potrait","pt","A4");
-         const data = document.querySelector("#pdfcontent");
-         pdf.html(data).then(()=>{
+    // const DownloadReportPDF = () =>{
+    //     // const pdf = new jsPDF("landscape", "px", "A4",false);
+    //     const pdf = new jsPDF("potrait","pt","A4");
+    //      const data = document.querySelector("#pdfcontent");
+    //      pdf.html(data).then(()=>{
              
              
-            //  for (let i = 0; i < 11; i++) {
-            //      var pageCount=pdf.getNumberOfPages();
-            //      console.log(pageCount);
-            //      pdf.deletePage(pageCount);
-            //    }
+    //         //  for (let i = 0; i < 11; i++) {
+    //         //      var pageCount=pdf.getNumberOfPages();
+    //         //      console.log(pageCount);
+    //         //      pdf.deletePage(pageCount);
+    //         //    }
              
-             pdf.save("Report.pdf");
-         })
-     }
+    //          pdf.save("Report.pdf");
+    //      })
+    //  }
 
     const [flight, setFlight] = useState('');
     const [firstName, setFirstName] = useState('');

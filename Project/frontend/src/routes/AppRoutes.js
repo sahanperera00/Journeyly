@@ -96,6 +96,8 @@ function AppRoutes() {
           <Route path="rentalForm/:id" element={<RentalForm />} />
           <Route path="PackagePreview/:id" element={<PackagePreview />} />
           <Route path="FeedbackForm" element={<FeedbackForm />} />
+          <Route path="feedbackUpdateForm/:id" element={<FeedbackUpdateForm />} />
+
 
           <Route
             path="PackageReservationForm/:id"
@@ -165,8 +167,7 @@ function AppRoutes() {
           />
           <Route path="rental/:rentalId" element={<RentalUpdateForm />} />
         </Route>
-        <Route path="feedbackUpdateForm/:id" element={<FeedbackUpdateForm />} />
-
+      
         <Route
           path="/financeDashboard"
           element={<SharedLayoutFinanceDashboard />}
