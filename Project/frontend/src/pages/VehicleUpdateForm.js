@@ -225,7 +225,7 @@ function VehicleUpdateForm() {
               className="form-control"
               value={seats}
               pattern="[0-9]"
-              min={0}
+              min={1}
               max={6}
               onChange={(e) => {
                 setseats(e.target.value);

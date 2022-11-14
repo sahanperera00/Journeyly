@@ -56,21 +56,21 @@ function Invoice() {
       <h1 className='PackageIcon'>Invoice </h1>
 <form>
 
-      <div id='down' className='container d-flex flex-wrap' style={{ width: '80%'}}>
+      <div  className='container d-flex flex-wrap' style={{ width: '80%'}}>
         {invoice.map((data) => {
           return (
             <Card style={{ width: '100rem', margin: '1rem', padding: '1rem'}}>
               <Card.Body>
                 <Card.Subtitle className="mb-2 text-muted">{data.location}</Card.Subtitle>
                 <Card.Text>
-               
+               <div id='down'>
                 Full Name  : {data.fName}<br/>
                 Email  : {data.email}<br/>
                 Phone Number  : {data.phone}<br/>
                 Type (Flights/Taxis/Packages): {data.Type}<br/>
                 Price : {data.price}<br/>
                 AdditonalaNote : {data.additonalaNote}<br/>
-               
+                </div>
                 </Card.Text>
                 
                 
