@@ -50,7 +50,7 @@ function Feedback() {
                  <b>Details                     : </b>{data.message}<br/>
               
                 </Card.Text>
-                <Link to={"/editorDash/feedbackUpdateForm/" + data._id}>
+                <Link to={"/feedbackUpdateForm/" + data._id}>
                 <Button variant="warning">Update</Button>
                 </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteFeedback(data._id)}>Delete</Button>
