@@ -53,19 +53,21 @@
 /* profile data */
 .profile-container {
   width: 32%;
+  padding-top: 18px;
+  padding-bottom: 23px;
 }
 
 .image-container img {
-  width: 170px;
-  height: 170px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
   object-fit: cover;
 }
 
 .tableprofile td,
 th {
-  font-size: 14px;
-  padding: 4px 4px;
+  font-size: 15px;
+  padding: 5px 5px;
 }
 
 .info-card {
@@ -128,7 +130,7 @@ th {
 }
 
 .weather-card {
-  width: 100%;
+  width: 98%;
 }
 
 /*  weather css */
@@ -192,8 +194,8 @@ th {
 .sun {
   z-index: 1000;
   font-size: 15px !important;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   margin-right: 10px;
 }
 
@@ -269,8 +271,8 @@ th {
 
   .tableprofile td,
   th {
-    font-size: 17px;
-    padding: 6px 0px;
+    font-size: 14px;
+    padding: 10px 0px;
   }
 
   .recent-title {

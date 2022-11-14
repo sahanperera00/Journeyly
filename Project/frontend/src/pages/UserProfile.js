@@ -119,7 +119,7 @@ function UserProfile() {
               </Card.Text>
               <div className='btnprofile'>
                 <Link to={`/ClientDashboard/${id}/updateProfile`}>
-                  <Button variant="warning">Update Profile</Button>
+                  <Button variant="warning">Update</Button>
                 </Link>
                 <Button variant="danger" className='ms-3' onClick={() => { if (window.confirm('Are you sure you wish to delete this account?')) deleteClient(id) }}>Delete Account</Button>
               </div>
