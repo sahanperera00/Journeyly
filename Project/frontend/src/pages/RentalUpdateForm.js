@@ -43,8 +43,8 @@ function RentalUpdateForm() {
         setEndDes(res.data.endDes);
 
         // setDestination(res.data.desName);
-        // const date = new Date(res.data.date);
-        // setDate(date.toISOString().split('T')[0]);
+        const date = new Date(res.data.date);
+        setDate(date.toISOString().split('T')[0]);
       })
       .catch((err) => {
         alert(err);
