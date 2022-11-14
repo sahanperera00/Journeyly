@@ -82,7 +82,7 @@ function InvoiceUpdateForm() {
                 </div>
                 <div className="form-group">
                     <label className="form-label">Phone</label>
-                    <input type="text" className="form-control" value={phone}
+                    <input type="text" className="form-control" min ="100000000" max="790000000"value={phone}
                     onChange={(e) => {
                         setphone(e.target.value);
                     }} required/>

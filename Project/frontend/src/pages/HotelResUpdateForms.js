@@ -101,7 +101,7 @@ function HotelResUpdateForms() {
                     </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="Number" className="form-control" value={contactNo} onChange={(e) => {setcontact(e.target.value)}} required/>
+                <input type="Number" className="form-control" value={contactNo} min ="100000000" max="790000000"onChange={(e) => {setcontact(e.target.value)}} required/>
               </div><br/>
                
               <button type="submit" className="submitbtn">Submit</button>
