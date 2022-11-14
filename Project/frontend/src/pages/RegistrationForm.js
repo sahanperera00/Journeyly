@@ -105,7 +105,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setFirstName(e.target.value);
                   }}
-                  required
+                  pattern="[a-z,A-Z]" title="Must contain only letters" required
                 />
               </div>
               <div className="form-group">
@@ -117,7 +117,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setLastName(e.target.value);
                   }}
-                  required
+                  pattern="[a-z,A-Z]" title="Must contain only letters" required
                 />
               </div>
               <div className="form-group">
@@ -129,7 +129,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
-                  required
+                  pattern="[._a-z0-9]+@+[a-z]+.com" required
                 />
               </div>
               <div className="form-group">
@@ -141,7 +141,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setContactNo(e.target.value);
                   }}
-                  pattern="[0-9]{10}"
+                  pattern="[0-9]{10}"  title="Must contain only 10 digits"
                   required
                 />
               </div>
@@ -161,7 +161,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
-                  required
+                  min="6" required
                 />
               </div>
               <br />

@@ -166,58 +166,60 @@ function FlightResForm() {
                 .post("http://localhost:8070/flightTicket/create", newTicket)
                 .then(() => {
                   alert("Ticket added successfully");
+                  if (classType == "Economy Class") {
+                    var bookedseats = [];
+                    for (var i = 0; i < flight.bookedSeatsEconomy.length; i++) {
+                      bookedseats[i] = flight.bookedSeatsEconomy[i];
+                    }
+                    bookedseats[flight.bookedSeatsEconomy.length] =
+                      sessionStorage.getItem("value");
+    
+                    // bookedseats.append();
+                    const tickFlight = {
+                      bookedSeatsEconomy: bookedseats,
+                    };
+    
+                    axios
+                      .put("http://localhost:8070/flights/update/" + id, tickFlight)
+                      .then(() => {
+                        alert("Flight updated successfully");
+                        sessionStorage.removeItem("value");
+                      })
+                      .catch((err) => {
+                        alert(err);
+                      });
+                  } else if (classType == "Business Class") {
+                    var bookedseats = [];
+                    for (var i = 0; i < flight.bookedSeatsBusiness.length; i++) {
+                      bookedseats[i] = flight.bookedSeatsBusiness[i];
+                    }
+                    bookedseats[flight.bookedSeatsBusiness.length] =
+                      sessionStorage.getItem("value");
+    
+                    // bookedseats.append();
+                    const tickFlight = {
+                      bookedSeatsBusiness: bookedseats,
+                    };
+    
+                    axios
+                      .put("http://localhost:8070/flights/update/" + id, tickFlight)
+                      .then(() => {
+                        alert("Flight updated successfully");
+                        sessionStorage.removeItem("value");
+                      })
+                      .catch((err) => {
+                        alert(err);
+                      });
+                  }
                   navigate("/flights");
+
                 })
                 .catch((err) => {
                   alert("Error adding ticket");
                   console.log(err);
                 });
 
-              if (classType == "Economy Class") {
-                var bookedseats = [];
-                for (var i = 0; i < flight.bookedSeatsEconomy.length; i++) {
-                  bookedseats[i] = flight.bookedSeatsEconomy[i];
-                }
-                bookedseats[flight.bookedSeatsEconomy.length] =
-                  sessionStorage.getItem("value");
-
-                // bookedseats.append();
-                const tickFlight = {
-                  bookedSeatsEconomy: bookedseats,
-                };
-
-                axios
-                  .put("http://localhost:8070/flights/update/" + id, tickFlight)
-                  .then(() => {
-                    alert("Flight updated successfully");
-                    sessionStorage.removeItem("value");
-                  })
-                  .catch((err) => {
-                    alert(err);
-                  });
-              } else if (classType == "Business Class") {
-                var bookedseats = [];
-                for (var i = 0; i < flight.bookedSeatsBusiness.length; i++) {
-                  bookedseats[i] = flight.bookedSeatsBusiness[i];
-                }
-                bookedseats[flight.bookedSeatsBusiness.length] =
-                  sessionStorage.getItem("value");
-
-                // bookedseats.append();
-                const tickFlight = {
-                  bookedSeatsBusiness: bookedseats,
-                };
-
-                axios
-                  .put("http://localhost:8070/flights/update/" + id, tickFlight)
-                  .then(() => {
-                    alert("Flight updated successfully");
-                    sessionStorage.removeItem("value");
-                  })
-                  .catch((err) => {
-                    alert(err);
-                  });
-              }
+              
             }}
           >
             <div className="form-group">

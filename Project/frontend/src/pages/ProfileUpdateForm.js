@@ -6,7 +6,7 @@ import auth, { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useUpdateEmail, useUpdatePassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { updateEmail, updatePassword, updateProfile } from 'firebase/auth';
-
+import '../styles/nash/ProfileUpdateForm.css'
 
 
 function ProfileUpdateForm() {
@@ -53,10 +53,10 @@ function ProfileUpdateForm() {
 
     return (
 
-        <div>
+        <div className='ProfileUpdateFormMainCont'>
 
             <h1 className='text-center'>Update User Profile</h1>
-            <div className="App">
+            <div className="ProfileUpdateFormCont">
                 <form onSubmit={async (e) => {
                     e.preventDefault();
                     setLoading(true);
@@ -195,8 +195,8 @@ function ProfileUpdateForm() {
 
                     {
                         loading
-                            ? <button type="submit" className="btn btn-dark disabled">Loading...</button>
-                            : <button type="submit" className="btn btn-dark">Submit</button>
+                            ? <button type="submit" className="submitbtn">Loading...</button>
+                            : <button type="submit" className="submitbtn">Submit</button>
                     }
                     <br /><br />
                 </form>

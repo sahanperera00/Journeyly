@@ -48,11 +48,6 @@ function FlightResUpdateForm() {
                 setDepTime(res.data.departureTime);
                 setSeat(res.data.seatNo);
 
-                // const date = new Date(res.data.date);
-                // setDate(date.toISOString().split('T')[0]);
-                // setTime(res.data.time);
-                // setAdults(res.data.adults);
-                // setChildren(res.data.children);
             })
             .catch((err) => {
                 alert(err);
@@ -60,17 +55,7 @@ function FlightResUpdateForm() {
     };
 
     useEffect(() => { getReservation() }, []);
-    // function radio(value){
-    //     if(value == "BusinessClass"){
-    //       setPrice(business)
-    //       setClass("Business Class")
-    //     }
-    //     else{
-    //       setPrice(economy)
-    //       setClass("Economy Class")
-    //     }
-    //   }
-      // console.log(economy)
+    
 
     return (
         <div className="FlightResUpdateFormMainCont">
@@ -121,12 +106,6 @@ function FlightResUpdateForm() {
                 <label className="form-label">Passport ID</label>
                 <input type="text" className="form-control" value={passportID} onChange={(e) => {setppID(e.target.value)}} required/>
               </div>
-              {/* <div className="form-group">
-                <label className="form-label">Class Type</label>
-              <br/>
-                <input type="radio" name="cls" value="EconomyClass" onChange={(e) => {radio(e.target.value)}} />Economy Class<br/>
-                <input type="radio" name="cls" value="BusinessClass" onChange={(e) => {radio(e.target.value)}} />Business Class
-              </div>   */}
               <br/>
               <button type="submit" className="submitbtn">Update</button>
             </form>
