@@ -71,7 +71,7 @@ function PackageReservationUpdateForm({}) {
               </div>
               <div className="form-group">
                 <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" value={phoneNo}  min="0110000000" max="0799999999" onChange={(e) => {setphoneNo(e.target.value)}} required/>
+                <input type="number" className="form-control" value={phoneNo} min ="100000000" max="790000000" onChange={(e) => {setphoneNo(e.target.value)}} required/>
               </div>
               <br/>
               <button type="submit" className="submitbtn">Submit</button>

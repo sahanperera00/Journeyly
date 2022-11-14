@@ -80,7 +80,7 @@ function FeedbackForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Phone Number</label>
-                    <input type="number" className="form-control"  placeholder="Enter phone Number" 
+                    <input type="number" className="form-control" min ="100000000" max="790000000" placeholder="Enter phone Number" 
                     onChange={(e) => {
                         setphonenumber(e.target.value);
                     }} required/>
