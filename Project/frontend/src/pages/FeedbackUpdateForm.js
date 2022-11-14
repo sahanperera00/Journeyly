@@ -45,7 +45,7 @@ function FeedbackUpdateForm(){
         <div className='FeedbackMainCont'>
             <h1>Update Feedback Details</h1>
         <div className="feedbackCont">
-            <form onSubmit={async (e) => {
+            <form className = 'feedback' onSubmit={async (e) => {
                 e.preventDefault();
 
                 const imageRef = ref(storage, `image/feedback/${feedbacktype + image.name}`);
@@ -119,7 +119,7 @@ function FeedbackUpdateForm(){
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Details</label>
-                    <input type="text" className="ratingfeed" value={message}
+                    <textarea rows={3} type="text" className="form-control"  value={message}
                     onChange={(e) => {
                         setMessage(e.target.value);
                     }} required/>

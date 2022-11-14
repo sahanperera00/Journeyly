@@ -1,5 +1,5 @@
 import Package from "../models/packages.js";
-
+//get URl and data
 //read packages
 export const getAllPackages = async (req, res) => {
     try {

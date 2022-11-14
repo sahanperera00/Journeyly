@@ -72,13 +72,19 @@ function InvoiceForm(){
                         setphone(e.target.value);
                     }} required/>
                 </div>
-                <div className="form-group">
-                    <label className="form-label" id='form-label-feed'><b>Type (Flights/Taxis/Packages)</b></label>
-                    <input type="text" className="form-control"   
-                    onChange={(e) => {
-                        setType(e.target.value);
-                    }} required/>
-                </div>
+            
+        <div className="form-group">
+                <label className="form-label" id='form-label-feed'>Type</label>
+                <select class="form-select" aria-label="Default select example" 
+                onChange={(e) =>{ setType
+                    (e.target.value)}} required>
+                <option value="Flights">Flights</option>
+                <option value="Taxis">Taxis</option>
+                <option value="Packages">Packages</option>
+                <option value="Other">Other</option>
+                 </select>
+
+                    </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'><b>Price</b></label>
                     <input type="number" className="form-control" 
