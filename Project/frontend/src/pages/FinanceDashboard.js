@@ -142,7 +142,7 @@ function FinanceDashboard() {
                                 </thead>
                                 <tbody>
                                     {hotels.map((data) => {
-                                        if(data.price == null) {
+                                        if(data.sellingPrice == null) {
                                             return (
                                                 <tr>
                                                     <td className='setWidth concat' >{data.name}</td>
