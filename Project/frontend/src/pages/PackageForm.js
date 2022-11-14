@@ -64,7 +64,7 @@ function PackageForm() {
 
                     <div className="form-group">
                         <label className="form-label">Enter Package Name</label>
-                        <input type="text" className="form-control"
+                        <input type="text" className="form-control" pattern="[a-z]+[0-9]+[+[a-z]+]"
                             onChange={(e) => {
                                 setName(e.target.value);
                             }} required />
@@ -143,7 +143,7 @@ function PackageForm() {
                     </div>
 
                     <br />
-                    <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                    <button type="submit" className="submitbtn">Submit</button><br /><br />
                 </form>
             </div>
         </div>

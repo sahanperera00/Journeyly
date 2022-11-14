@@ -124,7 +124,7 @@ function Flights() {
                 name="2seats"
                 value="1"
               />{" "}
-              Srilankan Airlines
+              Sri Lankan Airlines
             </div>
           </div>
           <div className="flightBodyContainer">
@@ -168,7 +168,7 @@ function Flights() {
                       if (
                         data.airline
                           .toLowerCase()
-                          .includes("Srilankan Airlines".toLowerCase())
+                          .includes("Sri Lankan Airlines".toLowerCase())
                       ) {
                         return data;
                       }
@@ -231,9 +231,9 @@ function Flights() {
                           </div>
                           <div className="col-6" style={{ textAlign: "end" }}>
                             <h5>
-                              <span class="material-symbols-outlined">
-                                escalator_warning
-                              </span>
+                            <span class="material-symbols-outlined">
+                              person_filled
+                            </span>
                               {"  "}
                               <b>Rs {data.economyClass}.00</b>
                             </h5>
@@ -242,7 +242,7 @@ function Flights() {
                           <div className="col-6" style={{ textAlign: "end" }}>
                             <h5>
                               <span class="material-symbols-outlined">
-                                airline_seat_recline_extra
+                                attach_money
                               </span>
                               {"  "}
                               <b>Rs {data.businessClass}.00</b>

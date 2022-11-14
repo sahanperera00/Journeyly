@@ -21,7 +21,7 @@ function RentalPreview() {
   const [image, setImage]=useState('');
 
   function checkLogin(){
-    if(localStorage.getItem("ID")==null){
+    if(sessionStorage.getItem("ID")==null){
         return(
         <Link to={'/registration'} onClick={alertt} >
         <div>

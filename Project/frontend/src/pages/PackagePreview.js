@@ -33,13 +33,13 @@ function PackagePreview(){
             return(
             <Link to={'/registration'} onClick={alertt} >
             <div>
-            <button className='btnPkg'>Reserve a Package</button>
+            <button className='hotelbtn'>Reserve a Package</button>
             </div>
             </Link>)   
         }else{
             return(<Link to={'/PackageReservationForm/'+id}>
             <div>
-            <button className='btnPkg'>Reserve a Package</button>
+            <button className='hotelbtn'>Reserve a Package</button>
             </div>
             </Link>)   
         }

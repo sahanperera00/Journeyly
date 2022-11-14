@@ -4,6 +4,7 @@ import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 import '../styles/ranmina/Feedback.css'
 
+
 function FeedbackForm(){
     const [feedbacktype,setfeedbacktype]=useState('');
     const [placeofincident,setplaceofincident]=useState('');
@@ -16,9 +17,9 @@ function FeedbackForm(){
     return (
         <div className='FeedbackMainCont'>
             <h1>Feedback Management System</h1>
-            <div className="FeedbackMainCont">
+            <div className="feedbackCont">
                 <br />
-                <form onSubmit={async(e) => {
+                <form class= "feedback"onSubmit={async(e) => {
                     e.preventDefault();
                     //image
                     const imageRef = ref(storage, `image/feedback/${feedbacktype + image.name}`);
@@ -68,29 +69,29 @@ function FeedbackForm(){
 
                     </div>
                 <div className="form-group">
-                    <label className="form-label" id='form-label-feed'>Place of incident</label>
-                    <input type="text" className="form-control" 
+                    <label className="form-label" id='form-label-feed' >Place of incident</label>
+                    <input type="text" className="form-control"  placeholder="Enter place of Incident" 
                     onChange={(e) => {
                         setmessage(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Phone Number</label>
-                    <input type="number" className="form-control" 
+                    <input type="number" className="form-control"  placeholder="Enter phone Number" 
                     onChange={(e) => {
                         setphonenumber(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Subject</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control"  placeholder="Enter Subject" 
                     onChange={(e) => {
                         setfeedbacktype(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
-                    <label className="form-label" id='form-label-feed'>Details</label>
-                    <input type="text" className="ratingfeed" 
+                    <label className="form-label" id='form-label-feed'>Details</label><br></br>
+                    <textarea rows={3} type="text" className="form-control"  placeholder="Enter Details........" 
                     onChange={(e) => {
                         setplaceofincident(e.target.value);
                     }} required/>
@@ -106,6 +107,7 @@ function FeedbackForm(){
                 <button type="submit" className="btn btn-dark">Submit</button><br /><br />
             </form>
         </div>
+      
         </div>
     )
 }
