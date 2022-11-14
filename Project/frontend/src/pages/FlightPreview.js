@@ -108,11 +108,7 @@ function FlightPreview() {
                  {
                     checkLogin()
                  }
-                 {/* <Link to={'/flightResForm/'+id}>
-            <div>
-                <button className='flightBtn' >Make A Reservation</button>
-            </div>
-            </Link> */}
+                 
             </div>
         </div>
         <Footer/>

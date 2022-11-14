@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import '../styles/sudul/FlightUpdateForm.css';
+import '../styles/ranmina/Feedback.css';
+import { useNavigate } from 'react-router-dom';
 
 function FeedbackUpdateForm(){
     const [feedbacktype,setFeedbacktype]=useState('');
@@ -14,6 +15,7 @@ function FeedbackUpdateForm(){
     const [image, setImage] =useState('');
 
     const {id} = useParams();
+    const navigate = useNavigate();
   
     const getFeedback = () => {   
         axios.get("http://localhost:8070/feedback/"+id).then((res) => {
@@ -22,6 +24,7 @@ function FeedbackUpdateForm(){
                     placeofincident: res.data.placeofincident,
                     phonenumber: res.data.phonenumber,
                     message: res.data.message,
+                    subject: res.data.subject,
                     image: res.data.image
                 }
                 setFeedbacktype(updateFeedback.feedbacktype);
@@ -39,9 +42,9 @@ function FeedbackUpdateForm(){
     useEffect(() => { getFeedback() },[]);
 
     return (
-        <div className='feedbackup'>
+        <div className='FeedbackMainCont'>
             <h1>Update Feedback Details</h1>
-        <div className="feedbackup">
+        <div className="feedbackCont">
             <form onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -74,6 +77,7 @@ function FeedbackUpdateForm(){
                 axios.put("http://localhost:8070/feedback/update/"+id, newFeedback)
                     .then(() => {
                         alert("Feedback updated successfully");
+                        navigate(`/clientDashboard/${id}/feedback`);
 
                     }).catch((err) => {
                         alert(err);
@@ -83,7 +87,7 @@ function FeedbackUpdateForm(){
                 <div className="form-group">
                 <label className="form-label" id='form-label-feed'>Category</label>
                 <select class="form-select" aria-label="Default select example" 
-                onChange={(e) =>{ setSubject
+                onChange={(e) =>{ setFeedbacktype
                     (e.target.value)}} required>
                 <option value="Service Quality issues">Service Quality issues</option>
                 <option value="Harrasment">Harrasment</option>
@@ -94,34 +98,34 @@ function FeedbackUpdateForm(){
                     </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Place of incident</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" value={placeofincident}
                     onChange={(e) => {
-                        setMessage(e.target.value);
+                        setPlaceofincident(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Phone Number</label>
-                    <input type="number" className="form-control" 
+                    <input type="number" className="form-control" value={phonenumber}
                     onChange={(e) => {
                         setPhonenumber(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Subject</label>
-                    <input type="text" className="form-control" 
+                    <input type="text" className="form-control" value={subject}
                     onChange={(e) => {
-                        setFeedbacktype(e.target.value);
+                        setSubject(e.target.value);
                     }} required/>
                 </div>
                 <div className="form-group">
                     <label className="form-label" id='form-label-feed'>Details</label>
-                    <input type="text" className="ratingfeed" 
+                    <input type="text" className="ratingfeed" value={message}
                     onChange={(e) => {
-                        setPlaceofincident(e.target.value);
+                        setMessage(e.target.value);
                     }} required/>
                 </div>
                 <br />
-                <button type="submit" className="btn btn-dark">Submit</button><br /><br />
+                <button type="submit" className="btn btn-dark">Update</button><br /><br />
             </form>
         </div>
         </div>

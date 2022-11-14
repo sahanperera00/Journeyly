@@ -23,8 +23,8 @@
     border-radius: 50px;
     padding: 10px 20px;
     background-color: transparent;
-    border: 0.5px solid #0b828e;
-    color: #0b828e;
+    border: 0.05px solid #000000;
+    color: #000000;
     position: absolute;
     top: 4%;
     right: 5%;
@@ -33,6 +33,6 @@
 }
 
 .logoutBtn:hover {
-    background-color: #0b828e;
+    background-color: #000000;
     color: #d0e4e6;
 }
