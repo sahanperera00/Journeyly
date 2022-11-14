@@ -6,6 +6,7 @@
   padding-left: 3%;
   padding-right: 3%;
   padding-top: 2%;
+  overflow: scroll;
 }
 
 .UserProfileCont {
@@ -14,7 +15,6 @@
   margin-top: 3%;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.068);
-  overflow: hidden;
 }
 
 .btnprofile {
@@ -86,6 +86,7 @@ th {
 .recent-container img {
   object-fit: cover;
 }
+
 .overlay {
   background-color: black;
   height: 100%;
@@ -260,6 +261,7 @@ th {
     height: 82vh;
     margin: 50px 40px;
   }
+
   .upper-container {
     height: 220px;
   }
