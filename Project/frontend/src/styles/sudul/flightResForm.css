@@ -98,7 +98,7 @@ input::-webkit-inner-spin-button {
 }
 
 .seat.occupied {
-  background-color: rgb(111, 5, 5);
+  background-color: rgb(185, 221, 197);
 }
 
 .seat:nth-of-type(2) {
