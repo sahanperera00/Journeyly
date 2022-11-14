@@ -124,7 +124,7 @@ function Flights() {
                 name="2seats"
                 value="1"
               />{" "}
-              Srilankan Airlines
+              Sri Lankan Airlines
             </div>
           </div>
           <div className="flightBodyContainer">
@@ -168,7 +168,7 @@ function Flights() {
                       if (
                         data.airline
                           .toLowerCase()
-                          .includes("Srilankan Airlines".toLowerCase())
+                          .includes("Sri Lankan Airlines".toLowerCase())
                       ) {
                         return data;
                       }
