@@ -1,5 +1,3 @@
-#### Brief Description of Project - Repository of the ITP (Information Technology Project) for the Year 2 Semester 2
-
 # Project Name - Reservation Management System for a Travel Agency
 # Batch - Y2.S2.WD.IT.01
 ### Group Leader - IT21008146 - K. S. V. Perera (IT21008146)
